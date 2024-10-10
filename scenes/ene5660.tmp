@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://dynn0mgf56ht4"]
+
+[ext_resource type="Script" path="res://scripts/character/topdown_movement_output_2d.gd" id="1_rq2cl"]
+[ext_resource type="Script" path="res://scripts/character/enemy/topdown_enemy_movement_input_2d.gd" id="2_u5mts"]
+[ext_resource type="Script" path="res://scripts/character/topdown_movement_stats_2d.gd" id="3_5f1eu"]
+[ext_resource type="Script" path="res://scripts/environment/ground/ground_stats.gd" id="4_4hgdq"]
+[ext_resource type="Script" path="res://scripts/looking_at_2d.gd" id="5_knakx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbnrv"]
+size = Vector2(60, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_82smu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipjiw"]
+size = Vector2(60, 60)
+
+[sub_resource type="Resource" id="Resource_nwxee"]
+script = ExtResource("3_5f1eu")
+GROUND_SPEED = 300.0
+SPRINT_SPEED = 300.0
+ACCELERATION = 5
+
+[sub_resource type="Resource" id="Resource_x5dfe"]
+script = ExtResource("4_4hgdq")
+FRICTION = 2
+
+[node name="Enemy_Node" type="Node2D"]
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+
+[node name="Enemy_Collision" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_jbnrv")
+
+[node name="Enemy_Mesh" type="MeshInstance2D" parent="Enemy"]
+scale = Vector2(60, 60)
+mesh = SubResource("BoxMesh_82smu")
+
+[node name="Enemy_Hit_Area" type="Area2D" parent="Enemy"]
+
+[node name="Hit_Collision" type="CollisionShape2D" parent="Enemy/Enemy_Hit_Area"]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_ipjiw")
+
+[node name="Enemy_Movement" type="Node" parent="."]
+
+[node name="Movement_Output" type="Node" parent="Enemy_Movement" node_paths=PackedStringArray("actor")]
+script = ExtResource("1_rq2cl")
+actor = NodePath("../../Enemy")
+
+[node name="Movement_Input" type="Node" parent="Enemy_Movement" node_paths=PackedStringArray("actor")]
+script = ExtResource("2_u5mts")
+actor = NodePath("../../Enemy")
+movement_stats = SubResource("Resource_nwxee")
+ground_stats = SubResource("Resource_x5dfe")
+
+[node name="Enemy_Other" type="Node" parent="."]
+
+[node name="Looking_At_2D" type="Node" parent="Enemy_Other" node_paths=PackedStringArray("actor")]
+script = ExtResource("5_knakx")
+actor = NodePath("../../Enemy")

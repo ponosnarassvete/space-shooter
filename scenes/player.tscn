@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0ysp312e6uet"]
+
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
+[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/player_cursor.tscn" id="1_q5y8c"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
+[ext_resource type="Script" path="res://scripts/environment/ground/ground_stats.gd" id="3_5ttqo"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="3_t08qk"]
+[ext_resource type="Script" path="res://scripts/looking_at_3d.gd" id="6_p6gqy"]
+[ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_sprint_2d.gd" id="6_q021n"]
+[ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_direction_2d.gd" id="6_qvitp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6qun"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7wqd6"]
+
+[sub_resource type="Resource" id="Resource_uan2o"]
+script = ExtResource("1_7wn84")
+GROUND_SPEED = 10.0
+SPRINT_SPEED = 10.0
+ACCELERATION = 0.5
+
+[sub_resource type="Resource" id="Resource_qwxui"]
+script = ExtResource("3_5ttqo")
+FRICTION = 2
+
+[sub_resource type="Resource" id="Resource_6nbsi"]
+script = ExtResource("1_7wn84")
+GROUND_SPEED = 10.0
+SPRINT_SPEED = 10.0
+ACCELERATION = 0.5
+
+[node name="Player_Node" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+
+[node name="Player_Collision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_g6qun")
+
+[node name="Player_Mesh" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("BoxMesh_7wqd6")
+
+[node name="RemoteTransform2D" type="RemoteTransform3D" parent="Player"]
+remote_path = NodePath("../../Player_Cursor")
+update_rotation = false
+
+[node name="Player_Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
+
+[node name="Player_Cursor" type="Node3D" parent="."]
+
+[node name="Cursor" parent="Player_Cursor" instance=ExtResource("1_q5y8c")]
+
+[node name="Player_Movement" type="Node" parent="."]
+
+[node name="Movement_Input" type="Node" parent="Player_Movement" node_paths=PackedStringArray("actor")]
+script = ExtResource("1_vgrq8")
+actor = NodePath("../../Player")
+movement_stats = SubResource("Resource_uan2o")
+ground_stats = SubResource("Resource_qwxui")
+
+[node name="Movement_Output" type="Node" parent="Player_Movement" node_paths=PackedStringArray("actor")]
+script = ExtResource("3_t08qk")
+actor = NodePath("../../Player")
+
+[node name="Movement_Sprint" type="Node" parent="Player_Movement" node_paths=PackedStringArray("mover")]
+script = ExtResource("6_q021n")
+mover = NodePath("../Movement_Input")
+movement_stats = SubResource("Resource_6nbsi")
+
+[node name="Movement_Direction" type="Node" parent="Player_Movement" node_paths=PackedStringArray("input")]
+script = ExtResource("6_qvitp")
+input = NodePath("../Movement_Input")
+
+[node name="Player_Other" type="Node" parent="."]
+
+[node name="Looking_At_2D" type="Node" parent="Player_Other" node_paths=PackedStringArray("target")]
+script = ExtResource("6_p6gqy")
+target = NodePath("../../Player_Cursor/Cursor")

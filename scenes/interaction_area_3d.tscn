@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://coxaj83nk7uj2"]
+
+[ext_resource type="Script" path="res://scripts/character/player/interaction/interaction_area_3d.gd" id="1_mssi6"]
+
+[node name="Interaction_Area_3D" type="Area3D"]
+collision_layer = 0
+script = ExtResource("1_mssi6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

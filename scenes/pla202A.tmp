@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0ysp312e6uet"]
+
+[ext_resource type="Script" path="res://scripts/character/topdown_movement_stats_2d.gd" id="1_7wn84"]
+[ext_resource type="Script" path="res://scripts/character/player/topdown_player_movement_input_2d.gd" id="2_nvv40"]
+[ext_resource type="Script" path="res://scripts/environment/ground/ground_stats.gd" id="3_5ttqo"]
+[ext_resource type="Script" path="res://scripts/character/topdown_movement_output_2d.gd" id="3_t08qk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ekkya"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gda4a"]
+
+[sub_resource type="Resource" id="Resource_oqlb6"]
+script = ExtResource("1_7wn84")
+GROUND_SPEED = 400.0
+SPRINT_SPEED = 300.0
+ACCELERATION = 5
+
+[sub_resource type="Resource" id="Resource_gmb70"]
+script = ExtResource("3_5ttqo")
+FRICTION = 2
+
+[node name="Player_Node" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="Player_Collision" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_ekkya")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Player"]
+position = Vector2(-5.96046e-07, 2.5034e-06)
+scale = Vector2(20.0227, 20)
+mesh = SubResource("SphereMesh_gda4a")
+
+[node name="Player_Movement_Input" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_nvv40")
+actor = NodePath("../Player")
+player_stats = SubResource("Resource_oqlb6")
+ground_stats = SubResource("Resource_gmb70")
+
+[node name="Movement_Output" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_t08qk")
+actor = NodePath("../Player")

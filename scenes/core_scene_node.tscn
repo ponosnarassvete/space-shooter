@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj5lng25t7j6m"]
+
+[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/player.tscn" id="1_4u4mx"]
+[ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/enemy_test.tscn" id="2_tx3h6"]
+[ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/puzzle_box_test.tscn" id="3_8oj8i"]
+[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/interaction_manager.tscn" id="4_frdse"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5twe8"]
+metallic = 0.65
+
+[node name="Core_Scene_Node" type="Node3D"]
+
+[node name="Puzzle_Box_Test" parent="." instance=ExtResource("3_8oj8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4008, -0.0496693, 0)
+
+[node name="Interaction_Area_3D" parent="Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
+manager = NodePath("../../Other/Interaction_Manager")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4592, 409.28, 1182.51)
+light_energy = 3.0
+light_angular_distance = 20.0
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 2208.0
+directional_shadow_pancake_size = 36.0
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.5, -0.5)
+size = Vector3(1588, 2, 1034)
+material = SubResource("StandardMaterial3D_5twe8")
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Player_Node" parent="Characters" instance=ExtResource("1_4u4mx")]
+
+[node name="Player_Camera" parent="Characters/Player_Node" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
+fov = 30.0
+
+[node name="Enemy_Node" parent="Characters" instance=ExtResource("2_tx3h6")]
+
+[node name="Enemy" parent="Characters/Enemy_Node" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="!Movement_Direction" parent="Characters/Enemy_Node/!State_Machine/!States/!Attacking/!Enemy_Movement" index="2" node_paths=PackedStringArray("target")]
+target = NodePath("../../../../../../Player_Node/Player")
+
+[node name="!Looking_At_3D" parent="Characters/Enemy_Node/!State_Machine/!States/!Attacking/!Enemy_Other" index="0" node_paths=PackedStringArray("target")]
+target = NodePath("../../../../../../Player_Node/Player")
+
+[node name="Other" type="Node" parent="."]
+
+[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
+player = NodePath("../../Characters/Player_Node/Player")
+
+[editable path="Puzzle_Box_Test"]
+[editable path="Characters/Player_Node"]
+[editable path="Characters/Enemy_Node"]
+[editable path="Characters/Enemy_Node/!State_Machine"]

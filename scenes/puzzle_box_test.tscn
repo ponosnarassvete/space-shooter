@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgrhsvjsrlvq8"]
+
+[ext_resource type="PackedScene" uid="uid://coxaj83nk7uj2" path="res://scenes/interaction_area_3d.tscn" id="1_04wwk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5afn"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_12ire"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_olgiq"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="Puzzle_Box_Test" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Puzzle_Collision" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_s5afn")
+
+[node name="Puzzle_Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PrismMesh_12ire")
+skeleton = NodePath("../..")
+
+[node name="Interaction_Area_3D" parent="." instance=ExtResource("1_04wwk")]
+
+[node name="Interaction_Collision" type="CollisionShape3D" parent="Interaction_Area_3D"]
+shape = SubResource("BoxShape3D_olgiq")
