@@ -4,7 +4,6 @@ extends Node
 enum STATE{WANDERING, ATTACKING, DEAD}
 var current_state = STATE.ATTACKING
 
-#@export var test: Node
 @export var states_node: Node
 @export var wandering_state_node: Node
 @export var attacking_state_node: Node
@@ -20,7 +19,7 @@ func _ready() -> void:
 			change_state(dead_state_node)
 
 func _process(_delta: float) -> void:
-	pass#print("is it on? ",test.is_processing())
+	pass
 
 func change_state(new_state):
 	tree_disable(states_node,true,false)

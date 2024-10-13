@@ -27,7 +27,6 @@ func _process(delta: float) -> void:
 		label.show()
 	else:
 		label.hide()
-	#print(active_areas.size)
 
 func _sort_by_distance_to_player(area1, area2):
 	return (player.global_position.distance_to(area1.global_position)) < (player.global_position.distance_to(area2.global_position))
