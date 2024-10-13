@@ -60,5 +60,6 @@ player = NodePath("../../Characters/Player_Node/Player")
 
 [editable path="Puzzle_Box_Test"]
 [editable path="Characters/Player_Node"]
+[editable path="Characters/Player_Node/Cursor"]
 [editable path="Characters/Enemy_Node"]
 [editable path="Characters/Enemy_Node/!State_Machine"]

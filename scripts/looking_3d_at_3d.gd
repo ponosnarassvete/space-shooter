@@ -5,7 +5,6 @@ extends Node
 @export var target: Node3D
 
 func _process(_delta: float) -> void:
-	if target and (actor.global_position != target.global_position):
-		actor.look_at(target.global_position,Vector3(0,1,0),true)
-	else:
-		pass
+	if actor and target:
+		if(actor.global_position != target.global_position):
+			actor.look_at(target.global_position)
