@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/environment/ground/ground_stats.gd" id="5_o3eyq"]
 [ext_resource type="Script" path="res://scripts/character/enemy/states/wander/topdown_enemy_wander_3d.gd" id="6_kuebw"]
 [ext_resource type="Script" path="res://scripts/character/enemy/states/chase/topdown_enemy_chase_3d.gd" id="7_s7dqd"]
-[ext_resource type="Script" path="res://scripts/looking_at_3d.gd" id="8_5pe1u"]
+[ext_resource type="Script" path="res://scripts/looking_3d_at_3d.gd" id="8_5pe1u"]
 
 [sub_resource type="Resource" id="Resource_h45sb"]
 script = ExtResource("4_umwu0")

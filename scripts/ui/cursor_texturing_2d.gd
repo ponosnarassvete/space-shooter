@@ -9,4 +9,3 @@ func _process(_delta: float) -> void:
 								Input.CURSOR_ARROW, 
 								Vector2(sprite.sprite_frames.get_frame_texture('default',sprite.frame).get_width(), 
 									sprite.sprite_frames.get_frame_texture('default',0).get_height()) / 2)
-	crosshair.global_position = crosshair.get_global_mouse_position()
