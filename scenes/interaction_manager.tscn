@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/character/player/interaction/interaction_manager.gd" id="1_arki1"]
 
-[node name="Interaction_Manager" type="Node2D" node_paths=PackedStringArray("label")]
+[node name="Interaction_Manager" type="Node" node_paths=PackedStringArray("label")]
 script = ExtResource("1_arki1")
 label = NodePath("Interaction_Label")
 

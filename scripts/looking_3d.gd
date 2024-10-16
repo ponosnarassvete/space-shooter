@@ -1,4 +1,4 @@
-class_name Looking_3D_At_3D
+class_name Looking_3D
 extends Node
 
 @export var actor: Node3D

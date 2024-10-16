@@ -7,11 +7,12 @@
 [sub_resource type="PrismMesh" id="PrismMesh_12ire"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olgiq"]
-size = Vector3(1.5, 1.5, 1.5)
+size = Vector3(3, 3, 3)
 
 [node name="Puzzle_Box_Test" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
 
 [node name="Puzzle_Collision" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_s5afn")

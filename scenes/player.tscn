@@ -27,6 +27,7 @@ FRICTION = 2
 [node name="Player_Node" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
+collision_mask = 3
 
 [node name="Player_Collision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("BoxShape3D_g6qun")

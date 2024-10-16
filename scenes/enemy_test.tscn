@@ -1,6 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dynn0mgf56ht4"]
+[gd_scene load_steps=13 format=3 uid="uid://dynn0mgf56ht4"]
 
-[ext_resource type="PackedScene" uid="uid://cwicegxneo0px" path="res://scenes/state_machine.tscn" id="1_4r1go"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_d1jqr"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="2_4aboo"]
+[ext_resource type="Script" path="res://scripts/environment/ground/ground_stats.gd" id="3_w5htc"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="4_jhohf"]
+[ext_resource type="Script" path="res://scripts/character/enemy/states/chase/topdown_enemy_chase_3d.gd" id="5_lbtpx"]
+[ext_resource type="Script" path="res://scripts/looking_3d.gd" id="6_07i4m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_835eu"]
 
@@ -10,9 +15,20 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ymjod"]
 
+[sub_resource type="Resource" id="Resource_yqc7b"]
+script = ExtResource("2_4aboo")
+GROUND_SPEED = 10.0
+SPRINT_SPEED = 10.0
+ACCELERATION = 0.5
+
+[sub_resource type="Resource" id="Resource_vd8pr"]
+script = ExtResource("3_w5htc")
+FRICTION = 2
+
 [node name="Enemy_Node" type="Node"]
 
 [node name="Enemy" type="CharacterBody3D" parent="."]
+collision_layer = 2
 
 [node name="Enemy_Collision" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("BoxShape3D_835eu")
@@ -36,28 +52,21 @@ shape = SubResource("BoxShape3D_ymjod")
 
 [node name="Enemy_Navigation_Agent" type="NavigationAgent3D" parent="Enemy"]
 
-[node name="!State_Machine" parent="." instance=ExtResource("1_4r1go")]
+[node name="Movement_Input" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("1_d1jqr")
+actor = NodePath("../Enemy")
+movement_stats = SubResource("Resource_yqc7b")
+ground_stats = SubResource("Resource_vd8pr")
 
-[node name="Movement_Output" parent="!State_Machine/!States/Wandering/!Enemy_Movement" index="0" node_paths=PackedStringArray("actor")]
-actor = NodePath("../../../../../Enemy")
+[node name="Movement_Output" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("4_jhohf")
+actor = NodePath("../Enemy")
 
-[node name="Movement_Input" parent="!State_Machine/!States/Wandering/!Enemy_Movement" index="1" node_paths=PackedStringArray("actor")]
-actor = NodePath("../../../../../Enemy")
+[node name="Enemy_Chase" type="Node" parent="." node_paths=PackedStringArray("input", "actor")]
+script = ExtResource("5_lbtpx")
+input = NodePath("../Movement_Input")
+actor = NodePath("../Enemy")
 
-[node name="Movement_Direction" parent="!State_Machine/!States/Wandering/!Enemy_Movement" index="2" node_paths=PackedStringArray("actor", "navigation")]
-actor = NodePath("../../../../../Enemy")
-navigation = NodePath("../../../../../Enemy/Enemy_Navigation_Agent")
-
-[node name="Movement_Output" parent="!State_Machine/!States/!Attacking/!Enemy_Movement" index="0" node_paths=PackedStringArray("actor")]
-actor = NodePath("../../../../../Enemy")
-
-[node name="Movement_Input" parent="!State_Machine/!States/!Attacking/!Enemy_Movement" index="1" node_paths=PackedStringArray("actor")]
-actor = NodePath("../../../../../Enemy")
-
-[node name="!Movement_Direction" parent="!State_Machine/!States/!Attacking/!Enemy_Movement" index="2" node_paths=PackedStringArray("actor")]
-actor = NodePath("../../../../../Enemy")
-
-[node name="!Looking_At_3D" parent="!State_Machine/!States/!Attacking/!Enemy_Other" index="0" node_paths=PackedStringArray("actor")]
-actor = NodePath("../../../../../Enemy")
-
-[editable path="!State_Machine"]
+[node name="Looking_3D" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("6_07i4m")
+actor = NodePath("../Enemy")

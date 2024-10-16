@@ -42,45 +42,37 @@ dead_state_node = NodePath("!States/Dead")
 
 [node name="!Enemy_Movement" type="Node" parent="!States/Wandering"]
 
-[node name="Movement_Output" type="Node" parent="!States/Wandering/!Enemy_Movement" node_paths=PackedStringArray("actor")]
+[node name="Movement_Output" type="Node" parent="!States/Wandering/!Enemy_Movement"]
 script = ExtResource("2_4dr41")
-actor = NodePath("")
 
-[node name="Movement_Input" type="Node" parent="!States/Wandering/!Enemy_Movement" node_paths=PackedStringArray("actor")]
+[node name="Movement_Input" type="Node" parent="!States/Wandering/!Enemy_Movement"]
 script = ExtResource("3_n1b8p")
-actor = NodePath("")
 movement_stats = SubResource("Resource_h45sb")
 ground_stats = SubResource("Resource_ynek7")
 
-[node name="Movement_Direction" type="Node" parent="!States/Wandering/!Enemy_Movement" node_paths=PackedStringArray("input", "actor", "navigation")]
+[node name="Movement_Direction" type="Node" parent="!States/Wandering/!Enemy_Movement" node_paths=PackedStringArray("input")]
 script = ExtResource("6_kuebw")
 input = NodePath("../Movement_Input")
-actor = NodePath("")
-navigation = NodePath("")
 
 [node name="!Attacking" type="Node" parent="!States"]
 
 [node name="!Enemy_Movement" type="Node" parent="!States/!Attacking"]
 
-[node name="Movement_Output" type="Node" parent="!States/!Attacking/!Enemy_Movement" node_paths=PackedStringArray("actor")]
+[node name="Movement_Output" type="Node" parent="!States/!Attacking/!Enemy_Movement"]
 script = ExtResource("2_4dr41")
-actor = NodePath("")
 
-[node name="Movement_Input" type="Node" parent="!States/!Attacking/!Enemy_Movement" node_paths=PackedStringArray("actor")]
+[node name="Movement_Input" type="Node" parent="!States/!Attacking/!Enemy_Movement"]
 script = ExtResource("3_n1b8p")
-actor = NodePath("")
 movement_stats = SubResource("Resource_2aolr")
 ground_stats = SubResource("Resource_fteif")
 
-[node name="!Movement_Direction" type="Node" parent="!States/!Attacking/!Enemy_Movement" node_paths=PackedStringArray("input", "actor")]
+[node name="!Movement_Direction" type="Node" parent="!States/!Attacking/!Enemy_Movement" node_paths=PackedStringArray("input")]
 script = ExtResource("7_s7dqd")
 input = NodePath("../Movement_Input")
-actor = NodePath("")
 
 [node name="!Enemy_Other" type="Node" parent="!States/!Attacking"]
 
-[node name="!Looking_At_3D" type="Node" parent="!States/!Attacking/!Enemy_Other" node_paths=PackedStringArray("actor")]
+[node name="!Looking_At_3D" type="Node" parent="!States/!Attacking/!Enemy_Other"]
 script = ExtResource("8_5pe1u")
-actor = NodePath("")
 
 [node name="Dead" type="Node" parent="!States"]
