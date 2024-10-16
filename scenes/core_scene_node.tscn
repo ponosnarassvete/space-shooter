@@ -1,24 +1,65 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj5lng25t7j6m"]
+[gd_scene load_steps=8 format=3 uid="uid://cj5lng25t7j6m"]
 
 [ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/player.tscn" id="1_4u4mx"]
 [ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/enemy_test.tscn" id="2_tx3h6"]
 [ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/puzzle_box_test.tscn" id="3_8oj8i"]
 [ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/interaction_manager.tscn" id="4_frdse"]
+[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/player_cursor.tscn" id="5_8ts1k"]
+[ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="6_wdeo8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5twe8"]
 metallic = 0.65
 
-[node name="Core_Scene_Node" type="Node3D"]
+[node name="Core_Scene_Node" type="Node"]
 
-[node name="Puzzle_Box_Test" parent="." instance=ExtResource("3_8oj8i")]
+[node name="Other" type="Node" parent="."]
+
+[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
+player = NodePath("../../SubViewportContainer/SubViewport/Characters/Player_Node/Player")
+offset_x = 6.0
+offset_y = 6.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1080, 1080)
+render_target_update_mode = 4
+
+[node name="Characters" type="Node" parent="SubViewportContainer/SubViewport"]
+
+[node name="Player_Node" parent="SubViewportContainer/SubViewport/Characters" instance=ExtResource("1_4u4mx")]
+
+[node name="Player_Camera" parent="SubViewportContainer/SubViewport/Characters/Player_Node" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
+current = true
+fov = 30.0
+
+[node name="Looking_3D" parent="SubViewportContainer/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
+target = NodePath("../../../../../Cursor/Projection_3D")
+
+[node name="Enemy_Node" parent="SubViewportContainer/SubViewport/Characters" instance=ExtResource("2_tx3h6")]
+
+[node name="Enemy" parent="SubViewportContainer/SubViewport/Characters/Enemy_Node" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="Enemy_Chase" parent="SubViewportContainer/SubViewport/Characters/Enemy_Node" index="3" node_paths=PackedStringArray("target")]
+target = NodePath("../../Player_Node/Player")
+
+[node name="Looking_3D" parent="SubViewportContainer/SubViewport/Characters/Enemy_Node" index="4" node_paths=PackedStringArray("target")]
+target = NodePath("../../Player_Node/Player")
+
+[node name="Puzzle_Box_Test" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_8oj8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4008, -0.0496693, 0)
 
-[node name="Interaction_Area_3D" parent="Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
-manager = NodePath("../../Other/Interaction_Manager")
+[node name="Interaction_Area_3D" parent="SubViewportContainer/SubViewport/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
+manager = NodePath("../../../../Other/Interaction_Manager")
 
-[node name="Level" type="Node" parent="."]
+[node name="Level" type="Node" parent="SubViewportContainer/SubViewport"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4592, 409.28, 1182.51)
 light_energy = 3.0
 light_angular_distance = 20.0
@@ -27,40 +68,19 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 2208.0
 directional_shadow_pancake_size = 36.0
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport/Level"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.5, -0.5)
 size = Vector3(1588, 2, 1034)
 material = SubResource("StandardMaterial3D_5twe8")
 
-[node name="Characters" type="Node" parent="."]
+[node name="Cursor" parent="SubViewportContainer" instance=ExtResource("5_8ts1k")]
 
-[node name="Player_Node" parent="Characters" instance=ExtResource("1_4u4mx")]
+[node name="Projection_3D" type="Node3D" parent="SubViewportContainer/Cursor" node_paths=PackedStringArray("camera")]
+script = ExtResource("6_wdeo8")
+camera = NodePath("../../SubViewport/Characters/Player_Node/Player_Camera")
 
-[node name="Player_Camera" parent="Characters/Player_Node" index="1"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
-fov = 30.0
-
-[node name="Enemy_Node" parent="Characters" instance=ExtResource("2_tx3h6")]
-
-[node name="Enemy" parent="Characters/Enemy_Node" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
-
-[node name="Enemy_Chase" parent="Characters/Enemy_Node" index="3" node_paths=PackedStringArray("target")]
-target = NodePath("../../Player_Node/Player")
-
-[node name="Looking_3D" parent="Characters/Enemy_Node" index="4" node_paths=PackedStringArray("target")]
-target = NodePath("../../Player_Node/Player")
-
-[node name="Other" type="Node" parent="."]
-
-[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
-player = NodePath("../../Characters/Player_Node/Player")
-offset_x = 6.0
-offset_y = 6.0
-
-[editable path="Puzzle_Box_Test"]
-[editable path="Characters/Player_Node"]
-[editable path="Characters/Player_Node/Cursor"]
-[editable path="Characters/Enemy_Node"]
+[editable path="SubViewportContainer/SubViewport/Characters/Player_Node"]
+[editable path="SubViewportContainer/SubViewport/Characters/Enemy_Node"]
+[editable path="SubViewportContainer/SubViewport/Puzzle_Box_Test"]

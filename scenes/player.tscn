@@ -1,9 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0ysp312e6uet"]
+[gd_scene load_steps=12 format=3 uid="uid://c0ysp312e6uet"]
 
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
-[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/player_cursor.tscn" id="1_q5y8c"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
-[ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="2_swiqq"]
 [ext_resource type="Script" path="res://scripts/environment/ground/ground_stats.gd" id="3_5ttqo"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="3_t08qk"]
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_sprint_2d.gd" id="6_q021n"]
@@ -38,12 +36,6 @@ mesh = SubResource("BoxMesh_7wqd6")
 [node name="Player_Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
 
-[node name="Cursor" parent="." instance=ExtResource("1_q5y8c")]
-
-[node name="Projection_3D" type="Node3D" parent="Cursor" node_paths=PackedStringArray("camera")]
-script = ExtResource("2_swiqq")
-camera = NodePath("../../Player_Camera")
-
 [node name="Player_Movement" type="Node" parent="."]
 
 [node name="Movement_Input" type="Node" parent="Player_Movement" node_paths=PackedStringArray("actor")]
@@ -69,4 +61,4 @@ input = NodePath("../Movement_Input")
 [node name="Looking_3D" type="Node" parent="Player_Other" node_paths=PackedStringArray("actor", "target")]
 script = ExtResource("8_lg3rr")
 actor = NodePath("../../Player")
-target = NodePath("../../Cursor/Projection_3D")
+target = NodePath("")
