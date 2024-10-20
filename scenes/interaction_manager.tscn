@@ -7,6 +7,7 @@ script = ExtResource("1_arki1")
 label = NodePath("Interaction_Label")
 
 [node name="Interaction_Label" type="Label" parent="."]
+z_index = 21
 offset_right = 40.0
 offset_bottom = 23.0
 text = "[E] Interact"

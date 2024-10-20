@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [node name="Player_Cursor" type="Node2D"]
-z_index = 2
+z_index = 20
 
 [node name="Cursor_Texturing" type="Node" parent="." node_paths=PackedStringArray("crosshair", "sprite")]
 script = ExtResource("2_ksm1c")

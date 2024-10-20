@@ -58,7 +58,6 @@ input = NodePath("../Movement_Input")
 
 [node name="Player_Other" type="Node" parent="."]
 
-[node name="Looking_3D" type="Node" parent="Player_Other" node_paths=PackedStringArray("actor", "target")]
+[node name="Looking_3D" type="Node" parent="Player_Other" node_paths=PackedStringArray("actor")]
 script = ExtResource("8_lg3rr")
 actor = NodePath("../../Player")
-target = NodePath("")

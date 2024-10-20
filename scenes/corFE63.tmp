@@ -79,15 +79,11 @@ camera = NodePath("../../SubViewport/Characters/Player_Node/Player_Camera")
 [node name="Interface" parent="SubViewportContainer" instance=ExtResource("7_1wt61")]
 layout_mode = 2
 
-[node name="TextureRect" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle" index="1"]
-z_index = 19
-
 [node name="Puzzle_Test" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area", "base") instance=ExtResource("8_2lt5n")]
 interaction_area = NodePath("../../../../SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
 base = NodePath("Base_Rubbish")
 
 [node name="Base_Rubbish" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test" index="0"]
-visible = false
 position = Vector2(1480, 632)
 
 [node name="Other" type="Node" parent="SubViewportContainer/Interface"]

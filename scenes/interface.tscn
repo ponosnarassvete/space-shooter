@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmw6j72tvj6wm"]
+
+[ext_resource type="Texture2D" uid="uid://ccdftwsqpmssk" path="res://textures/ui/Interface_Test.png" id="1_ib444"]
+[ext_resource type="Texture2D" uid="uid://dukhygl1c8uus" path="res://textures/ui/menu.png" id="2_6mw11"]
+[ext_resource type="Texture2D" uid="uid://c6a7gj0ghf4vu" path="res://textures/ui/puzzle_fg.png" id="2_xhol5"]
+[ext_resource type="Texture2D" uid="uid://xp12wym37u45" path="res://textures/ui/log.png" id="3_imiq7"]
+[ext_resource type="Texture2D" uid="uid://dbj263y1e1fpd" path="res://textures/ui/pause.png" id="4_bfbxc"]
+[ext_resource type="Texture2D" uid="uid://kvd7223kc4og" path="res://textures/ui/swap.png" id="5_aslnl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qjqu"]
+bg_color = Color(0.0394837, 0.0128438, 0.153247, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.235294, 0.235294, 0.235294, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04fy2"]
+bg_color = Color(0.0394837, 0.0128438, 0.153247, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.235294, 0.235294, 0.235294, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjmi4"]
+bg_color = Color(0.0394837, 0.0128438, 0.153247, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.235294, 0.235294, 0.235294, 1)
+border_blend = true
+
+[node name="Interface" type="PanelContainer"]
+offset_left = 1080.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ib444")
+region_rect = Rect2(0, 0, 840, 1080)
+
+[node name="HP_Tools" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 240.0
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="NinePatchRect/HP_Tools"]
+layout_mode = 2
+alignment = 1
+
+[node name="HP_Bar" type="Label" parent="NinePatchRect/HP_Tools/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+text = "HP_BAR_TEST:"
+
+[node name="Tool_Bar" type="Label" parent="NinePatchRect/HP_Tools/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+text = "TOOL_BAR_TEST:"
+
+[node name="BG" type="Panel" parent="NinePatchRect/HP_Tools"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qjqu")
+
+[node name="Puzzle" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_top = 240.0
+offset_right = 840.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
+
+[node name="BG" type="Panel" parent="NinePatchRect/Puzzle"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_04fy2")
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/Puzzle"]
+z_index = 10
+layout_mode = 2
+texture = ExtResource("2_xhol5")
+
+[node name="Menus" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.714286
+anchor_right = 1.0
+anchor_bottom = 0.222222
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Panel" parent="NinePatchRect/Menus"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sjmi4")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/Menus"]
+layout_mode = 2
+columns = 2
+
+[node name="Pause" type="TextureButton" parent="NinePatchRect/Menus/GridContainer"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("4_bfbxc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Menu" type="TextureButton" parent="NinePatchRect/Menus/GridContainer"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("2_6mw11")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Swap" type="TextureButton" parent="NinePatchRect/Menus/GridContainer"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("5_aslnl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Log" type="TextureButton" parent="NinePatchRect/Menus/GridContainer"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture_normal = ExtResource("3_imiq7")
+ignore_texture_size = true
+stretch_mode = 0
