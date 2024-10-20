@@ -2,6 +2,8 @@ class_name Dragging_2D
 extends Node
 
 @export var sprite: Sprite2D
+@export var interface_rect: ReferenceRect
+
 var dragging = false  # Variable to track whether we are dragging
 var offset = Vector2()  # Offset from the mouse to the sprite position when starting drag
 
@@ -23,7 +25,14 @@ func _input(event):
 	
 	if event is InputEventMouseMotion and dragging:
 		# Update sprite position while dragging
-		sprite.global_position = event.position + offset
+		sprite.global_position = clamp_position_to_interface(event.position + offset)
+
+# Function to clamp the position so the sprite stays within the UI region
+func clamp_position_to_interface(pos: Vector2) -> Vector2:
+	return Vector2(
+		clamp(pos.x, interface_rect.position.x, interface_rect.position.x + interface_rect.size.x),
+		clamp(pos.y, interface_rect.position.y, interface_rect.position.y + interface_rect.size.y)
+	)
 
 func is_mouse_over() -> bool:
 	# Check if the mouse is over the sprite

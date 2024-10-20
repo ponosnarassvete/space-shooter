@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://bnbnn2twg38y5"]
 
 [ext_resource type="Script" path="res://scripts/environment/scenes/init.gd" id="1_72vqs"]
-[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/player.tscn" id="1_vqa2i"]
+[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="1_vqa2i"]
 [ext_resource type="Texture2D" uid="uid://bn7cjsia5s4sa" path="res://tilesets/godot_prototype_assets_by_kpids/classic/tileset_svg.svg" id="2_0b148"]
-[ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/enemy_test.tscn" id="4_1s3w4"]
-[ext_resource type="PackedScene" uid="uid://dk8mn3ayclt2g" path="res://scenes/ui.tscn" id="5_akbu0"]
+[ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/characters/enemy_test.tscn" id="4_1s3w4"]
+[ext_resource type="PackedScene" uid="uid://dk8mn3ayclt2g" path="res://scenes/ui/ui.tscn" id="5_akbu0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vefqu"]
 

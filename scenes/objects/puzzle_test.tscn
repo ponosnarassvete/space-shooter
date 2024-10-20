@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/environment/puzzles/puzzle_test.gd" id="1_ac74t"]
-[ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/base_rubbish.tscn" id="2_iu1fb"]
+[ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")

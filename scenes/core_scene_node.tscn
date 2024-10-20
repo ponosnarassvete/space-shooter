@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://cj5lng25t7j6m"]
 
-[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/player.tscn" id="1_4u4mx"]
-[ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/enemy_test.tscn" id="2_tx3h6"]
-[ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/puzzle_box_test.tscn" id="3_8oj8i"]
-[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/interaction_manager.tscn" id="4_frdse"]
-[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/player_cursor.tscn" id="5_8ts1k"]
+[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="1_4u4mx"]
+[ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/characters/enemy_test.tscn" id="2_tx3h6"]
+[ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/objects/puzzle_box_test.tscn" id="3_8oj8i"]
+[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="4_frdse"]
+[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/characters/player/player_cursor.tscn" id="5_8ts1k"]
 [ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="6_wdeo8"]
-[ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/interface.tscn" id="7_1wt61"]
-[ext_resource type="PackedScene" uid="uid://50qtdeu7u7l4" path="res://scenes/puzzle_test.tscn" id="8_2lt5n"]
+[ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="7_1wt61"]
+[ext_resource type="PackedScene" uid="uid://50qtdeu7u7l4" path="res://scenes/objects/puzzle_test.tscn" id="8_2lt5n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5twe8"]
 metallic = 0.65
@@ -90,6 +90,16 @@ base = NodePath("Base_Rubbish")
 visible = false
 position = Vector2(1480, 632)
 
+[node name="Dragging_2D" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish" index="0" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../ReferenceRect")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test"]
+offset_left = 1184.0
+offset_top = 344.0
+offset_right = 1816.0
+offset_bottom = 976.0
+border_width = 2.2
+
 [node name="Other" type="Node" parent="SubViewportContainer/Interface"]
 
 [node name="Interaction_Manager" parent="SubViewportContainer/Interface/Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
@@ -102,3 +112,4 @@ offset_y = 6.0
 [editable path="SubViewportContainer/SubViewport/Puzzle_Box_Test"]
 [editable path="SubViewportContainer/Interface"]
 [editable path="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test"]
+[editable path="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish"]

@@ -13,7 +13,8 @@ func scatter(object):
 		object.frame = randi() % base.hframes
 		object.position.x += (randf()-0.5) * offset
 		object.position.y += (randf()-0.5) * offset
-		#object.get_parent().move_child(object, randi()%15+1)
+		var scale = randf() * 2
+		object.scale = Vector2(scale, scale) 
 		object.show()
 
 func puzzle_init(difficulty = 10):
