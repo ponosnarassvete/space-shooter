@@ -4,6 +4,8 @@ extends Node
 @export var base: Sprite2D
 
 @export var offset: float = 500.0
+@export var scale_upper: float = 2.0
+@export var scale_lower: float = 1.0
 
 var interactable = true
 var interaction
@@ -13,7 +15,7 @@ func scatter(object):
 		object.frame = randi() % base.hframes
 		object.position.x += (randf()-0.5) * offset
 		object.position.y += (randf()-0.5) * offset
-		var scale = randf() * 2
+		var scale = randf_range(scale_lower, scale_upper)
 		object.scale = Vector2(scale, scale) 
 		object.show()
 

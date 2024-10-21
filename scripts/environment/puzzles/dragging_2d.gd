@@ -37,7 +37,7 @@ func clamp_position_to_interface(pos: Vector2) -> Vector2:
 func is_mouse_over() -> bool:
 	# Check if the mouse is over the sprite
 	var mouse_pos = get_viewport().get_mouse_position()
-	return (mouse_pos.x > sprite.global_position.x - sprite.get_rect().size.x / 2 and
-			mouse_pos.x < sprite.global_position.x + sprite.get_rect().size.x / 2 and
-			mouse_pos.y > sprite.global_position.y - sprite.get_rect().size.y / 2 and
-			mouse_pos.y < sprite.global_position.y + sprite.get_rect().size.y / 2)
+	return (mouse_pos.x > sprite.global_position.x - sprite.get_rect().size.x * sprite.scale.x / 2 and
+			mouse_pos.x < sprite.global_position.x + sprite.get_rect().size.x * sprite.scale.x / 2 and
+			mouse_pos.y > sprite.global_position.y - sprite.get_rect().size.y * sprite.scale.y / 2 and
+			mouse_pos.y < sprite.global_position.y + sprite.get_rect().size.y * sprite.scale.y / 2)
