@@ -6,6 +6,7 @@ extends Node
 @export var offset: float = 500.0
 @export var scale_upper: float = 2.0
 @export var scale_lower: float = 1.0
+@export var amount: int = 5
 
 var interactable = true
 var interaction
@@ -19,10 +20,10 @@ func scatter(object):
 		object.scale = Vector2(scale, scale) 
 		object.show()
 
-func puzzle_init(difficulty = 10):
+func puzzle_init():
 	if interactable:
 		var rubbish = []
-		for n in difficulty:
+		for n in amount:
 			var sprite2d = base.duplicate()
 			rubbish.append(sprite2d)
 			scatter(sprite2d)

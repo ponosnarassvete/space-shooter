@@ -15,6 +15,7 @@ metallic = 0.65
 [node name="Core_Scene_Node" type="Node"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+z_index = 1
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -50,7 +51,7 @@ target = NodePath("../../Player_Node/Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4008, -0.0496693, 0)
 
 [node name="Interaction_Area_3D" parent="SubViewportContainer/SubViewport/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
-manager = NodePath("../../../Interface/Other/Interaction_Manager")
+manager = NodePath("../../../../Interface/Other/Interaction_Manager")
 
 [node name="Level" type="Node" parent="SubViewportContainer/SubViewport"]
 
@@ -76,40 +77,42 @@ material = SubResource("StandardMaterial3D_5twe8")
 script = ExtResource("6_wdeo8")
 camera = NodePath("../../SubViewport/Characters/Player_Node/Player_Camera")
 
-[node name="Interface" parent="SubViewportContainer" instance=ExtResource("7_1wt61")]
-layout_mode = 2
+[node name="Interface" parent="." instance=ExtResource("7_1wt61")]
 
-[node name="TextureRect" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle" index="1"]
+[node name="TextureRect" parent="Interface/NinePatchRect/Puzzle" index="1"]
 z_index = 19
 
-[node name="Puzzle_Test" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area", "base") instance=ExtResource("8_2lt5n")]
-interaction_area = NodePath("../../../../SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
+[node name="Puzzle_Test" parent="Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area", "base") instance=ExtResource("8_2lt5n")]
+interaction_area = NodePath("../../../../SubViewportContainer/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
 base = NodePath("Base_Rubbish")
 
-[node name="Base_Rubbish" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test" index="0"]
+[node name="Base_Rubbish" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test" index="0"]
 visible = false
 position = Vector2(1480, 632)
 
-[node name="Dragging_2D" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish" index="0" node_paths=PackedStringArray("interface_rect")]
+[node name="Dragging_2D" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish" index="0" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../ReferenceRect")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test"]
+[node name="Clamp_2D" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../ReferenceRect")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test"]
 offset_left = 1184.0
 offset_top = 344.0
 offset_right = 1816.0
 offset_bottom = 976.0
 border_width = 2.2
 
-[node name="Other" type="Node" parent="SubViewportContainer/Interface"]
+[node name="Other" type="Node" parent="Interface"]
 
-[node name="Interaction_Manager" parent="SubViewportContainer/Interface/Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
-player = NodePath("../../../SubViewport/Characters/Player_Node/Player")
+[node name="Interaction_Manager" parent="Interface/Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
+player = NodePath("../../../SubViewportContainer/SubViewport/Characters/Player_Node/Player")
 offset_x = 6.0
 offset_y = 6.0
 
 [editable path="SubViewportContainer/SubViewport/Characters/Player_Node"]
 [editable path="SubViewportContainer/SubViewport/Characters/Enemy_Node"]
 [editable path="SubViewportContainer/SubViewport/Puzzle_Box_Test"]
-[editable path="SubViewportContainer/Interface"]
-[editable path="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test"]
-[editable path="SubViewportContainer/Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish"]
+[editable path="Interface"]
+[editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test"]
+[editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish"]

@@ -5,7 +5,5 @@
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")
-scale_upper = 4.0
-scale_lower = 2.5
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
