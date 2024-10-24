@@ -5,6 +5,6 @@ extends Node
 @export var object: Node2D
 
 func _process(delta: float) -> void:
-	pass
-	#object.global_position.x = clamp(object.position.x, interface_rect.position.x, interface_rect.position.x + interface_rect.size.x)
-	#object.global_position.x = clamp(object.position.y, interface_rect.position.y, interface_rect.position.y + interface_rect.size.y)
+	if Input.is_anything_pressed():
+		object.position.x = clamp(object.position.x, interface_rect.position.x, interface_rect.position.x + interface_rect.size.x)
+		object.position.y = clamp(object.position.y, interface_rect.position.y, interface_rect.position.y + interface_rect.size.y)

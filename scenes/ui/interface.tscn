@@ -45,28 +45,31 @@ texture = ExtResource("1_ib444")
 region_rect = Rect2(0, 0, 840, 1080)
 
 [node name="HP_Tools" type="MarginContainer" parent="NinePatchRect"]
+z_index = 5
 layout_mode = 2
 offset_right = 600.0
 offset_bottom = 240.0
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="HBoxContainer" parent="NinePatchRect/HP_Tools"]
+z_index = 5
 layout_mode = 2
 alignment = 1
 
 [node name="HP_Bar" type="Label" parent="NinePatchRect/HP_Tools/VBoxContainer"]
-z_index = 1
+z_index = 6
 layout_mode = 2
 size_flags_horizontal = 4
 text = "HP_BAR_TEST:"
 
 [node name="Tool_Bar" type="Label" parent="NinePatchRect/HP_Tools/VBoxContainer"]
-z_index = 1
+z_index = 6
 layout_mode = 2
 size_flags_horizontal = 4
 text = "TOOL_BAR_TEST:"
 
 [node name="BG" type="Panel" parent="NinePatchRect/HP_Tools"]
+z_index = 5
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2qjqu")
 
@@ -87,6 +90,7 @@ layout_mode = 2
 texture = ExtResource("2_xhol5")
 
 [node name="Menus" type="MarginContainer" parent="NinePatchRect"]
+z_index = 5
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.714286
@@ -97,10 +101,12 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="BG" type="Panel" parent="NinePatchRect/Menus"]
+z_index = 5
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjmi4")
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect/Menus"]
+z_index = 6
 layout_mode = 2
 columns = 2
 

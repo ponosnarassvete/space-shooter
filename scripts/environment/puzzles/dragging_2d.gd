@@ -24,16 +24,7 @@ func _input(event):
 			dragging = false  # Stop dragging when mouse button is released
 	
 	if event is InputEventMouseMotion and dragging:
-		# Update sprite position while dragging
-		#pass
-		sprite.global_position = clamp_position_to_interface(event.position + offset)
-
-# Function to clamp the position so the sprite stays within the UI region
-func clamp_position_to_interface(pos: Vector2) -> Vector2:
-	return Vector2(
-		clamp(pos.x, interface_rect.position.x, interface_rect.position.x + interface_rect.size.x),
-		clamp(pos.y, interface_rect.position.y, interface_rect.position.y + interface_rect.size.y)
-	)
+		sprite.global_position = event.position + offset
 
 func is_mouse_over() -> bool:
 	# Check if the mouse is over the sprite

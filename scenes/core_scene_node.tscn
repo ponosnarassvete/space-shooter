@@ -103,6 +103,10 @@ offset_right = 1816.0
 offset_bottom = 976.0
 border_width = 2.2
 
+[node name="Menus" parent="Interface/NinePatchRect" index="2"]
+offset_right = 0.000244141
+offset_bottom = 0.000244141
+
 [node name="Other" type="Node" parent="Interface"]
 
 [node name="Interaction_Manager" parent="Interface/Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]

@@ -7,3 +7,6 @@
 script = ExtResource("1_ac74t")
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
