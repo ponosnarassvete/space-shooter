@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0os6vikfl7nt"]
+[gd_scene load_steps=4 format=3 uid="uid://d0os6vikfl7nt"]
 
 [ext_resource type="Texture2D" uid="uid://b7hs8oabdsa00" path="res://textures/puzzle/wire.png" id="1_e8jxw"]
 [ext_resource type="Script" path="res://scripts/environment/puzzles/dragging_2d.gd" id="2_e24ae"]
 [ext_resource type="Script" path="res://scripts/environment/puzzles/clamp_2d.gd" id="3_l43b7"]
-[ext_resource type="Script" path="res://scenes/objects/snap_to_target_2d.gd" id="4_mqmf8"]
 
 [node name="Wire" type="Sprite2D"]
 texture = ExtResource("1_e8jxw")
@@ -15,6 +14,3 @@ sprite = NodePath("..")
 [node name="Clamp_2D" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("3_l43b7")
 object = NodePath("..")
-
-[node name="Node" type="Node" parent="."]
-script = ExtResource("4_mqmf8")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=6 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/environment/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
+[ext_resource type="Texture2D" uid="uid://co3j3ur8h7lur" path="res://textures/puzzle/wire_target.png" id="4_kxjed"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/snap_to_target_2d.gd" id="5_tgl8i"]
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")
@@ -14,13 +16,6 @@ position = Vector2(1508, 649)
 [node name="Clamp_2D" parent="Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../ReferenceRect")
 
-[node name="Wire" parent="." instance=ExtResource("3_un02x")]
-position = Vector2(1244, 406)
-scale = Vector2(0.25, 0.25)
-
-[node name="Clamp_2D" parent="Wire" index="1" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../ReferenceRect")
-
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 offset_left = 1184.0
 offset_top = 344.0
@@ -29,5 +24,35 @@ offset_bottom = 976.0
 border_width = 2.2
 metadata/_edit_lock_ = true
 
+[node name="Wires_and_Targets" type="Node" parent="."]
+
+[node name="Snap" type="Node" parent="Wires_and_Targets"]
+script = ExtResource("5_tgl8i")
+object_name = "Wire"
+target_name = "Target"
+
+[node name="Wire" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1244, 406)
+scale = Vector2(0.25, 0.25)
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Target" type="Sprite2D" parent="Wires_and_Targets"]
+z_index = 2
+texture_filter = 1
+position = Vector2(1758, 408)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_kxjed")
+
+[node name="Target2" type="Sprite2D" parent="Wires_and_Targets"]
+z_index = 2
+texture_filter = 1
+position = Vector2(1757, 437)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_kxjed")
+
 [editable path="Base_Rubbish"]
-[editable path="Wire"]
+[editable path="Wires_and_Targets/Wire"]

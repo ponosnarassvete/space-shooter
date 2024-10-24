@@ -106,4 +106,4 @@ offset_y = 6.0
 [editable path="Interface"]
 [editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test"]
 [editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish"]
-[editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wire"]
+[editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires/Wire"]
