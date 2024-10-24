@@ -87,21 +87,7 @@ interaction_area = NodePath("../../../../SubViewportContainer/SubViewport/Puzzle
 base = NodePath("Base_Rubbish")
 
 [node name="Base_Rubbish" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test" index="0"]
-visible = false
 position = Vector2(1480, 632)
-
-[node name="Dragging_2D" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish" index="0" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../ReferenceRect")
-
-[node name="Clamp_2D" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../ReferenceRect")
-
-[node name="ReferenceRect" type="ReferenceRect" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test"]
-offset_left = 1184.0
-offset_top = 344.0
-offset_right = 1816.0
-offset_bottom = 976.0
-border_width = 2.2
 
 [node name="Menus" parent="Interface/NinePatchRect" index="2"]
 offset_right = 0.000244141
@@ -120,3 +106,4 @@ offset_y = 6.0
 [editable path="Interface"]
 [editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test"]
 [editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish"]
+[editable path="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wire"]

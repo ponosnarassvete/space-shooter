@@ -2,7 +2,6 @@ class_name Dragging_2D
 extends Node
 
 @export var sprite: Sprite2D
-@export var interface_rect: ReferenceRect
 
 var dragging = false  # Variable to track whether we are dragging
 var offset = Vector2()  # Offset from the mouse to the sprite position when starting drag
