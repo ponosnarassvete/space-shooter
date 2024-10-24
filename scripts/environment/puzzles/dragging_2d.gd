@@ -3,6 +3,9 @@ extends Node
 
 @export var sprite: Sprite2D
 
+signal dropped
+signal picked
+
 var dragging = false  # Variable to track whether we are dragging
 var offset = Vector2()  # Offset from the mouse to the sprite position when starting drag
 
@@ -11,13 +14,15 @@ static var current_sprite = false
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			picked.emit()
 			sprite.get_parent().move_child(sprite, 1)
 			# Check if the mouse is over the sprite (collision detection)
 			if is_mouse_over() and current_sprite == false:
 				dragging = true
 				current_sprite = true
 				offset = sprite.global_position - event.position  # Calculate offset
-		elif event.button_index == MOUSE_BUTTON_LEFT:
+		elif not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			dropped.emit()
 			sprite.get_parent().move_child(sprite, -1)
 			current_sprite = false
 			dragging = false  # Stop dragging when mouse button is released
