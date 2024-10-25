@@ -32,6 +32,3 @@ func puzzle_init():
 		
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "puzzle_init")
-
-func _process(delta: float) -> void:
-	pass

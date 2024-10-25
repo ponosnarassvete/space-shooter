@@ -5,12 +5,6 @@ extends Node
 
 func _process(delta: float) -> void:
 	pass
-	#objects[i].set_meta("Connected", true)
 
-
-func _on_snap_connected() -> void:
-	pass # Replace with function body.
-
-
-func _on_dragging_2d_dropped() -> void:
-	pass # Replace with function body.
+func _on_connected(object: Node2D, target: Node2D) -> void:
+	pass 

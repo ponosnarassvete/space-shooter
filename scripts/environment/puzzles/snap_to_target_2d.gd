@@ -14,10 +14,9 @@ func _ready() -> void:
 	targets = get_tree().get_nodes_in_group(target_group_name)
 	objects = get_tree().get_nodes_in_group(object_group_name)
 
-func _on_dropped() -> void:
+func _on_dropped(object: Node2D) -> void:
 	for target in targets:
-		for object in objects:
-			if object.position.distance_to(target.position) < snap_threshold:
-				object.position = target.position
-				connected.emit()
-				break
+		if object.position.distance_to(target.position) < snap_threshold:
+			object.position = target.position
+			connected.emit(object, target)
+			break

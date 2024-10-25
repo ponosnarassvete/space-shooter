@@ -22,7 +22,7 @@ func _input(event):
 				current_sprite = true
 				offset = sprite.global_position - event.position  # Calculate offset
 		elif not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			dropped.emit()
+			dropped.emit(get_parent())
 			sprite.get_parent().move_child(sprite, -1)
 			current_sprite = false
 			dragging = false  # Stop dragging when mouse button is released
