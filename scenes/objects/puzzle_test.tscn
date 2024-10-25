@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/environment/puzzles/connection_check.gd" id="4_kmqxb"]
-[ext_resource type="Texture2D" uid="uid://co3j3ur8h7lur" path="res://textures/puzzle/wire_target.png" id="4_kxjed"]
-[ext_resource type="Script" path="res://scripts/environment/puzzles/snap_to_target_2d.gd" id="5_tgl8i"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/wires/snap_to_target_2d.gd" id="5_tgl8i"]
+[ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")
@@ -34,56 +34,11 @@ object_group_name = "Wire"
 
 [node name="Connection_Check" type="Node" parent="Wires_and_Targets"]
 script = ExtResource("4_kmqxb")
+target_group_name = "Target"
 object_group_name = "Wire"
-target_group_name = "Target_Wire"
+juiced_group_name = "Juiced"
 
-[node name="Target1" type="Sprite2D" parent="Wires_and_Targets" groups=["Target_Wire"]]
-modulate = Color(0.666667, 0.133333, 0.133333, 1)
-z_index = 2
-texture_filter = 1
-position = Vector2(1758, 408)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kxjed")
-
-[node name="Target2" type="Sprite2D" parent="Wires_and_Targets" groups=["Target_Wire"]]
-modulate = Color(0.133333, 0.666667, 0.133333, 1)
-z_index = 2
-texture_filter = 1
-position = Vector2(1758, 508)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kxjed")
-
-[node name="Target3" type="Sprite2D" parent="Wires_and_Targets" groups=["Target_Wire"]]
-modulate = Color(0.133333, 0.666667, 0.666667, 1)
-z_index = 2
-texture_filter = 1
-position = Vector2(1758, 608)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kxjed")
-
-[node name="Target4" type="Sprite2D" parent="Wires_and_Targets" groups=["Target_Wire"]]
-modulate = Color(0.133333, 0.133333, 0.666667, 1)
-z_index = 2
-texture_filter = 1
-position = Vector2(1758, 708)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kxjed")
-
-[node name="Target5" type="Sprite2D" parent="Wires_and_Targets" groups=["Target_Wire"]]
-modulate = Color(0.666667, 0.666667, 0.133333, 1)
-z_index = 2
-texture_filter = 1
-position = Vector2(1758, 808)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kxjed")
-
-[node name="Target6" type="Sprite2D" parent="Wires_and_Targets" groups=["Target_Wire"]]
-modulate = Color(0.666667, 0.133333, 0.666667, 1)
-z_index = 2
-texture_filter = 1
-position = Vector2(1758, 908)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kxjed")
+[node name="Target6" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 
 [node name="Wire1" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 z_index = 1

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0os6vikfl7nt"]
+[gd_scene load_steps=5 format=3 uid="uid://d0os6vikfl7nt"]
 
 [ext_resource type="Texture2D" uid="uid://b7hs8oabdsa00" path="res://textures/puzzle/wire_end.png" id="1_e8jxw"]
-[ext_resource type="Script" path="res://scripts/environment/puzzles/dragging_2d.gd" id="2_e24ae"]
-[ext_resource type="Script" path="res://scripts/environment/puzzles/clamp_2d.gd" id="3_l43b7"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/wires/dragging_2d.gd" id="2_e24ae"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/wires/clamp_2d.gd" id="3_l43b7"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/energy_container.gd" id="4_xu6ar"]
 
 [node name="Wire" type="Sprite2D"]
 texture = ExtResource("1_e8jxw")
@@ -14,5 +15,8 @@ sprite = NodePath("..")
 [node name="Clamp_2D" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("3_l43b7")
 object = NodePath("..")
+
+[node name="Energy_Container" type="Node" parent="."]
+script = ExtResource("4_xu6ar")
 
 [connection signal="picked" from="Dragging_2D" to="Clamp_2D" method="_picked"]
