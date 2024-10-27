@@ -17,4 +17,5 @@ sprite = NodePath("..")
 script = ExtResource("3_l43b7")
 object = NodePath("..")
 
+[connection signal="picked" from="Dragging_2D" to="." method="wire_disconnected"]
 [connection signal="picked" from="Dragging_2D" to="Clamp_2D" method="_picked"]

@@ -27,6 +27,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
 
+[global_group]
+
+Active="Activated Entities"
+
 [input]
 
 player_left={

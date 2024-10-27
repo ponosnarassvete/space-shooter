@@ -1,17 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=9 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/snap_to_target_2d.gd" id="5_tgl8i"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_parameters.gd" id="7_4iuqi"]
 [ext_resource type="Texture2D" uid="uid://ge8jgblq5xo6" path="res://icon.svg" id="7_04u6i"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
 [ext_resource type="Script" path="res://scenes/objects/sprite_2d_2.gd" id="8_wy71b"]
-
-[sub_resource type="Resource" id="Resource_rnh6y"]
-script = ExtResource("7_4iuqi")
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")
@@ -68,7 +64,6 @@ z_index = 1
 texture_filter = 1
 position = Vector2(1244, 406)
 scale = Vector2(0.25, 0.25)
-energy_par = SubResource("Resource_rnh6y")
 activated = true
 metadata/connected = false
 
@@ -139,6 +134,7 @@ texture = ExtResource("7_04u6i")
 script = ExtResource("8_wy71b")
 
 [connection signal="connected" from="Wires_and_Targets/Snap" to="Wires_and_Targets/Connection_Check" method="_on_connected"]
+[connection signal="connected" from="Wires_and_Targets/Target3" to="Wires_and_Targets/Sprite2D2" method="_on_energy_container_juiced"]
 [connection signal="dropped" from="Wires_and_Targets/Wire1/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Wires_and_Targets/Wire2/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Wires_and_Targets/Wire3/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]

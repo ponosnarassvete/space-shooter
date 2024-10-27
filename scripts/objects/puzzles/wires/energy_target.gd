@@ -1,11 +1,24 @@
+class_name Energy_Target
 extends Sprite2D
 
+signal connected
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var energy_par: Energy_Parameters
+@export var wire: Energy_Wires
 
+var switch: bool = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var connection: Callable = func wire_connected(new_wire: Energy_Wires): #connected to wire
+	wire = new_wire
+	if wire.activated:
+		energy_par = wire.get_energy()
+		switch = true
+
+func wire_disconnected():
+	wire = null
+	energy_par = null
+	switch = false
+
 func _process(delta: float) -> void:
-	pass
+	if switch:
+		connected.emit(energy_par)

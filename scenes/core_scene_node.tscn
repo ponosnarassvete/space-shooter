@@ -100,7 +100,6 @@ player = NodePath("../../../SubViewportContainer/SubViewport/Characters/Player_N
 offset_x = 6.0
 offset_y = 6.0
 
-[connection signal="juiced" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Target3/Energy_Container" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Sprite2D2" method="_on_energy_container_juiced"]
 [connection signal="dropped" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Wire1/Dragging_2D" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Wire2/Dragging_2D" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Wire3/Dragging_2D" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Snap" method="_on_dropped"]
