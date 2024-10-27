@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
-[ext_resource type="Script" path="res://scripts/environment/ground/ground_stats.gd" id="3_5ttqo"]
+[ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_5ttqo"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="3_t08qk"]
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_sprint_2d.gd" id="6_q021n"]
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_direction_2d.gd" id="6_qvitp"]

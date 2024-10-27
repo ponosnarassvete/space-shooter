@@ -1,16 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=13 format=3 uid="uid://50qtdeu7u7l4"]
 
-[ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/snap_to_target_2d.gd" id="5_tgl8i"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_parameters.gd" id="7_4iuqi"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/connection_check.gd" id="4_kmqxb"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/wires/snap_to_target_2d.gd" id="5_tgl8i"]
+[ext_resource type="Script" path="res://scripts/environment/puzzles/wires/energy_parameters.gd" id="7_4iuqi"]
 [ext_resource type="Texture2D" uid="uid://ge8jgblq5xo6" path="res://icon.svg" id="7_04u6i"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
 [ext_resource type="Script" path="res://scenes/objects/sprite_2d_2.gd" id="8_wy71b"]
 
-[sub_resource type="Resource" id="Resource_rnh6y"]
+[sub_resource type="Resource" id="Resource_v5wdp"]
+script = ExtResource("7_4iuqi")
+
+[sub_resource type="Resource" id="Resource_gkm0d"]
+script = ExtResource("7_4iuqi")
+
+[sub_resource type="Resource" id="Resource_uub61"]
 script = ExtResource("7_4iuqi")
 
 [node name="Puzzle_Test" type="Node"]
@@ -68,11 +74,12 @@ z_index = 1
 texture_filter = 1
 position = Vector2(1244, 406)
 scale = Vector2(0.25, 0.25)
-energy_par = SubResource("Resource_rnh6y")
-activated = true
 metadata/connected = false
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="Energy_Container" parent="Wires_and_Targets/Wire1" index="0"]
+energy_par = SubResource("Resource_v5wdp")
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Wire2" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -82,7 +89,11 @@ position = Vector2(1244, 506)
 scale = Vector2(0.25, 0.25)
 metadata/connected = false
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="Energy_Container" parent="Wires_and_Targets/Wire2" index="0"]
+activated = false
+energy_par = SubResource("Resource_gkm0d")
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Wire3" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -92,7 +103,11 @@ position = Vector2(1244, 606)
 scale = Vector2(0.25, 0.25)
 metadata/connected = false
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="Energy_Container" parent="Wires_and_Targets/Wire3" index="0"]
+activated = false
+energy_par = SubResource("Resource_uub61")
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Wire4" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -102,7 +117,10 @@ position = Vector2(1244, 706)
 scale = Vector2(0.25, 0.25)
 metadata/connected = false
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="Energy_Container" parent="Wires_and_Targets/Wire4" index="0"]
+activated = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Wire5" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -112,7 +130,10 @@ position = Vector2(1244, 806)
 scale = Vector2(0.25, 0.25)
 metadata/connected = false
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="Energy_Container" parent="Wires_and_Targets/Wire5" index="0"]
+activated = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Wire6" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -122,7 +143,10 @@ position = Vector2(1244, 906)
 scale = Vector2(0.25, 0.25)
 metadata/connected = false
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="Energy_Container" parent="Wires_and_Targets/Wire6" index="0"]
+activated = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Sprite2D" type="Sprite2D" parent="Wires_and_Targets"]
@@ -139,6 +163,7 @@ texture = ExtResource("7_04u6i")
 script = ExtResource("8_wy71b")
 
 [connection signal="connected" from="Wires_and_Targets/Snap" to="Wires_and_Targets/Connection_Check" method="_on_connected"]
+[connection signal="juiced" from="Wires_and_Targets/Target3/Energy_Container" to="Wires_and_Targets/Sprite2D2" method="_on_energy_container_juiced"]
 [connection signal="dropped" from="Wires_and_Targets/Wire1/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Wires_and_Targets/Wire2/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Wires_and_Targets/Wire3/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]

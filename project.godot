@@ -19,17 +19,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://scenes/usables/interaction_manager.tscn"
-Init="*res://scripts/environment/scenes/init.gd"
+Init="*res://scripts/init.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
-
-[global_group]
-
-Juiced="That means the entity is active and could be used"
 
 [input]
 
