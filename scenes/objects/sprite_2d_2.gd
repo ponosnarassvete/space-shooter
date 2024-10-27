@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_energy_container_juiced() -> void:
+func _juicy() -> void:
 	self.hide()

@@ -134,7 +134,7 @@ texture = ExtResource("7_04u6i")
 script = ExtResource("8_wy71b")
 
 [connection signal="connected" from="Wires_and_Targets/Snap" to="Wires_and_Targets/Connection_Check" method="_on_connected"]
-[connection signal="connected" from="Wires_and_Targets/Target3" to="Wires_and_Targets/Sprite2D2" method="_on_energy_container_juiced"]
+[connection signal="connected" from="Wires_and_Targets/Target3" to="Wires_and_Targets/Sprite2D2" method="_juicy"]
 [connection signal="dropped" from="Wires_and_Targets/Wire1/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Wires_and_Targets/Wire2/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Wires_and_Targets/Wire3/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]

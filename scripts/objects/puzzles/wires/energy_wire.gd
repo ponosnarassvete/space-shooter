@@ -16,7 +16,7 @@ func _ready() -> void:
 func wire_connected():# connected to target
 	connected = true
 	if activated:
-		pulse.emit(energy_par)
+		pulse.emit(self)
 		self.add_to_group(active_group_name)
 
 func wire_disconnected():
@@ -33,4 +33,4 @@ func get_energy():
 
 func _process(delta: float) -> void:	
 	if activated and connected:
-		pulse.emit(energy_par)
+		pulse.emit(self)
