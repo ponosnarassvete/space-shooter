@@ -27,6 +27,7 @@ func wire_connected():# connected to target
 
 func wire_disconnected():
 	connected = false
+	#print("huh")
 	remove_from_group(active_group_name)
 	if get_connection() != null and pulse != null:
 		pulse.disconnect(get_connection())
@@ -36,7 +37,7 @@ func set_connection(new_connection: Callable):
 	connection = new_connection
 
 func get_connection():
-	print(connection)
+	#print(connection)
 	return connection
 
 
