@@ -36,6 +36,7 @@ func set_connection(new_connection: Callable):
 	connection = new_connection
 
 func get_connection():
+	print(connection)
 	return connection
 
 

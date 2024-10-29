@@ -19,3 +19,6 @@ sprite = NodePath("..")
 [node name="Clamp_2D" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("3_eiuy8")
 object = NodePath("..")
+
+[connection signal="dropped" from="Dragging_2D" to="Clamp_2D" method="on_off"]
+[connection signal="picked" from="Dragging_2D" to="Clamp_2D" method="on_off"]
