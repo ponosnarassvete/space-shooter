@@ -10,7 +10,7 @@ func on_off():
 		switch = false
 	else:
 		switch = true
-	print(get_parent())
+	print(switch)
 
 func _picked() -> void:
 	if Input.is_anything_pressed():

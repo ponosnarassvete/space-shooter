@@ -64,63 +64,45 @@ position = Vector2(1758, 808)
 
 [node name="Target6" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 
-[node name="Wire1" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-z_index = 1
-texture_filter = 1
-position = Vector2(1244, 406)
+[node name="Wire1" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
+position = Vector2(1261, 408)
 scale = Vector2(0.25, 0.25)
 activated = true
-metadata/connected = false
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Wire2" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-z_index = 1
-texture_filter = 1
-position = Vector2(1244, 506)
+[node name="Wire2" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
+position = Vector2(1261, 508)
 scale = Vector2(0.25, 0.25)
-metadata/connected = false
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Wire3" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-z_index = 1
-texture_filter = 1
-position = Vector2(1244, 606)
+[node name="Wire3" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
+position = Vector2(1261, 608)
 scale = Vector2(0.25, 0.25)
-metadata/connected = false
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Wire4" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-z_index = 1
-texture_filter = 1
-position = Vector2(1244, 706)
+[node name="Wire4" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
+position = Vector2(1261, 708)
 scale = Vector2(0.25, 0.25)
-metadata/connected = false
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Wire5" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-z_index = 1
-texture_filter = 1
-position = Vector2(1244, 806)
+[node name="Wire5" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
+position = Vector2(1261, 808)
 scale = Vector2(0.25, 0.25)
-metadata/connected = false
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Wire6" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-z_index = 1
-texture_filter = 1
-position = Vector2(1244, 906)
+[node name="Wire6" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
+position = Vector2(1261, 908)
 scale = Vector2(0.25, 0.25)
-metadata/connected = false
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")

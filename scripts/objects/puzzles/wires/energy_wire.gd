@@ -3,6 +3,8 @@ extends Sprite2D
 
 signal pulse
 
+@export var wire_id: int = -1
+
 @export var energy_par: Energy_Parameters
 @export var active_group_name: String = "Active"
 var connection: Callable
