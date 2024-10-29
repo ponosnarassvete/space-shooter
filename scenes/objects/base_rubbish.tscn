@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu4m2gm5eoqge"]
+[gd_scene load_steps=5 format=3 uid="uid://cu4m2gm5eoqge"]
 
 [ext_resource type="Texture2D" uid="uid://dl1ihisy42byl" path="res://textures/objects/puzzle/rubbish.png" id="1_e45g1"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/rubbish.gd" id="2_2516y"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/dragging_2d.gd" id="2_nyihe"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/clamp_2d.gd" id="3_eiuy8"]
 
@@ -9,6 +10,7 @@ texture_filter = 2
 texture = ExtResource("1_e45g1")
 hframes = 7
 region_rect = Rect2(-1, 1, 130, 126)
+script = ExtResource("2_2516y")
 
 [node name="Dragging_2D" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_nyihe")

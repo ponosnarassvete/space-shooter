@@ -82,11 +82,11 @@ camera = NodePath("../../SubViewport/Characters/Player_Node/Player_Camera")
 [node name="TextureRect" parent="Interface/NinePatchRect/Puzzle" index="1"]
 z_index = 19
 
-[node name="Puzzle_Test" parent="Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area", "base") instance=ExtResource("8_2lt5n")]
+[node name="Puzzle_Test" parent="Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
 interaction_area = NodePath("../../../../SubViewportContainer/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
-base = NodePath("Base_Rubbish")
 
 [node name="Base_Rubbish" parent="Interface/NinePatchRect/Puzzle/Puzzle_Test" index="0"]
+z_index = 4
 position = Vector2(1480, 632)
 
 [node name="Menus" parent="Interface/NinePatchRect" index="2"]
@@ -100,6 +100,7 @@ player = NodePath("../../../SubViewportContainer/SubViewport/Characters/Player_N
 offset_x = 6.0
 offset_y = 6.0
 
+[connection signal="picked" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish/Dragging_2D" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Base_Rubbish/Clamp_2D" method="_picked"]
 [connection signal="dropped" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Wire1/Dragging_2D" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Wire2/Dragging_2D" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Wire3/Dragging_2D" to="Interface/NinePatchRect/Puzzle/Puzzle_Test/Wires_and_Targets/Snap" method="_on_dropped"]
