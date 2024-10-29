@@ -9,11 +9,13 @@ signal connected
 var switch: bool = false
 
 var connection: Callable = func wire_connected(new_wire: Energy_Wires): #connected to wire
-	if new_wire:
+	if new_wire != null:
 		wire = new_wire
 		if wire.activated:
 			energy_par = wire.get_energy()
 			switch = true
+	else:
+		wire_disconnected()
 
 func wire_disconnected():
 	wire = null
@@ -22,5 +24,4 @@ func wire_disconnected():
 
 func _process(delta: float) -> void:
 	if switch:
-		print("Connected and ready to kill")
 		connected.emit()

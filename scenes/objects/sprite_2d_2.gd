@@ -13,3 +13,4 @@ func _process(delta: float) -> void:
 
 func _juicy() -> void:
 	self.hide()
+	print("WORKS")
