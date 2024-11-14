@@ -3,6 +3,8 @@ extends Node
 signal sesame
 signal rubbish
 
+@export var id: int = -1
+
 @export var interaction_area: Interaction_Area_3D
 
 var interactable = true

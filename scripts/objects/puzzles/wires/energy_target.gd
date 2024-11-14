@@ -3,6 +3,8 @@ extends Sprite2D
 
 signal connected
 
+@export var id: int = -1
+
 @export var energy_par: Energy_Parameters
 @export var wire: Energy_Wires
 

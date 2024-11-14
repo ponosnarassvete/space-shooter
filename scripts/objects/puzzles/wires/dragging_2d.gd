@@ -8,23 +8,37 @@ signal picked
 
 var dragging = false  # Variable to track whether we are dragging
 var offset = Vector2()  # Offset from the mouse to the sprite position when starting drag
+var id: int = -1
+static var currently_sprited = false
 
-static var current_sprite = false
+func get_id():
+		if "id" in sprite:
+			id = sprite.id
+		else:
+			id = -1	
 
 func _input(event):
-	if event is InputEventMouseButton:
+	
+	if event is InputEventMouseButton:	
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			picked.emit()
+			get_id()
+			
+			picked.emit(id, get_parent())
 			sprite.get_parent().move_child(sprite, 1)
+			
 			# Check if the mouse is over the sprite (collision detection)
-			if is_mouse_over() and current_sprite == false:
+			if is_mouse_over() and currently_sprited == false:
 				dragging = true
-				current_sprite = true
+				currently_sprited = true
 				offset = sprite.global_position - event.position  # Calculate offset
+			
 		elif not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			dropped.emit(get_parent())
+			get_id()
+			
 			sprite.get_parent().move_child(sprite, -1)
-			current_sprite = false
+			dropped.emit(id, get_parent())
+			
+			currently_sprited = false
 			dragging = false  # Stop dragging when mouse button is released
 	
 	if event is InputEventMouseMotion and dragging:

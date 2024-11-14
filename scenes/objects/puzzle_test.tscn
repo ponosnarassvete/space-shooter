@@ -16,6 +16,7 @@
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")
+id = 1
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
 visible = false
@@ -45,28 +46,35 @@ script = ExtResource("4_kmqxb")
 [node name="Target1" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 modulate = Color(0.133333, 0.666667, 0.133333, 1)
 position = Vector2(1758, 408)
+id = 10000
 
 [node name="Target2" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 modulate = Color(0.666667, 0.133333, 0.133333, 1)
 position = Vector2(1758, 508)
+id = 10001
 
 [node name="Target3" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 modulate = Color(0.133333, 0.133333, 0.666667, 1)
 position = Vector2(1758, 608)
+id = 10002
 
 [node name="Target4" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 modulate = Color(0.133333, 0.666667, 0.666667, 1)
 position = Vector2(1758, 708)
+id = 10003
 
 [node name="Target5" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 modulate = Color(0.666667, 0.666667, 0.133333, 1)
 position = Vector2(1758, 808)
+id = 10004
 
 [node name="Target6" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
+id = 10005
 
 [node name="Wire1" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
 position = Vector2(1261, 408)
 scale = Vector2(0.25, 0.25)
+id = 11000
 activated = true
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
@@ -75,6 +83,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 [node name="Wire2" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
 position = Vector2(1261, 508)
 scale = Vector2(0.25, 0.25)
+id = 11001
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
@@ -82,6 +91,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 [node name="Wire3" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
 position = Vector2(1261, 608)
 scale = Vector2(0.25, 0.25)
+id = 11002
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
@@ -89,6 +99,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 [node name="Wire4" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
 position = Vector2(1261, 708)
 scale = Vector2(0.25, 0.25)
+id = 11003
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
@@ -96,6 +107,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 [node name="Wire5" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
 position = Vector2(1261, 808)
 scale = Vector2(0.25, 0.25)
+id = 11004
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
@@ -103,6 +115,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 [node name="Wire6" parent="Wires_and_Targets" instance=ExtResource("3_un02x")]
 position = Vector2(1261, 908)
 scale = Vector2(0.25, 0.25)
+id = 11005
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
