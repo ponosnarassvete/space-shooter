@@ -2,46 +2,38 @@ class_name Energy_Wires
 extends Sprite2D
 
 signal pulse
+signal connecting
+signal disconnecting
 
 @export var id: int = -1
 
 @export var energy_par: Energy_Parameters
 @export var active_group_name: String = "Active"
-var connection: Callable
 
 @export var activated: bool = false
 var connected: bool = false
 
 func _ready() -> void:
-	if energy_par:
+	if energy_par: #
 		activated = true
 
-func _process(delta: float) -> void:	
-	if activated and connected:
-		pulse.emit(self, id)
 
-
-func wire_connected():# connected to target
-	connected = true
+func _process(delta: float) -> void:# if both are true then it should pulse every tick	
 	if activated:
-		pulse.emit(self, id)
 		add_to_group(active_group_name)
+		if connected:
+			pulse.emit(self, id)
+	else:
+		remove_from_group(active_group_name)
 
-func wire_disconnected():
+
+func wire_connected():# connected
+	connected = true
+	connecting.emit()
+
+func wire_disconnected(obj: Node2D, id: int): # disconnected
 	connected = false
-	#print("huh")
-	remove_from_group(active_group_name)
-	if get_connection() != null and pulse != null:
-		pulse.disconnect(get_connection())
-
-
-func set_connection(new_connection: Callable):
-	connection = new_connection
-
-func get_connection():
-	#print(connection)
-	return connection
-
+	disconnecting.emit()
 
 func set_energy(new_energy: Energy_Parameters):
 	energy_par = new_energy

@@ -38,9 +38,8 @@ metadata/_edit_lock_ = true
 [node name="Snap" type="Node" parent="Wires_and_Targets"]
 script = ExtResource("5_tgl8i")
 target_group_name = "Target_Wire"
-object_group_name = "Wire"
 
-[node name="Connection_Check" type="Node" parent="Wires_and_Targets"]
+[node name="Connection_Table" type="Node" parent="Wires_and_Targets"]
 script = ExtResource("4_kmqxb")
 
 [node name="Target1" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
@@ -151,7 +150,7 @@ texture = SubResource("PlaceholderTexture2D_t0lu5")
 
 [connection signal="rubbish" from="." to="Base_Rubbish" method="init"]
 [connection signal="sesame" from="." to="Panel" method="open_sesame"]
-[connection signal="connected" from="Wires_and_Targets/Snap" to="Wires_and_Targets/Connection_Check" method="_on_connected"]
+[connection signal="connected" from="Wires_and_Targets/Snap" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
 [connection signal="connected" from="Wires_and_Targets/Target3" to="Wires_and_Targets/Sprite2D2" method="_juicy"]
 [connection signal="dropped" from="Wires_and_Targets/Wire1/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
 [connection signal="dropped" from="Wires_and_Targets/Wire2/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]

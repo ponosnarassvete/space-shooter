@@ -10,7 +10,7 @@ signal connected
 
 var switch: bool = false
 
-var connection: Callable = func wire_connected(new_wire: Energy_Wires): #connected to wire
+var connection: Callable = func wire_connected(new_wire: Energy_Wires, id: int = -1): #connected to wire
 	if new_wire != null:
 		wire = new_wire
 		if wire.activated:
