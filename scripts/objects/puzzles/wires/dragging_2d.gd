@@ -2,14 +2,19 @@ class_name Dragging_2D
 extends Node
 
 @export var sprite: Sprite2D
+@export var snap_threshold: int = 20 
 
 signal dropped
 signal picked
+signal connected
+
+var id: int = -1 
 
 var dragging = false  # Variable to track whether we are dragging
-var offset = Vector2()  # Offset from the mouse to the sprite position when starting drag
-var id: int = -1
 static var currently_sprited = false
+
+var offset = Vector2()  # Offset from the mouse to the sprite position when starting drag
+
 
 func get_id():
 		if "id" in sprite:
@@ -23,7 +28,7 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			get_id()
 			
-			picked.emit(get_parent(), id)
+			picked.emit(id)
 			sprite.get_parent().move_child(sprite, 1)
 			
 			# Check if the mouse is over the sprite (collision detection)
@@ -36,13 +41,14 @@ func _input(event):
 			get_id()
 			
 			sprite.get_parent().move_child(sprite, -1)
-			dropped.emit(get_parent(), id)
+			dropped.emit(id)
 			
 			currently_sprited = false
 			dragging = false  # Stop dragging when mouse button is released
 	
 	if event is InputEventMouseMotion and dragging:
 		sprite.global_position = event.position + offset
+
 
 func is_mouse_over() -> bool:
 	# Check if the mouse is over the sprite

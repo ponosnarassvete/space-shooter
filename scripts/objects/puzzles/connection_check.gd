@@ -10,15 +10,14 @@ func _ready() -> void:
 			if "id" in child:
 				object_dict.get_or_add(child.id)
 
-func _process(delta: float) -> void:
-	pass
-
-func connect_objs(object: Node2D, target: Node2D, obj_id: int, trgt_id: int) -> void:
+func connect_objs(object: Node2D, target: Node2D, obj_id: int = -1, trgt_id: int = -1) -> void:
+	print("Connection_Table connect_objs")
 	object_dict[obj_id] = [trgt_id]
 	target.energy_par = object.energy_par
-	object.pulse.connect(target.connection)
-	object.wire_connected()
+	target.wire_connected(object, trgt_id)
 
-func dissconnect_objs(object: Node2D, target: Node2D, obj_id: int, trgt_id: int):
+func disconnect_objs(object: Node2D, target: Node2D, obj_id: int = -1, trgt_id: int = -1):
+	print("Connection_Table disconnect_objs")
 	object_dict[obj_id] = []
-	target.wire_disconnected()
+	if target != null:
+		target.wire_disconnected(trgt_id)

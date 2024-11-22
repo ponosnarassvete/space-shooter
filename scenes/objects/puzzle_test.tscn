@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=11 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/snap_to_target_2d.gd" id="5_tgl8i"]
 [ext_resource type="Texture2D" uid="uid://ge8jgblq5xo6" path="res://icon.svg" id="7_04u6i"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
 [ext_resource type="Script" path="res://scenes/objects/sprite_2d_2.gd" id="8_wy71b"]
@@ -34,10 +33,6 @@ border_width = 2.2
 metadata/_edit_lock_ = true
 
 [node name="Wires_and_Targets" type="Node" parent="."]
-
-[node name="Snap" type="Node" parent="Wires_and_Targets"]
-script = ExtResource("5_tgl8i")
-target_group_name = "Target_Wire"
 
 [node name="Connection_Table" type="Node" parent="Wires_and_Targets"]
 script = ExtResource("4_kmqxb")
@@ -150,14 +145,19 @@ texture = SubResource("PlaceholderTexture2D_t0lu5")
 
 [connection signal="rubbish" from="." to="Base_Rubbish" method="init"]
 [connection signal="sesame" from="." to="Panel" method="open_sesame"]
-[connection signal="connected" from="Wires_and_Targets/Snap" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
 [connection signal="connected" from="Wires_and_Targets/Target3" to="Wires_and_Targets/Sprite2D2" method="_juicy"]
-[connection signal="dropped" from="Wires_and_Targets/Wire1/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
-[connection signal="dropped" from="Wires_and_Targets/Wire2/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
-[connection signal="dropped" from="Wires_and_Targets/Wire3/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
-[connection signal="dropped" from="Wires_and_Targets/Wire4/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
-[connection signal="dropped" from="Wires_and_Targets/Wire5/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
-[connection signal="dropped" from="Wires_and_Targets/Wire6/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
+[connection signal="connecting" from="Wires_and_Targets/Wire1" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
+[connection signal="disconnecting" from="Wires_and_Targets/Wire1" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
+[connection signal="connecting" from="Wires_and_Targets/Wire2" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
+[connection signal="disconnecting" from="Wires_and_Targets/Wire2" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
+[connection signal="connecting" from="Wires_and_Targets/Wire3" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
+[connection signal="disconnecting" from="Wires_and_Targets/Wire3" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
+[connection signal="connecting" from="Wires_and_Targets/Wire4" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
+[connection signal="disconnecting" from="Wires_and_Targets/Wire4" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
+[connection signal="connecting" from="Wires_and_Targets/Wire5" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
+[connection signal="disconnecting" from="Wires_and_Targets/Wire5" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
+[connection signal="connecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
+[connection signal="disconnecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
 
 [editable path="Base_Rubbish"]
 [editable path="Wires_and_Targets/Target1"]
