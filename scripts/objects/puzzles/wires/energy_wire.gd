@@ -10,11 +10,13 @@ signal disconnecting
 @export var energy_par: Energy_Parameters
 @export var target_group_name: String = "Target_Wire"
 
-@export var activated: bool = false
+var activated: bool = false
 var connected: bool = false
+
 var targets: Array = []
 var target
 var target_id = -1
+
 var snap_threshold: int = 20
 
 

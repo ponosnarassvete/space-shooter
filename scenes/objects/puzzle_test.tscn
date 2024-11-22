@@ -1,13 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=14 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_parameters.gd" id="6_r6s8j"]
 [ext_resource type="Texture2D" uid="uid://ge8jgblq5xo6" path="res://icon.svg" id="7_04u6i"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
 [ext_resource type="Script" path="res://scenes/objects/sprite_2d_2.gd" id="8_wy71b"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/open_sessame.gd" id="9_2yj5m"]
+
+[sub_resource type="Resource" id="Resource_myiu6"]
+script = ExtResource("6_r6s8j")
+
+[sub_resource type="Resource" id="Resource_b8wkr"]
+script = ExtResource("6_r6s8j")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gkoaa"]
 
@@ -69,7 +76,7 @@ id = 10005
 position = Vector2(1261, 408)
 scale = Vector2(0.25, 0.25)
 id = 11000
-activated = true
+energy_par = SubResource("Resource_myiu6")
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
@@ -78,6 +85,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 position = Vector2(1261, 508)
 scale = Vector2(0.25, 0.25)
 id = 11001
+energy_par = SubResource("Resource_b8wkr")
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
