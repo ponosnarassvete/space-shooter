@@ -6,24 +6,18 @@ signal connected
 @export var id: int = -1
 
 @export var energy_par: Energy_Parameters
-@export var wire: Energy_Wires
 
-var switch: bool = false
+var wire: Energy_Wires
 
-var connection: Callable = func wire_connected(new_wire: Energy_Wires, id: int = -1): #connected to wire
-	if new_wire != null:
-		wire = new_wire
-		if wire.activated:
+func wire_connected(new_wire: Energy_Wires, id: int = -1): #connected to wire
+	wire = new_wire
+	if wire.activated:
 			energy_par = wire.get_energy()
-			switch = true
-	else:
-		wire_disconnected()
 
 func wire_disconnected():
 	wire = null
 	energy_par = null
-	switch = false
 
 func _process(delta: float) -> void:
-	if switch:
+	if wire != null:
 		connected.emit()

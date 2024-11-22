@@ -8,7 +8,6 @@ signal disconnecting
 @export var id: int = -1
 
 @export var energy_par: Energy_Parameters
-@export var active_group_name: String = "Active"
 
 @export var activated: bool = false
 var connected: bool = false
@@ -20,11 +19,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:# if both are true then it should pulse every tick	
 	if activated:
-		add_to_group(active_group_name)
 		if connected:
 			pulse.emit(self, id)
-	else:
-		remove_from_group(active_group_name)
 
 
 func wire_connected():# connected
