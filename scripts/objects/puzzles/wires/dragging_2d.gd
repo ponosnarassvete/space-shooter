@@ -28,20 +28,21 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			get_id()
 			
-			picked.emit(id)
-			sprite.get_parent().move_child(sprite, 1)
-			
 			# Check if the mouse is over the sprite (collision detection)
 			if is_mouse_over() and currently_sprited == false:
+				print("picked_", id)
+				picked.emit(id)
+				sprite.get_parent().move_child(sprite, 1)
 				dragging = true
 				currently_sprited = true
 				offset = sprite.global_position - event.position  # Calculate offset
 			
 		elif not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			get_id()
-			
-			sprite.get_parent().move_child(sprite, -1)
-			dropped.emit(id)
+			if is_mouse_over():
+				sprite.get_parent().move_child(sprite, -1)
+				print("dropped_", id)
+				dropped.emit(id)
 			
 			currently_sprited = false
 			dragging = false  # Stop dragging when mouse button is released

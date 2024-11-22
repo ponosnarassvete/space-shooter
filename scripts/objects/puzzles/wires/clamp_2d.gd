@@ -11,7 +11,7 @@ func _ready() -> void:
 		id = get_parent().id 
 
 func id_check(new_id):
-	if id > 0:
+	if id >= 0:
 		if new_id == id:
 			return true
 		else:

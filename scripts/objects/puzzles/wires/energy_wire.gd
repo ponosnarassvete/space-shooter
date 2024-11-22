@@ -31,7 +31,7 @@ func _process(delta: float) -> void:# if both are true then it should pulse ever
 
 func wire_connected(trgt: Node2D, trgt_id: int = -1, obj_id: int = -1):# connected
 	if obj_id == id and obj_id >= 0:	
-		print(self, " wire_connected", obj_id)
+		print(self.name, "_id: ", id, " - wire_connected_id: ", obj_id)
 		connected = true
 		target = trgt
 		target_id = trgt_id
@@ -39,7 +39,7 @@ func wire_connected(trgt: Node2D, trgt_id: int = -1, obj_id: int = -1):# connect
 
 func wire_disconnected(obj_id: int = -1): # disconnected
 	if obj_id == id and obj_id >= 0:
-		print(self, " wire_disconnected ", obj_id)
+		print(self.name, "_id: ", id, " - wire_disconnected_id: ", obj_id)
 		connected = false
 		disconnecting.emit(self, target, id, target_id)
 

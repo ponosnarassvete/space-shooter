@@ -11,13 +11,13 @@ func _ready() -> void:
 				object_dict.get_or_add(child.id)
 
 func connect_objs(object: Node2D, target: Node2D, obj_id: int = -1, trgt_id: int = -1) -> void:
-	print("Connection_Table connect_objs")
+	print("Connection_Table connect_objs_", obj_id)
 	object_dict[obj_id] = [trgt_id]
 	target.energy_par = object.energy_par
 	target.wire_connected(object, trgt_id)
 
 func disconnect_objs(object: Node2D, target: Node2D, obj_id: int = -1, trgt_id: int = -1):
-	print("Connection_Table disconnect_objs")
+	print("Connection_Table_disconnect_objs_", obj_id)
 	object_dict[obj_id] = []
 	if target != null:
 		target.wire_disconnected(trgt_id)
