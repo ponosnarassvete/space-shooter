@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://2vlapxtnt7ur"]
+
+[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/dragging_2d.gd" id="1_2mtsl"]
+
+[node name="Dragging_2D" type="Area2D"]
+disable_mode = 2
+collision_priority = 5.0
+script = ExtResource("1_2mtsl")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

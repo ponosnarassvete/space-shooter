@@ -6,8 +6,8 @@ extends Area3D
 var interact: Callable = func():
 	pass
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	manager.register_area(self)
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	manager.unregister_area(self)

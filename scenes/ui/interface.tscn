@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmw6j72tvj6wm"]
+[gd_scene load_steps=13 format=3 uid="uid://cmw6j72tvj6wm"]
 
 [ext_resource type="Texture2D" uid="uid://ccdftwsqpmssk" path="res://textures/ui/Interface_Test.png" id="1_ib444"]
 [ext_resource type="Texture2D" uid="uid://dukhygl1c8uus" path="res://textures/ui/menu.png" id="2_6mw11"]
 [ext_resource type="Texture2D" uid="uid://c6a7gj0ghf4vu" path="res://textures/ui/puzzle_fg.png" id="2_xhol5"]
 [ext_resource type="Texture2D" uid="uid://xp12wym37u45" path="res://textures/ui/log.png" id="3_imiq7"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/open_sessame.gd" id="3_ywim3"]
 [ext_resource type="Texture2D" uid="uid://dbj263y1e1fpd" path="res://textures/ui/pause.png" id="4_bfbxc"]
 [ext_resource type="Texture2D" uid="uid://kvd7223kc4og" path="res://textures/ui/swap.png" id="5_aslnl"]
 
@@ -24,6 +25,10 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.235294, 0.235294, 0.235294, 1)
 border_blend = true
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nialk"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_byl6i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjmi4"]
 bg_color = Color(0.0394837, 0.0128438, 0.153247, 1)
@@ -88,6 +93,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_04fy2")
 z_index = 10
 layout_mode = 2
 texture = ExtResource("2_xhol5")
+
+[node name="Panel" type="Node2D" parent="NinePatchRect/Puzzle"]
+z_index = 18
+script = ExtResource("3_ywim3")
+
+[node name="left_door" type="Sprite2D" parent="NinePatchRect/Puzzle/Panel"]
+position = Vector2(584, 680)
+scale = Vector2(355, 723)
+texture = SubResource("PlaceholderTexture2D_nialk")
+
+[node name="right_door" type="Sprite2D" parent="NinePatchRect/Puzzle/Panel"]
+position = Vector2(216, 656)
+scale = Vector2(385, 723)
+texture = SubResource("PlaceholderTexture2D_byl6i")
 
 [node name="Menus" type="MarginContainer" parent="NinePatchRect"]
 z_index = 5

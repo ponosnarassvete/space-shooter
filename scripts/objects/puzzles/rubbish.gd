@@ -4,9 +4,14 @@ extends Sprite2D
 @export var scale_lower: float = 1.0
 @export var child_offset: float = 500.0
 @export var amount: int = 5
+@export var id: int = -1
+var z_index_count = 0
+
 
 func scatter(object):
 		object.frame = randi() % hframes
+		object.z_index = z_index_count
+		z_index_count+=1
 		object.position.x += (randf()-0.5) * child_offset
 		object.position.y += (randf()-0.5) * child_offset
 		var obj_scale = randf_range(scale_lower, scale_upper)

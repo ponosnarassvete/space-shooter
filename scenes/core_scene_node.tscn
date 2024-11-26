@@ -15,7 +15,7 @@ metallic = 0.65
 [node name="Core_Scene_Node" type="Node"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-z_index = 1
+z_index = 20
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -85,6 +85,17 @@ z_index = 19
 [node name="Puzzle_Test" parent="Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
 interaction_area = NodePath("../../../../SubViewportContainer/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
 
+[node name="Panel" parent="Interface/NinePatchRect/Puzzle" index="3" node_paths=PackedStringArray("left_door", "right_door")]
+left_door = NodePath("left_door")
+right_door = NodePath("right_door")
+offset_x = 400.0
+
+[node name="left_door" parent="Interface/NinePatchRect/Puzzle/Panel" index="0"]
+position = Vector2(600, 416)
+
+[node name="right_door" parent="Interface/NinePatchRect/Puzzle/Panel" index="1"]
+position = Vector2(232, 416)
+
 [node name="Menus" parent="Interface/NinePatchRect" index="2"]
 offset_right = 0.000244141
 offset_bottom = 0.000244141
@@ -95,6 +106,8 @@ offset_bottom = 0.000244141
 player = NodePath("../../../SubViewportContainer/SubViewport/Characters/Player_Node/Player")
 offset_x = 6.0
 offset_y = 6.0
+
+[connection signal="sesame" from="Interface/NinePatchRect/Puzzle/Puzzle_Test" to="Interface/NinePatchRect/Puzzle/Panel" method="sesame"]
 
 [editable path="SubViewportContainer/SubViewport/Characters/Player_Node"]
 [editable path="SubViewportContainer/SubViewport/Characters/Enemy_Node"]

@@ -1,22 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0os6vikfl7nt"]
+[gd_scene load_steps=6 format=3 uid="uid://d0os6vikfl7nt"]
 
 [ext_resource type="Texture2D" uid="uid://b7hs8oabdsa00" path="res://textures/objects/puzzle/wire_end.png" id="1_e8jxw"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/dragging_2d.gd" id="2_e24ae"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_wire.gd" id="2_gydaj"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/clamp_2d.gd" id="3_l43b7"]
+[ext_resource type="PackedScene" uid="uid://2vlapxtnt7ur" path="res://scenes/usables/dragging_2d.tscn" id="3_m5o22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb0hr"]
+size = Vector2(256, 64)
 
 [node name="Wire" type="Sprite2D"]
 texture = ExtResource("1_e8jxw")
 script = ExtResource("2_gydaj")
 
-[node name="Dragging_2D" type="Node" parent="." node_paths=PackedStringArray("sprite")]
-script = ExtResource("2_e24ae")
+[node name="Dragging_2D" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_m5o22")]
 sprite = NodePath("..")
+
+[node name="Drag_Collision_2D" type="CollisionShape2D" parent="Dragging_2D"]
+shape = SubResource("RectangleShape2D_vb0hr")
 
 [node name="Clamp_2D" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("3_l43b7")
 object = NodePath("..")
 
-[connection signal="connected" from="Dragging_2D" to="." method="wire_connected"]
 [connection signal="dropped" from="Dragging_2D" to="." method="connection_check"]
 [connection signal="picked" from="Dragging_2D" to="." method="wire_disconnected"]
