@@ -85,9 +85,7 @@ z_index = 19
 [node name="Puzzle_Test" parent="Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
 interaction_area = NodePath("../../../../SubViewportContainer/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
 
-[node name="Panel" parent="Interface/NinePatchRect/Puzzle" index="3" node_paths=PackedStringArray("left_door", "right_door")]
-left_door = NodePath("left_door")
-right_door = NodePath("right_door")
+[node name="Panel" parent="Interface/NinePatchRect/Puzzle" index="3"]
 offset_x = 400.0
 
 [node name="left_door" parent="Interface/NinePatchRect/Puzzle/Panel" index="0"]

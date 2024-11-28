@@ -43,9 +43,11 @@ border_blend = true
 offset_left = 1080.0
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
+mouse_filter = 1
 texture = ExtResource("1_ib444")
 region_rect = Rect2(0, 0, 840, 1080)
 
@@ -76,6 +78,7 @@ text = "TOOL_BAR_TEST:"
 [node name="BG" type="Panel" parent="NinePatchRect/HP_Tools"]
 z_index = 5
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2qjqu")
 
 [node name="Puzzle" type="MarginContainer" parent="NinePatchRect"]
@@ -87,24 +90,28 @@ metadata/_edit_lock_ = true
 
 [node name="BG" type="Panel" parent="NinePatchRect/Puzzle"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_04fy2")
 
 [node name="TextureRect" type="TextureRect" parent="NinePatchRect/Puzzle"]
 z_index = 10
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_xhol5")
 
-[node name="Panel" type="Node2D" parent="NinePatchRect/Puzzle"]
+[node name="Panel" type="Node2D" parent="NinePatchRect/Puzzle" node_paths=PackedStringArray("left_door", "right_door")]
 z_index = 18
 script = ExtResource("3_ywim3")
+left_door = NodePath("left_door")
+right_door = NodePath("right_door")
 
 [node name="left_door" type="Sprite2D" parent="NinePatchRect/Puzzle/Panel"]
-position = Vector2(584, 680)
+position = Vector2(592, 368)
 scale = Vector2(355, 723)
 texture = SubResource("PlaceholderTexture2D_nialk")
 
 [node name="right_door" type="Sprite2D" parent="NinePatchRect/Puzzle/Panel"]
-position = Vector2(216, 656)
+position = Vector2(232, 368)
 scale = Vector2(385, 723)
 texture = SubResource("PlaceholderTexture2D_byl6i")
 
@@ -117,11 +124,13 @@ anchor_right = 1.0
 anchor_bottom = 0.222222
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="BG" type="Panel" parent="NinePatchRect/Menus"]
 z_index = 5
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sjmi4")
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect/Menus"]
