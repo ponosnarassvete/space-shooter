@@ -9,14 +9,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlh8u"]
 size = Vector2(1080, 1080)
 
-[node name="Tool" type="Node"]
+[node name="Tool" type="Node" node_paths=PackedStringArray("tool_use_area")]
 script = ExtResource("1_rid70")
+tool_use_area = NodePath("Tool_Use_Area")
 
 [node name="Tool_Use_Area" type="Area2D" parent="."]
+z_index = 20
 
 [node name="Use_Area_Collision" type="CollisionShape2D" parent="Tool_Use_Area"]
 position = Vector2(540, 540)
 shape = SubResource("RectangleShape2D_xlh8u")
+metadata/_edit_lock_ = true
 
 [node name="Grabber" type="Node" parent="."]
 script = ExtResource("2_g0pnj")
@@ -29,3 +32,6 @@ script = ExtResource("4_d3au7")
 
 [node name="Attack" type="Node" parent="."]
 script = ExtResource("5_7gd2m")
+
+[connection signal="input_event" from="Tool_Use_Area" to="." method="_on_use_input_event"]
+[connection signal="mouse_entered" from="Tool_Use_Area" to="." method="_on_tool_use_area_mouse_entered"]

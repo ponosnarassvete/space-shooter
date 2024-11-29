@@ -72,6 +72,7 @@ size = Vector3(1588, 2, 1034)
 material = SubResource("StandardMaterial3D_5twe8")
 
 [node name="Cursor" parent="SubViewportContainer" instance=ExtResource("5_8ts1k")]
+z_index = 100
 
 [node name="Projection_3D" type="Node3D" parent="SubViewportContainer/Cursor" node_paths=PackedStringArray("camera")]
 script = ExtResource("6_wdeo8")

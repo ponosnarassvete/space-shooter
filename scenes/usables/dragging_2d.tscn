@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/dragging_2d.gd" id="1_2mtsl"]
 
 [node name="Dragging_2D" type="Area2D"]
-disable_mode = 2
 collision_priority = 5.0
 script = ExtResource("1_2mtsl")
 
