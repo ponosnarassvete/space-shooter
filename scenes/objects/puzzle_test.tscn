@@ -15,6 +15,7 @@ script = ExtResource("1_ac74t")
 id = 1
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
+visible = false
 position = Vector2(1508, 649)
 id = 12000
 

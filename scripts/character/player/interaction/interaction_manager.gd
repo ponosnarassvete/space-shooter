@@ -7,7 +7,7 @@ extends Node
 @export var offset_x: float = 0.0
 @export var offset_y: float = 0.0
 
-const base_text = "[E]"
+const base_text = "[F]"
 
 var active_areas = []
 var can_interact = true

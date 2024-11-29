@@ -3,5 +3,5 @@ extends Node
 
 signal used
 
-func tool_used(target: Node):
-	used.emit(target)
+func tool_used():
+	used.emit()

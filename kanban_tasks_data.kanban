@@ -11,7 +11,6 @@
 			"uuid": "db39e15f-3d63-4966-8e97-f6f3ddd4759f",
 			"title": "Todo",
 			"tasks": [
-				"e3eef252-76c2-4eed-a104-73e741229081",
 				"3a77ded1-6d6c-4a5c-9e3d-d156c7e03d1f",
 				"fc34cb35-59b0-4ce1-85f6-9292aba0ee00",
 				"a98de2ba-e786-4b87-84d4-458ba84c398a",
@@ -32,6 +31,7 @@
 			"uuid": "443f18f2-331d-49fc-aa1b-c8902b72422a",
 			"title": "Doing",
 			"tasks": [
+				"e3eef252-76c2-4eed-a104-73e741229081",
 				"3770f281-2d6c-4955-97c2-ed7ef3754159",
 				"5e593c5b-052e-4025-b781-098eff742968",
 				"a19f3ca5-a38d-458f-a333-780eed724457",
@@ -80,7 +80,16 @@
 			"title": "Player - Tools",
 			"description": "",
 			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"steps": [
+				{
+					"details": "Manager",
+					"done": true
+				},
+				{
+					"details": "Adding and Removing",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "c13714c3-355e-48fe-9e32-71163cab83e1",

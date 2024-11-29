@@ -11,7 +11,6 @@ var init: bool = false
 
 func _process(delta: float) -> void:
 	if init:
-		print("init_sesamed")
 		left_door.global_position.x = move_toward(left_door.global_position.x, left_target_position, offset_speed)
 		right_door.global_position.x = move_toward(right_door.global_position.x, right_target_position, offset_speed)
 		if left_door.global_position.x == left_target_position and right_door.global_position.x == right_target_position:
