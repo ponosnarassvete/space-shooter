@@ -32,10 +32,10 @@
 			"title": "Doing",
 			"tasks": [
 				"e3eef252-76c2-4eed-a104-73e741229081",
+				"6af61c23-5f7e-40d7-9849-d4f5aecf043f",
 				"3770f281-2d6c-4955-97c2-ed7ef3754159",
 				"5e593c5b-052e-4025-b781-098eff742968",
 				"a19f3ca5-a38d-458f-a333-780eed724457",
-				"6af61c23-5f7e-40d7-9849-d4f5aecf043f",
 				"c13714c3-355e-48fe-9e32-71163cab83e1",
 				"8938c756-20cf-4217-bd14-89af59a5e178",
 				"2a91f55f-92fe-4c5e-8912-3828e1881ebb",
@@ -73,7 +73,20 @@
 			"title": "Player - Interaction",
 			"description": "",
 			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"steps": [
+				{
+					"details": "Interaction Manager",
+					"done": true
+				},
+				{
+					"details": "Distance based Label",
+					"done": false
+				},
+				{
+					"details": "Interaction Area",
+					"done": true
+				}
+			]
 		},
 		{
 			"uuid": "e3eef252-76c2-4eed-a104-73e741229081",

@@ -21,7 +21,7 @@ position = Vector2(540, 540)
 shape = SubResource("RectangleShape2D_xlh8u")
 metadata/_edit_lock_ = true
 
-[node name="Grabber" type="Node" parent="."]
+[node name="Grabber" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("2_g0pnj")
 
 [node name="Hacker" type="Node" parent="."]

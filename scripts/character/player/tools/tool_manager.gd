@@ -6,7 +6,9 @@ signal tool_swapped
 signal tool_added
 signal tool_removed
 
+@export var max_tool_distance: float = 100.0
 @export var tool_use_area: Area2D
+
 var active_tool: String = "Grabber"
 var tool_bar: Array = [] # Grabber
 						 # Repairer

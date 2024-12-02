@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj5lng25t7j6m"]
+[gd_scene load_steps=11 format=3 uid="uid://cj5lng25t7j6m"]
 
 [ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="1_4u4mx"]
 [ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/characters/enemy_test.tscn" id="2_tx3h6"]
@@ -11,6 +11,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5twe8"]
 metallic = 0.65
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s32p2"]
+radius = 2.0
 
 [node name="Core_Scene_Node" type="Node"]
 
@@ -51,7 +54,7 @@ target = NodePath("../../Player_Node/Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4008, -0.0496693, 0)
 
 [node name="Interaction_Area_3D" parent="SubViewportContainer/SubViewport/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
-manager = NodePath("../../../../Interface/Other/Interaction_Manager")
+manager = NodePath("../../../../Other/Interaction_Manager")
 
 [node name="Level" type="Node" parent="SubViewportContainer/SubViewport"]
 
@@ -78,6 +81,11 @@ z_index = 100
 script = ExtResource("6_wdeo8")
 camera = NodePath("../../SubViewport/Characters/Player_Node/Player_Camera")
 
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/Cursor/Projection_3D"]
+
+[node name="Using_Area" type="CollisionShape3D" parent="SubViewportContainer/Cursor/Projection_3D/Area3D"]
+shape = SubResource("SphereShape3D_s32p2")
+
 [node name="Interface" parent="." instance=ExtResource("7_1wt61")]
 
 [node name="TextureRect" parent="Interface/NinePatchRect/Puzzle" index="1"]
@@ -99,10 +107,10 @@ position = Vector2(232, 416)
 offset_right = 0.000244141
 offset_bottom = 0.000244141
 
-[node name="Other" type="Node" parent="Interface"]
+[node name="Other" type="Node" parent="."]
 
-[node name="Interaction_Manager" parent="Interface/Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
-player = NodePath("../../../SubViewportContainer/SubViewport/Characters/Player_Node/Player")
+[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
+player = NodePath("../../SubViewportContainer/SubViewport/Characters/Player_Node/Player")
 offset_x = 6.0
 offset_y = 6.0
 
