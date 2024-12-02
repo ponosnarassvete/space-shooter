@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0ysp312e6uet"]
+[gd_scene load_steps=12 format=3 uid="uid://c0ysp312e6uet"]
 
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_sprint_2d.gd" id="6_q021n"]
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_direction_2d.gd" id="6_qvitp"]
 [ext_resource type="Script" path="res://scripts/looking_3d.gd" id="8_lg3rr"]
-[ext_resource type="PackedScene" uid="uid://gyay4cb8l13l" path="res://scenes/characters/player/tool.tscn" id="8_pdk4p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g6qun"]
 
@@ -62,5 +61,3 @@ input = NodePath("../Movement_Input")
 [node name="Looking_3D" type="Node" parent="Player_Other" node_paths=PackedStringArray("actor")]
 script = ExtResource("8_lg3rr")
 actor = NodePath("../../Player")
-
-[node name="Tool" parent="Player_Other" instance=ExtResource("8_pdk4p")]

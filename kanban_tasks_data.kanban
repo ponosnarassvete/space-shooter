@@ -101,6 +101,10 @@
 				{
 					"details": "Adding and Removing",
 					"done": false
+				},
+				{
+					"details": "Using Tools",
+					"done": false
 				}
 			]
 		},

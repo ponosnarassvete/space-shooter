@@ -24,14 +24,18 @@ metadata/_edit_lock_ = true
 [node name="Grabber" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("2_g0pnj")
 
-[node name="Hacker" type="Node" parent="."]
+[node name="Hacker" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("3_ujlyd")
 
-[node name="Repair" type="Node" parent="."]
+[node name="Repair" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("4_d3au7")
 
-[node name="Attack" type="Node" parent="."]
+[node name="Attack" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("5_7gd2m")
 
+[connection signal="tool_used" from="." to="Grabber" method="tool_used"]
+[connection signal="tool_used" from="." to="Hacker" method="tool_used"]
+[connection signal="tool_used" from="." to="Repair" method="tool_used"]
+[connection signal="tool_used" from="." to="Attack" method="tool_used"]
 [connection signal="input_event" from="Tool_Use_Area" to="." method="_on_use_input_event"]
 [connection signal="mouse_entered" from="Tool_Use_Area" to="." method="_on_tool_use_area_mouse_entered"]
