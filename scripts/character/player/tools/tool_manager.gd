@@ -8,7 +8,7 @@ signal tool_removed
 
 @export var player: CharacterBody3D
 @export var using_area: Area3D
-@export var max_tool_distance: float = 100.0
+@export var max_tool_distance: float = 5.0
 @export var tool_use_area: Area2D
 
 var target_list: Array = []
@@ -45,7 +45,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("player_shoot"):
 		var mouse_pos = get_viewport().get_mouse_position()
 		if tool_use_area.get_viewport_rect().has_point(mouse_pos):
-			if Vector3(using_area.global_position).distance_to(player.global_position) and !target_list.is_empty():
+			if using_area.global_position.distance_to(player.global_position) <= max_tool_distance and !target_list.is_empty():
 				tool_used.emit(target_list[0])
 				print("tool_used_", active_tool)
 

@@ -5,7 +5,7 @@ extends Sprite2D
 @export var child_offset: float = 500.0
 @export var amount: int = 5
 @export var id: int = -1
-var z_index_count = 0
+var z_index_count = self.z_index
 var id_count = 0
 
 
