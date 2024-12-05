@@ -2,8 +2,28 @@
 	"categories": [
 		{
 			"uuid": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"title": "Task",
-			"color": "70bafa"
+			"title": "Godot",
+			"color": "c75fcd"
+		},
+		{
+			"uuid": "50afa017-6d3b-49f4-aa34-439201f680e4",
+			"title": "Blender",
+			"color": "7b8fff"
+		},
+		{
+			"uuid": "4b7912f8-edc3-4132-9e2c-beff184249a7",
+			"title": "Photoshop",
+			"color": "929292"
+		},
+		{
+			"uuid": "8d7ae2e1-30c2-483a-b668-9e21dcab5795",
+			"title": "Reaper",
+			"color": "c65258"
+		},
+		{
+			"uuid": "d808c636-d333-41a5-9052-d93933560312",
+			"title": "Non-Software",
+			"color": "499358"
 		}
 	],
 	"stages": [
@@ -11,36 +31,32 @@
 			"uuid": "db39e15f-3d63-4966-8e97-f6f3ddd4759f",
 			"title": "Todo",
 			"tasks": [
-				"3a77ded1-6d6c-4a5c-9e3d-d156c7e03d1f",
-				"fc34cb35-59b0-4ce1-85f6-9292aba0ee00",
-				"a98de2ba-e786-4b87-84d4-458ba84c398a",
-				"ba129fe7-b64d-4548-95c0-b5d32aa401fe",
-				"50356c15-c621-404e-be87-7cffc32a8787",
 				"12497c7b-5308-4a1c-b4ea-1f124b6bd09f",
-				"d73ff93c-8b8f-4c17-8be5-69a7d0a7f508",
+				"75bd2d81-976a-4ea4-9e8d-30cdf868f9f5",
+				"13f9db48-c900-435b-bf5e-92fc53f3c568",
+				"24794f68-ee58-4dd2-91bc-b9c0488ab24b",
 				"bb6d9867-c92f-4c76-9d94-248028c97074",
 				"15fee465-79fa-4a24-8558-7dba97bd82ad",
 				"819fc529-bf4e-4a42-8efe-a61dd416c790",
-				"9e52ae5e-b428-4505-a85a-4be20c0ec2c3",
-				"13f9db48-c900-435b-bf5e-92fc53f3c568",
-				"75bd2d81-976a-4ea4-9e8d-30cdf868f9f5",
-				"24794f68-ee58-4dd2-91bc-b9c0488ab24b"
+				"3a77ded1-6d6c-4a5c-9e3d-d156c7e03d1f",
+				"d73ff93c-8b8f-4c17-8be5-69a7d0a7f508",
+				"ba129fe7-b64d-4548-95c0-b5d32aa401fe",
+				"fc34cb35-59b0-4ce1-85f6-9292aba0ee00",
+				"50356c15-c621-404e-be87-7cffc32a8787",
+				"a98de2ba-e786-4b87-84d4-458ba84c398a",
+				"9e52ae5e-b428-4505-a85a-4be20c0ec2c3"
 			]
 		},
 		{
 			"uuid": "443f18f2-331d-49fc-aa1b-c8902b72422a",
 			"title": "Doing",
 			"tasks": [
-				"e3eef252-76c2-4eed-a104-73e741229081",
-				"6af61c23-5f7e-40d7-9849-d4f5aecf043f",
-				"3770f281-2d6c-4955-97c2-ed7ef3754159",
 				"5e593c5b-052e-4025-b781-098eff742968",
-				"a19f3ca5-a38d-458f-a333-780eed724457",
-				"c13714c3-355e-48fe-9e32-71163cab83e1",
 				"8938c756-20cf-4217-bd14-89af59a5e178",
-				"2a91f55f-92fe-4c5e-8912-3828e1881ebb",
 				"7ed4bfd7-e9c0-4ddb-b083-2a2f0c94d307",
-				"aa251b3f-7c8d-4073-bb54-63131dcaa9d9"
+				"3770f281-2d6c-4955-97c2-ed7ef3754159",
+				"aa251b3f-7c8d-4073-bb54-63131dcaa9d9",
+				"c13714c3-355e-48fe-9e32-71163cab83e1"
 			]
 		},
 		{
@@ -49,7 +65,11 @@
 			"tasks": [
 				"a67f9702-43cd-48f5-9e6b-19129ffee7aa",
 				"d3513a22-bf34-46ee-ad89-0763cce0c627",
-				"ec12b7fe-3ab7-4203-ab37-013c393ccc70"
+				"ec12b7fe-3ab7-4203-ab37-013c393ccc70",
+				"e3eef252-76c2-4eed-a104-73e741229081",
+				"6af61c23-5f7e-40d7-9849-d4f5aecf043f",
+				"a19f3ca5-a38d-458f-a333-780eed724457",
+				"2a91f55f-92fe-4c5e-8912-3828e1881ebb"
 			]
 		}
 	],
@@ -58,7 +78,7 @@
 			"uuid": "fc34cb35-59b0-4ce1-85f6-9292aba0ee00",
 			"title": "Player - Animation",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
 			"steps": []
 		},
 		{
@@ -112,7 +132,7 @@
 			"uuid": "c13714c3-355e-48fe-9e32-71163cab83e1",
 			"title": "Player - Model",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
 			"steps": []
 		},
 		{
@@ -120,20 +140,33 @@
 			"title": "Player - Health",
 			"description": "",
 			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"steps": [
+				{
+					"details": "Health node",
+					"done": true
+				},
+				{
+					"details": "Connection with Hit Box",
+					"done": true
+				},
+				{
+					"details": "General Hit Box",
+					"done": true
+				}
+			]
 		},
 		{
 			"uuid": "3a77ded1-6d6c-4a5c-9e3d-d156c7e03d1f",
 			"title": "Player - Audio",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "8d7ae2e1-30c2-483a-b668-9e21dcab5795",
 			"steps": []
 		},
 		{
 			"uuid": "50356c15-c621-404e-be87-7cffc32a8787",
 			"title": "Enemy - Animation",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
 			"steps": []
 		},
 		{
@@ -155,27 +188,36 @@
 			"title": "Enemy - Attack",
 			"description": "",
 			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"steps": [
+				{
+					"details": "Range attack",
+					"done": false
+				},
+				{
+					"details": "Close attack",
+					"done": true
+				}
+			]
 		},
 		{
 			"uuid": "a98de2ba-e786-4b87-84d4-458ba84c398a",
 			"title": "Enemy - Model",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
 			"steps": []
 		},
 		{
 			"uuid": "ba129fe7-b64d-4548-95c0-b5d32aa401fe",
 			"title": "Enemy - Audio",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "8d7ae2e1-30c2-483a-b668-9e21dcab5795",
 			"steps": []
 		},
 		{
 			"uuid": "d73ff93c-8b8f-4c17-8be5-69a7d0a7f508",
-			"title": "Puzzle - Auido",
+			"title": "Puzzle - Audio",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "8d7ae2e1-30c2-483a-b668-9e21dcab5795",
 			"steps": []
 		},
 		{
@@ -203,8 +245,25 @@
 			"uuid": "3770f281-2d6c-4955-97c2-ed7ef3754159",
 			"title": "Puzzle - Graphics",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"category": "4b7912f8-edc3-4132-9e2c-beff184249a7",
+			"steps": [
+				{
+					"details": "Model",
+					"done": false
+				},
+				{
+					"details": "Trash Textures",
+					"done": false
+				},
+				{
+					"details": "Wires",
+					"done": false
+				},
+				{
+					"details": "Background",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "24794f68-ee58-4dd2-91bc-b9c0488ab24b",
@@ -217,7 +276,7 @@
 			"uuid": "bb6d9867-c92f-4c76-9d94-248028c97074",
 			"title": "Level - Design",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "d808c636-d333-41a5-9052-d93933560312",
 			"steps": []
 		},
 		{
@@ -231,14 +290,14 @@
 			"uuid": "819fc529-bf4e-4a42-8efe-a61dd416c790",
 			"title": "Level - Textures",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "4b7912f8-edc3-4132-9e2c-beff184249a7",
 			"steps": []
 		},
 		{
 			"uuid": "9e52ae5e-b428-4505-a85a-4be20c0ec2c3",
 			"title": "Level - Assets",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
 			"steps": []
 		},
 		{
@@ -252,21 +311,42 @@
 			"uuid": "75bd2d81-976a-4ea4-9e8d-30cdf868f9f5",
 			"title": "UI - Cut-Scenes",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
 			"steps": []
 		},
 		{
 			"uuid": "7ed4bfd7-e9c0-4ddb-b083-2a2f0c94d307",
 			"title": "UI - In-game GUI",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"category": "4b7912f8-edc3-4132-9e2c-beff184249a7",
+			"steps": [
+				{
+					"details": "Base",
+					"done": true
+				},
+				{
+					"details": "Health",
+					"done": true
+				},
+				{
+					"details": "Tools",
+					"done": false
+				},
+				{
+					"details": "Buttons",
+					"done": false
+				},
+				{
+					"details": "General Area",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "aa251b3f-7c8d-4073-bb54-63131dcaa9d9",
 			"title": "UI - Graphics",
 			"description": "",
-			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
+			"category": "4b7912f8-edc3-4132-9e2c-beff184249a7",
 			"steps": []
 		}
 	],

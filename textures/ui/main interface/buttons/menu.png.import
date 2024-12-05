@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kvd7223kc4og"
-path="res://.godot/imported/swap.png-3bc897c1ce06b890dac1fb540ca0c556.ctex"
+uid="uid://dukhygl1c8uus"
+path="res://.godot/imported/menu.png-7e148c461b2a168f00d653bc86d7e3c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ui/swap.png"
-dest_files=["res://.godot/imported/swap.png-3bc897c1ce06b890dac1fb540ca0c556.ctex"]
+source_file="res://textures/ui/main interface/buttons/menu.png"
+dest_files=["res://.godot/imported/menu.png-7e148c461b2a168f00d653bc86d7e3c9.ctex"]
 
 [params]
 

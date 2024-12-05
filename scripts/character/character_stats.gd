@@ -1,0 +1,2 @@
+class_name Character_Stats
+extends Resource

@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmw6j72tvj6wm"]
+[gd_scene load_steps=16 format=3 uid="uid://cmw6j72tvj6wm"]
 
-[ext_resource type="Texture2D" uid="uid://ccdftwsqpmssk" path="res://textures/ui/Interface_Test.png" id="1_ib444"]
-[ext_resource type="Texture2D" uid="uid://dukhygl1c8uus" path="res://textures/ui/menu.png" id="2_6mw11"]
-[ext_resource type="Texture2D" uid="uid://c6a7gj0ghf4vu" path="res://textures/ui/puzzle_fg.png" id="2_xhol5"]
-[ext_resource type="Texture2D" uid="uid://xp12wym37u45" path="res://textures/ui/log.png" id="3_imiq7"]
+[ext_resource type="Texture2D" uid="uid://ccdftwsqpmssk" path="res://textures/ui/main interface/Interface_Test.png" id="1_ib444"]
+[ext_resource type="Texture2D" uid="uid://dukhygl1c8uus" path="res://textures/ui/main interface/buttons/menu.png" id="2_6mw11"]
+[ext_resource type="Texture2D" uid="uid://l2p3o2nvsfuf" path="res://textures/ui/health/background.png" id="2_jaoud"]
+[ext_resource type="Texture2D" uid="uid://c6a7gj0ghf4vu" path="res://textures/ui/main interface/puzzle_fg.png" id="2_xhol5"]
+[ext_resource type="Texture2D" uid="uid://c6nmkd0mccc63" path="res://textures/ui/health/foreground.png" id="3_44va7"]
+[ext_resource type="Texture2D" uid="uid://xp12wym37u45" path="res://textures/ui/main interface/buttons/log.png" id="3_imiq7"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/open_sessame.gd" id="3_ywim3"]
-[ext_resource type="Texture2D" uid="uid://dbj263y1e1fpd" path="res://textures/ui/pause.png" id="4_bfbxc"]
-[ext_resource type="Texture2D" uid="uid://kvd7223kc4og" path="res://textures/ui/swap.png" id="5_aslnl"]
+[ext_resource type="Texture2D" uid="uid://dbj263y1e1fpd" path="res://textures/ui/main interface/buttons/pause.png" id="4_bfbxc"]
+[ext_resource type="Texture2D" uid="uid://bfkgbq4sbjsoj" path="res://textures/ui/health/fill.png" id="4_mc54y"]
+[ext_resource type="Texture2D" uid="uid://kvd7223kc4og" path="res://textures/ui/main interface/buttons/swap.png" id="5_aslnl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qjqu"]
 bg_color = Color(0.0394837, 0.0128438, 0.153247, 1)
@@ -59,27 +62,39 @@ offset_bottom = 240.0
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="HBoxContainer" parent="NinePatchRect/HP_Tools"]
+visible = false
 z_index = 5
 layout_mode = 2
 alignment = 1
 
 [node name="HP_Bar" type="Label" parent="NinePatchRect/HP_Tools/VBoxContainer"]
+visible = false
 z_index = 6
 layout_mode = 2
 size_flags_horizontal = 4
 text = "HP_BAR_TEST:"
 
 [node name="Tool_Bar" type="Label" parent="NinePatchRect/HP_Tools/VBoxContainer"]
+visible = false
 z_index = 6
 layout_mode = 2
 size_flags_horizontal = 4
 text = "TOOL_BAR_TEST:"
 
 [node name="BG" type="Panel" parent="NinePatchRect/HP_Tools"]
+visible = false
 z_index = 5
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_2qjqu")
+
+[node name="Health_Bar" type="TextureProgressBar" parent="NinePatchRect/HP_Tools"]
+z_index = 30
+layout_mode = 2
+step = 0.0
+texture_under = ExtResource("2_jaoud")
+texture_over = ExtResource("3_44va7")
+texture_progress = ExtResource("4_mc54y")
 
 [node name="Puzzle" type="MarginContainer" parent="NinePatchRect"]
 layout_mode = 0

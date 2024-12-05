@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dynn0mgf56ht4"]
+[gd_scene load_steps=15 format=3 uid="uid://dynn0mgf56ht4"]
 
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_d1jqr"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="2_4aboo"]
+[ext_resource type="Script" path="res://scripts/character/hit_area.gd" id="2_g5uk6"]
+[ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/usables/hit_area.tscn" id="3_euffo"]
 [ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_w5htc"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="4_jhohf"]
 [ext_resource type="Script" path="res://scripts/character/enemy/states/chase/topdown_enemy_chase_3d.gd" id="5_lbtpx"]
@@ -11,9 +13,9 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_m455x"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8cu0o"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ymjod"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8cu0o"]
 
 [sub_resource type="Resource" id="Resource_yqc7b"]
 script = ExtResource("2_4aboo")
@@ -25,7 +27,7 @@ ACCELERATION = 0.5
 script = ExtResource("3_w5htc")
 FRICTION = 2
 
-[node name="Enemy_Node" type="Node"]
+[node name="Enemy_Node" type="Node3D"]
 
 [node name="Enemy" type="CharacterBody3D" parent="."]
 collision_layer = 2
@@ -36,21 +38,22 @@ shape = SubResource("BoxShape3D_835eu")
 [node name="Enemy_Mesh" type="MeshInstance3D" parent="Enemy"]
 mesh = SubResource("SphereMesh_m455x")
 
-[node name="Enemy_Hit_Area" type="Area3D" parent="Enemy"]
-collision_layer = 0
-
-[node name="Hit_Collision" type="CollisionShape3D" parent="Enemy/Enemy_Hit_Area"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_8cu0o")
-
 [node name="Enemy_Detection_Area" type="Area3D" parent="Enemy"]
 collision_layer = 0
+script = ExtResource("2_g5uk6")
 
 [node name="Detection_Collision" type="CollisionShape3D" parent="Enemy/Enemy_Detection_Area"]
 transform = Transform3D(3.53553, -3.53553, 0, 2.5, 2.5, -3.53553, 2.5, 2.5, 3.53553, 0, 0.5, 5)
 shape = SubResource("BoxShape3D_ymjod")
 
 [node name="Enemy_Navigation_Agent" type="NavigationAgent3D" parent="Enemy"]
+
+[node name="Enemy_Hit_Area" parent="Enemy" instance=ExtResource("3_euffo")]
+hittable = false
+
+[node name="Hit_Collision" type="CollisionShape3D" parent="Enemy/Enemy_Hit_Area"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_8cu0o")
 
 [node name="Movement_Input" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("1_d1jqr")

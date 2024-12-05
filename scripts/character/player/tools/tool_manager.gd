@@ -19,8 +19,8 @@ var tool_bar: Array = [] # Grabber
 						 # Attacker
 
 func _ready() -> void:
-	using_area = $"../../SubViewportContainer/Cursor/Projection_3D/Using_Area"
-	player = $"../../SubViewportContainer/SubViewport/Characters/Player_Node/Player"
+	if using_area == null: using_area = $"../Cursor/Projection_3D/Using_Area"
+	if player == null: player = $"../../3D_Viewport/SubViewport/Characters/Player_Node/Player"
 	for node in get_tree().get_nodes_in_group("Active_Tool"):
 		tool_bar.push_back(node.name)
 

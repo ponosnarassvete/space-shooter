@@ -19,53 +19,56 @@ metallic = 0.65
 
 [node name="Core_Scene_Node" type="Node"]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="3D_Viewport" type="SubViewportContainer" parent="."]
 z_index = 20
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="3D_Viewport"]
 handle_input_locally = false
 size = Vector2i(1080, 1080)
 render_target_update_mode = 4
 
-[node name="Characters" type="Node" parent="SubViewportContainer/SubViewport"]
+[node name="Characters" type="Node" parent="3D_Viewport/SubViewport"]
 
-[node name="Player_Node" parent="SubViewportContainer/SubViewport/Characters" instance=ExtResource("1_4u4mx")]
+[node name="Player_Node" parent="3D_Viewport/SubViewport/Characters" instance=ExtResource("1_4u4mx")]
 
-[node name="Player_Camera" parent="SubViewportContainer/SubViewport/Characters/Player_Node" index="1"]
+[node name="Player_Camera" parent="3D_Viewport/SubViewport/Characters/Player_Node" index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
 current = true
 fov = 30.0
 
-[node name="Looking_3D" parent="SubViewportContainer/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
-target = NodePath("../../../../../Cursor/Projection_3D")
+[node name="Health" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Health" index="0" node_paths=PackedStringArray("texture_progress")]
+texture_progress = NodePath("../../../../../../2D_Viewport/NinePatchRect/HP_Tools/Health_Bar")
 
-[node name="Enemy_Node" parent="SubViewportContainer/SubViewport/Characters" instance=ExtResource("2_tx3h6")]
+[node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
+target = NodePath("../../../../../../Other/Cursor/Projection_3D")
 
-[node name="Enemy" parent="SubViewportContainer/SubViewport/Characters/Enemy_Node" index="0"]
+[node name="Enemy_Node" parent="3D_Viewport/SubViewport/Characters" instance=ExtResource("2_tx3h6")]
+
+[node name="Enemy" parent="3D_Viewport/SubViewport/Characters/Enemy_Node" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
 
-[node name="Enemy_Chase" parent="SubViewportContainer/SubViewport/Characters/Enemy_Node" index="3" node_paths=PackedStringArray("target")]
+[node name="Enemy_Chase" parent="3D_Viewport/SubViewport/Characters/Enemy_Node" index="3" node_paths=PackedStringArray("target")]
 target = NodePath("../../Player_Node/Player")
 
-[node name="Looking_3D" parent="SubViewportContainer/SubViewport/Characters/Enemy_Node" index="4" node_paths=PackedStringArray("target")]
+[node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Enemy_Node" index="4" node_paths=PackedStringArray("target")]
 target = NodePath("../../Player_Node/Player")
 
-[node name="Puzzle_Box_Test" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_8oj8i")]
+[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport" instance=ExtResource("3_8oj8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4008, -0.0496693, 0)
 
-[node name="Interaction_Area_3D" parent="SubViewportContainer/SubViewport/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
+[node name="Interaction_Area_3D" parent="3D_Viewport/SubViewport/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
 manager = NodePath("../../../../Other/Interaction_Manager")
 
-[node name="Using_Area" parent="SubViewportContainer/SubViewport/Puzzle_Box_Test" instance=ExtResource("4_tnyqm")]
+[node name="Using_Area" parent="3D_Viewport/SubViewport/Puzzle_Box_Test" instance=ExtResource("4_tnyqm")]
 
-[node name="Using_Area_Collision" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Puzzle_Box_Test/Using_Area"]
+[node name="Using_Area_Collision" type="CollisionShape3D" parent="3D_Viewport/SubViewport/Puzzle_Box_Test/Using_Area"]
 shape = SubResource("SphereShape3D_s32p2")
 
-[node name="Level" type="Node" parent="SubViewportContainer/SubViewport"]
+[node name="Level" type="Node" parent="3D_Viewport/SubViewport"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Level"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3D_Viewport/SubViewport/Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4592, 409.28, 1182.51)
 light_energy = 3.0
 light_angular_distance = 20.0
@@ -74,67 +77,69 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 2208.0
 directional_shadow_pancake_size = 36.0
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="SubViewportContainer/SubViewport/Level"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="3D_Viewport/SubViewport/Level"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Level/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.5, -0.5)
 size = Vector3(1588, 2, 1034)
 material = SubResource("StandardMaterial3D_5twe8")
 
-[node name="Cursor" parent="SubViewportContainer" instance=ExtResource("5_8ts1k")]
-z_index = 100
+[node name="2D_Viewport" parent="." instance=ExtResource("7_1wt61")]
 
-[node name="Projection_3D" type="Node3D" parent="SubViewportContainer/Cursor" node_paths=PackedStringArray("camera")]
-script = ExtResource("6_wdeo8")
-camera = NodePath("../../SubViewport/Characters/Player_Node/Player_Camera")
-
-[node name="Using_Area" type="Area3D" parent="SubViewportContainer/Cursor/Projection_3D"]
-collision_layer = 16
-collision_mask = 16
-
-[node name="Using_Area_Collision" type="CollisionShape3D" parent="SubViewportContainer/Cursor/Projection_3D/Using_Area"]
-shape = SubResource("SphereShape3D_s32p2")
-
-[node name="Interface" parent="." instance=ExtResource("7_1wt61")]
-
-[node name="TextureRect" parent="Interface/NinePatchRect/Puzzle" index="1"]
+[node name="TextureRect" parent="2D_Viewport/NinePatchRect/Puzzle" index="1"]
 z_index = 19
 
-[node name="Puzzle_Test" parent="Interface/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
-interaction_area = NodePath("../../../../SubViewportContainer/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
+[node name="Puzzle_Test" parent="2D_Viewport/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
+interaction_area = NodePath("../../../../3D_Viewport/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
 
-[node name="Panel" parent="Interface/NinePatchRect/Puzzle" index="3"]
+[node name="Panel" parent="2D_Viewport/NinePatchRect/Puzzle" index="3"]
 offset_x = 400.0
 
-[node name="left_door" parent="Interface/NinePatchRect/Puzzle/Panel" index="0"]
+[node name="left_door" parent="2D_Viewport/NinePatchRect/Puzzle/Panel" index="0"]
 position = Vector2(600, 416)
 
-[node name="right_door" parent="Interface/NinePatchRect/Puzzle/Panel" index="1"]
+[node name="right_door" parent="2D_Viewport/NinePatchRect/Puzzle/Panel" index="1"]
 position = Vector2(232, 416)
 
-[node name="Menus" parent="Interface/NinePatchRect" index="2"]
+[node name="Menus" parent="2D_Viewport/NinePatchRect" index="2"]
 offset_right = 0.000244141
 offset_bottom = 0.000244141
 
 [node name="Other" type="Node" parent="."]
 
 [node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
-player = NodePath("../../SubViewportContainer/SubViewport/Characters/Player_Node/Player")
+player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
 offset_x = 6.0
 offset_y = 6.0
 
-[node name="Tool_Manager" parent="Other" instance=ExtResource("9_cifd6")]
+[node name="Tool_Manager" parent="Other" node_paths=PackedStringArray("player", "using_area") instance=ExtResource("9_cifd6")]
+player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
+using_area = NodePath("../Cursor/Projection_3D/Using_Area")
 
-[connection signal="used" from="SubViewportContainer/SubViewport/Puzzle_Box_Test/Using_Area" to="SubViewportContainer/SubViewport/Puzzle_Box_Test" method="activate_interaction"]
-[connection signal="area_entered" from="SubViewportContainer/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_add"]
-[connection signal="area_exited" from="SubViewportContainer/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_remove"]
-[connection signal="sesame" from="Interface/NinePatchRect/Puzzle/Puzzle_Test" to="Interface/NinePatchRect/Puzzle/Panel" method="sesame"]
+[node name="Cursor" parent="Other" instance=ExtResource("5_8ts1k")]
+z_index = 100
+
+[node name="Projection_3D" type="Node3D" parent="Other/Cursor" node_paths=PackedStringArray("camera")]
+script = ExtResource("6_wdeo8")
+camera = NodePath("../../../3D_Viewport/SubViewport/Characters/Player_Node/Player_Camera")
+
+[node name="Using_Area" type="Area3D" parent="Other/Cursor/Projection_3D"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Using_Area_Collision" type="CollisionShape3D" parent="Other/Cursor/Projection_3D/Using_Area"]
+shape = SubResource("SphereShape3D_s32p2")
+
+[connection signal="used" from="3D_Viewport/SubViewport/Puzzle_Box_Test/Using_Area" to="3D_Viewport/SubViewport/Puzzle_Box_Test" method="activate_interaction"]
+[connection signal="sesame" from="2D_Viewport/NinePatchRect/Puzzle/Puzzle_Test" to="2D_Viewport/NinePatchRect/Puzzle/Panel" method="sesame"]
 [connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Grabber" method="tool_used"]
 [connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Hacker" method="tool_used"]
 [connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Repair" method="tool_used"]
 [connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Attack" method="tool_used"]
+[connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_add"]
+[connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_remove"]
 
-[editable path="SubViewportContainer/SubViewport/Characters/Player_Node"]
-[editable path="SubViewportContainer/SubViewport/Characters/Enemy_Node"]
-[editable path="SubViewportContainer/SubViewport/Puzzle_Box_Test"]
-[editable path="Interface"]
+[editable path="3D_Viewport/SubViewport/Characters/Player_Node"]
+[editable path="3D_Viewport/SubViewport/Characters/Enemy_Node"]
+[editable path="3D_Viewport/SubViewport/Puzzle_Box_Test"]
+[editable path="2D_Viewport"]
