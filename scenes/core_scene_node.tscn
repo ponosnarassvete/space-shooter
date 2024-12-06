@@ -132,10 +132,6 @@ shape = SubResource("SphereShape3D_s32p2")
 
 [connection signal="used" from="3D_Viewport/SubViewport/Puzzle_Box_Test/Using_Area" to="3D_Viewport/SubViewport/Puzzle_Box_Test" method="activate_interaction"]
 [connection signal="sesame" from="2D_Viewport/NinePatchRect/Puzzle/Puzzle_Test" to="2D_Viewport/NinePatchRect/Puzzle/Panel" method="sesame"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Grabber" method="tool_used"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Hacker" method="tool_used"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Repair" method="tool_used"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Attack" method="tool_used"]
 [connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_add"]
 [connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_remove"]
 

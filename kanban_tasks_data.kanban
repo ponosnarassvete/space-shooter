@@ -32,7 +32,6 @@
 			"title": "Todo",
 			"tasks": [
 				"75bd2d81-976a-4ea4-9e8d-30cdf868f9f5",
-				"13f9db48-c900-435b-bf5e-92fc53f3c568",
 				"24794f68-ee58-4dd2-91bc-b9c0488ab24b",
 				"bb6d9867-c92f-4c76-9d94-248028c97074",
 				"15fee465-79fa-4a24-8558-7dba97bd82ad",
@@ -50,6 +49,7 @@
 			"uuid": "443f18f2-331d-49fc-aa1b-c8902b72422a",
 			"title": "Doing",
 			"tasks": [
+				"13f9db48-c900-435b-bf5e-92fc53f3c568",
 				"12497c7b-5308-4a1c-b4ea-1f124b6bd09f",
 				"5e593c5b-052e-4025-b781-098eff742968",
 				"8938c756-20cf-4217-bd14-89af59a5e178",
@@ -305,7 +305,20 @@
 			"title": "UI - Menu",
 			"description": "",
 			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"steps": [
+				{
+					"details": "text",
+					"done": true
+				},
+				{
+					"details": "button function",
+					"done": false
+				},
+				{
+					"details": "fancy button choice",
+					"done": true
+				}
+			]
 		},
 		{
 			"uuid": "75bd2d81-976a-4ea4-9e8d-30cdf868f9f5",
@@ -347,7 +360,16 @@
 			"title": "UI - Graphics",
 			"description": "",
 			"category": "4b7912f8-edc3-4132-9e2c-beff184249a7",
-			"steps": []
+			"steps": [
+				{
+					"details": "filter",
+					"done": true
+				},
+				{
+					"details": "animation",
+					"done": false
+				}
+			]
 		}
 	],
 	"layout": {

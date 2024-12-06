@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Echo//Decommission"
-config/version="021224-pre-alpha"
-run/main_scene="res://scenes/core_scene_node.tscn"
+config/version="061224-pre-alpha"
+run/main_scene="res://scenes/ui/menu/title_screen_scene_node.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
