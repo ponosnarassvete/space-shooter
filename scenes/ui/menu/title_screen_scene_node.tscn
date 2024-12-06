@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://by8ww3g2dyteu"]
 
-[ext_resource type="Theme" uid="uid://drn0qjmea0wo8" path="res://font/themes/default_theme.theme" id="1_p2u1b"]
+[ext_resource type="Theme" uid="uid://drn0qjmea0wo8" path="res://themes/default_theme.theme" id="1_e2dad"]
 [ext_resource type="Shader" path="res://shaders/ui/title_screen.gdshader" id="2_s2bdv"]
 [ext_resource type="Script" path="res://scripts/ui/title/start_buttons.gd" id="3_e1oke"]
 [ext_resource type="Script" path="res://scripts/ui/title/title_button.gd" id="4_ewu6t"]
@@ -44,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_p2u1b")
+theme = ExtResource("1_e2dad")
 
 [node name="Controls" type="ColorRect" parent="."]
 z_index = 10
@@ -118,6 +118,8 @@ layout_mode = 2
 [node name="Start_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Quit_Button")
+focus_neighbor_bottom = NodePath("../Quit_Button")
 theme_override_colors/font_disabled_color = Color(0.133333, 0.8, 0.133333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.133333, 0.666667, 0.133333, 1)
 theme_override_colors/font_hover_color = Color(0.133333, 1, 0.133333, 1)
@@ -134,6 +136,8 @@ alignment = 0
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Start_Button")
+focus_neighbor_bottom = NodePath("../Quit_Button")
 theme_override_colors/font_disabled_color = Color(0.133333, 0.666667, 0.133333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.133333, 1, 0.133333, 1)
 theme_override_colors/font_hover_color = Color(0.133333, 0.8, 0.133333, 1)
@@ -148,6 +152,8 @@ alignment = 0
 [node name="Quit_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Start_Button")
+focus_neighbor_bottom = NodePath("../Start_Button")
 theme_override_colors/font_disabled_color = Color(0.133333, 0.666667, 0.133333, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.133333, 1, 0.133333, 1)
 theme_override_colors/font_hover_color = Color(0.133333, 0.8, 0.133333, 1)

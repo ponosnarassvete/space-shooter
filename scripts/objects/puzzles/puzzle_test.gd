@@ -18,4 +18,4 @@ func puzzle_init():
 		sesame.emit()
 		
 func _ready() -> void:
-	interaction_area.interact = Callable(self, "puzzle_init")
+	if interaction_area != null: interaction_area.interact = Callable(self, "puzzle_init")

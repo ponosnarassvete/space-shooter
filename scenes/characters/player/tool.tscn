@@ -14,7 +14,7 @@ script = ExtResource("1_rid70")
 tool_use_area = NodePath("Tool_Use_Area")
 
 [node name="Tool_Use_Area" type="Area2D" parent="."]
-z_index = 20
+z_index = 100
 
 [node name="Use_Area_Collision" type="CollisionShape2D" parent="Tool_Use_Area"]
 position = Vector2(540, 540)

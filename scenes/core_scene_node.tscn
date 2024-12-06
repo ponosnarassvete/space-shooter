@@ -20,7 +20,7 @@ metallic = 0.65
 [node name="Core_Scene_Node" type="Node"]
 
 [node name="3D_Viewport" type="SubViewportContainer" parent="."]
-z_index = 20
+z_index = 90
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -37,9 +37,6 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
 current = true
 fov = 30.0
-
-[node name="Health" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Health" index="0" node_paths=PackedStringArray("texture_progress")]
-texture_progress = NodePath("../../../../../../2D_Viewport/NinePatchRect/HP_Tools/Health_Bar")
 
 [node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../../../../../Other/Cursor/Projection_3D")
@@ -86,26 +83,11 @@ material = SubResource("StandardMaterial3D_5twe8")
 
 [node name="2D_Viewport" parent="." instance=ExtResource("7_1wt61")]
 
-[node name="TextureRect" parent="2D_Viewport/NinePatchRect/Puzzle" index="1"]
-z_index = 19
-
-[node name="Puzzle_Test" parent="2D_Viewport/NinePatchRect/Puzzle" index="2" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
+[node name="Puzzle_Test" parent="2D_Viewport/Background/Puzzle" index="1" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
 interaction_area = NodePath("../../../../3D_Viewport/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
 
-[node name="Panel" parent="2D_Viewport/NinePatchRect/Puzzle" index="3"]
-offset_x = 400.0
-
-[node name="left_door" parent="2D_Viewport/NinePatchRect/Puzzle/Panel" index="0"]
-position = Vector2(600, 416)
-
-[node name="right_door" parent="2D_Viewport/NinePatchRect/Puzzle/Panel" index="1"]
-position = Vector2(232, 416)
-
-[node name="Menus" parent="2D_Viewport/NinePatchRect" index="2"]
-offset_right = 0.000244141
-offset_bottom = 0.000244141
-
-[node name="Other" type="Node" parent="."]
+[node name="Other" type="Node2D" parent="."]
+z_index = 100
 
 [node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
 player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
@@ -117,7 +99,6 @@ player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
 using_area = NodePath("../Cursor/Projection_3D/Using_Area")
 
 [node name="Cursor" parent="Other" instance=ExtResource("5_8ts1k")]
-z_index = 100
 
 [node name="Projection_3D" type="Node3D" parent="Other/Cursor" node_paths=PackedStringArray("camera")]
 script = ExtResource("6_wdeo8")
@@ -131,7 +112,11 @@ collision_mask = 16
 shape = SubResource("SphereShape3D_s32p2")
 
 [connection signal="used" from="3D_Viewport/SubViewport/Puzzle_Box_Test/Using_Area" to="3D_Viewport/SubViewport/Puzzle_Box_Test" method="activate_interaction"]
-[connection signal="sesame" from="2D_Viewport/NinePatchRect/Puzzle/Puzzle_Test" to="2D_Viewport/NinePatchRect/Puzzle/Panel" method="sesame"]
+[connection signal="sesame" from="2D_Viewport/Background/Puzzle/Puzzle_Test" to="2D_Viewport/Background/Puzzle/Panel" method="sesame"]
+[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Grabber" method="tool_used"]
+[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Hacker" method="tool_used"]
+[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Repair" method="tool_used"]
+[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Attack" method="tool_used"]
 [connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_add"]
 [connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_remove"]
 
