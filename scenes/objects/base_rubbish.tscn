@@ -9,11 +9,13 @@
 size = Vector2(128, 128)
 
 [node name="Base_Rubbish" type="Sprite2D"]
+z_index = 20
 texture_filter = 2
 texture = ExtResource("1_e45g1")
 hframes = 7
 region_rect = Rect2(-1, 1, 130, 126)
 script = ExtResource("2_2516y")
+metadata/_edit_group_ = true
 
 [node name="Dragging_2D" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_s12th")]
 sprite = NodePath("..")

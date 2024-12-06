@@ -11,6 +11,7 @@ size = Vector2(256, 64)
 [node name="Wire" type="Sprite2D"]
 texture = ExtResource("1_e8jxw")
 script = ExtResource("2_gydaj")
+metadata/_edit_group_ = true
 
 [node name="Dragging_2D" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_m5o22")]
 sprite = NodePath("..")

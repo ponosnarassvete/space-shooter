@@ -71,14 +71,15 @@ z_index = 18
 script = ExtResource("3_ywim3")
 left_door = NodePath("left_door")
 right_door = NodePath("right_door")
+offset_x = 400.0
 
 [node name="left_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
-position = Vector2(560, 360)
+position = Vector2(520, 360)
 scale = Vector2(355, 723)
 texture = SubResource("PlaceholderTexture2D_nialk")
 
 [node name="right_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
-position = Vector2(192, 360)
+position = Vector2(152, 360)
 scale = Vector2(385, 723)
 texture = SubResource("PlaceholderTexture2D_byl6i")
 
