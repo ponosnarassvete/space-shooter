@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgrhsvjsrlvq8"]
+
+[ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_box_test.gd" id="1_2arv8"]
+[ext_resource type="PackedScene" uid="uid://coxaj83nk7uj2" path="res://scenes/usables/interaction_area_3d.tscn" id="1_04wwk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5afn"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_12ire"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_olgiq"]
+size = Vector3(3, 3, 3)
+
+[node name="Puzzle_Box_Test" type="Node3D" node_paths=PackedStringArray("interaction_area")]
+script = ExtResource("1_2arv8")
+needed_tool = "Grabbing_Tool"
+interaction_area = NodePath("Interaction_Area_3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="Puzzle_Collision" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_s5afn")
+
+[node name="Puzzle_Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PrismMesh_12ire")
+skeleton = NodePath("../..")
+
+[node name="Interaction_Area_3D" parent="." instance=ExtResource("1_04wwk")]
+
+[node name="Interaction_Collision" type="CollisionShape3D" parent="Interaction_Area_3D"]
+shape = SubResource("BoxShape3D_olgiq")

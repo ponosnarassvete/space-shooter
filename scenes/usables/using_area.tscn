@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2up2rfaarhr"]
+
+[ext_resource type="Script" path="res://scripts/character/player/interaction/using_area.gd" id="1_18qyi"]
+
+[node name="Using_Area" type="Area3D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_18qyi")

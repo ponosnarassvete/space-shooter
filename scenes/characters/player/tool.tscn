@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://gyay4cb8l13l"]
+
+[ext_resource type="Script" path="res://scripts/character/player/tools/tool_manager.gd" id="1_rid70"]
+[ext_resource type="Script" path="res://scripts/character/player/tools/grab_tool.gd" id="2_g0pnj"]
+[ext_resource type="Script" path="res://scripts/character/player/tools/hack_tool.gd" id="3_ujlyd"]
+[ext_resource type="Script" path="res://scripts/character/player/tools/repair_tool.gd" id="4_d3au7"]
+[ext_resource type="Script" path="res://scripts/character/player/tools/attack_tool.gd" id="5_7gd2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlh8u"]
+size = Vector2(1080, 1080)
+
+[node name="Tool" type="Node" node_paths=PackedStringArray("tool_use_area")]
+script = ExtResource("1_rid70")
+tool_use_area = NodePath("Tool_Use_Area")
+
+[node name="Tool_Use_Area" type="Area2D" parent="."]
+z_index = 100
+
+[node name="Use_Area_Collision" type="CollisionShape2D" parent="Tool_Use_Area"]
+position = Vector2(540, 540)
+shape = SubResource("RectangleShape2D_xlh8u")
+metadata/_edit_lock_ = true
+
+[node name="Grabber" type="Node" parent="." groups=["Active_Tool"]]
+script = ExtResource("2_g0pnj")
+
+[node name="Hacker" type="Node" parent="." groups=["Active_Tool"]]
+script = ExtResource("3_ujlyd")
+
+[node name="Repair" type="Node" parent="." groups=["Active_Tool"]]
+script = ExtResource("4_d3au7")
+
+[node name="Attack" type="Node" parent="." groups=["Active_Tool"]]
+script = ExtResource("5_7gd2m")
+
+[connection signal="tool_used" from="." to="Grabber" method="tool_used"]
+[connection signal="tool_used" from="." to="Hacker" method="tool_used"]
+[connection signal="tool_used" from="." to="Repair" method="tool_used"]
+[connection signal="tool_used" from="." to="Attack" method="tool_used"]
+[connection signal="input_event" from="Tool_Use_Area" to="." method="_on_use_input_event"]
+[connection signal="mouse_entered" from="Tool_Use_Area" to="." method="_on_tool_use_area_mouse_entered"]

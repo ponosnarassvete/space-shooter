@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bu8kj5h5l615g"]
+
+[ext_resource type="Script" path="res://scripts/ui/cursor_texturing_2d.gd" id="2_ksm1c"]
+[ext_resource type="Texture2D" uid="uid://bg062o5m36418" path="res://textures/ui/crosshair_animation.png" id="2_vrq2o"]
+[ext_resource type="Script" path="res://scripts/ui/cursor_attack_2d.gd" id="3_xppry"]
+[ext_resource type="Script" path="res://scripts/ui/mouse_positioning.gd" id="4_kcp4p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh1ff"]
+atlas = ExtResource("2_vrq2o")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8inpo"]
+atlas = ExtResource("2_vrq2o")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0fol"]
+atlas = ExtResource("2_vrq2o")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avpgt"]
+atlas = ExtResource("2_vrq2o")
+region = Rect2(30, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ce81b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh1ff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8inpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0fol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avpgt")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Player_Cursor" type="Node2D"]
+
+[node name="Cursor_Texturing" type="Node" parent="." node_paths=PackedStringArray("crosshair", "sprite")]
+script = ExtResource("2_ksm1c")
+crosshair = NodePath("..")
+sprite = NodePath("../Cursor_Sprite")
+
+[node name="Cursor_Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ce81b")
+frame_progress = 0.486651
+
+[node name="Cursor_Attack_2D" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_xppry")
+sprite = NodePath("../Cursor_Sprite")
+
+[node name="Cursor_Positioning" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_kcp4p")
+target = NodePath("..")
+
+[connection signal="animation_finished" from="Cursor_Sprite" to="Cursor_Attack_2D" method="_on_cursor_sprite_animation_finished"]

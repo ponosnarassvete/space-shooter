@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwicegxneo0px"]
+
+[ext_resource type="Script" path="res://scripts/character/enemy/states/enemy_state_machine.gd" id="1_u1vra"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="2_4dr41"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="3_n1b8p"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="4_umwu0"]
+[ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="5_o3eyq"]
+[ext_resource type="Script" path="res://scripts/character/enemy/states/wander/topdown_enemy_wander_3d.gd" id="6_kuebw"]
+[ext_resource type="Script" path="res://scripts/character/enemy/states/chase/topdown_enemy_chase_3d.gd" id="7_s7dqd"]
+[ext_resource type="Script" path="res://scripts/looking_3d.gd" id="8_5pe1u"]
+
+[sub_resource type="Resource" id="Resource_h45sb"]
+script = ExtResource("4_umwu0")
+GROUND_SPEED = 10.0
+SPRINT_SPEED = 10.0
+ACCELERATION = 0.5
+
+[sub_resource type="Resource" id="Resource_ynek7"]
+script = ExtResource("5_o3eyq")
+FRICTION = 2
+
+[sub_resource type="Resource" id="Resource_2aolr"]
+script = ExtResource("4_umwu0")
+GROUND_SPEED = 8.0
+SPRINT_SPEED = 8.0
+ACCELERATION = 0.5
+
+[sub_resource type="Resource" id="Resource_fteif"]
+script = ExtResource("5_o3eyq")
+FRICTION = 2
+
+[node name="!State_Machine" type="Node" node_paths=PackedStringArray("states_node", "wandering_state_node", "attacking_state_node", "dead_state_node")]
+script = ExtResource("1_u1vra")
+states_node = NodePath("!States")
+wandering_state_node = NodePath("!States/Wandering")
+attacking_state_node = NodePath("!States/!Attacking")
+dead_state_node = NodePath("!States/Dead")
+
+[node name="!States" type="Node" parent="."]
+
+[node name="Wandering" type="Node" parent="!States"]
+
+[node name="!Enemy_Movement" type="Node" parent="!States/Wandering"]
+
+[node name="Movement_Output" type="Node" parent="!States/Wandering/!Enemy_Movement"]
+script = ExtResource("2_4dr41")
+
+[node name="Movement_Input" type="Node" parent="!States/Wandering/!Enemy_Movement"]
+script = ExtResource("3_n1b8p")
+movement_stats = SubResource("Resource_h45sb")
+ground_stats = SubResource("Resource_ynek7")
+
+[node name="Movement_Direction" type="Node" parent="!States/Wandering/!Enemy_Movement" node_paths=PackedStringArray("input")]
+script = ExtResource("6_kuebw")
+input = NodePath("../Movement_Input")
+
+[node name="!Attacking" type="Node" parent="!States"]
+
+[node name="!Enemy_Movement" type="Node" parent="!States/!Attacking"]
+
+[node name="Movement_Output" type="Node" parent="!States/!Attacking/!Enemy_Movement"]
+script = ExtResource("2_4dr41")
+
+[node name="Movement_Input" type="Node" parent="!States/!Attacking/!Enemy_Movement"]
+script = ExtResource("3_n1b8p")
+movement_stats = SubResource("Resource_2aolr")
+ground_stats = SubResource("Resource_fteif")
+
+[node name="!Movement_Direction" type="Node" parent="!States/!Attacking/!Enemy_Movement" node_paths=PackedStringArray("input")]
+script = ExtResource("7_s7dqd")
+input = NodePath("../Movement_Input")
+
+[node name="!Enemy_Other" type="Node" parent="!States/!Attacking"]
+
+[node name="!Looking_At_3D" type="Node" parent="!States/!Attacking/!Enemy_Other"]
+script = ExtResource("8_5pe1u")
+
+[node name="Dead" type="Node" parent="!States"]

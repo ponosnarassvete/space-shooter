@@ -1,0 +1,181 @@
+[gd_scene load_steps=12 format=3 uid="uid://50qtdeu7u7l4"]
+
+[ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
+[ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
+[ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/snap_to_target_2d.gd" id="5_tgl8i"]
+[ext_resource type="Texture2D" uid="uid://ge8jgblq5xo6" path="res://icon.svg" id="7_04u6i"]
+[ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
+[ext_resource type="Script" path="res://scenes/objects/sprite_2d_2.gd" id="8_wy71b"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/open_sessame.gd" id="9_2yj5m"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gkoaa"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t0lu5"]
+
+[node name="Puzzle_Test" type="Node"]
+script = ExtResource("1_ac74t")
+
+[node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
+visible = false
+position = Vector2(1508, 649)
+
+[node name="Clamp_2D" parent="Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../ReferenceRect")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = 1184.0
+offset_top = 344.0
+offset_right = 1816.0
+offset_bottom = 976.0
+border_width = 2.2
+metadata/_edit_lock_ = true
+
+[node name="Wires_and_Targets" type="Node" parent="."]
+
+[node name="Snap" type="Node" parent="Wires_and_Targets"]
+script = ExtResource("5_tgl8i")
+target_group_name = "Target_Wire"
+object_group_name = "Wire"
+
+[node name="Connection_Check" type="Node" parent="Wires_and_Targets"]
+script = ExtResource("4_kmqxb")
+
+[node name="Target1" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
+modulate = Color(0.133333, 0.666667, 0.133333, 1)
+position = Vector2(1758, 408)
+
+[node name="Target2" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
+modulate = Color(0.666667, 0.133333, 0.133333, 1)
+position = Vector2(1758, 508)
+
+[node name="Target3" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
+modulate = Color(0.133333, 0.133333, 0.666667, 1)
+position = Vector2(1758, 608)
+
+[node name="Target4" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
+modulate = Color(0.133333, 0.666667, 0.666667, 1)
+position = Vector2(1758, 708)
+
+[node name="Target5" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
+modulate = Color(0.666667, 0.666667, 0.133333, 1)
+position = Vector2(1758, 808)
+
+[node name="Target6" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
+
+[node name="Wire1" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1244, 406)
+scale = Vector2(0.25, 0.25)
+activated = true
+metadata/connected = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Wire2" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1244, 506)
+scale = Vector2(0.25, 0.25)
+metadata/connected = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Wire3" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1244, 606)
+scale = Vector2(0.25, 0.25)
+metadata/connected = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Wire4" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1244, 706)
+scale = Vector2(0.25, 0.25)
+metadata/connected = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Wire5" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1244, 806)
+scale = Vector2(0.25, 0.25)
+metadata/connected = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Wire6" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
+z_index = 1
+texture_filter = 1
+position = Vector2(1244, 906)
+scale = Vector2(0.25, 0.25)
+metadata/connected = false
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="1" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wires_and_Targets"]
+z_index = 20
+position = Vector2(1137, 407)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_04u6i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Wires_and_Targets"]
+z_index = 20
+position = Vector2(1871, 612)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_04u6i")
+script = ExtResource("8_wy71b")
+
+[node name="Panel" type="Node2D" parent="."]
+z_index = 18
+script = ExtResource("9_2yj5m")
+
+[node name="left_door" type="Sprite2D" parent="Panel"]
+visible = false
+position = Vector2(1300.5, 665.5)
+scale = Vector2(355, 723)
+texture = SubResource("PlaceholderTexture2D_gkoaa")
+
+[node name="right_door" type="Sprite2D" parent="Panel"]
+visible = false
+position = Vector2(1669, 666)
+scale = Vector2(385, 723)
+texture = SubResource("PlaceholderTexture2D_t0lu5")
+
+[connection signal="rubbish" from="." to="Base_Rubbish" method="init"]
+[connection signal="sesame" from="." to="Panel" method="open_sesame"]
+[connection signal="picked" from="Base_Rubbish/Dragging_2D" to="Base_Rubbish/Clamp_2D" method="_picked"]
+[connection signal="connected" from="Wires_and_Targets/Snap" to="Wires_and_Targets/Connection_Check" method="_on_connected"]
+[connection signal="connected" from="Wires_and_Targets/Target3" to="Wires_and_Targets/Sprite2D2" method="_juicy"]
+[connection signal="dropped" from="Wires_and_Targets/Wire1/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
+[connection signal="dropped" from="Wires_and_Targets/Wire2/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
+[connection signal="dropped" from="Wires_and_Targets/Wire3/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
+[connection signal="dropped" from="Wires_and_Targets/Wire4/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
+[connection signal="dropped" from="Wires_and_Targets/Wire5/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
+[connection signal="dropped" from="Wires_and_Targets/Wire6/Dragging_2D" to="Wires_and_Targets/Snap" method="_on_dropped"]
+
+[editable path="Base_Rubbish"]
+[editable path="Wires_and_Targets/Target1"]
+[editable path="Wires_and_Targets/Target2"]
+[editable path="Wires_and_Targets/Target3"]
+[editable path="Wires_and_Targets/Target4"]
+[editable path="Wires_and_Targets/Target5"]
+[editable path="Wires_and_Targets/Target6"]
+[editable path="Wires_and_Targets/Wire1"]
+[editable path="Wires_and_Targets/Wire2"]
+[editable path="Wires_and_Targets/Wire3"]
+[editable path="Wires_and_Targets/Wire4"]
+[editable path="Wires_and_Targets/Wire5"]
+[editable path="Wires_and_Targets/Wire6"]

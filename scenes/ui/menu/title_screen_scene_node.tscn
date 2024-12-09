@@ -1,0 +1,192 @@
+[gd_scene load_steps=9 format=3 uid="uid://by8ww3g2dyteu"]
+
+[ext_resource type="Theme" uid="uid://drn0qjmea0wo8" path="res://themes/default_theme.theme" id="1_e2dad"]
+[ext_resource type="Shader" path="res://shaders/ui/title_screen.gdshader" id="2_s2bdv"]
+[ext_resource type="Script" path="res://scripts/ui/title/start_buttons.gd" id="3_e1oke"]
+[ext_resource type="Script" path="res://scripts/ui/title/title_button.gd" id="4_ewu6t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yut6v"]
+shader = ExtResource("2_s2bdv")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(1280, 960)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.4
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dubx8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b31o0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqdck"]
+
+[node name="Title_Screen_Scene_Node" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_e2dad")
+
+[node name="Controls" type="ColorRect" parent="."]
+z_index = 10
+material = SubResource("ShaderMaterial_yut6v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_e1oke")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Filler Text" type="RichTextLabel" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.133333, 0.8, 0.133333, 1)
+bbcode_enabled = true
+text = "07/01/3229   01:19 ET   <DIR> doc
+12/02/3229   13:28 ET         Debug
+12/02/3229   14:19 ET         packages
+12/06/3229   01:19 ET   <DIR> tools
+11/07/3229   22:21 ET         samples
+12/07/3229   15:02 ET         obj
+12/07/3229   16:32 ET         x64.exe
+23/09/3229   17:19 ET   <DIR> readme.txt
+23/09/3229   22:54 ET         Security.md
+24/01/3229   02:53 ET         LICENSE
+12/11/3229   12:01 ET   <DIR> res
+03/12/3229   13:05 ET   <DIR> Realease
+"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/default_color = Color(0.133333, 0.8, 0.133333, 1)
+bbcode_enabled = true
+text = ".../[color=white]ECH-0//Decommission[/color]/mission>"
+fit_content = true
+
+[node name="Choice" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/default_color = Color(0, 0.8, 0, 1)
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("4_ewu6t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+z_index = 5
+texture_filter = 2
+texture_repeat = 1
+layout_mode = 2
+
+[node name="Start_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Quit_Button")
+focus_neighbor_bottom = NodePath("../Quit_Button")
+theme_override_colors/font_disabled_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.133333, 0.666667, 0.133333, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 1, 0.133333, 1)
+theme_override_colors/font_pressed_color = Color(0.133333, 0.666667, 0.133333, 1)
+theme_override_colors/font_focus_color = Color(0.133333, 1, 0.133333, 1)
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dubx8")
+button_mask = 7
+text = ">start"
+flat = true
+alignment = 0
+
+[node name="Options_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Start_Button")
+focus_neighbor_bottom = NodePath("../Quit_Button")
+theme_override_colors/font_disabled_color = Color(0.133333, 0.666667, 0.133333, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.133333, 1, 0.133333, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_colors/font_pressed_color = Color(0.133333, 1, 0.133333, 1)
+theme_override_colors/font_focus_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_colors/font_color = Color(0.133333, 0.666667, 0.133333, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b31o0")
+text = ">parameters"
+flat = true
+alignment = 0
+
+[node name="Quit_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Start_Button")
+focus_neighbor_bottom = NodePath("../Start_Button")
+theme_override_colors/font_disabled_color = Color(0.133333, 0.666667, 0.133333, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.133333, 1, 0.133333, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_colors/font_pressed_color = Color(0.133333, 1, 0.133333, 1)
+theme_override_colors/font_focus_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_colors/font_color = Color(0.133333, 0.666667, 0.133333, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tqdck")
+text = ">exit"
+flat = true
+alignment = 0
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+
+[connection signal="focus_entered" from="VBoxContainer2/VBoxContainer/Start_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["start"]]
+[connection signal="focus_exited" from="VBoxContainer2/VBoxContainer/Start_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Start_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["start"]]
+[connection signal="mouse_exited" from="VBoxContainer2/VBoxContainer/Start_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Start_Button" to="Controls" method="_start_on_pressed"]
+[connection signal="focus_entered" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["parameters"]]
+[connection signal="focus_exited" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["parameters"]]
+[connection signal="mouse_exited" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Options_Button" to="Controls" method="_options_on_pressed"]
+[connection signal="focus_entered" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["exit"]]
+[connection signal="focus_exited" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["exit"]]
+[connection signal="mouse_exited" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Quit_Button" to="Controls" method="_quit_on_pressed"]

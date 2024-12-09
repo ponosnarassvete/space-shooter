@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu4m2gm5eoqge"]
+
+[ext_resource type="Texture2D" uid="uid://dl1ihisy42byl" path="res://textures/objects/puzzle/rubbish.png" id="1_e45g1"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/rubbish.gd" id="2_2516y"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/clamp_2d.gd" id="3_eiuy8"]
+[ext_resource type="PackedScene" uid="uid://2vlapxtnt7ur" path="res://scenes/usables/dragging_2d.tscn" id="3_s12th"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfm63"]
+size = Vector2(128, 128)
+
+[node name="Base_Rubbish" type="Sprite2D"]
+z_index = 20
+texture_filter = 2
+texture = ExtResource("1_e45g1")
+hframes = 7
+region_rect = Rect2(-1, 1, 130, 126)
+script = ExtResource("2_2516y")
+metadata/_edit_group_ = true
+
+[node name="Dragging_2D" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_s12th")]
+sprite = NodePath("..")
+
+[node name="Drag_Area_2D" type="CollisionShape2D" parent="Dragging_2D"]
+shape = SubResource("RectangleShape2D_sfm63")
+
+[node name="Clamp_2D" type="Node" parent="." node_paths=PackedStringArray("object")]
+script = ExtResource("3_eiuy8")
+object = NodePath("..")

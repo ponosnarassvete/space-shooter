@@ -1,0 +1,88 @@
+[gd_scene load_steps=16 format=3 uid="uid://c0ysp312e6uet"]
+
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
+[ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/usables/hit_area.tscn" id="1_654uv"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
+[ext_resource type="Script" path="res://scripts/character/player/player.gd" id="1_wnhwf"]
+[ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_5ttqo"]
+[ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="3_t08qk"]
+[ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_sprint_2d.gd" id="6_q021n"]
+[ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_direction_2d.gd" id="6_qvitp"]
+[ext_resource type="Script" path="res://scripts/looking_3d.gd" id="8_lg3rr"]
+[ext_resource type="Script" path="res://addons/jbs_health_node/jbs_health.gd" id="8_qj0uw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6qun"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7wqd6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfugt"]
+size = Vector3(1.5, 1.4, 1.4)
+
+[sub_resource type="Resource" id="Resource_uan2o"]
+script = ExtResource("1_7wn84")
+GROUND_SPEED = 10.0
+SPRINT_SPEED = 10.0
+ACCELERATION = 0.5
+
+[sub_resource type="Resource" id="Resource_qwxui"]
+script = ExtResource("3_5ttqo")
+FRICTION = 2
+
+[node name="Player_Node" type="Node3D" node_paths=PackedStringArray("health")]
+script = ExtResource("1_wnhwf")
+health = NodePath("Player_Health/Health")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+collision_mask = 3
+
+[node name="Player_Collision" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_g6qun")
+
+[node name="Player_Mesh" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("BoxMesh_7wqd6")
+
+[node name="Player_Hit_Area" parent="Player" instance=ExtResource("1_654uv")]
+damaging = false
+
+[node name="Hit_Collision" type="CollisionShape3D" parent="Player/Player_Hit_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 5.96046e-08, -5.96046e-08)
+shape = SubResource("BoxShape3D_hfugt")
+
+[node name="Player_Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
+
+[node name="Player_Health" type="Node" parent="."]
+
+[node name="Health" type="Node" parent="Player_Health"]
+script = ExtResource("8_qj0uw")
+hide_in_seconds = 0.0
+emit_damage = false
+emit_death = false
+
+[node name="Player_Movement" type="Node" parent="."]
+
+[node name="Movement_Input" type="Node" parent="Player_Movement" node_paths=PackedStringArray("actor")]
+script = ExtResource("1_vgrq8")
+actor = NodePath("../../Player")
+movement_stats = SubResource("Resource_uan2o")
+ground_stats = SubResource("Resource_qwxui")
+
+[node name="Movement_Output" type="Node" parent="Player_Movement" node_paths=PackedStringArray("actor")]
+script = ExtResource("3_t08qk")
+actor = NodePath("../../Player")
+
+[node name="Movement_Sprint" type="Node" parent="Player_Movement" node_paths=PackedStringArray("mover")]
+script = ExtResource("6_q021n")
+mover = NodePath("../Movement_Input")
+
+[node name="Movement_Direction" type="Node" parent="Player_Movement" node_paths=PackedStringArray("input")]
+script = ExtResource("6_qvitp")
+input = NodePath("../Movement_Input")
+
+[node name="Player_Other" type="Node" parent="."]
+
+[node name="Looking_3D" type="Node" parent="Player_Other" node_paths=PackedStringArray("actor")]
+script = ExtResource("8_lg3rr")
+actor = NodePath("../../Player")
+
+[connection signal="damaged" from="Player/Player_Hit_Area" to="Player_Health/Health" method="update_amount"]
