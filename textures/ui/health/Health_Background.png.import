@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boio4ivac0rnd"
-path="res://.godot/imported/UI_with_hole.png-fb6bd23160518d2860b5c441c60758d0.ctex"
+uid="uid://bagqravaq8m4x"
+path="res://.godot/imported/Health_Background.png-0eeec37bd49c6835021ec27589dcf465.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ui/main interface/UI_with_hole.png"
-dest_files=["res://.godot/imported/UI_with_hole.png-fb6bd23160518d2860b5c441c60758d0.ctex"]
+source_file="res://textures/ui/health/Health_Background.png"
+dest_files=["res://.godot/imported/Health_Background.png-0eeec37bd49c6835021ec27589dcf465.ctex"]
 
 [params]
 

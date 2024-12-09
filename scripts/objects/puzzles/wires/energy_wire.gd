@@ -17,6 +17,8 @@ var targets: Array = []
 var target
 var target_id = -1
 
+@export var display: String = "0"
+
 var snap_threshold: int = 20
 
 

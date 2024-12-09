@@ -5,6 +5,8 @@ signal connected
 
 @export var id: int = -1
 
+@export var display: String = "0"
+
 @export var energy_par: Energy_Parameters = null
 
 var wire: Energy_Wires
@@ -24,4 +26,4 @@ func wire_disconnected(trgt_id: int = -1):
 
 func _process(delta: float) -> void:
 	if wire != null and energy_par != null:
-		connected.emit()
+		connected.emit(energy_par)

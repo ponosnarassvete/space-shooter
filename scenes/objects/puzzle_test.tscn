@@ -19,6 +19,10 @@ id = 1
 visible = false
 z_index = 50
 position = Vector2(1508, 649)
+scale_upper = 4.0
+scale_lower = 4.0
+child_offset = 750.0
+amount = 20
 id = 12000
 
 [node name="Clamp_2D" parent="Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
@@ -39,82 +43,120 @@ z_index = 10
 script = ExtResource("4_kmqxb")
 
 [node name="Target1" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-modulate = Color(0.133333, 0.666667, 0.133333, 1)
-position = Vector2(1696, 328)
+position = Vector2(1712, 328)
+scale = Vector2(1, 1)
 id = 10000
 
 [node name="Target2" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-modulate = Color(0.666667, 0.133333, 0.133333, 1)
-position = Vector2(1696, 456)
+position = Vector2(1712, 456)
+scale = Vector2(1, 1)
 id = 10001
+display = "1"
+
+[node name="Label" parent="Wires_and_Targets/Target2" index="0"]
+text = "1"
 
 [node name="Target3" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-modulate = Color(0.133333, 0.133333, 0.666667, 1)
-position = Vector2(1696, 584)
+position = Vector2(1712, 584)
+scale = Vector2(1, 1)
 id = 10002
+display = "2"
+
+[node name="Label" parent="Wires_and_Targets/Target3" index="0"]
+text = "2"
 
 [node name="Target4" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-modulate = Color(0.133333, 0.666667, 0.666667, 1)
-position = Vector2(1696, 712)
+position = Vector2(1712, 712)
+scale = Vector2(1, 1)
 id = 10003
+display = "3"
+
+[node name="Label" parent="Wires_and_Targets/Target4" index="0"]
+text = "3"
 
 [node name="Target5" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-modulate = Color(0.666667, 0.666667, 0.133333, 1)
-position = Vector2(1696, 840)
+position = Vector2(1712, 840)
+scale = Vector2(1, 1)
 id = 10004
+display = "4"
+
+[node name="Label" parent="Wires_and_Targets/Target5" index="0"]
+text = "4"
 
 [node name="Target6" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-position = Vector2(1696, 968)
+position = Vector2(1712, 968)
+scale = Vector2(1, 1)
 id = 10005
+display = "5"
+
+[node name="Label" parent="Wires_and_Targets/Target6" index="0"]
+text = "5"
 
 [node name="Wire1" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 328)
-scale = Vector2(0.25, 0.25)
 id = 11000
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
+[node name="Label" parent="Wires_and_Targets/Wire1" index="2"]
+text = "0"
+
 [node name="Wire2" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 456)
-scale = Vector2(0.25, 0.25)
 id = 11001
 energy_par = SubResource("Resource_b8wkr")
+display = "1"
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
+[node name="Label" parent="Wires_and_Targets/Wire2" index="2"]
+text = "1"
+
 [node name="Wire3" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 584)
-scale = Vector2(0.25, 0.25)
 id = 11002
+display = "2"
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
+[node name="Label" parent="Wires_and_Targets/Wire3" index="2"]
+text = "2"
+
 [node name="Wire4" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 712)
-scale = Vector2(0.25, 0.25)
 id = 11003
+display = "3"
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
+[node name="Label" parent="Wires_and_Targets/Wire4" index="2"]
+text = "3"
+
 [node name="Wire5" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 840)
-scale = Vector2(0.25, 0.25)
 id = 11004
+display = "4"
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
+[node name="Label" parent="Wires_and_Targets/Wire5" index="2"]
+text = "4"
+
 [node name="Wire6" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 968)
-scale = Vector2(0.25, 0.25)
 id = 11005
+display = "5"
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Label" parent="Wires_and_Targets/Wire6" index="2"]
+text = "5"
 
 [node name="Reference" type="TextureRect" parent="."]
 anchors_preset = 6
@@ -131,6 +173,12 @@ texture = ExtResource("7_2dpuk")
 metadata/_edit_lock_ = true
 
 [connection signal="rubbish" from="." to="Base_Rubbish" method="init"]
+[connection signal="connected" from="Wires_and_Targets/Target1" to="." method="f_first"]
+[connection signal="connected" from="Wires_and_Targets/Target2" to="." method="f_second"]
+[connection signal="connected" from="Wires_and_Targets/Target3" to="." method="f_third"]
+[connection signal="connected" from="Wires_and_Targets/Target4" to="." method="f_fourth"]
+[connection signal="connected" from="Wires_and_Targets/Target5" to="." method="f_fifth"]
+[connection signal="connected" from="Wires_and_Targets/Target6" to="." method="f_sixth"]
 [connection signal="connecting" from="Wires_and_Targets/Wire1" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
 [connection signal="disconnecting" from="Wires_and_Targets/Wire1" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
 [connection signal="connecting" from="Wires_and_Targets/Wire2" to="Wires_and_Targets/Connection_Table" method="connect_objs"]

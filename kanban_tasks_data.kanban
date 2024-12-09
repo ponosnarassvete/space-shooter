@@ -50,7 +50,6 @@
 			"title": "Doing",
 			"tasks": [
 				"12497c7b-5308-4a1c-b4ea-1f124b6bd09f",
-				"5e593c5b-052e-4025-b781-098eff742968",
 				"8938c756-20cf-4217-bd14-89af59a5e178",
 				"7ed4bfd7-e9c0-4ddb-b083-2a2f0c94d307",
 				"3770f281-2d6c-4955-97c2-ed7ef3754159",
@@ -68,6 +67,7 @@
 				"a19f3ca5-a38d-458f-a333-780eed724457",
 				"2a91f55f-92fe-4c5e-8912-3828e1881ebb",
 				"d3513a22-bf34-46ee-ad89-0763cce0c627",
+				"5e593c5b-052e-4025-b781-098eff742968",
 				"ec12b7fe-3ab7-4203-ab37-013c393ccc70",
 				"13f9db48-c900-435b-bf5e-92fc53f3c568"
 			]
@@ -133,7 +133,16 @@
 			"title": "Player - Model",
 			"description": "",
 			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
-			"steps": []
+			"steps": [
+				{
+					"details": "model",
+					"done": true
+				},
+				{
+					"details": "textures",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "a19f3ca5-a38d-458f-a333-780eed724457",
@@ -351,7 +360,7 @@
 				},
 				{
 					"details": "General Area",
-					"done": false
+					"done": true
 				}
 			]
 		},

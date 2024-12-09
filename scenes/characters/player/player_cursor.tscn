@@ -1,44 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu8kj5h5l615g"]
+[gd_scene load_steps=8 format=3 uid="uid://bu8kj5h5l615g"]
 
+[ext_resource type="Texture2D" uid="uid://cnqpifuorqm2k" path="res://textures/ui/ch_green_animation.png" id="2_dmqya"]
 [ext_resource type="Script" path="res://scripts/ui/cursor_texturing_2d.gd" id="2_ksm1c"]
-[ext_resource type="Texture2D" uid="uid://bg062o5m36418" path="res://textures/ui/crosshair_animation.png" id="2_vrq2o"]
 [ext_resource type="Script" path="res://scripts/ui/cursor_attack_2d.gd" id="3_xppry"]
 [ext_resource type="Script" path="res://scripts/ui/mouse_positioning.gd" id="4_kcp4p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sh1ff"]
-atlas = ExtResource("2_vrq2o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_spkgm"]
+atlas = ExtResource("2_dmqya")
 region = Rect2(0, 0, 10, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8inpo"]
-atlas = ExtResource("2_vrq2o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5usr"]
+atlas = ExtResource("2_dmqya")
 region = Rect2(10, 0, 10, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0fol"]
-atlas = ExtResource("2_vrq2o")
-region = Rect2(20, 0, 10, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_avpgt"]
-atlas = ExtResource("2_vrq2o")
-region = Rect2(30, 0, 10, 10)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ce81b"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihmn3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sh1ff")
+"texture": SubResource("AtlasTexture_spkgm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8inpo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j0fol")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_avpgt")
+"texture": SubResource("AtlasTexture_k5usr")
 }],
 "loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [node name="Player_Cursor" type="Node2D"]
@@ -51,8 +37,7 @@ sprite = NodePath("../Cursor_Sprite")
 [node name="Cursor_Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_ce81b")
-frame_progress = 0.486651
+sprite_frames = SubResource("SpriteFrames_ihmn3")
 
 [node name="Cursor_Attack_2D" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_xppry")

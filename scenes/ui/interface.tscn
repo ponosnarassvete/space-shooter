@@ -1,16 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmw6j72tvj6wm"]
+[gd_scene load_steps=14 format=3 uid="uid://cmw6j72tvj6wm"]
 
 [ext_resource type="Theme" uid="uid://nymxf5bsiqo1" path="res://themes/minimalisticUI/MinimalisticUI.tres" id="1_1iq56"]
-[ext_resource type="Texture2D" uid="uid://boio4ivac0rnd" path="res://textures/ui/main interface/UI_with_hole.png" id="1_txjra"]
-[ext_resource type="Texture2D" uid="uid://l2p3o2nvsfuf" path="res://textures/ui/health/background.png" id="2_jaoud"]
-[ext_resource type="Texture2D" uid="uid://c6nmkd0mccc63" path="res://textures/ui/health/foreground.png" id="3_44va7"]
+[ext_resource type="Texture2D" uid="uid://boio4ivac0rnd" path="res://textures/ui/main interface/puzzle/UI_with_hole.png" id="1_txjra"]
+[ext_resource type="Texture2D" uid="uid://bh5fmq3884dxc" path="res://textures/ui/main interface/puzzle/door.png" id="3_b2xx7"]
 [ext_resource type="Texture2D" uid="uid://csvpralj73x7v" path="res://textures/ui/main interface/UI.png" id="3_da50f"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/open_sessame.gd" id="3_ywim3"]
-[ext_resource type="Texture2D" uid="uid://bfkgbq4sbjsoj" path="res://textures/ui/health/fill.png" id="4_mc54y"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nialk"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_byl6i"]
+[ext_resource type="Texture2D" uid="uid://bagqravaq8m4x" path="res://textures/ui/health/Health_Background.png" id="5_u5b3x"]
+[ext_resource type="Texture2D" uid="uid://wgw6s8wbk8l" path="res://textures/ui/health/Health_Foreground.png" id="6_55wci"]
+[ext_resource type="Texture2D" uid="uid://ce2s3rqyxlne8" path="res://textures/ui/health/Health_Fill.png" id="7_d00ph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1d2tu"]
 bg_color = Color(0, 0, 0, 1)
@@ -74,39 +71,36 @@ right_door = NodePath("right_door")
 offset_x = 400.0
 
 [node name="left_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
-position = Vector2(520, 360)
-scale = Vector2(355, 723)
-texture = SubResource("PlaceholderTexture2D_nialk")
+position = Vector2(707, 355)
+rotation = 3.14159
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("3_b2xx7")
 
 [node name="right_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
-position = Vector2(152, 360)
-scale = Vector2(385, 723)
-texture = SubResource("PlaceholderTexture2D_byl6i")
+position = Vector2(11, 355)
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("3_b2xx7")
 
-[node name="Shader" type="TextureRect" parent="."]
+[node name="MainArea" type="TextureRect" parent="."]
 z_index = 50
 layout_mode = 2
 theme = ExtResource("1_1iq56")
 texture = ExtResource("1_txjra")
 
-[node name="HP_Tools" type="MarginContainer" parent="Shader"]
-z_index = 5
-layout_mode = 2
-anchor_left = 0.285714
-anchor_right = 0.285714
-offset_right = 600.0
-offset_bottom = 240.0
-metadata/_edit_lock_ = true
-
-[node name="Health_Bar" type="TextureProgressBar" parent="Shader/HP_Tools"]
+[node name="Health_Bar" type="TextureProgressBar" parent="MainArea"]
 z_index = 30
 layout_mode = 2
-step = 0.0
-texture_under = ExtResource("2_jaoud")
-texture_over = ExtResource("3_44va7")
-texture_progress = ExtResource("4_mc54y")
+offset_left = 232.0
+offset_right = 840.0
+offset_bottom = 272.0
+max_value = 12.0
+fill_mode = 2
+texture_under = ExtResource("5_u5b3x")
+texture_over = ExtResource("6_55wci")
+texture_progress = ExtResource("7_d00ph")
+texture_progress_offset = Vector2(5, 37)
 
-[node name="Menus" type="MarginContainer" parent="Shader"]
+[node name="Menus" type="MarginContainer" parent="MainArea"]
 z_index = 5
 layout_mode = 1
 anchors_preset = -1
@@ -119,12 +113,12 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="GridContainer" type="GridContainer" parent="Shader/Menus"]
+[node name="GridContainer" type="GridContainer" parent="MainArea/Menus"]
 z_index = 6
 layout_mode = 2
 columns = 2
 
-[node name="Pause_Button" type="Button" parent="Shader/Menus/GridContainer"]
+[node name="Pause_Button" type="Button" parent="MainArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -134,7 +128,7 @@ theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d2tu")
 text = "pause()"
 
-[node name="Menu_Button" type="Button" parent="Shader/Menus/GridContainer"]
+[node name="Menu_Button" type="Button" parent="MainArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -144,7 +138,7 @@ theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_77w61")
 text = "menu()"
 
-[node name="Swap_Button" type="Button" parent="Shader/Menus/GridContainer"]
+[node name="Swap_Button" type="Button" parent="MainArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -154,7 +148,7 @@ theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_01hqh")
 text = "swap(_tool)"
 
-[node name="Activate_Button" type="Button" parent="Shader/Menus/GridContainer"]
+[node name="Activate_Button" type="Button" parent="MainArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -164,7 +158,7 @@ theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_4bk6u")
 text = "activate()"
 
-[node name="Logs_Button" type="Button" parent="Shader"]
+[node name="Logs_Button" type="Button" parent="MainArea"]
 visible = false
 layout_mode = 2
 offset_left = 176.0

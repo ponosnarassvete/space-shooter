@@ -1,33 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://by8ww3g2dyteu"]
+[gd_scene load_steps=8 format=3 uid="uid://by8ww3g2dyteu"]
 
 [ext_resource type="Theme" uid="uid://drn0qjmea0wo8" path="res://themes/default_theme.theme" id="1_e2dad"]
-[ext_resource type="Shader" path="res://shaders/ui/title_screen.gdshader" id="2_s2bdv"]
+[ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="2_ew7a7"]
 [ext_resource type="Script" path="res://scripts/ui/title/start_buttons.gd" id="3_e1oke"]
 [ext_resource type="Script" path="res://scripts/ui/title/title_button.gd" id="4_ewu6t"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yut6v"]
-shader = ExtResource("2_s2bdv")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.4
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.3
-shader_parameter/resolution = Vector2(1280, 960)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 15.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.03
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.4
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dubx8"]
 
@@ -48,7 +24,7 @@ theme = ExtResource("1_e2dad")
 
 [node name="Controls" type="ColorRect" parent="."]
 z_index = 10
-material = SubResource("ShaderMaterial_yut6v")
+material = ExtResource("2_ew7a7")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

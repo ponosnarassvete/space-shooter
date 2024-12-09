@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cj5lng25t7j6m"]
+[gd_scene load_steps=15 format=3 uid="uid://cj5lng25t7j6m"]
 
 [ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="1_4u4mx"]
+[ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_y3y44"]
 [ext_resource type="PackedScene" uid="uid://dynn0mgf56ht4" path="res://scenes/characters/enemy_test.tscn" id="2_tx3h6"]
 [ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/objects/puzzle_box_test.tscn" id="3_8oj8i"]
 [ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="4_frdse"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://50qtdeu7u7l4" path="res://scenes/objects/puzzle_test.tscn" id="8_2lt5n"]
 [ext_resource type="PackedScene" uid="uid://gyay4cb8l13l" path="res://scenes/characters/player/tool.tscn" id="9_cifd6"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ia5li"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_s32p2"]
 radius = 2.0
 
@@ -18,6 +21,16 @@ radius = 2.0
 metallic = 0.65
 
 [node name="Core_Scene_Node" type="Node"]
+
+[node name="Shader" type="TextureRect" parent="."]
+z_index = 120
+material = ExtResource("1_y3y44")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_ia5li")
 
 [node name="3D_Viewport" type="SubViewportContainer" parent="."]
 z_index = 90
@@ -37,6 +50,11 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
 current = true
 fov = 30.0
+
+[node name="Health" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Health" index="0" node_paths=PackedStringArray("texture_progress")]
+amount = 12.0
+max_amount = 12.0
+texture_progress = NodePath("../../../../../../2D_Viewport/MainArea/Health_Bar")
 
 [node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../../../../../Other/Cursor/Projection_3D")

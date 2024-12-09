@@ -1,18 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://donsaxglsr3rw"]
+[gd_scene load_steps=2 format=3 uid="uid://donsaxglsr3rw"]
 
 [ext_resource type="Script" path="res://scripts/character/hit_area.gd" id="1_vn8xx"]
-[ext_resource type="Script" path="res://scripts/character/damage_stats.gd" id="2_gcisa"]
-
-[sub_resource type="Resource" id="Resource_yophm"]
-script = ExtResource("2_gcisa")
-CLOSE_DAMAGE = 10.0
-RANGE_DAMAGE = 10.0
-ARMOR_PENETRATION = 0.5
 
 [node name="Hit_Area" type="Area3D"]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_vn8xx")
-damage_stat = SubResource("Resource_yophm")
 
 [connection signal="area_entered" from="." to="." method="on_area_entered"]
