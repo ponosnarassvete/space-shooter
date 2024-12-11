@@ -46,6 +46,7 @@ grow_vertical = 2
 size_flags_vertical = 8
 theme = ExtResource("5_g80md")
 theme_override_font_sizes/font_size = 16
+text = "0"
 label_settings = SubResource("LabelSettings_uu248")
 horizontal_alignment = 1
 vertical_alignment = 1

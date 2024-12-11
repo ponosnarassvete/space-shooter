@@ -34,20 +34,20 @@ func puzzle_init():
 func _ready() -> void:
 	if interaction_area != null: interaction_area.interact = Callable(self, "puzzle_init")
 
-func f_first(energy: Energy_Container):
+func f_first(energy: Energy_Parameters):
 	first_out.emit(energy)
 
-func f_second(energy: Energy_Container):
+func f_second(energy: Energy_Parameters):
 	second_out.emit(energy)
 
-func f_third(energy: Energy_Container):
+func f_third(energy: Energy_Parameters):
 	third_out.emit(energy)
 
-func f_fourth(energy: Energy_Container):
+func f_fourth(energy: Energy_Parameters):
 	fourth_out.emit(energy)
 
-func f_fifth(energy: Energy_Container):
+func f_fifth(energy: Energy_Parameters):
 	fifth_out.emit(energy)
 
-func f_sixth(energy: Energy_Container):
+func f_sixth(energy: Energy_Parameters):
 	sixth_out.emit(energy)

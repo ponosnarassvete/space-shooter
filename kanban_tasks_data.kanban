@@ -41,8 +41,7 @@
 				"ba129fe7-b64d-4548-95c0-b5d32aa401fe",
 				"fc34cb35-59b0-4ce1-85f6-9292aba0ee00",
 				"50356c15-c621-404e-be87-7cffc32a8787",
-				"a98de2ba-e786-4b87-84d4-458ba84c398a",
-				"9e52ae5e-b428-4505-a85a-4be20c0ec2c3"
+				"a98de2ba-e786-4b87-84d4-458ba84c398a"
 			]
 		},
 		{
@@ -54,7 +53,7 @@
 				"7ed4bfd7-e9c0-4ddb-b083-2a2f0c94d307",
 				"3770f281-2d6c-4955-97c2-ed7ef3754159",
 				"aa251b3f-7c8d-4073-bb54-63131dcaa9d9",
-				"c13714c3-355e-48fe-9e32-71163cab83e1"
+				"9e52ae5e-b428-4505-a85a-4be20c0ec2c3"
 			]
 		},
 		{
@@ -69,7 +68,8 @@
 				"d3513a22-bf34-46ee-ad89-0763cce0c627",
 				"5e593c5b-052e-4025-b781-098eff742968",
 				"ec12b7fe-3ab7-4203-ab37-013c393ccc70",
-				"13f9db48-c900-435b-bf5e-92fc53f3c568"
+				"13f9db48-c900-435b-bf5e-92fc53f3c568",
+				"c13714c3-355e-48fe-9e32-71163cab83e1"
 			]
 		}
 	],
@@ -140,7 +140,7 @@
 				},
 				{
 					"details": "textures",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -307,7 +307,12 @@
 			"title": "Level - Assets",
 			"description": "",
 			"category": "50afa017-6d3b-49f4-aa34-439201f680e4",
-			"steps": []
+			"steps": [
+				{
+					"details": "disk",
+					"done": true
+				}
+			]
 		},
 		{
 			"uuid": "13f9db48-c900-435b-bf5e-92fc53f3c568",

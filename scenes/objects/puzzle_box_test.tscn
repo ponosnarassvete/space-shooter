@@ -15,13 +15,13 @@ script = ExtResource("1_2arv8")
 needed_tool = "Grabbing_Tool"
 interaction_area = NodePath("Interaction_Area_3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Puzzle_Box_Body" type="StaticBody3D" parent="."]
 collision_layer = 2
 
-[node name="Puzzle_Collision" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="Puzzle_Collision" type="CollisionShape3D" parent="Puzzle_Box_Body"]
 shape = SubResource("BoxShape3D_s5afn")
 
-[node name="Puzzle_Mesh" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="Puzzle_Mesh" type="MeshInstance3D" parent="Puzzle_Box_Body"]
 mesh = SubResource("PrismMesh_12ire")
 skeleton = NodePath("../..")
 

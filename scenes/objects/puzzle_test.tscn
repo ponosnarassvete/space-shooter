@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=10 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_parameters.gd" id="6_r6s8j"]
 [ext_resource type="Texture2D" uid="uid://csvpralj73x7v" path="res://textures/ui/main interface/UI.png" id="7_2dpuk"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
+
+[sub_resource type="Resource" id="Resource_erei8"]
+script = ExtResource("6_r6s8j")
 
 [sub_resource type="Resource" id="Resource_b8wkr"]
 script = ExtResource("6_r6s8j")
@@ -95,12 +98,10 @@ text = "5"
 [node name="Wire1" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 328)
 id = 11000
+energy_par = SubResource("Resource_erei8")
 
 [node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
-
-[node name="Label" parent="Wires_and_Targets/Wire1" index="2"]
-text = "0"
 
 [node name="Wire2" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
 position = Vector2(1184, 456)
