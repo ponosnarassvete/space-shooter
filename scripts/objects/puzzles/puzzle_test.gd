@@ -32,6 +32,7 @@ func puzzle_init():
 	sesame.emit()
 		
 func _ready() -> void:
+	get_tree().paused = true
 	if interaction_area != null: interaction_area.interact = Callable(self, "puzzle_init")
 
 func f_first(energy: Energy_Parameters):
