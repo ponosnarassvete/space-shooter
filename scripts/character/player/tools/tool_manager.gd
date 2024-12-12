@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
 		tool_bar.insert(0, active_tool)
 		active_tool = tool_bar.pop_back()
 		tool_swapped.emit()
+		
 	elif Input.is_action_pressed("tool_swap_down"):
 		tool_bar.append(active_tool)
 		active_tool = tool_bar.pop_front()
@@ -55,3 +56,14 @@ func tool_add(tool: String):
 
 func tool_remove(tool: String):
 	pass
+
+func tool_layering():
+	match active_tool:
+		"Graber":
+			using_area.collision_mask = 5
+		"Repairer":
+			using_area.collision_mask = 6
+		"Hacker":
+			using_area.collision_mask = 7
+		"Attacker":
+			using_area.collision_mask = 8

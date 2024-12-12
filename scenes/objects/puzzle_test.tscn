@@ -20,7 +20,7 @@ id = 1
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
 visible = false
-z_index = 50
+z_index = 40
 position = Vector2(1508, 649)
 scale_upper = 4.0
 scale_lower = 4.0

@@ -64,7 +64,7 @@ offset_right = 704.0
 offset_bottom = 1000.0
 
 [node name="Panel" type="Node2D" parent="Background/Puzzle" node_paths=PackedStringArray("left_door", "right_door")]
-z_index = 18
+z_index = 60
 script = ExtResource("3_ywim3")
 left_door = NodePath("left_door")
 right_door = NodePath("right_door")
@@ -75,14 +75,38 @@ position = Vector2(707, 355)
 rotation = 3.14159
 scale = Vector2(0.68, 0.68)
 texture = ExtResource("3_b2xx7")
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="Background/Puzzle/Panel/left_door"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -512.0
+offset_right = -512.0
+offset_bottom = -512.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="right_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
 position = Vector2(11, 355)
 scale = Vector2(0.68, 0.68)
 texture = ExtResource("3_b2xx7")
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="Background/Puzzle/Panel/right_door"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -512.0
+offset_right = -512.0
+offset_bottom = -512.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MainArea" type="TextureRect" parent="."]
-z_index = 50
+z_index = 70
 layout_mode = 2
 theme = ExtResource("1_1iq56")
 texture = ExtResource("1_txjra")

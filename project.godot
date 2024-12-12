@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Echo//Decommission"
-config/version="111224-pre-alpha"
+config/version="121224-pre-alpha"
 run/main_scene="res://scenes/ui/menu/title_screen_scene_node.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -31,7 +31,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/pause_resume_buttons/plugin.cfg", "res://addons/pause_visible_control/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
+enabled=PackedStringArray("res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
 
 [global_group]
 
@@ -110,5 +110,10 @@ tool_swap_4={
 [layer_names]
 
 3d_physics/layer_1="Player"
+3d_physics/layer_2="Objects"
+3d_physics/layer_3="Enemies"
 3d_physics/layer_4="Hit_Boxes"
-3d_physics/layer_5="Using_Areas"
+3d_physics/layer_5="Grabber"
+3d_physics/layer_6="Repairer"
+3d_physics/layer_7="Hacker"
+3d_physics/layer_8="Attacker"

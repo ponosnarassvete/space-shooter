@@ -28,4 +28,5 @@ skeleton = NodePath("../..")
 [node name="Interaction_Area_3D" parent="." instance=ExtResource("1_04wwk")]
 
 [node name="Interaction_Collision" type="CollisionShape3D" parent="Interaction_Area_3D"]
+visible = false
 shape = SubResource("BoxShape3D_olgiq")

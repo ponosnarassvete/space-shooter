@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://1d0s4dh5kgr0"]
+
+[ext_resource type="Script" path="res://scripts/objects/energy_switch.gd" id="1_polvs"]
+[ext_resource type="PackedScene" uid="uid://coxaj83nk7uj2" path="res://scenes/usables/interaction_area_3d.tscn" id="2_8kksx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6enrp"]
+size = Vector3(1.49805, 1, 1.68762)
+
+[node name="Switch" type="Node3D" node_paths=PackedStringArray("interaction_area")]
+script = ExtResource("1_polvs")
+interaction_area = NodePath("Switch_Interaction_Area_3D")
+
+[node name="Switch_Interaction_Area_3D" parent="." instance=ExtResource("2_8kksx")]
+action_name = "Switch"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch_Interaction_Area_3D"]
+shape = SubResource("BoxShape3D_6enrp")

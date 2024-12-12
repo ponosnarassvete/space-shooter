@@ -29,7 +29,7 @@ func puzzle_init():
 	if interactable:
 		interactable = false
 		rubbish.emit()
-		sesame.emit()
+	sesame.emit()
 		
 func _ready() -> void:
 	if interaction_area != null: interaction_area.interact = Callable(self, "puzzle_init")
