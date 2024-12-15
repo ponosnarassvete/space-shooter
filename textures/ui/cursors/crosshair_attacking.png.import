@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnqpifuorqm2k"
-path="res://.godot/imported/ch_green_animation.png-0f812609af69534ea74795c6b02d2c5b.ctex"
+uid="uid://dwo3ywfm7cmww"
+path="res://.godot/imported/crosshair_attacking.png-f1dd383e829d8b1a5e7565087491d8c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ui/ch_green_animation.png"
-dest_files=["res://.godot/imported/ch_green_animation.png-0f812609af69534ea74795c6b02d2c5b.ctex"]
+source_file="res://textures/ui/cursors/crosshair_attacking.png"
+dest_files=["res://.godot/imported/crosshair_attacking.png-f1dd383e829d8b1a5e7565087491d8c4.ctex"]
 
 [params]
 

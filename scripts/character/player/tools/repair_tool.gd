@@ -1,8 +1,5 @@
-class_name Repairing_Tool
+class_name Repairing_Tool_Class
 extends Tools
 
 func _ready() -> void:
-	tool_name = "Repair_Tool"
-
-func got_used():
-	used.emit("Repair")
+	tool_name = GlobalEnums.TOOLS.REPAIRING_TOOL

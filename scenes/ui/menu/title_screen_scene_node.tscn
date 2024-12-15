@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://by8ww3g2dyteu"]
+[gd_scene load_steps=9 format=3 uid="uid://by8ww3g2dyteu"]
 
 [ext_resource type="Theme" uid="uid://drn0qjmea0wo8" path="res://themes/default_theme.theme" id="1_e2dad"]
 [ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="2_ew7a7"]
 [ext_resource type="Script" path="res://scripts/ui/title/start_buttons.gd" id="3_e1oke"]
 [ext_resource type="Script" path="res://scripts/ui/title/title_button.gd" id="4_ewu6t"]
+[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/ui/cursor.tscn" id="5_832nl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dubx8"]
 
@@ -151,6 +152,14 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.0666667, 0.0666667, 0.0666667, 1)
 
+[node name="Player_Cursor" parent="." instance=ExtResource("5_832nl")]
+
+[node name="Cursor_Sprite" parent="Player_Cursor" index="1"]
+animation = &"default"
+
+[node name="Cursor_Variation" parent="Player_Cursor" index="4"]
+is_active = false
+
 [connection signal="focus_entered" from="VBoxContainer2/VBoxContainer/Start_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["start"]]
 [connection signal="focus_exited" from="VBoxContainer2/VBoxContainer/Start_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
 [connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Start_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["start"]]
@@ -166,3 +175,5 @@ color = Color(0.0666667, 0.0666667, 0.0666667, 1)
 [connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["exit"]]
 [connection signal="mouse_exited" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
 [connection signal="pressed" from="VBoxContainer2/VBoxContainer/Quit_Button" to="Controls" method="_quit_on_pressed"]
+
+[editable path="Player_Cursor"]

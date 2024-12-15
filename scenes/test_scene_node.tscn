@@ -1,17 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://cj5lng25t7j6m"]
+[gd_scene load_steps=19 format=3 uid="uid://cj5lng25t7j6m"]
 
-[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="1_4u4mx"]
-[ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_y3y44"]
-[ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/objects/puzzle_box_test.tscn" id="3_8oj8i"]
-[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="4_frdse"]
-[ext_resource type="PackedScene" uid="uid://bw2up2rfaarhr" path="res://scenes/usables/using_area.tscn" id="4_tnyqm"]
-[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/characters/player/player_cursor.tscn" id="5_8ts1k"]
-[ext_resource type="Script" path="res://scripts/objects/doors.gd" id="6_5y8rr"]
-[ext_resource type="PackedScene" uid="uid://1d0s4dh5kgr0" path="res://scenes/usables/switch.tscn" id="6_24rqy"]
-[ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="6_wdeo8"]
-[ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="7_1wt61"]
-[ext_resource type="PackedScene" uid="uid://50qtdeu7u7l4" path="res://scenes/objects/puzzle_test.tscn" id="8_2lt5n"]
-[ext_resource type="PackedScene" uid="uid://gyay4cb8l13l" path="res://scenes/characters/player/tool.tscn" id="9_cifd6"]
+[ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_28hsm"]
+[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="2_5lcii"]
+[ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/objects/puzzle_box_test.tscn" id="3_cknn5"]
+[ext_resource type="PackedScene" uid="uid://bw2up2rfaarhr" path="res://scenes/usables/using_area.tscn" id="4_6veu3"]
+[ext_resource type="Script" path="res://scripts/objects/doors.gd" id="5_8mtx0"]
+[ext_resource type="PackedScene" uid="uid://1d0s4dh5kgr0" path="res://scenes/usables/switch.tscn" id="6_xsk33"]
+[ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="7_ypskg"]
+[ext_resource type="PackedScene" uid="uid://50qtdeu7u7l4" path="res://scenes/objects/puzzle_test.tscn" id="8_j7a8o"]
+[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="9_2qm6q"]
+[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/ui/cursor.tscn" id="10_rh8wq"]
+[ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="11_djb1s"]
+[ext_resource type="Script" path="res://scripts/ui/cursor/using_area.gd" id="12_h5kiy"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ia5li"]
 
@@ -25,12 +25,14 @@ metallic = 0.65
 
 [sub_resource type="BoxMesh" id="BoxMesh_u60dd"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h46vr"]
+size = Vector2(1080, 1080)
+
 [node name="Core_Scene_Node" type="Node"]
 
 [node name="Shader" type="TextureRect" parent="."]
-visible = false
 z_index = 120
-material = ExtResource("1_y3y44")
+material = ExtResource("1_28hsm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,7 +52,7 @@ render_target_update_mode = 4
 
 [node name="Characters" type="Node" parent="3D_Viewport/SubViewport"]
 
-[node name="Player_Node" parent="3D_Viewport/SubViewport/Characters" instance=ExtResource("1_4u4mx")]
+[node name="Player_Node" parent="3D_Viewport/SubViewport/Characters" instance=ExtResource("2_5lcii")]
 
 [node name="Player_Camera" parent="3D_Viewport/SubViewport/Characters/Player_Node" index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
@@ -65,7 +67,7 @@ texture_progress = NodePath("../../../../../../2D_Viewport/MainArea/Health_Bar")
 [node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../../../../../Other/Cursor/Projection_3D")
 
-[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport" instance=ExtResource("3_8oj8i")]
+[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport" instance=ExtResource("3_cknn5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4008, -0.0496693, 0)
 
 [node name="Interaction_Area_3D" parent="3D_Viewport/SubViewport/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
@@ -74,8 +76,11 @@ manager = NodePath("../../../../Other/Interaction_Manager")
 [node name="Interaction_Collision" parent="3D_Viewport/SubViewport/Puzzle_Box_Test/Interaction_Area_3D" index="0"]
 visible = true
 
-[node name="Cursor_Using_Area" parent="3D_Viewport/SubViewport/Puzzle_Box_Test" instance=ExtResource("4_tnyqm")]
+[node name="Cursor_Using_Area" parent="3D_Viewport/SubViewport/Puzzle_Box_Test" node_paths=PackedStringArray("target") instance=ExtResource("4_6veu3")]
 collision_layer = 0
+collision_mask = 0
+target = NodePath("../Interaction_Area_3D")
+needed_tool = 1
 
 [node name="Using_Area_Collision" type="CollisionShape3D" parent="3D_Viewport/SubViewport/Puzzle_Box_Test/Cursor_Using_Area"]
 shape = SubResource("SphereShape3D_s32p2")
@@ -100,7 +105,7 @@ material = SubResource("StandardMaterial3D_5twe8")
 
 [node name="Doors" type="Node3D" parent="3D_Viewport/SubViewport/Level" node_paths=PackedStringArray("left_door", "right_door")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.66378)
-script = ExtResource("6_5y8rr")
+script = ExtResource("5_8mtx0")
 left_door = NodePath("Left_Door")
 right_door = NodePath("Right_Door")
 
@@ -128,7 +133,7 @@ shape = SubResource("BoxShape3D_fyaxi")
 mesh = SubResource("BoxMesh_u60dd")
 skeleton = NodePath("../../Switch")
 
-[node name="Switch" parent="3D_Viewport/SubViewport/Level/Doors" instance=ExtResource("6_24rqy")]
+[node name="Switch" parent="3D_Viewport/SubViewport/Level/Doors" instance=ExtResource("6_xsk33")]
 
 [node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
 action_name = "Door"
@@ -137,47 +142,49 @@ manager = NodePath("../../../../../../Other/Interaction_Manager")
 [node name="CollisionShape3D" parent="3D_Viewport/SubViewport/Level/Doors/Switch/Switch_Interaction_Area_3D" index="0"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="2D_Viewport" parent="." instance=ExtResource("7_1wt61")]
+[node name="2D_Viewport" parent="." instance=ExtResource("7_ypskg")]
 
-[node name="Puzzle_Test" parent="2D_Viewport/Background/Puzzle" index="1" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_2lt5n")]
+[node name="Puzzle_Test" parent="2D_Viewport/Background/Puzzle" index="1" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_j7a8o")]
 interaction_area = NodePath("../../../../3D_Viewport/SubViewport/Puzzle_Box_Test/Interaction_Area_3D")
 
 [node name="Other" type="Node2D" parent="."]
 z_index = 100
 
-[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("4_frdse")]
+[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("9_2qm6q")]
 player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
 offset_x = 6.0
 offset_y = 6.0
 
-[node name="Tool_Manager" parent="Other" node_paths=PackedStringArray("player", "using_area") instance=ExtResource("9_cifd6")]
-player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
-using_area = NodePath("../Cursor/Projection_3D/Using_Area")
-
-[node name="Cursor" parent="Other" instance=ExtResource("5_8ts1k")]
+[node name="Cursor" parent="Other" instance=ExtResource("10_rh8wq")]
 
 [node name="Projection_3D" type="Node3D" parent="Other/Cursor" node_paths=PackedStringArray("camera")]
-script = ExtResource("6_wdeo8")
+script = ExtResource("11_djb1s")
 camera = NodePath("../../../3D_Viewport/SubViewport/Characters/Player_Node/Player_Camera")
 
-[node name="Using_Area" type="Area3D" parent="Other/Cursor/Projection_3D"]
+[node name="Using_Area" type="Area3D" parent="Other/Cursor/Projection_3D" node_paths=PackedStringArray("player", "tool_use_area")]
 collision_layer = 0
 collision_mask = 16
+script = ExtResource("12_h5kiy")
+player = NodePath("../../../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
+tool_use_area = NodePath("../../../Tool_Use_Area")
 
 [node name="Using_Area_Collision" type="CollisionShape3D" parent="Other/Cursor/Projection_3D/Using_Area"]
 shape = SubResource("SphereShape3D_s32p2")
 
-[connection signal="activate" from="3D_Viewport/SubViewport/Puzzle_Box_Test/Cursor_Using_Area" to="2D_Viewport/Background/Puzzle/Puzzle_Test" method="puzzle_init"]
-[connection signal="used" from="3D_Viewport/SubViewport/Puzzle_Box_Test/Cursor_Using_Area" to="3D_Viewport/SubViewport/Puzzle_Box_Test" method="activate_interaction"]
+[node name="Tool_Use_Area" type="Area2D" parent="Other"]
+z_index = 100
+
+[node name="Use_Area_Collision" type="CollisionShape2D" parent="Other/Tool_Use_Area"]
+position = Vector2(540, 540)
+shape = SubResource("RectangleShape2D_h46vr")
+metadata/_edit_lock_ = true
+
+[connection signal="used" from="3D_Viewport/SubViewport/Puzzle_Box_Test/Cursor_Using_Area" to="3D_Viewport/SubViewport/Puzzle_Box_Test/Cursor_Using_Area" method="tool_check"]
 [connection signal="switched" from="3D_Viewport/SubViewport/Level/Doors/Switch" to="3D_Viewport/SubViewport/Level/Doors" method="sesame"]
 [connection signal="first_out" from="2D_Viewport/Background/Puzzle/Puzzle_Test" to="3D_Viewport/SubViewport/Level/Doors/Switch" method="pulse"]
 [connection signal="sesame" from="2D_Viewport/Background/Puzzle/Puzzle_Test" to="2D_Viewport/Background/Puzzle/Panel" method="sesame"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Grabber" method="tool_used"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Hacker" method="tool_used"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Repair" method="tool_used"]
-[connection signal="tool_used" from="Other/Tool_Manager" to="Other/Tool_Manager/Attack" method="tool_used"]
-[connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_add"]
-[connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Tool_Manager" method="target_list_remove"]
+[connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_entered"]
+[connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_exited"]
 
 [editable path="3D_Viewport/SubViewport/Characters/Player_Node"]
 [editable path="3D_Viewport/SubViewport/Puzzle_Box_Test"]

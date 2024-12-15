@@ -1,0 +1,135 @@
+[gd_scene load_steps=21 format=3 uid="uid://bu8kj5h5l615g"]
+
+[ext_resource type="Texture2D" uid="uid://dwo3ywfm7cmww" path="res://textures/ui/cursors/crosshair_attacking.png" id="2_kay61"]
+[ext_resource type="Script" path="res://scripts/ui/cursor/cursor_texturing_2d.gd" id="2_ksm1c"]
+[ext_resource type="Texture2D" uid="uid://coltc0log42ls" path="res://textures/ui/cursors/crosshair_default.png" id="3_uw0y4"]
+[ext_resource type="Script" path="res://scripts/ui/cursor/cursor_attack_2d.gd" id="3_xppry"]
+[ext_resource type="Texture2D" uid="uid://cbr7vq7v6i6y8" path="res://textures/ui/cursors/crosshair_grabbing.png" id="4_4ofd6"]
+[ext_resource type="Script" path="res://scripts/ui/cursor/mouse_positioning.gd" id="4_kcp4p"]
+[ext_resource type="Texture2D" uid="uid://daprtddjihrdq" path="res://textures/ui/cursors/crosshair_hacking.png" id="5_axghj"]
+[ext_resource type="Texture2D" uid="uid://c5mtf46k6cffu" path="res://textures/ui/cursors/crosshair_repairing.png" id="6_kxarm"]
+[ext_resource type="Script" path="res://scripts/ui/cursor/cursor_variation.gd" id="9_ofuod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v01in"]
+atlas = ExtResource("2_kay61")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iynd2"]
+atlas = ExtResource("2_kay61")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47cyi"]
+atlas = ExtResource("3_uw0y4")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7b8s"]
+atlas = ExtResource("3_uw0y4")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf6li"]
+atlas = ExtResource("4_4ofd6")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulsc5"]
+atlas = ExtResource("4_4ofd6")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh81q"]
+atlas = ExtResource("5_axghj")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3v4l"]
+atlas = ExtResource("5_axghj")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78pcb"]
+atlas = ExtResource("6_kxarm")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbrde"]
+atlas = ExtResource("6_kxarm")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihmn3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v01in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iynd2")
+}],
+"loop": false,
+"name": &"attacker",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47cyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7b8s")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf6li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulsc5")
+}],
+"loop": false,
+"name": &"grabber",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh81q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3v4l")
+}],
+"loop": false,
+"name": &"hacker",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78pcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbrde")
+}],
+"loop": false,
+"name": &"repairer",
+"speed": 5.0
+}]
+
+[node name="Player_Cursor" type="Node2D"]
+
+[node name="Cursor_Texturing" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_ksm1c")
+sprite = NodePath("../Cursor_Sprite")
+
+[node name="Cursor_Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ihmn3")
+animation = &"hacker"
+
+[node name="Cursor_Attack_2D" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_xppry")
+sprite = NodePath("../Cursor_Sprite")
+
+[node name="Cursor_Positioning" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_kcp4p")
+target = NodePath("..")
+
+[node name="Cursor_Variation" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("9_ofuod")
+sprite = NodePath("../Cursor_Sprite")
+
+[connection signal="animation_finished" from="Cursor_Sprite" to="Cursor_Attack_2D" method="_on_cursor_sprite_animation_finished"]

@@ -1,8 +1,5 @@
-class_name Attacking_Tool
+class_name Attacking_Tool_Class
 extends Tools
 
 func _ready() -> void:
-	tool_name = "Attacking_Tool"
-
-func got_used():
-	used.emit("Attack")
+	tool_name = GlobalEnums.TOOLS.ATTACKING_TOOL
