@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgrhsvjsrlvq8"]
+[gd_scene load_steps=8 format=3 uid="uid://cgrhsvjsrlvq8"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_box_test.gd" id="1_2arv8"]
 [ext_resource type="PackedScene" uid="uid://coxaj83nk7uj2" path="res://scenes/usables/interaction_area_3d.tscn" id="1_04wwk"]
+[ext_resource type="PackedScene" uid="uid://bw2up2rfaarhr" path="res://scenes/usables/using_area.tscn" id="3_jfymd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s5afn"]
 
@@ -9,6 +10,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olgiq"]
 size = Vector3(3, 3, 3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e5n3m"]
+radius = 2.0
 
 [node name="Puzzle_Box_Test" type="Node3D" node_paths=PackedStringArray("interaction_area")]
 script = ExtResource("1_2arv8")
@@ -28,5 +32,15 @@ skeleton = NodePath("../..")
 [node name="Interaction_Area_3D" parent="." instance=ExtResource("1_04wwk")]
 
 [node name="Interaction_Collision" type="CollisionShape3D" parent="Interaction_Area_3D"]
-visible = false
 shape = SubResource("BoxShape3D_olgiq")
+
+[node name="Cursor_Using_Area" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_jfymd")]
+collision_layer = 0
+collision_mask = 0
+target = NodePath("../Interaction_Area_3D")
+needed_tool = 1
+
+[node name="Using_Area_Collision" type="CollisionShape3D" parent="Cursor_Using_Area"]
+shape = SubResource("SphereShape3D_e5n3m")
+
+[connection signal="used" from="Cursor_Using_Area" to="Cursor_Using_Area" method="tool_check"]

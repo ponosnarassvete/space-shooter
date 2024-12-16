@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu4m2gm5eoqge"]
+[gd_scene load_steps=7 format=3 uid="uid://cu4m2gm5eoqge"]
 
 [ext_resource type="Texture2D" uid="uid://ejamx5wn5a6i" path="res://textures/objects/puzzle/errors.png" id="1_7eba0"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/rubbish.gd" id="2_2516y"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/clamp_2d.gd" id="3_eiuy8"]
 [ext_resource type="PackedScene" uid="uid://2vlapxtnt7ur" path="res://scenes/usables/dragging_2d.tscn" id="3_s12th"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="5_juyts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfm63"]
 size = Vector2(32, 32)
@@ -26,3 +27,7 @@ shape = SubResource("RectangleShape2D_sfm63")
 [node name="Clamp_2D" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("3_eiuy8")
 object = NodePath("..")
+
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("5_juyts")
+save_properties = Array[String](["position", "scale", "id", "frame"])

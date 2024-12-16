@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://rnox4w04728u"]
+
+[ext_resource type="Script" path="res://scripts/objects/doors.gd" id="1_c0bj4"]
+[ext_resource type="PackedScene" uid="uid://1d0s4dh5kgr0" path="res://scenes/usables/switch.tscn" id="2_jt43c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fyaxi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u60dd"]
+
+[node name="Doors" type="Node3D" node_paths=PackedStringArray("left_door", "right_door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.66378)
+script = ExtResource("1_c0bj4")
+left_door = NodePath("Left_Door")
+right_door = NodePath("Right_Door")
+
+[node name="Left_Door" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+collision_layer = 2
+collision_mask = 7
+
+[node name="Left_Door_Collision" type="CollisionShape3D" parent="Left_Door"]
+shape = SubResource("BoxShape3D_fyaxi")
+
+[node name="Left_Door_Mesh" type="MeshInstance3D" parent="Left_Door"]
+mesh = SubResource("BoxMesh_u60dd")
+skeleton = NodePath("../../Switch")
+
+[node name="Right_Door" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+collision_layer = 2
+collision_mask = 7
+
+[node name="Right_Door_Collision" type="CollisionShape3D" parent="Right_Door"]
+shape = SubResource("BoxShape3D_fyaxi")
+
+[node name="Right_Door_Mesh" type="MeshInstance3D" parent="Right_Door"]
+mesh = SubResource("BoxMesh_u60dd")
+skeleton = NodePath("../../Switch")
+
+[node name="Switch" parent="." instance=ExtResource("2_jt43c")]
+
+[node name="Switch_Interaction_Area_3D" parent="Switch" index="0" node_paths=PackedStringArray("manager")]
+action_name = "Door"
+manager = NodePath("")
+
+[node name="CollisionShape3D" parent="Switch/Switch_Interaction_Area_3D" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[connection signal="switched" from="Switch" to="." method="sesame"]
+
+[editable path="Switch"]

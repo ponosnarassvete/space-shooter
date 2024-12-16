@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Echo//Decommission"
-config/version="141224-pre-alpha"
+config/version="151224-pre-alpha"
 run/main_scene="res://scenes/ui/menu/title_screen_scene_node.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Init="*res://scripts/init.gd"
+GameStateService="*res://addons/game_state_saver/game_state_service.gd"
 GlobalHealth="*res://addons/jbs_health_node/jbs_global_health.gd"
 GlobalEnums="*res://scripts/global/global_enums.gd"
 InteractionManager="*res://scenes/usables/interaction_manager.tscn"
@@ -33,7 +34,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
+enabled=PackedStringArray("res://addons/game_state_saver/plugin.cfg", "res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
 
 [global_group]
 

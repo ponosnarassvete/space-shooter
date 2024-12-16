@@ -262,7 +262,7 @@
 				},
 				{
 					"details": "Trash Textures",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Wires",
@@ -270,7 +270,7 @@
 				},
 				{
 					"details": "Background",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -279,7 +279,12 @@
 			"title": "UI - MenuProgression",
 			"description": "",
 			"category": "058cb742-baad-4a38-8075-80e8729b7d63",
-			"steps": []
+			"steps": [
+				{
+					"details": "save state",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "bb6d9867-c92f-4c76-9d94-248028c97074",
