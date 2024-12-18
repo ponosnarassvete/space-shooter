@@ -24,6 +24,6 @@ func wire_disconnected(trgt_id: int = -1):
 		wire = null
 		energy_par = null
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if wire != null and energy_par != null:
 		connected.emit(energy_par)

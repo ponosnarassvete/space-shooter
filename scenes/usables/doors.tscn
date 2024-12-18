@@ -39,9 +39,8 @@ skeleton = NodePath("../../Switch")
 
 [node name="Switch" parent="." instance=ExtResource("2_jt43c")]
 
-[node name="Switch_Interaction_Area_3D" parent="Switch" index="0" node_paths=PackedStringArray("manager")]
+[node name="Switch_Interaction_Area_3D" parent="Switch" index="0"]
 action_name = "Door"
-manager = NodePath("")
 
 [node name="CollisionShape3D" parent="Switch/Switch_Interaction_Area_3D" index="0"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

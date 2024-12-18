@@ -25,10 +25,10 @@ func scatter(object):
 		object.show()
 
 func init():
+	print("rubbish_init")
 	var rubbish = []
 	for n in amount:
 		var sprite2d = self.duplicate()
 		rubbish.append(sprite2d)
 		scatter(sprite2d)
 		get_parent().add_child(sprite2d)
-	print(rubbish[0].get_children())

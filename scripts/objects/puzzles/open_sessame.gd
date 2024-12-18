@@ -1,5 +1,7 @@
 extends Node2D
 
+signal finished
+
 @export var left_door: Sprite2D
 @export var right_door: Sprite2D
 @export var offset_x: float = 200
@@ -9,12 +11,13 @@ var right_target_position: float = 0.0
 var opening: bool = true
 var init: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if init:
 		left_door.global_position.x = move_toward(left_door.global_position.x, left_target_position, offset_speed)
 		right_door.global_position.x = move_toward(right_door.global_position.x, right_target_position, offset_speed)
 		if left_door.global_position.x == left_target_position and right_door.global_position.x == right_target_position:
 			init = false
+			finished.emit()
 
 func sesame():
 	print("sesame()")

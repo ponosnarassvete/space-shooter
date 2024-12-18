@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj5lng25t7j6m"]
+[gd_scene load_steps=17 format=3 uid="uid://cj5lng25t7j6m"]
 
 [ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_28hsm"]
+[ext_resource type="Script" path="res://scripts/test_scene_node.gd" id="1_wvgw6"]
 [ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="2_5lcii"]
 [ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/objects/puzzle_box_test.tscn" id="3_cknn5"]
 [ext_resource type="PackedScene" uid="uid://rnox4w04728u" path="res://scenes/usables/doors.tscn" id="6_1dxtd"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_initiator.gd" id="6_73p42"]
 [ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="7_ypskg"]
-[ext_resource type="PackedScene" uid="uid://50qtdeu7u7l4" path="res://scenes/objects/puzzle_test.tscn" id="8_j7a8o"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="8_c3oqu"]
 [ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="9_2qm6q"]
 [ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/ui/cursor.tscn" id="10_rh8wq"]
 [ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="11_djb1s"]
@@ -23,9 +25,9 @@ radius = 2.0
 size = Vector2(1080, 1080)
 
 [node name="Core_Scene_Node" type="Node"]
+script = ExtResource("1_wvgw6")
 
 [node name="Shader" type="TextureRect" parent="."]
-visible = false
 z_index = 120
 material = ExtResource("1_28hsm")
 anchors_preset = 15
@@ -62,8 +64,10 @@ texture_progress = NodePath("../../../../../../2D_Viewport/MainArea/Health_Bar")
 [node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
 target = NodePath("../../../../../../Other/Cursor/Projection_3D")
 
-[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport" instance=ExtResource("3_cknn5")]
+[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport" node_paths=PackedStringArray("puzzle_initiator") instance=ExtResource("3_cknn5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4008, -0.0496693, 0)
+puzzle_initiator = NodePath("../../../2D_Viewport/Background/Puzzle/Puzzle_UI")
+id = 1
 
 [node name="Interaction_Area_3D" parent="3D_Viewport/SubViewport/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager")]
 manager = NodePath("../../../../Other/Interaction_Manager")
@@ -88,12 +92,26 @@ material = SubResource("StandardMaterial3D_5twe8")
 
 [node name="Doors" parent="3D_Viewport/SubViewport/Level" instance=ExtResource("6_1dxtd")]
 
+[node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
+manager = NodePath("../../../../../../Other/Interaction_Manager")
+
+[node name="Puzzle_Box_Test2" parent="3D_Viewport/SubViewport" node_paths=PackedStringArray("puzzle_initiator") instance=ExtResource("3_cknn5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5968, -0.0496693, 0)
+puzzle_initiator = NodePath("../../../2D_Viewport/Background/Puzzle/Puzzle_UI")
+id = 2
+
+[node name="Interaction_Area_3D" parent="3D_Viewport/SubViewport/Puzzle_Box_Test2" index="1" node_paths=PackedStringArray("manager")]
+manager = NodePath("../../../../Other/Interaction_Manager")
+
 [node name="2D_Viewport" parent="." instance=ExtResource("7_ypskg")]
 
-[node name="Puzzles" type="Node" parent="2D_Viewport/Background/Puzzle" index="1"]
+[node name="Puzzle_UI" type="Node" parent="2D_Viewport/Background/Puzzle" index="1" node_paths=PackedStringArray("doors")]
+script = ExtResource("6_73p42")
+doors = NodePath("../Panel")
 
-[node name="Puzzle_Test" parent="2D_Viewport/Background/Puzzle/Puzzles" node_paths=PackedStringArray("interaction_area") instance=ExtResource("8_j7a8o")]
-interaction_area = NodePath("")
+[node name="GameStateHelper" type="Node" parent="2D_Viewport/Background/Puzzle/Puzzle_UI"]
+script = ExtResource("8_c3oqu")
+save_properties = Array[String](["initiated"])
 
 [node name="Other" type="Node2D" parent="."]
 z_index = 100
@@ -127,10 +145,14 @@ position = Vector2(540, 540)
 shape = SubResource("RectangleShape2D_h46vr")
 metadata/_edit_lock_ = true
 
-[connection signal="sesame" from="2D_Viewport/Background/Puzzle/Puzzles/Puzzle_Test" to="2D_Viewport/Background/Puzzle/Panel" method="sesame"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="sesame" from="2D_Viewport/Background/Puzzle/Puzzle_UI" to="2D_Viewport/Background/Puzzle/Panel" method="sesame"]
 [connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_entered"]
 [connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_exited"]
 
 [editable path="3D_Viewport/SubViewport/Characters/Player_Node"]
 [editable path="3D_Viewport/SubViewport/Puzzle_Box_Test"]
+[editable path="3D_Viewport/SubViewport/Level/Doors"]
+[editable path="3D_Viewport/SubViewport/Level/Doors/Switch"]
+[editable path="3D_Viewport/SubViewport/Puzzle_Box_Test2"]
 [editable path="2D_Viewport"]

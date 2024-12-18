@@ -1,0 +1,279 @@
+{
+"game_data_version": "1.0",
+"global": {},
+"meta_data": {
+"current_scene_path": "res://scenes/test_scene_node.tscn",
+"data_format_version": "1.0"
+},
+"scene_data": {
+"res://scenes/test_scene_node.tscn": {
+"node_data": {
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Panel": {
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Panel"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport",
+"init": true,
+"left_target_position": 1787.0,
+"opening": true,
+"right_target_position": 1091.0
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Panel/left_door": {
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Panel/left_door"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport",
+"position": Vector2(1107, 355)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Panel/right_door": {
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Panel/right_door"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport",
+"position": Vector2(-389, 355)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI": {
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node",
+"initiated": true
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2": {
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/puzzle_test.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2"),
+"initiated": false,
+"rubbished": false
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Base_Rubbish": {
+"frame": 0,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Base_Rubbish"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"global_position": Vector2(1508, 649),
+"id": 12000,
+"scale": Vector2(1, 1)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Connection_Table": {
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Connection_Table"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"object_dict": {
+11000: null,
+11001: null,
+11002: null,
+11003: null,
+11004: null,
+11005: null
+}
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire1": {
+"connected": false,
+"energy_par": Object(Resource,"resource_local_to_scene":false,"resource_name":"","script":Resource("res://scripts/objects/puzzles/wires/energy_parameters.gd"),"amount":10,"compatibility":true)
+,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire1"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"position": Vector2(1184, 328)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire2": {
+"connected": false,
+"energy_par": Object(Resource,"resource_local_to_scene":false,"resource_name":"","script":Resource("res://scripts/objects/puzzles/wires/energy_parameters.gd"),"amount":10,"compatibility":true)
+,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire2"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"position": Vector2(1184, 456)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire3": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire3"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"position": Vector2(1184, 584)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire4": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire4"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"position": Vector2(1184, 712)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire5": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire5"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"position": Vector2(1184, 840)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire6": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/Wires_and_Targets/Wire6"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2",
+"position": Vector2(1184, 968)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_31": {
+"frame": 1,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@31"),
+"global_position": Vector2(1784, 444.334),
+"id": 12000,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_32": {
+"frame": 3,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@32"),
+"global_position": Vector2(1561.6, 762.9),
+"id": 12001,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_33": {
+"frame": 3,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@33"),
+"global_position": Vector2(1477.48, 396.184),
+"id": 12002,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_34": {
+"frame": 0,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@34"),
+"global_position": Vector2(1784, 821.947),
+"id": 12003,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_35": {
+"frame": 5,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@35"),
+"global_position": Vector2(1784, 296),
+"id": 12004,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_36": {
+"frame": 2,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@36"),
+"global_position": Vector2(1211.66, 398.768),
+"id": 12005,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_37": {
+"frame": 4,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@37"),
+"global_position": Vector2(1780.4, 781.238),
+"id": 12006,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_38": {
+"frame": 3,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@38"),
+"global_position": Vector2(1784, 902.61),
+"id": 12007,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_39": {
+"frame": 1,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@39"),
+"global_position": Vector2(1376.41, 1000),
+"id": 12008,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_40": {
+"frame": 1,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@40"),
+"global_position": Vector2(1784, 296),
+"id": 12009,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_41": {
+"frame": 6,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@41"),
+"global_position": Vector2(1199.63, 512.466),
+"id": 12010,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_42": {
+"frame": 1,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@42"),
+"global_position": Vector2(1672.5, 435.826),
+"id": 12011,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_43": {
+"frame": 3,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@43"),
+"global_position": Vector2(1648.59, 491.425),
+"id": 12012,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_44": {
+"frame": 1,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@44"),
+"global_position": Vector2(1348.29, 521.021),
+"id": 12013,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_45": {
+"frame": 0,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@45"),
+"global_position": Vector2(1784, 936.755),
+"id": 12014,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_46": {
+"frame": 5,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@46"),
+"global_position": Vector2(1784, 465.233),
+"id": 12015,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_47": {
+"frame": 6,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@47"),
+"global_position": Vector2(1143.34, 857.322),
+"id": 12016,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_48": {
+"frame": 2,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@48"),
+"global_position": Vector2(1756.94, 725.942),
+"id": 12017,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_49": {
+"frame": 7,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@49"),
+"global_position": Vector2(1214.92, 388.477),
+"id": 12018,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/_Sprite2D_50": {
+"frame": 7,
+"game_state_helper_dynamic_recreate_scene": "res://scenes/objects/base_rubbish.tscn",
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/2D_Viewport/Background/Puzzle/Puzzle_UI/puzzle_2/@Sprite2D@50"),
+"global_position": Vector2(1168.85, 296),
+"id": 12019,
+"scale": Vector2(4, 4)
+},
+"/root/Core_Scene_Node/3D_Viewport/SubViewport/Characters/Player_Node/Player": {
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/3D_Viewport/SubViewport/Characters/Player_Node/Player"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/3D_Viewport/SubViewport/Characters/Player_Node",
+"position": Vector3(-13.3909, 0, -0.0595597),
+"rotation": Vector3(0, -1.79568, 0)
+},
+"/root/Core_Scene_Node/3D_Viewport/SubViewport/Characters/Player_Node/Player_Health/Health": {
+"amount": 12.0,
+"game_state_helper_node_path": NodePath("/root/Core_Scene_Node/3D_Viewport/SubViewport/Characters/Player_Node/Player_Health/Health"),
+"game_state_helper_owner_node_path": "/root/Core_Scene_Node/3D_Viewport/SubViewport/Characters/Player_Node"
+}
+},
+"scene_file_path": "res://scenes/test_scene_node.tscn"
+}
+}
+}

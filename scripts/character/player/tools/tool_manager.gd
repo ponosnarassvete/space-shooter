@@ -3,8 +3,8 @@ extends Node
 
 signal tool_used
 signal tool_swapped
-signal tool_added
-signal tool_removed
+#signal tool_added
+#signal tool_removed
 
 var target_list: Array = []
 var active_tool: GlobalEnums.TOOLS = GlobalEnums.TOOLS.GRABBING_TOOL
@@ -28,7 +28,7 @@ func target_list_remove(target_area: Area3D):
 	if target_area in target_list:
 		target_list.erase(target_area)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("tool_swap_up"):
 		tool_bar.insert(0, active_tool)
 		active_tool = tool_bar.pop_back()
@@ -41,8 +41,8 @@ func _input(event: InputEvent) -> void:
 		tool_swapped.emit()
 		print(GlobalEnums.TOOLS.find_key(ToolManager.active_tool), "_from_", tool_bar)
 
-func tool_add(tool: String):
+func tool_add(_tool: String):
 	pass
 
-func tool_remove(tool: String):
+func tool_remove(_tool: String):
 	pass

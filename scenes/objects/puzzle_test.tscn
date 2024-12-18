@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=12 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/saver_loader.gd" id="2_af1y6"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_parameters.gd" id="6_r6s8j"]
 [ext_resource type="Texture2D" uid="uid://csvpralj73x7v" path="res://textures/ui/main interface/UI.png" id="7_2dpuk"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="8_mxnf1"]
 
 [sub_resource type="Resource" id="Resource_erei8"]
 script = ExtResource("6_r6s8j")
@@ -16,7 +18,11 @@ script = ExtResource("6_r6s8j")
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")
-id = 1
+
+[node name="GameStateHelper" type="Node" parent="." groups=["Helpers"]]
+script = ExtResource("8_mxnf1")
+save_properties = Array[String](["rubbished", "initiated"])
+dynamic_instance = true
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
 visible = false
@@ -27,7 +33,9 @@ child_offset = 750.0
 amount = 20
 id = 12000
 
-[node name="Clamp_2D" parent="Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="GameStateHelper" parent="Base_Rubbish" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Base_Rubbish" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../ReferenceRect")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
@@ -43,6 +51,11 @@ z_index = 10
 
 [node name="Connection_Table" type="Node" parent="Wires_and_Targets"]
 script = ExtResource("4_kmqxb")
+
+[node name="GameStateHelper" type="Node" parent="Wires_and_Targets/Connection_Table" groups=["Helpers"]]
+script = ExtResource("8_mxnf1")
+save_properties = Array[String](["object_dict"])
+dynamic_instance = true
 
 [node name="Target1" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
 position = Vector2(1712, 328)
@@ -99,7 +112,9 @@ position = Vector2(1184, 328)
 id = 11000
 energy_par = SubResource("Resource_erei8")
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="GameStateHelper" parent="Wires_and_Targets/Wire1" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Wire2" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -108,10 +123,12 @@ id = 11001
 energy_par = SubResource("Resource_b8wkr")
 display = "1"
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="GameStateHelper" parent="Wires_and_Targets/Wire2" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Label" parent="Wires_and_Targets/Wire2" index="2"]
+[node name="Label" parent="Wires_and_Targets/Wire2" index="3"]
 text = "1"
 
 [node name="Wire3" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -119,10 +136,12 @@ position = Vector2(1184, 584)
 id = 11002
 display = "2"
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="GameStateHelper" parent="Wires_and_Targets/Wire3" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Label" parent="Wires_and_Targets/Wire3" index="2"]
+[node name="Label" parent="Wires_and_Targets/Wire3" index="3"]
 text = "2"
 
 [node name="Wire4" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -130,10 +149,12 @@ position = Vector2(1184, 712)
 id = 11003
 display = "3"
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="GameStateHelper" parent="Wires_and_Targets/Wire4" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Label" parent="Wires_and_Targets/Wire4" index="2"]
+[node name="Label" parent="Wires_and_Targets/Wire4" index="3"]
 text = "3"
 
 [node name="Wire5" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -141,10 +162,12 @@ position = Vector2(1184, 840)
 id = 11004
 display = "4"
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="GameStateHelper" parent="Wires_and_Targets/Wire5" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Label" parent="Wires_and_Targets/Wire5" index="2"]
+[node name="Label" parent="Wires_and_Targets/Wire5" index="3"]
 text = "4"
 
 [node name="Wire6" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
@@ -152,10 +175,12 @@ position = Vector2(1184, 968)
 id = 11005
 display = "5"
 
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="1" node_paths=PackedStringArray("interface_rect")]
+[node name="GameStateHelper" parent="Wires_and_Targets/Wire6" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="2" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../../ReferenceRect")
 
-[node name="Label" parent="Wires_and_Targets/Wire6" index="2"]
+[node name="Label" parent="Wires_and_Targets/Wire6" index="3"]
 text = "5"
 
 [node name="Reference" type="TextureRect" parent="."]
@@ -173,7 +198,12 @@ grow_vertical = 2
 texture = ExtResource("7_2dpuk")
 metadata/_edit_lock_ = true
 
+[node name="Loader" type="Node" parent="."]
+script = ExtResource("2_af1y6")
+
 [connection signal="rubbish" from="." to="Base_Rubbish" method="init"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="connected" from="Wires_and_Targets/Target1" to="." method="f_first"]
 [connection signal="connected" from="Wires_and_Targets/Target2" to="." method="f_second"]
 [connection signal="connected" from="Wires_and_Targets/Target3" to="." method="f_third"]
@@ -192,6 +222,7 @@ metadata/_edit_lock_ = true
 [connection signal="disconnecting" from="Wires_and_Targets/Wire5" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
 [connection signal="connecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
 [connection signal="disconnecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
+[connection signal="tree_entered" from="Loader" to="Loader" method="_on_tree_entered"]
 
 [editable path="Base_Rubbish"]
 [editable path="Wires_and_Targets/Target1"]

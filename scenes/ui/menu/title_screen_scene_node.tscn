@@ -154,9 +154,6 @@ color = Color(0.0666667, 0.0666667, 0.0666667, 1)
 
 [node name="Player_Cursor" parent="." instance=ExtResource("5_832nl")]
 
-[node name="Cursor_Sprite" parent="Player_Cursor" index="1"]
-animation = &"default"
-
 [node name="Cursor_Variation" parent="Player_Cursor" index="4"]
 is_active = false
 

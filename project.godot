@@ -11,17 +11,18 @@ config_version=5
 [application]
 
 config/name="Echo//Decommission"
-config/version="151224-pre-alpha"
+config/version="171224-pre-alpha"
 run/main_scene="res://scenes/ui/menu/title_screen_scene_node.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Init="*res://scripts/init.gd"
+Init="*res://scripts/global/init.gd"
 GameStateService="*res://addons/game_state_saver/game_state_service.gd"
 GlobalHealth="*res://addons/jbs_health_node/jbs_global_health.gd"
 GlobalEnums="*res://scripts/global/global_enums.gd"
+GSSConst="*res://scripts/global/gss_const.gd"
 InteractionManager="*res://scenes/usables/interaction_manager.tscn"
 ToolManager="*res://scenes/characters/player/tool_manager_node.tscn"
 

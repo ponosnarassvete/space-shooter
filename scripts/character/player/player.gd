@@ -4,7 +4,7 @@ extends Node3D
 
 var counter: int = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	health.sync_healthbar()
 	if counter == 1000:
 		counter = 0

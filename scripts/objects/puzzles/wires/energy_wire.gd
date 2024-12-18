@@ -27,7 +27,7 @@ func _ready() -> void:
 	if energy_par:
 		activated = true
 
-func _process(delta: float) -> void:# if both are true then it should pulse every tick	
+func _process(_delta: float) -> void:# if both are true then it should pulse every tick	
 	if activated:
 		if connected:
 			pulse.emit(self, id)
@@ -63,3 +63,7 @@ func set_energy(new_energy: Energy_Parameters):
 
 func get_energy():
 	return energy_par
+
+#func _on_tree_entered() -> void:
+	#print("wire_", id, "_entering")
+	#GameStateService.load_game_state(GSSConst.SAVE_PUZZLE_FILE)

@@ -19,7 +19,7 @@ func id_check(new_id):
 	else:
 		return false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_anything_pressed():
 		object.position.x = clamp(object.position.x, interface_rect.position.x, interface_rect.position.x + interface_rect.size.x)
 		object.position.y = clamp(object.position.y, interface_rect.position.y, interface_rect.position.y + interface_rect.size.y)

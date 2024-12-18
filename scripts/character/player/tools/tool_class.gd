@@ -3,7 +3,7 @@ extends Node
 
 var tool_name: GlobalEnums.TOOLS = GlobalEnums.TOOLS.NONE
 
-signal used
+#signal used
 
 func tool_used(target: Area3D, tool_id: GlobalEnums.TOOLS = GlobalEnums.TOOLS.NONE):
 	if tool_id == tool_name:

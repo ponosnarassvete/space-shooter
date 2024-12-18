@@ -16,7 +16,6 @@ radius = 2.0
 
 [node name="Puzzle_Box_Test" type="Node3D" node_paths=PackedStringArray("interaction_area")]
 script = ExtResource("1_2arv8")
-needed_tool = "Grabbing_Tool"
 interaction_area = NodePath("Interaction_Area_3D")
 
 [node name="Puzzle_Box_Body" type="StaticBody3D" parent="."]

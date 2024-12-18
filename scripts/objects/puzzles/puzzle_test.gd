@@ -1,6 +1,5 @@
 extends Node
 
-signal sesame
 signal rubbish
 
 signal first_out
@@ -17,23 +16,16 @@ signal fourth_in
 signal fifth_in
 signal sixth_in
 
-@export var id: int = -1
+@export var my_id: int = -1
 
-@export var interaction_area: Interaction_Area_3D
+@onready var wires_and_targets: Node2D = $Wires_and_Targets
 
-var interactable = true
-var interaction
-var test = Sprite2D
+var rubbished = false
+var initiated = false
 
 func puzzle_init():
-	if interactable:
-		interactable = false
+	if !rubbished:
 		rubbish.emit()
-	sesame.emit()
-		
-func _ready() -> void:
-	if interaction_area == null: interaction_area =  $"../../../../3D_Viewport/SubViewport/Puzzle_Box_Test/Interaction_Area_3D"
-	if interaction_area != null: interaction_area.interact = Callable(self, "puzzle_init")
 
 func f_first(energy: Energy_Parameters):
 	first_out.emit(energy)

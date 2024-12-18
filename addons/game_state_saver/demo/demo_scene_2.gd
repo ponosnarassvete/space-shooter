@@ -11,4 +11,3 @@ func _on_polygon_1_color_picker_btn_color_changed(color: Color) -> void:
 
 func _on_polygon_2_color_picker_btn_color_changed(color: Color) -> void:
 	_polygon2.self_modulate = color
-

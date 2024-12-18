@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0os6vikfl7nt"]
+[gd_scene load_steps=11 format=3 uid="uid://d0os6vikfl7nt"]
 
 [ext_resource type="Texture2D" uid="uid://d2wl5qv0avk0c" path="res://textures/objects/puzzle/wire.png" id="1_d12at"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_wire.gd" id="2_gydaj"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/clamp_2d.gd" id="3_l43b7"]
 [ext_resource type="PackedScene" uid="uid://2vlapxtnt7ur" path="res://scenes/usables/dragging_2d.tscn" id="3_m5o22"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="3_q3cb5"]
 [ext_resource type="Theme" uid="uid://drn0qjmea0wo8" path="res://themes/default_theme.theme" id="5_g80md"]
 [ext_resource type="FontFile" uid="uid://cpptoxcsxtdsr" path="res://font/FSEX300.ttf" id="6_xnkvb"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/label.gd" id="7_u8lj3"]
@@ -19,7 +20,11 @@ font_color = Color(0.133333, 0.8, 0.133333, 1)
 texture_filter = 1
 texture = ExtResource("1_d12at")
 script = ExtResource("2_gydaj")
-metadata/_edit_group_ = true
+
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("3_q3cb5")
+save_properties = Array[String](["position", "energy_par", "connected"])
+dynamic_instance = true
 
 [node name="Dragging_2D" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_m5o22")]
 sprite = NodePath("..")
@@ -53,5 +58,6 @@ vertical_alignment = 1
 clip_text = true
 script = ExtResource("7_u8lj3")
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="dropped" from="Dragging_2D" to="." method="connection_check"]
 [connection signal="picked" from="Dragging_2D" to="." method="wire_disconnected"]

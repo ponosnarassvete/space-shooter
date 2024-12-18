@@ -118,7 +118,6 @@ sprite = NodePath("../Cursor_Sprite")
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ihmn3")
-animation = &"hacker"
 
 [node name="Cursor_Attack_2D" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_xppry")

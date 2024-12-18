@@ -17,7 +17,7 @@ func _ready() -> void:
 	if right_door == null: right_door = $Right_Door
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if init:
 		left_door.position.x = move_toward(left_door.position.x, left_target_position, offset_speed)
 		right_door.position.x = move_toward(right_door.position.x, right_target_position, offset_speed)

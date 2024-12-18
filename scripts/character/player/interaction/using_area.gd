@@ -1,5 +1,6 @@
 class_name Using_Area
 extends Area3D
+## For tool to activate code inside the using area
 signal used
 signal activate
 

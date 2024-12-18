@@ -125,7 +125,6 @@ autowrap_mode = 2
 
 [node name="DemoButtonBar" parent="." instance=ExtResource("3_165wb")]
 layout_mode = 1
-other_demo_scene_file_path = "res://addons/game_state_saver/demo/demo_scene_1.tscn"
 
 [connection signal="color_changed" from="Polygon2D1/Polygon1ColorPickerBtn" to="." method="_on_polygon_1_color_picker_btn_color_changed"]
 [connection signal="color_changed" from="Polygon2D2/Polygon2ColorPickerBtn" to="." method="_on_polygon_2_color_picker_btn_color_changed"]

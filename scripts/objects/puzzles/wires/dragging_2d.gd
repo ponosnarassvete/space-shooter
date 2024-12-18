@@ -89,7 +89,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if currently_sprited == sprite and event is InputEventMouseMotion and dragging:
 		sprite.global_position += event.relative
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and dragging and ToolManager.active_tool == GlobalEnums.TOOLS.GRABBING_TOOL:
 		if currently_sprited == null and is_mouse_over():
 			currently_sprited = sprite

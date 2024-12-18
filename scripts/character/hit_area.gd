@@ -18,9 +18,6 @@ signal damaged
 #@export var damage_type: DAMAGE_TYPE = DAMAGE_TYPE.Close_Damage
 @export_enum("Close_Damage", "Range_Damage") var damage_type: int
 
-func _process(delta: float) -> void:
-	pass
-
 func on_area_entered(area: Area3D) -> void:
 	print("on_area_entered_", area.name)
 	if area is Hit_Area_3D and hittable:

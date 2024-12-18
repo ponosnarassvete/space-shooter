@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0ysp312e6uet"]
+[gd_scene load_steps=17 format=3 uid="uid://c0ysp312e6uet"]
 
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
 [ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/usables/hit_area.tscn" id="1_654uv"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
 [ext_resource type="Script" path="res://scripts/character/player/player.gd" id="1_wnhwf"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_t3b32"]
 [ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_5ttqo"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="3_t08qk"]
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_sprint_2d.gd" id="6_q021n"]
@@ -35,6 +36,10 @@ health = NodePath("Player_Health/Health")
 [node name="Player" type="CharacterBody3D" parent="."]
 collision_mask = 7
 
+[node name="GameStateHelper" type="Node" parent="Player"]
+script = ExtResource("2_t3b32")
+save_properties = Array[String](["position", "rotation"])
+
 [node name="Player_Collision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("BoxShape3D_g6qun")
 
@@ -58,6 +63,10 @@ script = ExtResource("8_qj0uw")
 hide_in_seconds = 0.0
 emit_damage = false
 emit_death = false
+
+[node name="GameStateHelper" type="Node" parent="Player_Health/Health"]
+script = ExtResource("2_t3b32")
+save_properties = Array[String](["amount"])
 
 [node name="Player_Movement" type="Node" parent="."]
 

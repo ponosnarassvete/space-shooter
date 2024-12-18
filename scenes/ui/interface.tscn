@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmw6j72tvj6wm"]
+[gd_scene load_steps=15 format=3 uid="uid://cmw6j72tvj6wm"]
 
 [ext_resource type="Theme" uid="uid://nymxf5bsiqo1" path="res://themes/minimalisticUI/MinimalisticUI.tres" id="1_1iq56"]
 [ext_resource type="Texture2D" uid="uid://boio4ivac0rnd" path="res://textures/ui/main interface/puzzle/UI_with_hole.png" id="1_txjra"]
 [ext_resource type="Texture2D" uid="uid://bh5fmq3884dxc" path="res://textures/ui/main interface/puzzle/door.png" id="3_b2xx7"]
 [ext_resource type="Texture2D" uid="uid://csvpralj73x7v" path="res://textures/ui/main interface/UI.png" id="3_da50f"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="3_iyxwh"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/open_sessame.gd" id="3_ywim3"]
 [ext_resource type="Texture2D" uid="uid://bagqravaq8m4x" path="res://textures/ui/health/Health_Background.png" id="5_u5b3x"]
 [ext_resource type="Texture2D" uid="uid://wgw6s8wbk8l" path="res://textures/ui/health/Health_Foreground.png" id="6_55wci"]
@@ -70,6 +71,10 @@ left_door = NodePath("left_door")
 right_door = NodePath("right_door")
 offset_x = 400.0
 
+[node name="GameStateHelper" type="Node" parent="Background/Puzzle/Panel"]
+script = ExtResource("3_iyxwh")
+save_properties = Array[String](["opening", "init", "left_target_position", "right_target_position"])
+
 [node name="left_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
 position = Vector2(707, 355)
 rotation = 3.14159
@@ -88,6 +93,10 @@ offset_bottom = -512.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GameStateHelper" type="Node" parent="Background/Puzzle/Panel/left_door"]
+script = ExtResource("3_iyxwh")
+save_properties = Array[String](["position"])
+
 [node name="right_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
 position = Vector2(11, 355)
 scale = Vector2(0.68, 0.68)
@@ -104,6 +113,10 @@ offset_right = -512.0
 offset_bottom = -512.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GameStateHelper" type="Node" parent="Background/Puzzle/Panel/right_door"]
+script = ExtResource("3_iyxwh")
+save_properties = Array[String](["position"])
 
 [node name="MainArea" type="TextureRect" parent="."]
 z_index = 70
