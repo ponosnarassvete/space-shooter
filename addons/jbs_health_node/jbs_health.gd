@@ -109,6 +109,14 @@ var _current_change_in_seconds: float = 0
 func get_class_name() -> String: return "Health"
 
 func _ready() -> void:
+	
+	if get_tree().has_group("Health_Bar") and progress == null and texture_progress == null:
+		var health_bar = get_tree().get_first_node_in_group("Health_Bar")
+		if health_bar is ProgressBar:
+			progress = health_bar
+		elif health_bar is TextureProgressBar:
+			texture_progress = health_bar
+	
 	_create_show_timer()
 	_create_change_timer()
 	_create_pause_timer()

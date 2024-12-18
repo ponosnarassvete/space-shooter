@@ -51,6 +51,9 @@ render_target_update_mode = 4
 
 [node name="Player_Node" parent="3D_Viewport/SubViewport/Characters" instance=ExtResource("2_5lcii")]
 
+[node name="Hit_Collision" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player/Player_Hit_Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.00497141, -0.0417701)
+
 [node name="Player_Camera" parent="3D_Viewport/SubViewport/Characters/Player_Node" index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
 current = true
@@ -118,8 +121,6 @@ z_index = 100
 
 [node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("9_2qm6q")]
 player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
-offset_x = 6.0
-offset_y = 6.0
 
 [node name="Cursor" parent="Other" instance=ExtResource("10_rh8wq")]
 

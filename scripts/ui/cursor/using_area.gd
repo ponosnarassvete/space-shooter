@@ -1,3 +1,4 @@
+class_name Tool_Area_3D
 extends Area3D
 
 @export var max_tool_distance: float = 5.0
@@ -6,7 +7,10 @@ extends Area3D
 
 func _ready() -> void:
 	if tool_use_area == null: tool_use_area = $Tool_Use_Area
-	if player == null: player = $"../../3D_Viewport/SubViewport/Characters/Player_Node/Player"
+	
+	if get_tree().has_group("Player") and player == null:
+		player = get_tree().get_first_node_in_group("Player")
+	
 	tool_layering()
 
 func _input(_event: InputEvent) -> void:
@@ -24,14 +28,16 @@ func _input(_event: InputEvent) -> void:
 
 func tool_layering():
 	match ToolManager.active_tool:
+		GlobalEnums.TOOLS.NONE:
+			self.collision_mask = 0
 		GlobalEnums.TOOLS.GRABBING_TOOL:
-			self.collision_mask = 5
+			self.collision_mask = 16
 		GlobalEnums.TOOLS.REPAIRING_TOOL:
-			self.collision_mask = 6
+			self.collision_mask = 32
 		GlobalEnums.TOOLS.HACKING_TOOL:
-			self.collision_mask = 7
+			self.collision_mask = 64
 		GlobalEnums.TOOLS.ATTACKING_TOOL:
-			self.collision_mask = 8
+			self.collision_mask = 128
 	print(self.name, "_collision_mask_", self.collision_mask)
 
 

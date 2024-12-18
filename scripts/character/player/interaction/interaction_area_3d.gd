@@ -6,6 +6,9 @@ extends Area3D
 var interact: Callable = func():
 	pass
 
+func _ready() -> void:
+	if manager == null: manager = InteractionManager
+
 func _on_body_entered(_body):
 	print(self.name, "_registered_by_", _body.name)
 	manager.register_area(self)

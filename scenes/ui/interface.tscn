@@ -124,7 +124,7 @@ layout_mode = 2
 theme = ExtResource("1_1iq56")
 texture = ExtResource("1_txjra")
 
-[node name="Health_Bar" type="TextureProgressBar" parent="MainArea"]
+[node name="Health_Bar" type="TextureProgressBar" parent="MainArea" groups=["Health_Bar"]]
 z_index = 30
 layout_mode = 2
 offset_left = 232.0

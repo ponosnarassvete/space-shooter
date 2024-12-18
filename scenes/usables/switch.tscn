@@ -7,6 +7,7 @@
 size = Vector3(1.49805, 1, 1.68762)
 
 [node name="Switch" type="Node3D" node_paths=PackedStringArray("interaction_area")]
+visible = false
 script = ExtResource("1_polvs")
 interaction_area = NodePath("Switch_Interaction_Area_3D")
 

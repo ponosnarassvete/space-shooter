@@ -12,6 +12,10 @@ const base_text = "[F]"
 var active_areas = []
 var can_interact = true
 
+func _ready() -> void:
+	if get_tree().has_group("Player") and player == null:
+		player = get_tree().get_first_node_in_group("Player")
+
 func register_area(area: Interaction_Area_3D):
 	active_areas.push_back(area)
 
@@ -27,6 +31,7 @@ func _process(_delta: float) -> void:
 		
 		label.global_position.x = DisplayServer.mouse_get_position().x + offset_x*2
 		label.global_position.y = DisplayServer.mouse_get_position().y + offset_y
+		
 		
 		label.show()
 	else:

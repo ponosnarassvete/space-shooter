@@ -108,7 +108,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player_Cursor" type="Node2D"]
+[node name="Player_Cursor" type="Node2D" groups=["Cursor"]]
 
 [node name="Cursor_Texturing" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_ksm1c")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0ysp312e6uet"]
+[gd_scene load_steps=21 format=3 uid="uid://c0ysp312e6uet"]
 
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
 [ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/usables/hit_area.tscn" id="1_654uv"]
@@ -6,18 +6,27 @@
 [ext_resource type="Script" path="res://scripts/character/player/player.gd" id="1_wnhwf"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_t3b32"]
 [ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_5ttqo"]
+[ext_resource type="PackedScene" uid="uid://cuqn0pn58tnrg" path="res://models/drone/Drone_done.glb" id="3_qxe6y"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_output_3d.gd" id="3_t08qk"]
+[ext_resource type="Script" path="res://scripts/character/damage_stats.gd" id="5_ke4iv"]
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_sprint_2d.gd" id="6_q021n"]
 [ext_resource type="Script" path="res://scripts/character/player/movement/topdown_player_direction_2d.gd" id="6_qvitp"]
 [ext_resource type="Script" path="res://scripts/looking_3d.gd" id="8_lg3rr"]
 [ext_resource type="Script" path="res://addons/jbs_health_node/jbs_health.gd" id="8_qj0uw"]
+[ext_resource type="Script" path="res://scripts/character/player/bullet_spawner.gd" id="14_3hajq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g6qun"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_niq5m"]
+radius = 0.487177
+height = 1.15054
 
-[sub_resource type="BoxMesh" id="BoxMesh_7wqd6"]
+[sub_resource type="Resource" id="Resource_2rdvj"]
+script = ExtResource("5_ke4iv")
+CLOSE_DAMAGE = 1.0
+RANGE_DAMAGE = 2.0
+ARMOR_PENETRATION = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hfugt"]
-size = Vector3(1.5, 1.4, 1.4)
+size = Vector3(1.5, 0.918805, 1.12309)
 
 [sub_resource type="Resource" id="Resource_uan2o"]
 script = ExtResource("1_7wn84")
@@ -29,31 +38,38 @@ ACCELERATION = 0.5
 script = ExtResource("3_5ttqo")
 FRICTION = 2
 
+[sub_resource type="Resource" id="Resource_067t6"]
+script = ExtResource("5_ke4iv")
+CLOSE_DAMAGE = 1.0
+RANGE_DAMAGE = 2.0
+ARMOR_PENETRATION = 1.0
+
 [node name="Player_Node" type="Node3D" node_paths=PackedStringArray("health")]
 script = ExtResource("1_wnhwf")
 health = NodePath("Player_Health/Health")
 
-[node name="Player" type="CharacterBody3D" parent="."]
-collision_mask = 7
+[node name="Player" type="CharacterBody3D" parent="." groups=["Player", "Target"]]
+collision_mask = 775
 
 [node name="GameStateHelper" type="Node" parent="Player"]
 script = ExtResource("2_t3b32")
 save_properties = Array[String](["position", "rotation"])
 
 [node name="Player_Collision" type="CollisionShape3D" parent="Player"]
-shape = SubResource("BoxShape3D_g6qun")
+shape = SubResource("CapsuleShape3D_niq5m")
 
-[node name="Player_Mesh" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("BoxMesh_7wqd6")
+[node name="Player_Mesh" parent="Player" instance=ExtResource("3_qxe6y")]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, -0.238854, 0.464318)
 
 [node name="Player_Hit_Area" parent="Player" instance=ExtResource("1_654uv")]
 damaging = false
+damage_stat = SubResource("Resource_2rdvj")
 
 [node name="Hit_Collision" type="CollisionShape3D" parent="Player/Player_Hit_Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 5.96046e-08, -5.96046e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.00497141, -0.0417701)
 shape = SubResource("BoxShape3D_hfugt")
 
-[node name="Player_Camera" type="Camera3D" parent="."]
+[node name="Player_Camera" type="Camera3D" parent="." groups=["Camera"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0)
 
 [node name="Player_Health" type="Node" parent="."]
@@ -90,8 +106,14 @@ input = NodePath("../Movement_Input")
 
 [node name="Player_Other" type="Node" parent="."]
 
-[node name="Looking_3D" type="Node" parent="Player_Other" node_paths=PackedStringArray("actor")]
+[node name="Looking_3D" type="Node" parent="Player_Other" node_paths=PackedStringArray("actor", "target")]
 script = ExtResource("8_lg3rr")
 actor = NodePath("../../Player")
+target = NodePath("../../Player_Camera")
 
+[node name="Bullet_Spawner" type="Node3D" parent="Player_Other"]
+script = ExtResource("14_3hajq")
+bullet_stat = SubResource("Resource_067t6")
+
+[connection signal="body_entered" from="Player/Player_Hit_Area" to="Player/Player_Hit_Area" method="_on_body_entered"]
 [connection signal="damaged" from="Player/Player_Hit_Area" to="Player_Health/Health" method="update_amount"]

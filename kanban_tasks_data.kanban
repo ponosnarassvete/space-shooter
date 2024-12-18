@@ -32,9 +32,6 @@
 			"title": "Todo",
 			"tasks": [
 				"75bd2d81-976a-4ea4-9e8d-30cdf868f9f5",
-				"bb6d9867-c92f-4c76-9d94-248028c97074",
-				"15fee465-79fa-4a24-8558-7dba97bd82ad",
-				"819fc529-bf4e-4a42-8efe-a61dd416c790",
 				"3a77ded1-6d6c-4a5c-9e3d-d156c7e03d1f",
 				"d73ff93c-8b8f-4c17-8be5-69a7d0a7f508",
 				"ba129fe7-b64d-4548-95c0-b5d32aa401fe",
@@ -47,19 +44,22 @@
 			"uuid": "443f18f2-331d-49fc-aa1b-c8902b72422a",
 			"title": "Doing",
 			"tasks": [
-				"24794f68-ee58-4dd2-91bc-b9c0488ab24b",
-				"12497c7b-5308-4a1c-b4ea-1f124b6bd09f",
-				"8938c756-20cf-4217-bd14-89af59a5e178",
-				"7ed4bfd7-e9c0-4ddb-b083-2a2f0c94d307",
+				"15fee465-79fa-4a24-8558-7dba97bd82ad",
+				"bb6d9867-c92f-4c76-9d94-248028c97074",
+				"819fc529-bf4e-4a42-8efe-a61dd416c790",
 				"3770f281-2d6c-4955-97c2-ed7ef3754159",
 				"aa251b3f-7c8d-4073-bb54-63131dcaa9d9",
-				"9e52ae5e-b428-4505-a85a-4be20c0ec2c3"
+				"9e52ae5e-b428-4505-a85a-4be20c0ec2c3",
+				"12497c7b-5308-4a1c-b4ea-1f124b6bd09f",
+				"8938c756-20cf-4217-bd14-89af59a5e178",
+				"7ed4bfd7-e9c0-4ddb-b083-2a2f0c94d307"
 			]
 		},
 		{
 			"uuid": "d4c61966-c958-4087-ac66-e38a4a75f499",
 			"title": "Done",
 			"tasks": [
+				"24794f68-ee58-4dd2-91bc-b9c0488ab24b",
 				"e3eef252-76c2-4eed-a104-73e741229081",
 				"6af61c23-5f7e-40d7-9849-d4f5aecf043f",
 				"a67f9702-43cd-48f5-9e6b-19129ffee7aa",
@@ -282,7 +282,7 @@
 			"steps": [
 				{
 					"details": "save state",
-					"done": false
+					"done": true
 				}
 			]
 		},
