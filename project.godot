@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Echo//Decommission"
-config/version="171224-pre-alpha"
+config/version="181224-pre-alpha"
 run/main_scene="res://scenes/ui/menu/title_screen_scene_node.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -121,3 +121,5 @@ tool_swap_4={
 3d_physics/layer_6="Repairer"
 3d_physics/layer_7="Hacker"
 3d_physics/layer_8="Attacker"
+3d_physics/layer_9="ground"
+3d_physics/layer_10="walls"

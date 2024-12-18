@@ -1,7 +1,7 @@
 class_name Interaction_Manager
 extends Node
 
-@export var player: Node
+@export var player: CharacterBody3D
 @export var label: Label
 
 @export var offset_x: float = 0.0

@@ -1,0 +1,142 @@
+[gd_scene load_steps=15 format=3 uid="uid://c2jc3xxm5a72"]
+
+[ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_dojw6"]
+[ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="2_2ab1f"]
+[ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="3_7v6ta"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_initiator.gd" id="4_lrbxm"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="5_i0ge1"]
+[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="6_moulw"]
+[ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/ui/cursor.tscn" id="7_nt22e"]
+[ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="8_jih66"]
+[ext_resource type="Script" path="res://scripts/ui/cursor/using_area.gd" id="9_a3c6j"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mb7bn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ab36"]
+size = Vector3(36, 1, 35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1dcw2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ubv7w"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhh4q"]
+size = Vector2(1080, 1080)
+
+[node name="tutorial_start_scene_node" type="Node3D"]
+
+[node name="Shader" type="TextureRect" parent="."]
+z_index = 120
+material = ExtResource("1_dojw6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_mb7bn")
+
+[node name="3D_Viewport" type="SubViewportContainer" parent="."]
+z_index = 90
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="3D_Viewport"]
+handle_input_locally = false
+size = Vector2i(1080, 1080)
+render_target_update_mode = 4
+
+[node name="Characters" type="Node" parent="3D_Viewport/SubViewport"]
+
+[node name="Player_Node" parent="3D_Viewport/SubViewport/Characters" instance=ExtResource("2_2ab1f")]
+
+[node name="Player" parent="3D_Viewport/SubViewport/Characters/Player_Node" index="0"]
+collision_mask = 263
+
+[node name="Player_Camera" parent="3D_Viewport/SubViewport/Characters/Player_Node" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
+current = true
+fov = 30.0
+
+[node name="Health" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Health" index="0"]
+amount = 12.0
+max_amount = 12.0
+
+[node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]
+target = NodePath("../../../../../../Other/Cursor/Projection_3D")
+
+[node name="Level" type="Node" parent="3D_Viewport/SubViewport"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3D_Viewport/SubViewport/Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4592, 409.28, 1182.51)
+light_energy = 3.0
+light_angular_distance = 20.0
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 2208.0
+directional_shadow_pancake_size = 36.0
+
+[node name="Floor" type="StaticBody3D" parent="3D_Viewport/SubViewport/Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3D_Viewport/SubViewport/Level/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3)
+shape = SubResource("BoxShape3D_8ab36")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="3D_Viewport/SubViewport/Level"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="3D_Viewport/SubViewport/Level/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+use_collision = true
+collision_layer = 512
+collision_mask = 0
+mesh = SubResource("BoxMesh_1dcw2")
+
+[node name="2D_Viewport" parent="." instance=ExtResource("3_7v6ta")]
+
+[node name="Puzzle_UI" type="Node" parent="2D_Viewport/Background/Puzzle/Panel" index="3" node_paths=PackedStringArray("doors")]
+script = ExtResource("4_lrbxm")
+doors = NodePath("..")
+
+[node name="GameStateHelper" type="Node" parent="2D_Viewport/Background/Puzzle/Panel/Puzzle_UI"]
+script = ExtResource("5_i0ge1")
+save_properties = Array[String](["initiated"])
+
+[node name="Other" type="Node2D" parent="."]
+z_index = 100
+
+[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("6_moulw")]
+player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
+offset_x = 6.0
+offset_y = 6.0
+
+[node name="Cursor" parent="Other" instance=ExtResource("7_nt22e")]
+
+[node name="Projection_3D" type="Node3D" parent="Other/Cursor" node_paths=PackedStringArray("camera")]
+script = ExtResource("8_jih66")
+camera = NodePath("../../../3D_Viewport/SubViewport/Characters/Player_Node/Player_Camera")
+
+[node name="Using_Area" type="Area3D" parent="Other/Cursor/Projection_3D" node_paths=PackedStringArray("player", "tool_use_area")]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("9_a3c6j")
+player = NodePath("../../../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
+tool_use_area = NodePath("../../../Tool_Use_Area")
+
+[node name="Using_Area_Collision" type="CollisionShape3D" parent="Other/Cursor/Projection_3D/Using_Area"]
+shape = SubResource("SphereShape3D_ubv7w")
+
+[node name="Tool_Use_Area" type="Area2D" parent="Other"]
+z_index = 100
+
+[node name="Use_Area_Collision" type="CollisionShape2D" parent="Other/Tool_Use_Area"]
+position = Vector2(540, 540)
+shape = SubResource("RectangleShape2D_fhh4q")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_entered"]
+[connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_exited"]
+
+[editable path="3D_Viewport/SubViewport/Characters/Player_Node"]
+[editable path="2D_Viewport"]
