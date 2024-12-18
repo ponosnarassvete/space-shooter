@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=11 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/saver_loader.gd" id="2_af1y6"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
@@ -22,7 +21,6 @@ script = ExtResource("1_ac74t")
 [node name="GameStateHelper" type="Node" parent="." groups=["Helpers"]]
 script = ExtResource("8_mxnf1")
 save_properties = Array[String](["rubbished", "initiated"])
-dynamic_instance = true
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
 visible = false
@@ -33,9 +31,7 @@ child_offset = 750.0
 amount = 20
 id = 12000
 
-[node name="GameStateHelper" parent="Base_Rubbish" index="0" groups=["Helpers"]]
-
-[node name="Clamp_2D" parent="Base_Rubbish" index="2" node_paths=PackedStringArray("interface_rect")]
+[node name="Clamp_2D" parent="Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../ReferenceRect")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
@@ -198,9 +194,6 @@ grow_vertical = 2
 texture = ExtResource("7_2dpuk")
 metadata/_edit_lock_ = true
 
-[node name="Loader" type="Node" parent="."]
-script = ExtResource("2_af1y6")
-
 [connection signal="rubbish" from="." to="Base_Rubbish" method="init"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
@@ -222,7 +215,6 @@ script = ExtResource("2_af1y6")
 [connection signal="disconnecting" from="Wires_and_Targets/Wire5" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
 [connection signal="connecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
 [connection signal="disconnecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
-[connection signal="tree_entered" from="Loader" to="Loader" method="_on_tree_entered"]
 
 [editable path="Base_Rubbish"]
 [editable path="Wires_and_Targets/Target1"]
