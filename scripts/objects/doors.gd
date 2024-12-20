@@ -23,10 +23,8 @@ func _process(_delta: float) -> void:
 	if init:
 		left_door.position.x = move_toward(left_door.position.x, left_target_position, offset_speed/100)
 		right_door.position.x = move_toward(right_door.position.x, right_target_position, offset_speed/100)
-		if left_door.position.x == left_target_position and right_door.global_position.x == right_target_position:
+		if left_door.position.x == left_target_position or right_door.global_position.x == right_target_position:
 			init = false
-		print("left_door.position.x", left_door.position.x)
-		print("right_door.position.x", right_door.position.x)
 
 func sesame():
 	print("3d_sesame()")

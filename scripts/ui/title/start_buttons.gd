@@ -9,12 +9,12 @@ func _input(_event: InputEvent) -> void:
 func _start_on_pressed() -> void:
 	GameStateService.new_game()
 	if debug:
-		get_tree().change_scene_to_file("res://scenes/test_scene_node.tscn")
+		SceneController.next_scene("res://scenes/test_scene_node.tscn", false)
 	else:
-		get_tree().change_scene_to_file("res://scenes/levels/tutorial/tutorial_start.tscn")
+		SceneController.next_scene("res://scenes/levels/tutorial/tutorial_start.tscn", false)
 
 func _options_on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/ui/menu/options_scene_node.tscn")
+	SceneController.next_scene("res://scenes/ui/menu/options_scene_node.tscn", false)
 
 func _quit_on_pressed() -> void:
 	get_tree().quit()

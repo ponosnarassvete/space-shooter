@@ -27,6 +27,11 @@ size = Vector2(1080, 1080)
 [node name="Core_Scene_Node" type="Node"]
 script = ExtResource("1_wvgw6")
 
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("8_c3oqu")
+save_properties = Array[String](["previous_scene"])
+global = true
+
 [node name="Shader" type="TextureRect" parent="."]
 z_index = 120
 material = ExtResource("1_28hsm")
@@ -56,12 +61,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.00497141, -0.0417701)
 
 [node name="Player_Camera" parent="3D_Viewport/SubViewport/Characters/Player_Node" index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 71.5135, 0)
-current = true
-fov = 30.0
 
 [node name="Health" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Health" index="0" node_paths=PackedStringArray("texture_progress")]
-amount = 12.0
-max_amount = 12.0
 texture_progress = NodePath("../../../../../../2D_Viewport/MainArea/Health_Bar")
 
 [node name="Looking_3D" parent="3D_Viewport/SubViewport/Characters/Player_Node/Player_Other" index="0" node_paths=PackedStringArray("target")]

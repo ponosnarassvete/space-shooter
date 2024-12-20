@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv11iaefixp7p"]
+
+[ext_resource type="PackedScene" uid="uid://cuqn0pn58tnrg" path="res://models/drone/Drone_done.glb" id="1_54qpo"]
+
+[node name="Drone_done" instance=ExtResource("1_54qpo")]

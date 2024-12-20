@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpiikf3yufudf"]
+
+[ext_resource type="Script" path="res://scripts/objects/bullet.gd" id="1_o6juk"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_iwenl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_05y3w"]
+radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ercoa"]
+metallic = 1.0
+emission_enabled = true
+emission = Color(0, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_iog86"]
+material = SubResource("StandardMaterial3D_ercoa")
+radius = 0.05
+height = 0.1
+
+[node name="Bullet" type="StaticBody3D" groups=["Projectiles"]]
+collision_layer = 520
+collision_mask = 520
+script = ExtResource("1_o6juk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Projectiles"]]
+shape = SubResource("SphereShape3D_05y3w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_iog86")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0, 1, 1, 1)
+light_energy = 0.1
+light_indirect_energy = 0.1
+light_volumetric_fog_energy = 0.0
+omni_attenuation = 0.0
+omni_shadow_mode = 0
+
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("2_iwenl")
+save_properties = Array[String](["global_position", "global_rotation", "velocity"])
+dynamic_instance = true

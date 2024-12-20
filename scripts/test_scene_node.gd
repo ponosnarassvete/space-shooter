@@ -1,5 +1,7 @@
 extends Node
 
+var previous_scene: Node
 
 func _on_tree_exiting() -> void:
-	GameStateService.on_scene_transitioning()
+	previous_scene = get_tree().current_scene
+	

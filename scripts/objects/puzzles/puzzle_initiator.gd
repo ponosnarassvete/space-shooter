@@ -39,7 +39,7 @@ func activated(id: int = -1):
 		initiated = !initiated
 
 func create(id: int = -1):
-	var puzzle_instance = puzzle.instantiate(1)
+	var puzzle_instance = puzzle.instantiate()
 	puzzles.merge({id: puzzle_instance})
 	puzzle_instance.name = "puzzle" + str(id)
 	self.add_child(puzzle_instance)

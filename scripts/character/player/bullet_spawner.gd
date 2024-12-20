@@ -1,23 +1,31 @@
 class_name Bullet_Spawner_3D
 extends Node3D
 
-@export var target: Vector3
-@export var bullet_speed: float = 1.0
+@export var target: Node3D
+@export var bullet_speed: float = 0.5
 @export var bullet_stat: Damage_Stats
+@export var timer: Timer
+
+var bullet_scene = preload("res://scenes/objects/bullet.tscn")
 
 var temp: Node 
 var direction: Vector3
 
 func _ready() -> void:
 	if get_tree().has_group("Cursor") and target == null:
-		target = get_tree().get_first_node_in_group("Cursor").global_position
+		target = get_tree().get_first_node_in_group("Cursor")
 	if get_tree().has_group("Temp") and temp == null:
 		temp = get_tree().get_first_node_in_group("Temp")
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("player_shoot"):
-		print("yes!")
-		if ToolManager.active_tool == GlobalEnums.TOOLS.ATTACKING_TOOL:
-			var new_bullet = Bullet.new()
-			temp.add_child(new_bullet)
-			new_bullet.launch(direction.direction_to(target), bullet_speed, bullet_stat)
+	
+func _physics_process(_delta: float) -> void:
+	if timer.is_stopped():
+		if Input.is_action_just_pressed("player_shoot"):
+			if ToolManager.active_tool == GlobalEnums.TOOLS.ATTACKING_TOOL:
+				var new_bullet = bullet_scene.instantiate()
+				temp.add_child(new_bullet)
+				new_bullet.global_position = self.global_position
+				var target_position = target.global_position
+				direction = global_position.direction_to(target_position)
+				direction.y = 0
+				new_bullet.launch(direction, bullet_speed, bullet_stat)
+				timer.start()
