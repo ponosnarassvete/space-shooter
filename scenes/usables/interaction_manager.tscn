@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/global/interaction_manager.gd" id="1_arki1"]
 [ext_resource type="FontFile" uid="uid://cpptoxcsxtdsr" path="res://font/FSEX300.ttf" id="2_ubogs"]
 
-[node name="Interaction_Manager" type="Node" node_paths=PackedStringArray("label")]
+[node name="Interaction_Manager" type="Node" node_paths=PackedStringArray("label") groups=["Interaction_Manager"]]
 script = ExtResource("1_arki1")
 label = NodePath("Interaction_Label")
 

@@ -21,13 +21,13 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_x5t06"]
 panorama = ExtResource("3_5agtg")
 
-[sub_resource type="Sky" id="Sky_2630d"]
+[sub_resource type="Sky" id="Sky_0f4ux"]
 sky_material = SubResource("PanoramaSkyMaterial_x5t06")
 radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_yqnqp"]
 background_mode = 2
-sky = SubResource("Sky_2630d")
+sky = SubResource("Sky_0f4ux")
 sky_custom_fov = 120.0
 sky_rotation = Vector3(1.76802, 0, 0)
 ambient_light_source = 3
@@ -37,8 +37,9 @@ tonemap_white = 5.0
 ssao_enabled = true
 ssil_enabled = true
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.04
 volumetric_fog_emission = Color(0, 0.0980392, 0, 1)
-volumetric_fog_detail_spread = 6.0
+volumetric_fog_detail_spread = 0.517632
 adjustment_brightness = 0.63
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5ny2v"]
@@ -57,6 +58,7 @@ size = Vector2(1080, 1080)
 [node name="tutorial_start_scene_node" type="Node3D"]
 
 [node name="Shader" type="TextureRect" parent="."]
+visible = false
 z_index = 120
 material = ExtResource("1_dojw6")
 anchors_preset = 15
@@ -119,7 +121,8 @@ energy_range = 16.01
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0.202995)
 light_color = Color(1, 0, 0, 1)
 light_energy = 16.0
-light_volumetric_fog_energy = 1.5
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.5
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 100.0
@@ -129,6 +132,8 @@ omni_shadow_mode = 0
 [node name="OmniLight3D3" type="OmniLight3D" parent="3D_Viewport/SubViewport/Level/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
 light_color = Color(1, 0.788235, 1, 1)
+light_energy = 2.0
+light_indirect_energy = 16.0
 light_volumetric_fog_energy = 0.0
 omni_range = 200.0
 omni_attenuation = 0.75
@@ -194,9 +199,6 @@ size = Vector3(3, 3, 3)
 [node name="Doors" parent="3D_Viewport/SubViewport/Level/walls/Front" instance=ExtResource("3_fnith")]
 transform = Transform3D(1.55, 0, 0, 0, 3.05, 0, 0, 0, 0.9, 0, 0, 0)
 
-[node name="Scene_Controller" type="Node" parent="3D_Viewport/SubViewport/Level/walls/Front/Doors"]
-script = ExtResource("5_qsdlw")
-
 [node name="Front3" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 90)
 visible = false
@@ -237,6 +239,9 @@ save_properties = Array[String](["initiated"])
 [node name="Other" type="Node2D" parent="."]
 z_index = 100
 
+[node name="Scene_Controller" type="Node" parent="Other"]
+script = ExtResource("5_qsdlw")
+
 [node name="Interaction_Manager" parent="Other" instance=ExtResource("6_moulw")]
 
 [node name="Cursor" parent="Other" instance=ExtResource("7_nt22e")]
@@ -262,7 +267,7 @@ shape = SubResource("RectangleShape2D_fhh4q")
 metadata/_edit_lock_ = true
 
 [connection signal="pitch_black" from="3D_Viewport/SubViewport/Level/Light/OmniLight3D" to="3D_Viewport/SubViewport/Level/Spawner" method="spawn"]
-[connection signal="entered" from="3D_Viewport/SubViewport/Level/walls/Front/Doors/Trigger" to="3D_Viewport/SubViewport/Level/walls/Front/Doors/Scene_Controller" method="next_scene" binds= ["\"res://scenes/levels/tutorial/room 1.tscn\""]]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/walls/Front/Doors/Trigger" to="Other/Scene_Controller" method="next_scene" binds= ["res://scenes/levels/tutorial/room_1.tscn"]]
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/walls/Front3/Doors/Trigger" to="3D_Viewport/SubViewport/Level/Spawner" method="activate"]
 [connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_entered"]
 [connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_exited"]

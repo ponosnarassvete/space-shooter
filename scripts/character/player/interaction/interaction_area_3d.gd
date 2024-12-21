@@ -7,7 +7,7 @@ var interact: Callable = func():
 	pass
 
 func _ready() -> void:
-	if manager == null: manager = InteractionManager
+	if manager == null: manager = get_tree().get_first_node_in_group("Interaction_Manager")
 
 func _on_body_entered(_body):
 	print(self.name, "_registered_by_", _body.name)

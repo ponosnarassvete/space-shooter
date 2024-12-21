@@ -8,8 +8,8 @@ signal entered
 func f_entered():
 	print("SKIBIDI")
 	entered.emit()
-	if triggered_group_name != null:
-		get_tree().call_group(triggered_group_name, "activate")
+	#if triggered_group_name != null:
+		#get_tree().call_group(triggered_group_name, "activate")
 
 func _on_area_entered(_area: Area3D) -> void:
 	f_entered()

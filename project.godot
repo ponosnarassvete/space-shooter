@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Echo//Decommission"
-config/version="181224-pre-alpha"
+config/version="201224-pre-alpha"
 run/main_scene="res://scenes/ui/menu/title_screen_scene_node.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -36,7 +36,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/game_state_saver/plugin.cfg", "res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
 
 [global_group]
 
@@ -49,6 +49,7 @@ Temp="Temporaries are placed here"
 Camera="Main camera"
 Projectiles="Projectiles, duh"
 Enemy=""
+Interaction_Manager=""
 
 [input]
 

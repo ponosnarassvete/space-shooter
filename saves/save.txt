@@ -1,11 +1,152 @@
 {
 "game_data_version": "1.0",
-"global": {},
+"global": {
+"amount": 12.0,
+"previous_scene": null
+},
 "meta_data": {
-"current_scene_path": "",
+"current_scene_path": "res://scenes/levels/tutorial/room_1.tscn",
 "data_format_version": "1.0"
 },
 "scene_data": {
+"res://scenes/levels/tutorial/room_1.tscn": {
+"node_data": {
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel": {
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport",
+"init": true,
+"left_target_position": 1787.0,
+"opening": true,
+"right_target_position": 1091.0
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1": {
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1"),
+"initiated": false,
+"rubbished": false
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Connection_Table": {
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Connection_Table"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1",
+"object_dict": {
+11000: [10000],
+11001: null,
+11002: null,
+11003: null,
+11004: null,
+11005: null
+}
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire1": {
+"connected": true,
+"energy_par": Object(Resource,"resource_local_to_scene":false,"resource_name":"","script":Resource("res://scripts/objects/puzzles/wires/energy_parameters.gd"),"amount":10,"compatibility":true)
+,
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire1"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1",
+"position": Vector2(1712, 328)
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire2": {
+"connected": false,
+"energy_par": Object(Resource,"resource_local_to_scene":false,"resource_name":"","script":Resource("res://scripts/objects/puzzles/wires/energy_parameters.gd"),"amount":10,"compatibility":true)
+,
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire2"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1",
+"position": Vector2(1184, 456)
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire3": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire3"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1",
+"position": Vector2(1184, 584)
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire4": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire4"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1",
+"position": Vector2(1184, 712)
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire5": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire5"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1",
+"position": Vector2(1184, 840)
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire6": {
+"connected": false,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1/Wires_and_Targets/Wire6"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator/puzzle1",
+"position": Vector2(1184, 968)
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/left_door": {
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/left_door"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport",
+"position": Vector2(1107, 355)
+},
+"/root/Room1/2D_Viewport/Background/Puzzle/Panel/right_door": {
+"game_state_helper_node_path": NodePath("/root/Room1/2D_Viewport/Background/Puzzle/Panel/right_door"),
+"game_state_helper_owner_node_path": "/root/Room1/2D_Viewport",
+"position": Vector2(-389, 355)
+},
+"/root/Room1/3D_Viewport/SubViewport/Characters/Player_Node": {
+"game_state_helper_node_path": NodePath("/root/Room1/3D_Viewport/SubViewport/Characters/Player_Node"),
+"game_state_helper_owner_node_path": "/root/Room1"
+},
+"/root/Room1/3D_Viewport/SubViewport/Characters/Player_Node/Player": {
+"game_state_helper_node_path": NodePath("/root/Room1/3D_Viewport/SubViewport/Characters/Player_Node/Player"),
+"game_state_helper_owner_node_path": "/root/Room1/3D_Viewport/SubViewport/Characters/Player_Node",
+"global_position": Vector3(13.188, 0.0756783, 0.265226),
+"global_rotation": Vector3(0.0390765, 1.7454, 0)
+}
+},
+"scene_file_path": "res://scenes/levels/tutorial/room_1.tscn"
+},
+"res://scenes/levels/tutorial/tutorial_start.tscn": {
+"node_data": {
+"/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport",
+"init": false,
+"left_target_position": 0.0,
+"opening": true,
+"right_target_position": 0.0
+},
+"/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel/Puzzle_UI": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel/Puzzle_UI"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"initiated": false
+},
+"/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel/left_door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel/left_door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport",
+"position": Vector2(707, 355)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel/right_door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/Background/Puzzle/Panel/right_door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport",
+"position": Vector2(11, 355)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node/Player": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node/Player"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node",
+"global_position": Vector3(0.389947, 0.0762081, 17.5274),
+"global_rotation": Vector3(0.00437327, 2.61635, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Spawner": {
+"counter": 0,
+"enemy_list": [],
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Spawner"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+}
+},
+"scene_file_path": "res://scenes/levels/tutorial/tutorial_start.tscn"
+},
 "res://scenes/ui/menu/title_screen_scene_node.tscn": {
 "node_data": {},
 "scene_file_path": "res://scenes/ui/menu/title_screen_scene_node.tscn"

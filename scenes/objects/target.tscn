@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnquc8dj1us56"]
+[gd_scene load_steps=8 format=3 uid="uid://cnquc8dj1us56"]
 
 [ext_resource type="Texture2D" uid="uid://8vphxve2v0y1" path="res://textures/objects/puzzle/target.png" id="1_0i03y"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_target.gd" id="2_g1fec"]
 [ext_resource type="Theme" uid="uid://drn0qjmea0wo8" path="res://themes/default_theme.theme" id="3_02wqf"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/label.gd" id="3_yjwfb"]
 [ext_resource type="FontFile" uid="uid://cpptoxcsxtdsr" path="res://font/FSEX300.ttf" id="4_uubvx"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="6_2eksi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j8s1s"]
 font = ExtResource("4_uubvx")
@@ -38,3 +39,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 script = ExtResource("3_yjwfb")
+
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("6_2eksi")
+save_properties = Array[String](["energy_par", "wire"])

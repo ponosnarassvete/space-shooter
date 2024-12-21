@@ -93,8 +93,7 @@ script = ExtResource("7_rksdh")
 [node name="OmniLight3D" type="OmniLight3D" parent="Player/Flashlight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.67956e-10, 0, -0.00764054)
 light_color = Color(0, 1, 0, 1)
-light_energy = 5.0
-light_volumetric_fog_energy = 2.0
+light_volumetric_fog_energy = 4.0
 omni_range = 10.0
 omni_attenuation = 1.5
 omni_shadow_mode = 0

@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgrhsvjsrlvq8"]
+[gd_scene load_steps=10 format=3 uid="uid://cgrhsvjsrlvq8"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_box_test.gd" id="1_2arv8"]
 [ext_resource type="PackedScene" uid="uid://coxaj83nk7uj2" path="res://scenes/usables/interaction_area_3d.tscn" id="1_04wwk"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_w4sws"]
 [ext_resource type="PackedScene" uid="uid://bw2up2rfaarhr" path="res://scenes/usables/using_area.tscn" id="3_jfymd"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/connections.gd" id="5_a6ek7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s5afn"]
 
@@ -14,9 +16,13 @@ size = Vector3(3, 3, 3)
 [sub_resource type="SphereShape3D" id="SphereShape3D_e5n3m"]
 radius = 2.0
 
-[node name="Puzzle_Box_Test" type="Node3D" node_paths=PackedStringArray("interaction_area")]
+[node name="Puzzle_Box_Test" type="Node3D" node_paths=PackedStringArray("interaction_area", "connection_list")]
 script = ExtResource("1_2arv8")
 interaction_area = NodePath("Interaction_Area_3D")
+connection_list = NodePath("Connection_Node")
+
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("2_w4sws")
 
 [node name="Puzzle_Box_Body" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -37,9 +43,20 @@ shape = SubResource("BoxShape3D_olgiq")
 collision_layer = 0
 collision_mask = 0
 target = NodePath("../Interaction_Area_3D")
-needed_tool = 1
+needed_tool = 2
 
 [node name="Using_Area_Collision" type="CollisionShape3D" parent="Cursor_Using_Area"]
 shape = SubResource("SphereShape3D_e5n3m")
+
+[node name="GameStateHelper" type="Node" parent="Cursor_Using_Area"]
+script = ExtResource("2_w4sws")
+save_properties = Array[String](["fixed"])
+
+[node name="Connection_Node" type="Node" parent="."]
+script = ExtResource("5_a6ek7")
+
+[node name="GameStateHelper" type="Node" parent="Connection_Node"]
+script = ExtResource("2_w4sws")
+save_properties = Array[String](["in_out"])
 
 [connection signal="used" from="Cursor_Using_Area" to="Cursor_Using_Area" method="tool_check"]
