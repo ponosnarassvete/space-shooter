@@ -12,11 +12,11 @@ func _ready() -> void:
 
 func tool_swap():
 	match ToolManager.active_tool:
-		GlobalEnums.TOOLS.GRABBING_TOOL:
+		Globals.TOOLS.GRABBING_TOOL:
 			sprite.animation = "grabber"
-		GlobalEnums.TOOLS.REPAIRING_TOOL:
+		Globals.TOOLS.REPAIRING_TOOL:
 			sprite.animation = "repairer"
-		GlobalEnums.TOOLS.HACKING_TOOL:
+		Globals.TOOLS.HACKING_TOOL:
 			sprite.animation = "hacker"
-		GlobalEnums.TOOLS.ATTACKING_TOOL:
+		Globals.TOOLS.ATTACKING_TOOL:
 			sprite.animation = "attacker"

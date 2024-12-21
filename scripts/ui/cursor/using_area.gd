@@ -24,19 +24,19 @@ func _input(_event: InputEvent) -> void:
 			print("target_list:", ToolManager.target_list)
 			if self.global_position.distance_to(player.global_position) <= max_tool_distance and !ToolManager.target_list.is_empty():
 				ToolManager.tool_used.emit(ToolManager.target_list[0], ToolManager.active_tool)
-				print("tool_used_", GlobalEnums.TOOLS.find_key(ToolManager.active_tool))
+				print("tool_used_", Globals.TOOLS.find_key(ToolManager.active_tool))
 
 func tool_layering():
 	match ToolManager.active_tool:
-		GlobalEnums.TOOLS.NONE:
+		Globals.TOOLS.NONE:
 			self.collision_mask = 0
-		GlobalEnums.TOOLS.GRABBING_TOOL:
+		Globals.TOOLS.GRABBING_TOOL:
 			self.collision_mask = 16
-		GlobalEnums.TOOLS.REPAIRING_TOOL:
+		Globals.TOOLS.REPAIRING_TOOL:
 			self.collision_mask = 32
-		GlobalEnums.TOOLS.HACKING_TOOL:
+		Globals.TOOLS.HACKING_TOOL:
 			self.collision_mask = 64
-		GlobalEnums.TOOLS.ATTACKING_TOOL:
+		Globals.TOOLS.ATTACKING_TOOL:
 			self.collision_mask = 128
 	print(self.name, "_collision_mask_", self.collision_mask)
 

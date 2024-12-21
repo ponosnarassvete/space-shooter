@@ -8,7 +8,7 @@ extends Node3D
 func _ready() -> void:
 	if interaction_area != null: interaction_area.interact = Callable(self, "activate_interaction")
 	if puzzle_initiator == null: puzzle_initiator = $"../../../2D_Viewport/Background/Puzzle/Puzzle_UI"
-	if connection_list == null: $Connection_Node
+	if connection_list == null: $Connection_List
 	
 func activate_interaction():
 	puzzle_initiator.activated(puzzle_id)

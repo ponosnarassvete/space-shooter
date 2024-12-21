@@ -7,7 +7,7 @@ signal tool_swapped
 #signal tool_removed
 
 var target_list: Array = []
-var active_tool: GlobalEnums.TOOLS = GlobalEnums.TOOLS.GRABBING_TOOL
+var active_tool: Globals.TOOLS = Globals.TOOLS.GRABBING_TOOL
 var tool_bar: Array = [] # Grabbing_Tool
 						 # Repair_Tool
 						 # Hacking_Tool
@@ -33,13 +33,13 @@ func _input(_event: InputEvent) -> void:
 		tool_bar.insert(0, active_tool)
 		active_tool = tool_bar.pop_back()
 		tool_swapped.emit()
-		print(GlobalEnums.TOOLS.find_key(ToolManager.active_tool), "_from_", tool_bar)
+		print(Globals.TOOLS.find_key(ToolManager.active_tool), "_from_", tool_bar)
 		
 	elif Input.is_action_pressed("tool_swap_down"):
 		tool_bar.append(active_tool)
 		active_tool = tool_bar.pop_front()
 		tool_swapped.emit()
-		print(GlobalEnums.TOOLS.find_key(ToolManager.active_tool), "_from_", tool_bar)
+		print(Globals.TOOLS.find_key(ToolManager.active_tool), "_from_", tool_bar)
 
 func tool_add(_tool: String):
 	pass

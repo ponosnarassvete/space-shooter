@@ -5,13 +5,13 @@ signal hit
 
 var damaging: bool = true
 var damage_stat: Damage_Stats
-var damage_type: GlobalEnums.DAMAGE_TYPES = GlobalEnums.DAMAGE_TYPES.RANGE_DAMAGE
+var damage_type: Globals.DAMAGE_TYPES = Globals.DAMAGE_TYPES.RANGE_DAMAGE
 
 var velocity:Vector3   
 
 func _ready() -> void:
 	self.add_to_group("Projectiles")
-	self.collision_layer = GlobalEnums.LAYERS.HIT_BOX_LAYER
+	self.collision_layer = Globals.LAYERS.HIT_BOX_LAYER
 
 func launch(direction:Vector3, speed:float, stats: Damage_Stats):
 	print("Bullet_shot")

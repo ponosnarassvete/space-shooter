@@ -58,7 +58,7 @@ func activated(id: int = -1):
 		
 	else:
 		
-		GameStateService.save_game_state(GSSConst.SAVE_FILE)
+		GameStateService.save_game_state(GlobalConsts.SAVE_FILE)
 		await doors.finished
 		
 		remove_child(puzzles[current_puzzle_id])

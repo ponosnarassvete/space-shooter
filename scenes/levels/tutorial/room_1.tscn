@@ -181,7 +181,7 @@ transform = Transform3D(1.55, 0, 0, 0, 3.05, 0, 0, 0, 0.9, 0, 0, 0)
 [node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport/Level" node_paths=PackedStringArray("puzzle_initiator") instance=ExtResource("6_qdql1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9007, 0.583297, 0)
 puzzle_initiator = NodePath("../../../../2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator")
-id = 1
+puzzle_id = 1
 
 [node name="Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Puzzle_Box_Test" index="2" node_paths=PackedStringArray("manager")]
 action_name = "Wiring"

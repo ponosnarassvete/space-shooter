@@ -66,4 +66,4 @@ func get_energy():
 
 #func _on_tree_entered() -> void:
 	#print("wire_", id, "_entering")
-	#GameStateService.load_game_state(GSSConst.SAVE_PUZZLE_FILE)
+	#GameStateService.load_game_state(GlobalConsts.SAVE_PUZZLE_FILE)

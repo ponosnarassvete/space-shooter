@@ -5,7 +5,7 @@ signal used
 signal activate
 
 @export var target: Node3D
-@export var needed_tool: GlobalEnums.TOOLS = GlobalEnums.TOOLS.NONE
+@export var needed_tool: Globals.TOOLS = Globals.TOOLS.NONE
 @export var fixed: bool
 
 func _ready() -> void:
@@ -15,23 +15,23 @@ func _ready() -> void:
 		target.collision_mask = 0
 
 		match needed_tool:
-			GlobalEnums.TOOLS.NONE:
+			Globals.TOOLS.NONE:
 				target.collision_mask = 1
-			GlobalEnums.TOOLS.GRABBING_TOOL:
+			Globals.TOOLS.GRABBING_TOOL:
 				self.collision_layer = 16
-			GlobalEnums.TOOLS.REPAIRING_TOOL:
+			Globals.TOOLS.REPAIRING_TOOL:
 				self.collision_layer = 32
-			GlobalEnums.TOOLS.HACKING_TOOL:
+			Globals.TOOLS.HACKING_TOOL:
 				self.collision_layer = 64
-			GlobalEnums.TOOLS.ATTACKING_TOOL:
+			Globals.TOOLS.ATTACKING_TOOL:
 				self.collision_layer = 128
 			
 		print(self.name, "_collision_layer_", self.collision_layer)
 
 
-func tool_check(tool: GlobalEnums.TOOLS = GlobalEnums.TOOLS.NONE):
-	if tool == needed_tool or needed_tool == GlobalEnums.TOOLS.NONE:
-		print(target.name, "_used_by_", GlobalEnums.TOOLS.find_key(tool))
+func tool_check(tool: Globals.TOOLS = Globals.TOOLS.NONE):
+	if tool == needed_tool or needed_tool == Globals.TOOLS.NONE:
+		print(target.name, "_used_by_", Globals.TOOLS.find_key(tool))
 		
 		target.collision_mask = 1
 		activate.emit()

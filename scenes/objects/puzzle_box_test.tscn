@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgrhsvjsrlvq8"]
+[gd_scene load_steps=11 format=3 uid="uid://cgrhsvjsrlvq8"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_box_test.gd" id="1_2arv8"]
 [ext_resource type="PackedScene" uid="uid://coxaj83nk7uj2" path="res://scenes/usables/interaction_area_3d.tscn" id="1_04wwk"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_w4sws"]
 [ext_resource type="PackedScene" uid="uid://bw2up2rfaarhr" path="res://scenes/usables/using_area.tscn" id="3_jfymd"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/connections.gd" id="5_a6ek7"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/connection_list.gd" id="5_a6ek7"]
+[ext_resource type="Script" path="res://scripts/objects/puzzles/connection_board.gd" id="6_8evg7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s5afn"]
 
@@ -19,7 +20,7 @@ radius = 2.0
 [node name="Puzzle_Box_Test" type="Node3D" node_paths=PackedStringArray("interaction_area", "connection_list")]
 script = ExtResource("1_2arv8")
 interaction_area = NodePath("Interaction_Area_3D")
-connection_list = NodePath("Connection_Node")
+connection_list = NodePath("Connection_List")
 
 [node name="GameStateHelper" type="Node" parent="."]
 script = ExtResource("2_w4sws")
@@ -52,11 +53,15 @@ shape = SubResource("SphereShape3D_e5n3m")
 script = ExtResource("2_w4sws")
 save_properties = Array[String](["fixed"])
 
-[node name="Connection_Node" type="Node" parent="."]
+[node name="Connection_List" type="Node" parent="."]
 script = ExtResource("5_a6ek7")
 
-[node name="GameStateHelper" type="Node" parent="Connection_Node"]
+[node name="GameStateHelper" type="Node" parent="Connection_List"]
 script = ExtResource("2_w4sws")
 save_properties = Array[String](["in_out"])
+
+[node name="Connection_Board" type="Node" parent="."]
+script = ExtResource("6_8evg7")
+object_group_name = null
 
 [connection signal="used" from="Cursor_Using_Area" to="Cursor_Using_Area" method="tool_check"]
