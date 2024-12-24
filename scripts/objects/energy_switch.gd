@@ -11,10 +11,10 @@ var switch: bool = false
 func _ready():
 	if interaction_area != null: interaction_area.interact = Callable(self, "press")
 
-func pulse(energy: Energy_Parameters):
+func pulse():
 	print(self.name, "_pulsed")
 	if switch:
-		ping.emit(energy)
+		ping.emit()
 
 func press():
 	print("switched_to_", switch)

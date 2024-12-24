@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://c0ysp312e6uet"]
 
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="1_7wn84"]
-[ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/usables/hit_area.tscn" id="1_654uv"]
+[ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/objects/usables/hit_area.tscn" id="1_654uv"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
 [ext_resource type="Script" path="res://scripts/character/player/player.gd" id="1_wnhwf"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_t3b32"]

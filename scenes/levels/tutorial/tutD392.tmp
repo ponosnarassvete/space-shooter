@@ -5,13 +5,13 @@
 [ext_resource type="Script" path="res://scripts/objects/lights/blinking_light.gd" id="3_2hlc4"]
 [ext_resource type="Texture2D" uid="uid://ckd5cq4fqdc4t" path="res://textures/level/milky_way.jpg" id="3_5agtg"]
 [ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="3_7v6ta"]
-[ext_resource type="PackedScene" uid="uid://rnox4w04728u" path="res://scenes/objects/doors.tscn" id="3_fnith"]
+[ext_resource type="PackedScene" uid="uid://rnox4w04728u" path="res://scenes/usables/doors.tscn" id="3_fnith"]
 [ext_resource type="Script" path="res://scripts/world_environment_sky.gd" id="4_7p4ah"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_initiator.gd" id="4_lrbxm"]
 [ext_resource type="Script" path="res://scripts/objects/spawner.gd" id="5_dn67s"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="5_i0ge1"]
 [ext_resource type="Script" path="res://scripts/global/scene_controller.gd" id="5_qsdlw"]
-[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/objects/usables/interaction_manager.tscn" id="6_moulw"]
+[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="6_moulw"]
 [ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/ui/cursor.tscn" id="7_nt22e"]
 [ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="8_jih66"]
 [ext_resource type="Script" path="res://scripts/ui/cursor/using_area.gd" id="9_a3c6j"]
@@ -242,8 +242,7 @@ z_index = 100
 [node name="Scene_Controller" type="Node" parent="Other"]
 script = ExtResource("5_qsdlw")
 
-[node name="Interaction_Manager" parent="Other" node_paths=PackedStringArray("player") instance=ExtResource("6_moulw")]
-player = NodePath("../../3D_Viewport/SubViewport/Characters/Player_Node/Player")
+[node name="Interaction_Manager" parent="Other" instance=ExtResource("6_moulw")]
 
 [node name="Cursor" parent="Other" instance=ExtResource("7_nt22e")]
 

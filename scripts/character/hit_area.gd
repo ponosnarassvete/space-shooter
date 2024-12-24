@@ -13,14 +13,14 @@ signal damaged
 @export var damage_stat: Damage_Stats
 
 ## Damage Type
-@export var damage_type: Globals.DAMAGE_TYPES
+@export var damage_type: GlobalStuff.DAMAGE_TYPES
 
 func on_area_entered(area: Area3D) -> void:
 	print("on_area_entered_", area.name)
 	if area is Hit_Area_3D:
 		if !get_parent().is_in_group("Enemy"):
 			if area.damaging and hittable:
-				if damage_type == Globals.DAMAGE_TYPES.CLOSE_DAMAGE:
+				if damage_type == GlobalStuff.DAMAGE_TYPES.CLOSE_DAMAGE:
 					print(area.name, "_", damage_type , "_hit_amount_", -area.damage_stat.CLOSE_DAMAGE)
 					damaged.emit(-area.damage_stat.CLOSE_DAMAGE)
 				else:	
@@ -32,7 +32,7 @@ func _on_body_entered(body: Node3D) -> void:
 	print("on_body_entered_", body.name)
 	if body.is_in_group("Projectiles"):
 		if body.damaging and hittable:
-			if damage_type == Globals.DAMAGE_TYPES.CLOSE_DAMAGE:
+			if damage_type == GlobalStuff.DAMAGE_TYPES.CLOSE_DAMAGE:
 				print(body.name, "_", damage_type , "_hit_amount_", -body.damage_stat.CLOSE_DAMAGE)
 				damaged.emit(-body.damage_stat.CLOSE_DAMAGE)
 			else:	

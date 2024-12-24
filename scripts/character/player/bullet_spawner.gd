@@ -20,7 +20,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if timer.is_stopped():
 		if Input.is_action_just_pressed("player_shoot"):
-			if ToolManager.active_tool == Globals.TOOLS.ATTACKING_TOOL:
+			if ToolManager.active_tool == GlobalStuff.TOOLS.ATTACKING_TOOL:
 				var new_bullet = bullet_scene.instantiate()
 				temp.add_child(new_bullet)
 				new_bullet.global_position = self.global_position

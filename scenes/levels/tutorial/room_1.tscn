@@ -2,13 +2,13 @@
 
 [ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_meyvf"]
 [ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="2_w06av"]
-[ext_resource type="PackedScene" uid="uid://rnox4w04728u" path="res://scenes/usables/doors.tscn" id="3_53e6k"]
+[ext_resource type="PackedScene" uid="uid://rnox4w04728u" path="res://scenes/objects/doors.tscn" id="3_53e6k"]
 [ext_resource type="Texture2D" uid="uid://ckd5cq4fqdc4t" path="res://textures/level/milky_way.jpg" id="3_jy7uh"]
 [ext_resource type="Script" path="res://scripts/world_environment_sky.gd" id="4_0vgvx"]
 [ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="4_3ly8m"]
-[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/usables/interaction_manager.tscn" id="5_h5s20"]
+[ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/objects/usables/interaction_manager.tscn" id="5_h5s20"]
 [ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/ui/cursor.tscn" id="6_mgtek"]
-[ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/objects/puzzle_box_test.tscn" id="6_qdql1"]
+[ext_resource type="PackedScene" uid="uid://cgrhsvjsrlvq8" path="res://scenes/objects/puzzle_box.tscn" id="6_qdql1"]
 [ext_resource type="Script" path="res://scripts/3d_projection_of_2d.gd" id="7_1oily"]
 [ext_resource type="Script" path="res://scripts/global/scene_controller.gd" id="7_limxx"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_initiator.gd" id="8_dsyhc"]
@@ -178,10 +178,11 @@ size = Vector3(3, 3, 3)
 [node name="Doors" parent="3D_Viewport/SubViewport/Level/walls/Front" instance=ExtResource("3_53e6k")]
 transform = Transform3D(1.55, 0, 0, 0, 3.05, 0, 0, 0, 0.9, 0, 0, 0)
 
-[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport/Level" node_paths=PackedStringArray("puzzle_initiator") instance=ExtResource("6_qdql1")]
+[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport/Level" node_paths=PackedStringArray("puzzle_initiator", "interaction_area") instance=ExtResource("6_qdql1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9007, 0.583297, 0)
 puzzle_initiator = NodePath("../../../../2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator")
-puzzle_id = 1
+interaction_area = NodePath("Interaction_Area_3D")
+object_id = 0
 
 [node name="Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Puzzle_Box_Test" index="2" node_paths=PackedStringArray("manager")]
 action_name = "Wiring"

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://rnox4w04728u"]
+[gd_scene load_steps=10 format=3 uid="uid://rnox4w04728u"]
 
 [ext_resource type="Script" path="res://scripts/objects/doors.gd" id="1_c0bj4"]
-[ext_resource type="PackedScene" uid="uid://1d0s4dh5kgr0" path="res://scenes/usables/switch.tscn" id="2_jt43c"]
+[ext_resource type="PackedScene" uid="uid://1d0s4dh5kgr0" path="res://scenes/objects/usables/switch.tscn" id="2_jt43c"]
 [ext_resource type="Script" path="res://scripts/objects/trigger.gd" id="2_p6fco"]
 [ext_resource type="Texture2D" uid="uid://bn4c2o3bukgki" path="res://textures/objects/door/metal.jpg" id="2_uqhil"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="4_4afkv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23kbv"]
 size = Vector3(2, 1, 0.4)
@@ -46,6 +47,10 @@ transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_u60dd")
 skeleton = NodePath("../../Switch")
 
+[node name="GameStateHelper" type="Node" parent="Left_Door"]
+script = ExtResource("4_4afkv")
+save_properties = Array[String](["position"])
+
 [node name="Right_Door" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 collision_layer = 2
@@ -58,6 +63,10 @@ shape = SubResource("BoxShape3D_fyaxi")
 mesh = SubResource("BoxMesh_u60dd")
 skeleton = NodePath("../../Switch")
 
+[node name="GameStateHelper" type="Node" parent="Right_Door"]
+script = ExtResource("4_4afkv")
+save_properties = Array[String](["position"])
+
 [node name="Switch" parent="." instance=ExtResource("2_jt43c")]
 
 [node name="Switch_Interaction_Area_3D" parent="Switch" index="0"]
@@ -66,8 +75,14 @@ action_name = "Door"
 [node name="CollisionShape3D" parent="Switch/Switch_Interaction_Area_3D" index="0"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
+[node name="GameStateHelper" type="Node" parent="."]
+script = ExtResource("4_4afkv")
+save_properties = Array[String](["left_target_position", "right_target_position", "opening", "init"])
+
 [connection signal="area_entered" from="Trigger" to="Trigger" method="_on_area_entered"]
+[connection signal="area_exited" from="Trigger" to="Trigger" method="_on_area_exited"]
 [connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
+[connection signal="body_exited" from="Trigger" to="Trigger" method="_on_body_exited"]
 [connection signal="switched" from="Switch" to="." method="sesame"]
 
 [editable path="Switch"]

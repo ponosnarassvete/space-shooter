@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/character/enemy/enemy_test.gd" id="1_3ksgh"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_d1jqr"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="2_4aboo"]
-[ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/usables/hit_area.tscn" id="3_euffo"]
+[ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/objects/usables/hit_area.tscn" id="3_euffo"]
 [ext_resource type="Script" path="res://scripts/character/damage_stats.gd" id="3_uwwvj"]
 [ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_w5htc"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="4_iyfhp"]

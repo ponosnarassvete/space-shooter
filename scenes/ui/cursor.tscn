@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bu8kj5h5l615g"]
+[gd_scene load_steps=22 format=3 uid="uid://bu8kj5h5l615g"]
 
 [ext_resource type="Texture2D" uid="uid://dwo3ywfm7cmww" path="res://textures/ui/cursors/crosshair_attacking.png" id="2_kay61"]
 [ext_resource type="Script" path="res://scripts/ui/cursor/cursor_texturing_2d.gd" id="2_ksm1c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/ui/cursor/mouse_positioning.gd" id="4_kcp4p"]
 [ext_resource type="Texture2D" uid="uid://daprtddjihrdq" path="res://textures/ui/cursors/crosshair_hacking.png" id="5_axghj"]
 [ext_resource type="Texture2D" uid="uid://c5mtf46k6cffu" path="res://textures/ui/cursors/crosshair_repairing.png" id="6_kxarm"]
+[ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="7_s3q0m"]
 [ext_resource type="Script" path="res://scripts/ui/cursor/cursor_variation.gd" id="9_ofuod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v01in"]
@@ -118,6 +119,11 @@ sprite = NodePath("../Cursor_Sprite")
 texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ihmn3")
+
+[node name="GameStateHelper" type="Node" parent="Cursor_Sprite"]
+script = ExtResource("7_s3q0m")
+save_properties = Array[String](["animation"])
+global = true
 
 [node name="Cursor_Attack_2D" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_xppry")

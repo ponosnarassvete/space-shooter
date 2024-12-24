@@ -1,7 +1,7 @@
-class_name Globals
+class_name Global_Stuff
 extends Node
 
-const CONNECTION_BOARD_GROUP = "Connection_Board"
+const WIRE_TARGET_GROUP = "Target_Wire"
 
 const SAVE_FILE = "res://saves/save.txt"
 const PUZZLE_SAVE_FILE = "res://saves/save.txt"

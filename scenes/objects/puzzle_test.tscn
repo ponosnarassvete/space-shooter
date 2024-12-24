@@ -1,30 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=7 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
-[ext_resource type="Script" path="res://scripts/objects/puzzles/wires/energy_parameters.gd" id="6_r6s8j"]
-[ext_resource type="Texture2D" uid="uid://csvpralj73x7v" path="res://textures/ui/main interface/UI.png" id="7_2dpuk"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="8_mxnf1"]
-
-[sub_resource type="Resource" id="Resource_erei8"]
-script = ExtResource("6_r6s8j")
-
-[sub_resource type="Resource" id="Resource_b8wkr"]
-script = ExtResource("6_r6s8j")
 
 [node name="Puzzle_Test" type="Node"]
 script = ExtResource("1_ac74t")
 
-[node name="GameStateHelper" type="Node" parent="." groups=["Helpers"]]
-script = ExtResource("8_mxnf1")
-save_properties = Array[String](["rubbished", "initiated"])
-
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
 visible = false
-position = Vector2(1508, 649)
+position = Vector2(1432, 624)
 scale_upper = 4.0
 scale_lower = 4.0
 child_offset = 750.0
@@ -34,6 +22,139 @@ id = 12000
 [node name="Clamp_2D" parent="Base_Rubbish" index="1" node_paths=PackedStringArray("interface_rect")]
 interface_rect = NodePath("../../ReferenceRect")
 
+[node name="Connection_Table" type="Node2D" parent="."]
+z_index = 10
+script = ExtResource("4_kmqxb")
+
+[node name="GameStateHelper" type="Node" parent="Connection_Table" groups=["Helpers"]]
+script = ExtResource("8_mxnf1")
+save_properties = Array[String](["object_dict"])
+dynamic_instance = true
+
+[node name="Target1" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
+position = Vector2(1712, 328)
+scale = Vector2(1, 1)
+target_id = 0
+
+[node name="Target2" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
+position = Vector2(1712, 456)
+scale = Vector2(1, 1)
+target_id = 1
+display = "1"
+
+[node name="Label" parent="Connection_Table/Target2" index="0"]
+text = "1"
+
+[node name="Target3" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
+position = Vector2(1712, 584)
+scale = Vector2(1, 1)
+target_id = 2
+display = "2"
+
+[node name="Label" parent="Connection_Table/Target3" index="0"]
+text = "2"
+
+[node name="Target4" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
+position = Vector2(1712, 712)
+scale = Vector2(1, 1)
+target_id = 3
+display = "3"
+
+[node name="Label" parent="Connection_Table/Target4" index="0"]
+text = "3"
+
+[node name="Target5" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
+position = Vector2(1712, 840)
+scale = Vector2(1, 1)
+target_id = 4
+display = "4"
+
+[node name="Label" parent="Connection_Table/Target5" index="0"]
+text = "4"
+
+[node name="Target6" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
+position = Vector2(1712, 968)
+scale = Vector2(1, 1)
+target_id = 5
+display = "5"
+
+[node name="Label" parent="Connection_Table/Target6" index="0"]
+text = "5"
+
+[node name="Wire1" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
+position = Vector2(1184, 328)
+wire_id = 0
+
+[node name="GameStateHelper" parent="Connection_Table/Wire1" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Connection_Table/Wire1" index="2" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Wire2" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
+position = Vector2(1184, 456)
+wire_id = 1
+display = "1"
+
+[node name="GameStateHelper" parent="Connection_Table/Wire2" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Connection_Table/Wire2" index="2" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Label" parent="Connection_Table/Wire2" index="3"]
+text = "1"
+
+[node name="Wire3" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
+position = Vector2(1184, 584)
+wire_id = 2
+display = "2"
+
+[node name="GameStateHelper" parent="Connection_Table/Wire3" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Connection_Table/Wire3" index="2" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Label" parent="Connection_Table/Wire3" index="3"]
+text = "2"
+
+[node name="Wire4" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
+position = Vector2(1184, 712)
+wire_id = 3
+display = "3"
+
+[node name="GameStateHelper" parent="Connection_Table/Wire4" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Connection_Table/Wire4" index="2" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Label" parent="Connection_Table/Wire4" index="3"]
+text = "3"
+
+[node name="Wire5" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
+position = Vector2(1184, 840)
+wire_id = 4
+display = "4"
+
+[node name="GameStateHelper" parent="Connection_Table/Wire5" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Connection_Table/Wire5" index="2" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Label" parent="Connection_Table/Wire5" index="3"]
+text = "4"
+
+[node name="Wire6" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
+position = Vector2(1184, 968)
+wire_id = 5
+display = "5"
+
+[node name="GameStateHelper" parent="Connection_Table/Wire6" index="0" groups=["Helpers"]]
+
+[node name="Clamp_2D" parent="Connection_Table/Wire6" index="2" node_paths=PackedStringArray("interface_rect")]
+interface_rect = NodePath("../../../ReferenceRect")
+
+[node name="Label" parent="Connection_Table/Wire6" index="3"]
+text = "5"
+
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 offset_left = 1080.0
 offset_top = 296.0
@@ -42,190 +163,36 @@ offset_bottom = 1000.0
 mouse_filter = 2
 border_width = 2.2
 
-[node name="Wires_and_Targets" type="Node2D" parent="."]
-z_index = 10
-
-[node name="Connection_Table" type="Node" parent="Wires_and_Targets"]
-script = ExtResource("4_kmqxb")
-
-[node name="GameStateHelper" type="Node" parent="Wires_and_Targets/Connection_Table" groups=["Helpers"]]
+[node name="GameStateHelper" type="Node" parent="." groups=["Helpers"]]
 script = ExtResource("8_mxnf1")
-save_properties = Array[String](["object_dict"])
-dynamic_instance = true
-
-[node name="Target1" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 328)
-scale = Vector2(1, 1)
-id = 10000
-
-[node name="Target2" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 456)
-scale = Vector2(1, 1)
-id = 10001
-display = "1"
-
-[node name="Label" parent="Wires_and_Targets/Target2" index="0"]
-text = "1"
-
-[node name="Target3" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 584)
-scale = Vector2(1, 1)
-id = 10002
-display = "2"
-
-[node name="Label" parent="Wires_and_Targets/Target3" index="0"]
-text = "2"
-
-[node name="Target4" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 712)
-scale = Vector2(1, 1)
-id = 10003
-display = "3"
-
-[node name="Label" parent="Wires_and_Targets/Target4" index="0"]
-text = "3"
-
-[node name="Target5" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 840)
-scale = Vector2(1, 1)
-id = 10004
-display = "4"
-
-[node name="Label" parent="Wires_and_Targets/Target5" index="0"]
-text = "4"
-
-[node name="Target6" parent="Wires_and_Targets" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 968)
-scale = Vector2(1, 1)
-id = 10005
-display = "5"
-
-[node name="Label" parent="Wires_and_Targets/Target6" index="0"]
-text = "5"
-
-[node name="Wire1" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 328)
-id = 11000
-energy_par = SubResource("Resource_erei8")
-
-[node name="GameStateHelper" parent="Wires_and_Targets/Wire1" index="0" groups=["Helpers"]]
-
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire1" index="2" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../../ReferenceRect")
-
-[node name="Wire2" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 456)
-id = 11001
-energy_par = SubResource("Resource_b8wkr")
-display = "1"
-
-[node name="GameStateHelper" parent="Wires_and_Targets/Wire2" index="0" groups=["Helpers"]]
-
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire2" index="2" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../../ReferenceRect")
-
-[node name="Label" parent="Wires_and_Targets/Wire2" index="3"]
-text = "1"
-
-[node name="Wire3" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 584)
-id = 11002
-display = "2"
-
-[node name="GameStateHelper" parent="Wires_and_Targets/Wire3" index="0" groups=["Helpers"]]
-
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire3" index="2" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../../ReferenceRect")
-
-[node name="Label" parent="Wires_and_Targets/Wire3" index="3"]
-text = "2"
-
-[node name="Wire4" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 712)
-id = 11003
-display = "3"
-
-[node name="GameStateHelper" parent="Wires_and_Targets/Wire4" index="0" groups=["Helpers"]]
-
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire4" index="2" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../../ReferenceRect")
-
-[node name="Label" parent="Wires_and_Targets/Wire4" index="3"]
-text = "3"
-
-[node name="Wire5" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 840)
-id = 11004
-display = "4"
-
-[node name="GameStateHelper" parent="Wires_and_Targets/Wire5" index="0" groups=["Helpers"]]
-
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire5" index="2" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../../ReferenceRect")
-
-[node name="Label" parent="Wires_and_Targets/Wire5" index="3"]
-text = "4"
-
-[node name="Wire6" parent="Wires_and_Targets" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 968)
-id = 11005
-display = "5"
-
-[node name="GameStateHelper" parent="Wires_and_Targets/Wire6" index="0" groups=["Helpers"]]
-
-[node name="Clamp_2D" parent="Wires_and_Targets/Wire6" index="2" node_paths=PackedStringArray("interface_rect")]
-interface_rect = NodePath("../../../ReferenceRect")
-
-[node name="Label" parent="Wires_and_Targets/Wire6" index="3"]
-text = "5"
-
-[node name="Reference" type="TextureRect" parent="."]
-visible = false
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -840.0
-offset_top = -540.0
-offset_bottom = 540.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("7_2dpuk")
-metadata/_edit_lock_ = true
+save_properties = Array[String](["rubbished", "initiated"])
 
 [connection signal="rubbish" from="." to="Base_Rubbish" method="init"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
-[connection signal="connected" from="Wires_and_Targets/Target1" to="." method="f_first"]
-[connection signal="connected" from="Wires_and_Targets/Target2" to="." method="f_second"]
-[connection signal="connected" from="Wires_and_Targets/Target3" to="." method="f_third"]
-[connection signal="connected" from="Wires_and_Targets/Target4" to="." method="f_fourth"]
-[connection signal="connected" from="Wires_and_Targets/Target5" to="." method="f_fifth"]
-[connection signal="connected" from="Wires_and_Targets/Target6" to="." method="f_sixth"]
-[connection signal="connecting" from="Wires_and_Targets/Wire1" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
-[connection signal="disconnecting" from="Wires_and_Targets/Wire1" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
-[connection signal="connecting" from="Wires_and_Targets/Wire2" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
-[connection signal="disconnecting" from="Wires_and_Targets/Wire2" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
-[connection signal="connecting" from="Wires_and_Targets/Wire3" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
-[connection signal="disconnecting" from="Wires_and_Targets/Wire3" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
-[connection signal="connecting" from="Wires_and_Targets/Wire4" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
-[connection signal="disconnecting" from="Wires_and_Targets/Wire4" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
-[connection signal="connecting" from="Wires_and_Targets/Wire5" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
-[connection signal="disconnecting" from="Wires_and_Targets/Wire5" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
-[connection signal="connecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="connect_objs"]
-[connection signal="disconnecting" from="Wires_and_Targets/Wire6" to="Wires_and_Targets/Connection_Table" method="disconnect_objs"]
+[connection signal="connecting" from="Connection_Table/Wire1" to="Connection_Table" method="connect_objects"]
+[connection signal="disconnecting" from="Connection_Table/Wire1" to="Connection_Table" method="disconnect_objects"]
+[connection signal="connecting" from="Connection_Table/Wire2" to="Connection_Table" method="connect_objects"]
+[connection signal="disconnecting" from="Connection_Table/Wire2" to="Connection_Table" method="disconnect_objects"]
+[connection signal="connecting" from="Connection_Table/Wire3" to="Connection_Table" method="connect_objects"]
+[connection signal="disconnecting" from="Connection_Table/Wire3" to="Connection_Table" method="disconnect_objects"]
+[connection signal="connecting" from="Connection_Table/Wire4" to="Connection_Table" method="connect_objects"]
+[connection signal="disconnecting" from="Connection_Table/Wire4" to="Connection_Table" method="disconnect_objects"]
+[connection signal="connecting" from="Connection_Table/Wire5" to="Connection_Table" method="connect_objects"]
+[connection signal="disconnecting" from="Connection_Table/Wire5" to="Connection_Table" method="disconnect_objects"]
+[connection signal="connecting" from="Connection_Table/Wire6" to="Connection_Table" method="connect_objects"]
+[connection signal="disconnecting" from="Connection_Table/Wire6" to="Connection_Table" method="disconnect_objects"]
 
 [editable path="Base_Rubbish"]
-[editable path="Wires_and_Targets/Target1"]
-[editable path="Wires_and_Targets/Target2"]
-[editable path="Wires_and_Targets/Target3"]
-[editable path="Wires_and_Targets/Target4"]
-[editable path="Wires_and_Targets/Target5"]
-[editable path="Wires_and_Targets/Target6"]
-[editable path="Wires_and_Targets/Wire1"]
-[editable path="Wires_and_Targets/Wire2"]
-[editable path="Wires_and_Targets/Wire3"]
-[editable path="Wires_and_Targets/Wire4"]
-[editable path="Wires_and_Targets/Wire5"]
-[editable path="Wires_and_Targets/Wire6"]
+[editable path="Connection_Table/Target1"]
+[editable path="Connection_Table/Target2"]
+[editable path="Connection_Table/Target3"]
+[editable path="Connection_Table/Target4"]
+[editable path="Connection_Table/Target5"]
+[editable path="Connection_Table/Target6"]
+[editable path="Connection_Table/Wire1"]
+[editable path="Connection_Table/Wire2"]
+[editable path="Connection_Table/Wire3"]
+[editable path="Connection_Table/Wire4"]
+[editable path="Connection_Table/Wire5"]
+[editable path="Connection_Table/Wire6"]
