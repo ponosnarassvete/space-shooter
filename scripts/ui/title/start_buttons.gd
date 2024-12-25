@@ -11,7 +11,7 @@ func _start_on_pressed() -> void:
 	if debug:
 		SceneController.next_scene("res://scenes/test_scene_node.tscn", false)
 	else:
-		SceneController.next_scene("res://scenes/levels/tutorial/tutorial_start.tscn", false)
+		SceneController.next_scene(GlobalStuff.TUTORIAL_LEVEL_SCENE, false)
 
 func _options_on_pressed() -> void:
 	SceneController.next_scene("res://scenes/ui/menu/options_scene_node.tscn", false)

@@ -1,22 +1,16 @@
-class_name Using_Area
-extends Area3D
+class_name Repairable_Interaction_Area_3D
+extends Interaction_Area_3D
 ## For tool to activate code inside the using area
 signal used
-signal activate
+signal repaired
 
-@export var target: Interaction_Area_3D
 @export var needed_tool: GlobalStuff.TOOLS = GlobalStuff.TOOLS.NONE
-@export var fixed: bool
 
-func _ready() -> void:
-	if target == null: target = $"../Interaction_Area_3D"
-	
-	if fixed: target.ready_for_interaction = true
-	else:target.ready_for_interaction = false
+func _ready() -> void:	
 
 		match needed_tool:
 			GlobalStuff.TOOLS.NONE:
-				target.collision_mask = 1
+				ready_for_interaction = true
 			GlobalStuff.TOOLS.GRABBING_TOOL:
 				self.collision_layer = 16
 			GlobalStuff.TOOLS.REPAIRING_TOOL:
@@ -31,10 +25,10 @@ func _ready() -> void:
 
 func tool_check(tool: GlobalStuff.TOOLS = GlobalStuff.TOOLS.NONE):
 	if tool == needed_tool or needed_tool == GlobalStuff.TOOLS.NONE:
-		print(target.name, "_used_by_", GlobalStuff.TOOLS.find_key(tool))
+		print(self.name, "_used_by_", GlobalStuff.TOOLS.find_key(tool))
 		
-		target.ready_for_interaction = true
-		activate.emit()
+		ready_for_interaction = true
+		repaired.emit()
 		
 		return true
 	

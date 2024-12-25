@@ -110,8 +110,8 @@ func get_class_name() -> String: return "Health"
 
 func _ready() -> void:
 	
-	if get_tree().has_group("Health_Bar") and progress == null and texture_progress == null:
-		var health_bar = get_tree().get_first_node_in_group("Health_Bar")
+	if get_tree().has_group(Global_Stuff.HEALTH_BAR_GROUP) and progress == null and texture_progress == null:
+		var health_bar = get_tree().get_first_node_in_group(Global_Stuff.HEALTH_BAR_GROUP)
 		if health_bar is ProgressBar:
 			progress = health_bar
 		elif health_bar is TextureProgressBar:

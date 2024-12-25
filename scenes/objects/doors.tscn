@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/objects/doors.gd" id="1_c0bj4"]
 [ext_resource type="PackedScene" uid="uid://1d0s4dh5kgr0" path="res://scenes/objects/usables/switch.tscn" id="2_jt43c"]
-[ext_resource type="Script" path="res://scripts/objects/trigger.gd" id="2_p6fco"]
 [ext_resource type="Texture2D" uid="uid://bn4c2o3bukgki" path="res://textures/objects/door/metal.jpg" id="2_uqhil"]
+[ext_resource type="PackedScene" uid="uid://d2pb1c50t150x" path="res://scenes/objects/usables/trigger.tscn" id="2_vdqxj"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="4_4afkv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_23kbv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_x7mlb"]
 size = Vector3(2, 1, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fyaxi"]
@@ -25,14 +25,19 @@ script = ExtResource("1_c0bj4")
 left_door = NodePath("Left_Door")
 right_door = NodePath("Right_Door")
 
-[node name="Trigger" type="Area3D" parent="."]
-collision_layer = 0
-monitorable = false
-script = ExtResource("2_p6fco")
+[node name="Front_Trigger" parent="." instance=ExtResource("2_vdqxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.305782)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger"]
+[node name="Trigger_Collision" type="CollisionShape3D" parent="Front_Trigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.49012e-08)
-shape = SubResource("BoxShape3D_23kbv")
+shape = SubResource("BoxShape3D_x7mlb")
+
+[node name="Back_Trigger" parent="." instance=ExtResource("2_vdqxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.289419)
+
+[node name="Trigger_Collision" type="CollisionShape3D" parent="Back_Trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.49012e-08)
+shape = SubResource("BoxShape3D_x7mlb")
 
 [node name="Left_Door" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
@@ -79,10 +84,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("4_4afkv")
 save_properties = Array[String](["left_target_position", "right_target_position", "opening", "init"])
 
-[connection signal="area_entered" from="Trigger" to="Trigger" method="_on_area_entered"]
-[connection signal="area_exited" from="Trigger" to="Trigger" method="_on_area_exited"]
-[connection signal="body_entered" from="Trigger" to="Trigger" method="_on_body_entered"]
-[connection signal="body_exited" from="Trigger" to="Trigger" method="_on_body_exited"]
 [connection signal="switched" from="Switch" to="." method="sesame"]
 
 [editable path="Switch"]

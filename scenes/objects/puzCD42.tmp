@@ -19,7 +19,10 @@ save_properties = Array[String](["inner_connections"])
 [node name="Repairable_Interaction_Area_3D" parent="." instance=ExtResource("1_04wwk")]
 script = ExtResource("4_fmeuy")
 needed_tool = 2
-ready_for_interaction = false
+fixed = false
+action_name = "Interact"
+outline_hull_color = Color(1, 1, 1, 1)
+outline_grow_amount = 0.02
 
 [node name="Interaction_Collision" type="CollisionShape3D" parent="Repairable_Interaction_Area_3D"]
 shape = SubResource("BoxShape3D_olgiq")

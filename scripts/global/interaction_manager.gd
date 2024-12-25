@@ -41,8 +41,8 @@ func _sort_by_distance_to_player(area1, area2):
 	return (player.global_position.distance_to(area1.global_position)) < (player.global_position.distance_to(area2.global_position))
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("player_interact") and can_interact:
-		if active_areas.size() > 0:
+	if event.is_action_pressed("player_interact") and can_interact and active_areas.size() > 0:
+		if active_areas[0].ready_for_interaction:
 			can_interact = false
 			label.hide()
 			

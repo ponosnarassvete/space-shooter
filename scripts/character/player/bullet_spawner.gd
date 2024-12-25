@@ -6,16 +6,16 @@ extends Node3D
 @export var bullet_stat: Damage_Stats
 @export var timer: Timer
 
-var bullet_scene = preload("res://scenes/objects/bullet.tscn")
+var bullet_scene = preload(GlobalStuff.BULLET_SCENE)
 
 var temp: Node 
 var direction: Vector3
 
 func _ready() -> void:
-	if get_tree().has_group("Cursor") and target == null:
-		target = get_tree().get_first_node_in_group("Cursor")
-	if get_tree().has_group("Temp") and temp == null:
-		temp = get_tree().get_first_node_in_group("Temp")
+	if get_tree().has_group(GlobalStuff.CURSOR_GROUP) and target == null:
+		target = get_tree().get_first_node_in_group(GlobalStuff.CURSOR_GROUP)
+	if get_tree().has_group(GlobalStuff.TEMP_DUMP_GROUP) and temp == null:
+		temp = get_tree().get_first_node_in_group(GlobalStuff.TEMP_DUMP_GROUP)
 	
 func _physics_process(_delta: float) -> void:
 	if timer.is_stopped():

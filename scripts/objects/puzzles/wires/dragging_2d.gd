@@ -20,17 +20,19 @@ func is_mouse_over() -> bool:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and not event.pressed and dragging:
-		currently_sprited = null
-		#sprite.z_index -= 1
-		print("dropped_", self.name)
-		dropped.emit(self)
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			currently_sprited = null
+			#sprite.z_index -= 1
+			print("dropped_", self.name)
+			dropped.emit(self)
+	
 	
 	if currently_sprited == sprite and event is InputEventMouseMotion and dragging:
 		sprite.global_position += event.relative
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and dragging and ToolManager.active_tool == GlobalStuff.TOOLS.GRABBING_TOOL:
-		if currently_sprited == null and is_mouse_over():
+		if currently_sprited == null and is_mouse_over() and event.button_index == MOUSE_BUTTON_LEFT:
 			currently_sprited = sprite
 			#sprite.z_index += 1
 			print("picked_", self.name)

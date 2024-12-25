@@ -6,6 +6,8 @@ extends Node3D
 @export var offset_x: float = 1.0
 @export var offset_speed: float = 0.5
 
+@export var opened: bool = false
+
 var left_target_position: float = 0.0
 var right_target_position: float = 0.0
 
@@ -15,9 +17,14 @@ var init: bool = false
 func _ready() -> void:
 	if left_door == null: left_door = $Left_Door
 	if right_door == null: right_door = $Right_Door
+	
 	left_target_position = left_door.position.x
 	right_target_position = right_door.position.x
 	
+	if opened:
+		sesame()
+		left_door.position.x = left_target_position
+		right_door.position.x = right_target_position
 
 func _process(_delta: float) -> void:
 	if init:

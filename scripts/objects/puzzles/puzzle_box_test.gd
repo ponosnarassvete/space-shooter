@@ -6,6 +6,8 @@ extends Connectable
 func _ready() -> void:
 	if interaction_area != null: interaction_area.interact = Callable(self, "activate_interaction")
 	if puzzle_initiator == null: puzzle_initiator = $"../../../2D_Viewport/Background/Puzzle/Puzzle_UI"
+	create_input(0, 6)
+	create_output(0, 6)
 
 func activate_interaction():
 	puzzle_initiator.activated(self)

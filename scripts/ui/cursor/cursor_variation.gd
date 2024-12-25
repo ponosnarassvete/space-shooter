@@ -12,6 +12,8 @@ func _ready() -> void:
 
 func tool_swap():
 	match ToolManager.active_tool:
+		GlobalStuff.TOOLS.NONE:
+			sprite.animation = "default"
 		GlobalStuff.TOOLS.GRABBING_TOOL:
 			sprite.animation = "grabber"
 		GlobalStuff.TOOLS.REPAIRING_TOOL:

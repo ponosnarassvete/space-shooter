@@ -24,8 +24,10 @@ SceneController="*res://scripts/global/scene_controller.gd"
 GlobalHealth="*res://addons/jbs_health_node/jbs_global_health.gd"
 GlobalStuff="*res://scripts/global/global_stuff.gd"
 ConnectionList="*res://scripts/global/connection_list.gd"
+GlobalInteraction3D="*res://addons/ninetailsrabbit.interaction_kit_3d/src/autoload/global_interaction.gd"
 InteractionManager="*res://scenes/objects/usables/interaction_manager.tscn"
 ToolManager="*res://scenes/characters/player/tool_manager_node.tscn"
+InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
 
 [display]
 
@@ -36,11 +38,10 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
+enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
 
 [global_group]
 
-Active="Activated Entities"
 Player="Player CharacterBody3D"
 Cursor="Cursor projection"
 Target="Enemy's target to look at"
@@ -143,3 +144,5 @@ flashlight={
 3d_physics/layer_8="Attacker"
 3d_physics/layer_9="ground"
 3d_physics/layer_10="walls"
+3d_physics/layer_11="Grabbables"
+3d_physics/layer_12="Interactables"

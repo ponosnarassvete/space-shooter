@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cw67bu8025uw2"]
+[gd_scene load_steps=25 format=3 uid="uid://cw67bu8025uw2"]
 
 [ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_meyvf"]
 [ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="2_w06av"]
@@ -26,27 +26,31 @@ radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_3d75x"]
 background_mode = 2
+background_energy_multiplier = 0.3
 sky = SubResource("Sky_2630d")
 sky_custom_fov = 120.0
 sky_rotation = Vector3(1.76802, 0, 0)
 ambient_light_source = 3
-ambient_light_color = Color(0.263547, 0.092314, 0.236565, 1)
+ambient_light_color = Color(0.559112, 0.24048, 0.50786, 1)
 tonemap_mode = 2
 tonemap_white = 5.0
 ssao_enabled = true
 ssil_enabled = true
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.04
 volumetric_fog_emission = Color(0, 0.0980392, 0, 1)
 volumetric_fog_detail_spread = 0.517632
 adjustment_brightness = 0.63
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_d53en"]
-dof_blur_far_enabled = true
 dof_blur_far_distance = 200.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtbx0"]
 size = Vector3(39, 1, 39)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2xj1"]
+size = Vector3(0.6, 2.8, 2.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pa27e"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hh1el"]
 radius = 2.0
@@ -57,7 +61,6 @@ size = Vector2(1080, 1080)
 [node name="Room1" type="Node3D"]
 
 [node name="Shader" type="TextureRect" parent="."]
-visible = false
 z_index = 120
 material = ExtResource("1_meyvf")
 anchors_preset = 15
@@ -102,20 +105,16 @@ script = ExtResource("4_0vgvx")
 [node name="OmniLight3D3" type="OmniLight3D" parent="3D_Viewport/SubViewport/Level/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0.202995)
 light_color = Color(1, 0, 0, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 0.5
+light_energy = 2.0
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 100.0
-omni_attenuation = 1.5
 omni_shadow_mode = 0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="3D_Viewport/SubViewport/Level/Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
+visible = false
 light_color = Color(1, 0.788235, 1, 1)
-light_energy = 2.0
-light_indirect_energy = 16.0
 light_volumetric_fog_energy = 0.0
 omni_range = 200.0
 omni_attenuation = 0.75
@@ -136,30 +135,12 @@ collision_mask = 0
 
 [node name="Outer" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 1.90735e-06)
-size = Vector3(37, 21, 37)
+size = Vector3(40, 21, 40)
 
 [node name="room1" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00571442, -2.15057, -0.00153351)
 operation = 2
 size = Vector3(35, 23, 35)
-
-[node name="Right" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18, 0, 0)
-visible = false
-operation = 2
-size = Vector3(3, 3, 3)
-
-[node name="Doors" parent="3D_Viewport/SubViewport/Level/walls/Right" instance=ExtResource("3_53e6k")]
-transform = Transform3D(1.55, 0, 0, 0, 3.05, 0, 0, 0, 0.9, 0, 0, 0)
-
-[node name="Left" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18, 0, 0)
-visible = false
-operation = 2
-size = Vector3(3, 3, 3)
-
-[node name="Doors" parent="3D_Viewport/SubViewport/Level/walls/Left" instance=ExtResource("3_53e6k")]
-transform = Transform3D(1.55, 0, 0, 0, 3.05, 0, 0, 0, 0.9, 0, 0, 0)
 
 [node name="Back" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
@@ -168,25 +149,31 @@ size = Vector3(3, 3, 3)
 
 [node name="Doors" parent="3D_Viewport/SubViewport/Level/walls/Back" instance=ExtResource("3_53e6k")]
 transform = Transform3D(1.55, 0, 0, 0, 3.05, 0, 0, 0, 0.9, 0, 0, 0)
+opened = true
 
-[node name="Front" type="CSGBox3D" parent="3D_Viewport/SubViewport/Level/walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
-visible = false
-operation = 2
-size = Vector3(3, 3, 3)
-
-[node name="Doors" parent="3D_Viewport/SubViewport/Level/walls/Front" instance=ExtResource("3_53e6k")]
-transform = Transform3D(1.55, 0, 0, 0, 3.05, 0, 0, 0, 0.9, 0, 0, 0)
-
-[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport/Level" node_paths=PackedStringArray("puzzle_initiator", "interaction_area") instance=ExtResource("6_qdql1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9007, 0.583297, 0)
+[node name="Puzzle_Box_Test" parent="3D_Viewport/SubViewport/Level" node_paths=PackedStringArray("puzzle_initiator") instance=ExtResource("6_qdql1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3165, 0.583297, 0)
 puzzle_initiator = NodePath("../../../../2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator")
-interaction_area = NodePath("Interaction_Area_3D")
 object_id = 0
 
-[node name="Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Puzzle_Box_Test" index="2" node_paths=PackedStringArray("manager")]
+[node name="Repairable_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Puzzle_Box_Test" index="1" node_paths=PackedStringArray("manager", "interactable_mesh")]
 action_name = "Wiring"
 manager = NodePath("../../../../../Other/Interaction_Manager")
+interactable_mesh = NodePath("../Puzzle_Box_Body/Puzzle_Mesh")
+
+[node name="Puzzle_Box_Body" type="StaticBody3D" parent="3D_Viewport/SubViewport/Level/Puzzle_Box_Test"]
+collision_layer = 2
+
+[node name="Puzzle_Collision" type="CollisionShape3D" parent="3D_Viewport/SubViewport/Level/Puzzle_Box_Test/Puzzle_Box_Body"]
+shape = SubResource("BoxShape3D_a2xj1")
+
+[node name="Puzzle_Mesh" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Puzzle_Box_Test/Puzzle_Box_Body"]
+transform = Transform3D(1, 0, 0, 0, 2.76758, 0, 0, 0, 2.76758, 0.234495, 0, 0)
+mesh = SubResource("BoxMesh_pa27e")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="3D_Viewport/SubViewport/Level"]
+transform = Transform3D(0.55067, 0, -0.834723, 0, 1, 0, 0.834723, 0, 0.55067, -12.3304, 0, 7.26513)
 
 [node name="2D_Viewport" parent="." instance=ExtResource("4_3ly8m")]
 
@@ -196,7 +183,7 @@ doors = NodePath("..")
 
 [node name="GameStateHelper" type="Node" parent="2D_Viewport/Background/Puzzle/Panel/Puzzle_Initiator"]
 script = ExtResource("9_7f42c")
-save_properties = Array[String](["initiated", "sesame_in_action", "puzzles", "current_puzzle_id", "in_out"])
+save_properties = Array[String](["initiated", "sesame_in_action", "puzzles", "current_puzzle_box_id"])
 
 [node name="Other" type="Node2D" parent="."]
 z_index = 100
@@ -236,8 +223,6 @@ metadata/_edit_lock_ = true
 [connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_exited"]
 
 [editable path="3D_Viewport/SubViewport/Characters/Player_Node"]
-[editable path="3D_Viewport/SubViewport/Level/walls/Right/Doors"]
-[editable path="3D_Viewport/SubViewport/Level/walls/Right/Doors/Switch"]
 [editable path="3D_Viewport/SubViewport/Level/walls/Back/Doors"]
 [editable path="3D_Viewport/SubViewport/Level/walls/Back/Doors/Switch"]
 [editable path="3D_Viewport/SubViewport/Level/Puzzle_Box_Test"]

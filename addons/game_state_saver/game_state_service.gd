@@ -121,13 +121,14 @@ func new_game() -> void:
 func save_game_state(path: String) -> bool:
 	#fake a scene transition to force game state to be updated
 	on_scene_transitioning()
-
+	
 	_game_state["game_data_version"] = "1.0"
 
 	var f := FileAccess.open(path, FileAccess.WRITE)
 	if f == null or !f.is_open():
 		printerr("Couldn't open file to save to : %s" % path)
 		return false
+	
 	f.store_string(var_to_str(_game_state))
 	f.close()
 

@@ -161,15 +161,21 @@ z_index = 6
 layout_mode = 2
 columns = 2
 
-[node name="Pause_Button" type="Button" parent="MainArea/Menus/GridContainer"]
+[node name="Wiring_Button" type="Button" parent="MainArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 10
+focus_mode = 0
 theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_1d2tu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1d2tu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_1d2tu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1d2tu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1d2tu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d2tu")
-text = "pause()"
+text = "wire_map()"
 
 [node name="Menu_Button" type="Button" parent="MainArea/Menus/GridContainer"]
 z_index = 1
@@ -177,7 +183,13 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 10
+focus_mode = 0
 theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_77w61")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_77w61")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_77w61")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77w61")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_77w61")
 theme_override_styles/normal = SubResource("StyleBoxFlat_77w61")
 text = "menu()"
 
@@ -187,7 +199,13 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_01hqh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_01hqh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_01hqh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_01hqh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_01hqh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_01hqh")
 text = "swap(_tool)"
 
@@ -197,7 +215,15 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.133333, 0.866667, 0.133333, 1)
+theme_override_colors/font_pressed_color = Color(0.133333, 0.666667, 0.133333, 1)
 theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_4bk6u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4bk6u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4bk6u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bk6u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4bk6u")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4bk6u")
 text = "activate()"
 
@@ -212,7 +238,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_iidxa")
 
-[connection signal="pressed" from="MainArea/Menus/GridContainer/Pause_Button" to="Controls" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="MainArea/Menus/GridContainer/Wiring_Button" to="Controls" method="_on_wiring_button_pressed"]
 [connection signal="pressed" from="MainArea/Menus/GridContainer/Menu_Button" to="Controls" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="MainArea/Menus/GridContainer/Swap_Button" to="Controls" method="_on_swap_button_pressed"]
 [connection signal="pressed" from="MainArea/Menus/GridContainer/Activate_Button" to="Controls" method="_on_activate_button_pressed"]

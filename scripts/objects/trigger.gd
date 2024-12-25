@@ -3,13 +3,17 @@ extends Area3D
 
 signal entered
 
-@export var triggered_group_name: String
+var unable: bool = true
 
 func f_entered():
-	entered.emit()
+	if !unable:
+		entered.emit()
 
 func _on_area_entered(_area: Area3D) -> void:
 	f_entered()
 
 func _on_body_entered(_body: Node3D) -> void:
 	f_entered()
+
+func able():
+	unable = false

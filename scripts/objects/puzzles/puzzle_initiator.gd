@@ -1,14 +1,15 @@
 class_name Puzzle_Initiator
 extends Node
 
-var puzzle = preload("res://scenes/objects/puzzle_test.tscn")
+var puzzle = preload(GlobalStuff.PUZZLE_SCENE)
 @export var doors: Node
 
 var initiated: bool = false
 var sesame_in_action: bool = false
 
+#{puzzle_box_id:puzzle_instance}
 var puzzles = {}
-var current_puzzle: Connectable
+var current_puzzle_box_id: int = -1
 
 #var in_out: Dictionary = {}
 
@@ -37,6 +38,8 @@ func _ready() -> void:
 
 func activated(puzzle_box: Connectable):
 	
+	var puzzle_box_id = puzzle_box.object_id
+	
 	print("initiator_activated_as_", initiated)
 	
 	if sesame_in_action:
@@ -47,12 +50,12 @@ func activated(puzzle_box: Connectable):
 	
 	if !initiated:
 		
-		current_puzzle = puzzle_box
+		current_puzzle_box_id = puzzle_box_id
 		
-		if !puzzles.has(puzzle_box):
-			create(puzzle_box)
+		if !puzzles.has(puzzle_box_id):
+			create(puzzle_box_id)
 		else:
-			add_child(puzzles[puzzle_box.object_id])
+			add_child(puzzles[puzzle_box_id])
 		
 		await doors.finished
 		
@@ -61,17 +64,17 @@ func activated(puzzle_box: Connectable):
 		GameStateService.save_game_state(GlobalStuff.SAVE_FILE)
 		await doors.finished
 		
-		remove_child(puzzles[current_puzzle])
+		remove_child(puzzles[current_puzzle_box_id])
 	
 	sesame_in_action = false
 	initiated = !initiated
 
-func create(puzzle_box: Connectable):
+func create(puzzle_box_id: int):
 	
 	var puzzle_instance = puzzle.instantiate()
-	puzzle_instance.name = "puzzle_" + str(puzzle_box.object_id)
-	puzzle_instance.object_id = puzzle_box.object_id
+	puzzle_instance.name = "puzzle_" + str(puzzle_box_id)
+	puzzle_instance.object_id = puzzle_box_id
 	self.add_child(puzzle_instance)
 	puzzle_instance.puzzle_init()
 	
-	puzzles.merge({puzzle_box: puzzle_instance})
+	puzzles.merge({puzzle_box_id: puzzle_instance})
