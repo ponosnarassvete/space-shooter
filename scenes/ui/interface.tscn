@@ -1,15 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmw6j72tvj6wm"]
+[gd_scene load_steps=18 format=3 uid="uid://cmw6j72tvj6wm"]
 
 [ext_resource type="Theme" uid="uid://nymxf5bsiqo1" path="res://themes/minimalisticUI/MinimalisticUI.tres" id="1_1iq56"]
 [ext_resource type="Script" path="res://scripts/ui/GUI_buttons.gd" id="1_jjg2e"]
-[ext_resource type="Texture2D" uid="uid://boio4ivac0rnd" path="res://textures/ui/main interface/puzzle/UI_with_hole.png" id="1_txjra"]
+[ext_resource type="Texture2D" uid="uid://dd1f8p0chu52h" path="res://textures/ui/main interface/UI_TopPart.png" id="3_0p6rp"]
 [ext_resource type="Texture2D" uid="uid://bh5fmq3884dxc" path="res://textures/ui/main interface/puzzle/door.png" id="3_b2xx7"]
-[ext_resource type="Texture2D" uid="uid://csvpralj73x7v" path="res://textures/ui/main interface/UI.png" id="3_da50f"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="3_iyxwh"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/open_sessame.gd" id="3_ywim3"]
 [ext_resource type="Texture2D" uid="uid://bagqravaq8m4x" path="res://textures/ui/health/Health_Background.png" id="5_u5b3x"]
+[ext_resource type="Texture2D" uid="uid://cnf0h05al6m47" path="res://textures/ui/main interface/UI_BottomPart2.png" id="6_5j77c"]
 [ext_resource type="Texture2D" uid="uid://wgw6s8wbk8l" path="res://textures/ui/health/Health_Foreground.png" id="6_55wci"]
+[ext_resource type="FontFile" uid="uid://cpptoxcsxtdsr" path="res://font/FSEX300.ttf" id="7_6p1kf"]
+[ext_resource type="Texture2D" uid="uid://rwfjnas2owix" path="res://textures/ui/main interface/UI_BottomPart1.png" id="7_8q3u2"]
 [ext_resource type="Texture2D" uid="uid://ce2s3rqyxlne8" path="res://textures/ui/health/Health_Fill.png" id="7_d00ph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iidxa"]
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1d2tu"]
 bg_color = Color(0, 0, 0, 1)
@@ -43,52 +48,73 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.133333, 0.8, 0.133333, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iidxa"]
-bg_color = Color(0, 0, 0, 0)
-
 [node name="Interface" type="PanelContainer"]
 texture_filter = 1
+clip_contents = true
 offset_left = 1080.0
 offset_right = 1920.0
 offset_bottom = 1080.0
-mouse_filter = 1
-
-[node name="Controls" type="Control" parent="."]
-z_index = 10
-layout_mode = 2
-script = ExtResource("1_jjg2e")
-
-[node name="Background" type="TextureRect" parent="."]
-z_index = 10
-layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("3_da50f")
+metadata/_edit_lock_ = true
 
-[node name="Puzzle" type="MarginContainer" parent="Background"]
+[node name="BottomArea" type="TextureRect" parent="."]
+z_index = 10
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+texture = ExtResource("7_8q3u2")
+stretch_mode = 2
+
+[node name="Puzzle_Button" type="Button" parent="BottomArea"]
+z_index = 89
+offset_top = -1.0
+offset_right = 176.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_iidxa")
+flat = true
+
+[node name="Logs_Button" type="Button" parent="BottomArea"]
+z_index = 89
+layout_mode = 2
+offset_left = 176.0
+offset_top = -1.0
+offset_right = 352.0
+offset_bottom = 31.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_iidxa")
+flat = true
+
+[node name="Puzzle" type="MarginContainer" parent="BottomArea"]
 layout_mode = 0
-offset_top = 288.0
+offset_top = -5.0
 offset_right = 704.0
-offset_bottom = 1000.0
+offset_bottom = 707.0
+mouse_filter = 2
 
-[node name="Panel" type="Node2D" parent="Background/Puzzle" node_paths=PackedStringArray("left_door", "right_door")]
+[node name="Panel" type="Node2D" parent="BottomArea/Puzzle" node_paths=PackedStringArray("left_door", "right_door")]
 z_index = 60
+position = Vector2(0, 28)
 script = ExtResource("3_ywim3")
 left_door = NodePath("left_door")
 right_door = NodePath("right_door")
-offset_x = 400.0
 
-[node name="GameStateHelper" type="Node" parent="Background/Puzzle/Panel"]
+[node name="GameStateHelper" type="Node" parent="BottomArea/Puzzle/Panel"]
 script = ExtResource("3_iyxwh")
 save_properties = Array[String](["opening", "init", "left_target_position", "right_target_position"])
 
-[node name="left_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
-position = Vector2(707, 355)
+[node name="left_door" type="Sprite2D" parent="BottomArea/Puzzle/Panel"]
+position = Vector2(856, 352)
 rotation = 3.14159
-scale = Vector2(0.68, 0.68)
 texture = ExtResource("3_b2xx7")
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="Background/Puzzle/Panel/left_door"]
+[node name="Panel" type="Panel" parent="BottomArea/Puzzle/Panel/left_door"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,18 +124,18 @@ offset_right = -512.0
 offset_bottom = -512.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="GameStateHelper" type="Node" parent="Background/Puzzle/Panel/left_door"]
+[node name="GameStateHelper" type="Node" parent="BottomArea/Puzzle/Panel/left_door"]
 script = ExtResource("3_iyxwh")
 save_properties = Array[String](["position"])
 
-[node name="right_door" type="Sprite2D" parent="Background/Puzzle/Panel"]
-position = Vector2(11, 355)
-scale = Vector2(0.68, 0.68)
+[node name="right_door" type="Sprite2D" parent="BottomArea/Puzzle/Panel"]
+position = Vector2(-168, 352)
 texture = ExtResource("3_b2xx7")
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="Background/Puzzle/Panel/right_door"]
+[node name="Panel" type="Panel" parent="BottomArea/Puzzle/Panel/right_door"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -119,23 +145,64 @@ offset_right = -512.0
 offset_bottom = -512.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="GameStateHelper" type="Node" parent="Background/Puzzle/Panel/right_door"]
+[node name="GameStateHelper" type="Node" parent="BottomArea/Puzzle/Panel/right_door"]
 script = ExtResource("3_iyxwh")
 save_properties = Array[String](["position"])
 
-[node name="MainArea" type="TextureRect" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="BottomArea"]
+z_index = 70
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Puzzle_Window" type="TextureRect" parent="BottomArea/CenterContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("7_8q3u2")
+
+[node name="Log_Window" type="TextureRect" parent="BottomArea/CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_5j77c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BottomArea/CenterContainer/Log_Window"]
+texture_filter = 1
+custom_minimum_size = Vector2(685, 675)
+layout_mode = 2
+offset_left = 8.0
+offset_top = 39.0
+offset_right = 693.0
+offset_bottom = 714.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/normal_font = ExtResource("7_6p1kf")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = ".../ECH-0//Decomission/mission/tutorial>"
+fit_content = true
+shortcut_keys_enabled = false
+
+[node name="TopArea" type="TextureRect" parent="."]
 z_index = 70
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
 theme = ExtResource("1_1iq56")
-texture = ExtResource("1_txjra")
+texture = ExtResource("3_0p6rp")
+stretch_mode = 2
 
-[node name="Health_Bar" type="TextureProgressBar" parent="MainArea" groups=["Health_Bar"]]
+[node name="Health_Bar" type="TextureProgressBar" parent="TopArea" groups=["Health_Bar"]]
 z_index = 30
 layout_mode = 2
 offset_left = 232.0
 offset_right = 840.0
-offset_bottom = 272.0
+offset_bottom = 263.0
+mouse_filter = 2
 max_value = 12.0
 fill_mode = 2
 texture_under = ExtResource("5_u5b3x")
@@ -143,25 +210,26 @@ texture_over = ExtResource("6_55wci")
 texture_progress = ExtResource("7_d00ph")
 texture_progress_offset = Vector2(5, 37)
 
-[node name="Menus" type="MarginContainer" parent="MainArea"]
+[node name="Menus" type="MarginContainer" parent="TopArea"]
 z_index = 5
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00952381
-anchor_top = 0.037037
+anchor_top = 0.332075
 anchor_right = 0.266667
-anchor_bottom = 0.237037
+anchor_bottom = 0.724528
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="GridContainer" type="GridContainer" parent="MainArea/Menus"]
+[node name="GridContainer" type="GridContainer" parent="TopArea/Menus"]
 z_index = 6
 layout_mode = 2
+mouse_filter = 2
 columns = 2
 
-[node name="Wiring_Button" type="Button" parent="MainArea/Menus/GridContainer"]
+[node name="Wiring_Button" type="Button" parent="TopArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -176,8 +244,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1d2tu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1d2tu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1d2tu")
 text = "wire_map()"
+flat = true
 
-[node name="Menu_Button" type="Button" parent="MainArea/Menus/GridContainer"]
+[node name="Menu_Button" type="Button" parent="TopArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -192,8 +261,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_77w61")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_77w61")
 theme_override_styles/normal = SubResource("StyleBoxFlat_77w61")
 text = "menu()"
+flat = true
 
-[node name="Swap_Button" type="Button" parent="MainArea/Menus/GridContainer"]
+[node name="Swap_Button" type="Button" parent="TopArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -208,8 +278,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_01hqh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_01hqh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_01hqh")
 text = "swap(_tool)"
+flat = true
 
-[node name="Activate_Button" type="Button" parent="MainArea/Menus/GridContainer"]
+[node name="Activate_Button" type="Button" parent="TopArea/Menus/GridContainer"]
 z_index = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -226,19 +297,26 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4bk6u")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4bk6u")
 theme_override_styles/normal = SubResource("StyleBoxFlat_4bk6u")
 text = "activate()"
+flat = true
 
-[node name="Logs_Button" type="Button" parent="MainArea"]
-visible = false
+[node name="Controls" type="Control" parent="." node_paths=PackedStringArray("puzzle_window", "log_window", "logs")]
 layout_mode = 2
-offset_left = 176.0
-offset_top = 264.0
-offset_right = 352.0
-offset_bottom = 296.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxFlat_iidxa")
+mouse_filter = 2
+script = ExtResource("1_jjg2e")
+puzzle_window = NodePath("../BottomArea/CenterContainer/Puzzle_Window")
+log_window = NodePath("../BottomArea/CenterContainer/Log_Window")
+logs = NodePath("../BottomArea/CenterContainer/Log_Window/RichTextLabel")
 
-[connection signal="pressed" from="MainArea/Menus/GridContainer/Wiring_Button" to="Controls" method="_on_wiring_button_pressed"]
-[connection signal="pressed" from="MainArea/Menus/GridContainer/Menu_Button" to="Controls" method="_on_menu_button_pressed"]
-[connection signal="pressed" from="MainArea/Menus/GridContainer/Swap_Button" to="Controls" method="_on_swap_button_pressed"]
-[connection signal="pressed" from="MainArea/Menus/GridContainer/Activate_Button" to="Controls" method="_on_activate_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="."]
+z_as_relative = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="BottomArea/Puzzle_Button" to="Controls" method="_on_puzzle_button_pressed"]
+[connection signal="pressed" from="BottomArea/Logs_Button" to="Controls" method="_on_logs_button_pressed"]
+[connection signal="pressed" from="TopArea/Menus/GridContainer/Wiring_Button" to="Controls" method="_on_wiring_button_pressed"]
+[connection signal="pressed" from="TopArea/Menus/GridContainer/Menu_Button" to="Controls" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="TopArea/Menus/GridContainer/Swap_Button" to="Controls" method="_on_swap_button_pressed"]
+[connection signal="pressed" from="TopArea/Menus/GridContainer/Activate_Button" to="Controls" method="_on_activate_button_pressed"]
+[connection signal="tree_entered" from="Controls" to="Controls" method="_on_tree_entered"]

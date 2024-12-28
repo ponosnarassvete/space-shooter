@@ -3,7 +3,9 @@ extends Node
 
 @export var player: CharacterBody3D
 @export var label: Label
+@export var cursor_projection: Projection_3D
 
+@export var label_range: int = 5
 @export var offset_x: float = 0.0
 @export var offset_y: float = 0.0
 
@@ -31,7 +33,6 @@ func _process(_delta: float) -> void:
 		
 		label.global_position.x = DisplayServer.mouse_get_position().x + offset_x*2
 		label.global_position.y = DisplayServer.mouse_get_position().y + offset_y
-		
 		
 		label.show()
 	else:

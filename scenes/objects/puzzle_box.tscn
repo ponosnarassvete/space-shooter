@@ -6,20 +6,25 @@
 [ext_resource type="Script" path="res://scenes/objects/usables/repairable_interaction_area_3d.gd" id="4_fmeuy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olgiq"]
-size = Vector3(2, 3, 3)
+size = Vector3(4, 4, 4)
 
 [node name="Puzzle_Box" type="Node3D" node_paths=PackedStringArray("interaction_area")]
 script = ExtResource("1_2arv8")
 interaction_area = NodePath("Repairable_Interaction_Area_3D")
+in_array = [0, 1, 2, 3, 4, 5]
+out_array = [0, 1, 2, 3, 4, 5]
 
 [node name="GameStateHelper" type="Node" parent="."]
 script = ExtResource("2_w4sws")
 save_properties = Array[String](["inner_connections"])
 
-[node name="Repairable_Interaction_Area_3D" parent="." instance=ExtResource("1_04wwk")]
+[node name="Repairable_Interaction_Area_3D" parent="." node_paths=PackedStringArray("interactable_mesh") instance=ExtResource("1_04wwk")]
 script = ExtResource("4_fmeuy")
 needed_tool = 2
+action_name = "Repair"
 ready_for_interaction = false
+interactable_mesh = [null]
+outline_hull_color = Color(0.133333, 0.8, 0.133333, 1)
 
 [node name="Interaction_Collision" type="CollisionShape3D" parent="Repairable_Interaction_Area_3D"]
 shape = SubResource("BoxShape3D_olgiq")
@@ -28,4 +33,5 @@ shape = SubResource("BoxShape3D_olgiq")
 script = ExtResource("2_w4sws")
 save_properties = Array[String](["fixed"])
 
+[connection signal="body_exited" from="Repairable_Interaction_Area_3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="used" from="Repairable_Interaction_Area_3D" to="Repairable_Interaction_Area_3D" method="tool_check"]

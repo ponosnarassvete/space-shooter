@@ -1,6 +1,6 @@
 extends Node3D
 
-var enemy = preload("res://scenes/characters/enemy_test.tscn")
+var enemy = preload(GlobalStuff.ENEMY_SCENE)
 var enemy_list = []
 var counter: int = 0
 var can_spawn: bool = false
@@ -20,6 +20,7 @@ func spawn():
 			enemy_instance.name = "Enemy_" + str(counter)
 			enemy_list.append(enemy_instance)
 			self.add_child(enemy_instance)
+			enemy_instance.global_position = self.global_position
 			counter += 1
 		
 		timer.start()

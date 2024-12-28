@@ -24,7 +24,6 @@ size_flags_vertical = 4
 theme = ExtResource("1_5jgab")
 
 [node name="Controls" type="ColorRect" parent="."]
-z_index = 10
 material = ExtResource("2_eqyx8")
 layout_mode = 1
 anchors_preset = 15
@@ -32,9 +31,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.133333, 0.8, 0.133333, 1)
 script = ExtResource("3_nlva4")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Controls"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -43,7 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Filler Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Filler Text" type="RichTextLabel" parent="Controls/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.133333, 0.8, 0.133333, 1)
 bbcode_enabled = true
@@ -62,11 +62,11 @@ text = "07/01/3229   01:19 ET   <DIR> doc
 "
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Title" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="Controls/VBoxContainer2/HBoxContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(1024, 0)
 layout_mode = 2
@@ -76,7 +76,7 @@ bbcode_enabled = true
 text = ".../[color=white]ECH-0//Decommission[/color]/mission>"
 fit_content = true
 
-[node name="Choice" type="RichTextLabel" parent="VBoxContainer2/HBoxContainer"]
+[node name="Choice" type="RichTextLabel" parent="Controls/VBoxContainer2/HBoxContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
@@ -86,13 +86,13 @@ bbcode_enabled = true
 fit_content = true
 script = ExtResource("4_v3k8g")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/VBoxContainer2"]
 z_index = 5
 texture_filter = 2
 texture_repeat = 1
 layout_mode = 2
 
-[node name="Continue_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Continue_Button" type="Button" parent="Controls/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 focus_neighbor_top = NodePath("../Quit_Button")
@@ -109,7 +109,7 @@ text = ">continue"
 flat = true
 alignment = 0
 
-[node name="Options_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Options_Button" type="Button" parent="Controls/VBoxContainer2/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
@@ -126,7 +126,7 @@ text = ">parameters"
 flat = true
 alignment = 0
 
-[node name="Quit_Button" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Quit_Button" type="Button" parent="Controls/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 focus_neighbor_top = NodePath("../Continue_Button")
@@ -142,7 +142,7 @@ text = ">exit"
 flat = true
 alignment = 0
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="Controls"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,27 +150,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Player_Cursor" parent="." instance=ExtResource("5_nd6sc")]
 
 [node name="Cursor_Variation" parent="Player_Cursor" index="4"]
 is_active = false
 
-[connection signal="focus_entered" from="VBoxContainer2/VBoxContainer/Continue_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["continue"]]
-[connection signal="focus_exited" from="VBoxContainer2/VBoxContainer/Continue_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
-[connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Continue_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["continue"]]
-[connection signal="mouse_exited" from="VBoxContainer2/VBoxContainer/Continue_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Continue_Button" to="Controls" method="_continue_on_pressed"]
-[connection signal="focus_entered" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["parameters"]]
-[connection signal="focus_exited" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
-[connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["parameters"]]
-[connection signal="mouse_exited" from="VBoxContainer2/VBoxContainer/Options_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Options_Button" to="Controls" method="_options_on_pressed"]
-[connection signal="focus_entered" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["exit"]]
-[connection signal="focus_exited" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
-[connection signal="mouse_entered" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["exit"]]
-[connection signal="mouse_exited" from="VBoxContainer2/VBoxContainer/Quit_Button" to="VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Quit_Button" to="Controls" method="_quit_on_pressed"]
+[connection signal="focus_entered" from="Controls/VBoxContainer2/VBoxContainer/Continue_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["continue"]]
+[connection signal="focus_exited" from="Controls/VBoxContainer2/VBoxContainer/Continue_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="mouse_entered" from="Controls/VBoxContainer2/VBoxContainer/Continue_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["continue"]]
+[connection signal="mouse_exited" from="Controls/VBoxContainer2/VBoxContainer/Continue_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="pressed" from="Controls/VBoxContainer2/VBoxContainer/Continue_Button" to="Controls" method="_continue_on_pressed"]
+[connection signal="focus_entered" from="Controls/VBoxContainer2/VBoxContainer/Options_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["parameters"]]
+[connection signal="focus_exited" from="Controls/VBoxContainer2/VBoxContainer/Options_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="mouse_entered" from="Controls/VBoxContainer2/VBoxContainer/Options_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["parameters"]]
+[connection signal="mouse_exited" from="Controls/VBoxContainer2/VBoxContainer/Options_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="pressed" from="Controls/VBoxContainer2/VBoxContainer/Options_Button" to="Controls" method="_options_on_pressed"]
+[connection signal="focus_entered" from="Controls/VBoxContainer2/VBoxContainer/Quit_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["exit"]]
+[connection signal="focus_exited" from="Controls/VBoxContainer2/VBoxContainer/Quit_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="mouse_entered" from="Controls/VBoxContainer2/VBoxContainer/Quit_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= ["exit"]]
+[connection signal="mouse_exited" from="Controls/VBoxContainer2/VBoxContainer/Quit_Button" to="Controls/VBoxContainer2/HBoxContainer/Choice" method="update_label_text" binds= [""]]
+[connection signal="pressed" from="Controls/VBoxContainer2/VBoxContainer/Quit_Button" to="Controls" method="_quit_on_pressed"]
 
 [editable path="Player_Cursor"]

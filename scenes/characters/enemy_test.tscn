@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/character/enemy/enemy_test.gd" id="1_3ksgh"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_d1jqr"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_stats_3d.gd" id="2_4aboo"]
+[ext_resource type="ArrayMesh" uid="uid://h8bv41tpwghl" path="res://models/enemies/swarmer/swarmer.obj" id="2_ss120"]
 [ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/objects/usables/hit_area.tscn" id="3_euffo"]
 [ext_resource type="Script" path="res://scripts/character/damage_stats.gd" id="3_uwwvj"]
 [ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_w5htc"]
@@ -13,8 +14,7 @@
 [ext_resource type="Script" path="res://addons/jbs_health_node/jbs_health.gd" id="9_2qnfa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_835eu"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_m455x"]
+size = Vector3(0.791016, 1.19482, 1.53735)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ymjod"]
 
@@ -25,6 +25,7 @@ RANGE_DAMAGE = 2.0
 ARMOR_PENETRATION = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8cu0o"]
+size = Vector3(0.756836, 0.930298, 1.18555)
 
 [sub_resource type="Resource" id="Resource_yqc7b"]
 script = ExtResource("2_4aboo")
@@ -43,11 +44,21 @@ script = ExtResource("1_3ksgh")
 collision_layer = 4
 collision_mask = 7
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Enemy"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0.401107)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 8.0
+spot_range = 10.0
+spot_angle = 15.0
+
 [node name="Enemy_Collision" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("BoxShape3D_835eu")
 
 [node name="Enemy_Mesh" type="MeshInstance3D" parent="Enemy"]
-mesh = SubResource("SphereMesh_m455x")
+transform = Transform3D(-0.4, 0, 3.49691e-08, 0, 0.4, 0, -3.49691e-08, 0, -0.4, 0, 0, 0)
+mesh = ExtResource("2_ss120")
 
 [node name="Enemy_Detection_Area" type="Area3D" parent="Enemy"]
 visible = false

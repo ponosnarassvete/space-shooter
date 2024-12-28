@@ -8,7 +8,7 @@ var direction: bool = true
 
 var energy: float
 ##If 0.0 it won't blink
-@export var speed: float = 0.001
+@export var speed: float = 0.1
 @export var energy_range: float = 5.0
 
 func _ready() -> void:
@@ -17,9 +17,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if speed != 0:
 		if direction:
-			x = move_toward(x, 2*PI, speed)
+			x = move_toward(x, 2*PI, speed/100)
 		else:
-			x = move_toward(x, -2*PI, speed)
+			x = move_toward(x, -2*PI, speed/100)
 		
 		if x == 2*PI or x == -2*PI:
 			direction = !direction

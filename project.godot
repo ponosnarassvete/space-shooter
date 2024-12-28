@@ -28,6 +28,7 @@ GlobalInteraction3D="*res://addons/ninetailsrabbit.interaction_kit_3d/src/autolo
 InteractionManager="*res://scenes/objects/usables/interaction_manager.tscn"
 ToolManager="*res://scenes/characters/player/tool_manager_node.tscn"
 InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
+Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
 

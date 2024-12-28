@@ -1,4 +1,5 @@
-extends Node3D
+class_name Door_3D
+extends Connectable
 
 @export var left_door: StaticBody3D
 @export var right_door: StaticBody3D

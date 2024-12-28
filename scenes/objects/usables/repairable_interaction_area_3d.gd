@@ -26,9 +26,10 @@ func _ready() -> void:
 func tool_check(tool: GlobalStuff.TOOLS = GlobalStuff.TOOLS.NONE):
 	if tool == needed_tool or needed_tool == GlobalStuff.TOOLS.NONE:
 		print(self.name, "_used_by_", GlobalStuff.TOOLS.find_key(tool))
-		
+		if !ready_for_interaction:
+			repaired.emit()
 		ready_for_interaction = true
-		repaired.emit()
+		
 		
 		return true
 	

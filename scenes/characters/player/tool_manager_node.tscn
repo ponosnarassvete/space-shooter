@@ -19,13 +19,13 @@ script = ExtResource("2_g0pnj")
 [node name="Repair" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("4_d3au7")
 
-[node name="Hacker" type="Node" parent="." groups=["Active_Tool"]]
-script = ExtResource("3_ujlyd")
-
 [node name="Attack" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("5_7gd2m")
 
+[node name="Hacker" type="Node" parent="." groups=["Active_Tool"]]
+script = ExtResource("3_ujlyd")
+
 [connection signal="tool_used" from="." to="Grabber" method="tool_used"]
 [connection signal="tool_used" from="." to="Repair" method="tool_used"]
-[connection signal="tool_used" from="." to="Hacker" method="tool_used"]
 [connection signal="tool_used" from="." to="Attack" method="tool_used"]
+[connection signal="tool_used" from="." to="Hacker" method="tool_used"]

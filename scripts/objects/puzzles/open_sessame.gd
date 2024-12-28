@@ -2,10 +2,13 @@ extends Node2D
 
 signal finished
 
+@export_category("Stats")
+@export var offset_x: float = 400
+@export var offset_speed: float = 1.0
+@export_category("Nodes")
 @export var left_door: Sprite2D
 @export var right_door: Sprite2D
-@export var offset_x: float = 200
-@export var offset_speed: float = 1.0
+
 var left_target_position: float = 0.0
 var right_target_position: float = 0.0
 var opening: bool = true

@@ -24,6 +24,15 @@ material = SubResource("StandardMaterial3D_dws3j")
 script = ExtResource("1_c0bj4")
 left_door = NodePath("Left_Door")
 right_door = NodePath("Right_Door")
+in_array = [0]
+inner_connections = {
+-1: {
+-1: [-1]
+},
+0: {
+0: [0]
+}
+}
 
 [node name="Front_Trigger" parent="." instance=ExtResource("2_vdqxj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.305782)
@@ -84,6 +93,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("4_4afkv")
 save_properties = Array[String](["left_target_position", "right_target_position", "opening", "init"])
 
+[connection signal="activated" from="." to="Switch/Switch_Interaction_Area_3D" method="get_ready_for_interaction"]
 [connection signal="switched" from="Switch" to="." method="sesame"]
 
 [editable path="Switch"]

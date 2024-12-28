@@ -4,9 +4,10 @@ extends Node
 ##signal with information to connect to another connectable
 signal out(sender_id: int, sent_id: int)
 signal changed(in_id: int)
+signal activated()
 
-var in_array: Array = []
-var out_array: Array = []
+@export var in_array: Array = []
+@export var out_array: Array = []
 
 var connection_list: Connections_List = ConnectionList
 
@@ -15,10 +16,13 @@ var connection_list: Connections_List = ConnectionList
 @export var object_id: int = -1
 
 @export var pulsing: bool = false
+@export var recieving: bool = false
+
+@export var debug: bool = false
 
 func _process(_delta: float) -> void:
 	if pulsing:
-		pulse_in(1)
+		pulse_out(0)
 
 ## For outside objects
 func pulse_port(out_object_id: int = -1, out_id: int = -1):
@@ -57,8 +61,14 @@ func disconnect_inner_port(in_id: int = -1):
 ## For pulsing inner connections
 func pulse_in(in_id: int = -1):
 	if in_id in in_array:
+		if recieving:
+			activated.emit()
+			return
+			
+		if debug:
+			print(connection_list.in_out)		
+			
 		var out_ids = _connection_pulse(in_id)
-		
 		for key in out_ids:
 			pulse_out(key)
 	else: printerr(self.name,"_UNKNOWN_IN_ID")
@@ -66,9 +76,11 @@ func pulse_in(in_id: int = -1):
 ## Pulsing output
 func pulse_out(out_id: int = -1):
 	if out_id in out_array:
+		if debug:
+			print(object_id, "_pulsing_out_", out_id)
 		out.emit(object_id, out_id)
 	else: printerr(self.name,"_UNKNOWN_OUT_ID")
 
 func _connection_pulse(in_id: int = -1):	
-	var out_ids = connection_list.simulate_connection(object_id, in_id)
+	var out_ids = ConnectionList.simulate_connection(object_id, in_id)
 	return out_ids

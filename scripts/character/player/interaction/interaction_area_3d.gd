@@ -1,6 +1,8 @@
 class_name Interaction_Area_3D
 extends Area3D
 
+signal got_ready
+
 @export_category("Interactable")
 @export var action_name: String = "Interact"
 @export var manager: Interaction_Manager
@@ -20,6 +22,8 @@ func _ready() -> void:
 	if manager == null: manager = get_tree().get_first_node_in_group("Interaction_Manager")
 
 func get_ready_for_interaction():
+	if !ready_for_interaction:
+		got_ready.emit()
 	ready_for_interaction = true
 
 

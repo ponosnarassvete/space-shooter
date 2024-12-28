@@ -31,7 +31,7 @@ mesh = SubResource("SphereMesh_iog86")
 light_color = Color(0, 1, 1, 1)
 light_energy = 0.1
 light_indirect_energy = 0.1
-light_volumetric_fog_energy = 0.0
+light_volumetric_fog_energy = 2.0
 omni_attenuation = 0.0
 omni_shadow_mode = 0
 

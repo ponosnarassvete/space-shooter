@@ -11,30 +11,9 @@ var sesame_in_action: bool = false
 var puzzles = {}
 var current_puzzle_box_id: int = -1
 
-#var in_out: Dictionary = {}
-
 
 func _ready() -> void:
 	if doors == null: doors = $"../Panel"
-
-#func _register_puzzle(id: int = -1):
-	#if id != -1:
-		#in_out.get_or_add(id, {"in":{},"out":{}})
-	#else: printerr("ERROR_UNKNOWN_PUZZLE_ID")
-#
-#func add_in_out(id: int = -1, new_ins: Dictionary = {}, new_outs: Dictionary = {}):
-	#
-	#if !in_out.has(id):
-		#_register_puzzle(id)
-		#
-	#var ins_set: Dictionary = in_out.get(id).get("in")
-	#var outs_set: Dictionary = in_out.get(id).get("out")
-	#
-	#ins_set.merge(new_ins)
-	#outs_set.merge(new_outs)
-	#
-	#in_out[id]["in"] = ins_set
-	#in_out[id]["out"] = outs_set
 
 func activated(puzzle_box: Connectable):
 	
