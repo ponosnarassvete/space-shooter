@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvhte7f0avohf"]
+
+[ext_resource type="PackedScene" uid="uid://bcp5jjf8uttk1" path="res://scenes/objects/wall.tscn" id="1_0d7gj"]
+[ext_resource type="PackedScene" uid="uid://cs4rwepvb8dvn" path="res://scenes/objects/ribbed_wall.tscn" id="2_rajm6"]
+
+[node name="Walls_With_Doorway" type="Node3D"]
+
+[node name="Wall" parent="." instance=ExtResource("1_0d7gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+
+[node name="Wall2" parent="." instance=ExtResource("1_0d7gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 0)
+
+[node name="Ribbed_Wall" parent="." instance=ExtResource("2_rajm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="Ribbed_Wall2" parent="." instance=ExtResource("2_rajm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)

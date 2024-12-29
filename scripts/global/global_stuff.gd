@@ -16,7 +16,7 @@ const MENU_SCENE = "res://scenes/ui/menu/menu_screen_scene_node.tscn"
 
 const PUZZLE_SCENE = "res://scenes/objects/puzzle_test.tscn"
 const BULLET_SCENE = "res://scenes/objects/bullet.tscn"
-const ENEMY_SCENE = "res://scenes/characters/enemy_test.tscn"
+const ENEMY_SCENE = "res://scenes/characters/enemy_swarmer.tscn"
 
 enum TOOLS {NONE, GRABBING_TOOL, REPAIRING_TOOL, HACKING_TOOL, ATTACKING_TOOL}
 enum DAMAGE_TYPES {CLOSE_DAMAGE, RANGE_DAMAGE}

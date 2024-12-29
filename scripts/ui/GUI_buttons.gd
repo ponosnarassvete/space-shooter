@@ -40,6 +40,3 @@ func _render_window():
 		GlobalStuff.OPENED_UI_BOTTOM.PUZZLE_VIEW:
 			puzzle_window.show()
 			log_window.hide()
-
-func _on_tree_entered() -> void:
-	next_log("log_1")

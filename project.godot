@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Echo//Decommission"
-config/version="231224-pre-alpha"
+config/version="281224-pre-alpha"
 run/main_scene="res://scenes/ui/menu/title_screen_scene_node.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -27,8 +27,6 @@ ConnectionList="*res://scripts/global/connection_list.gd"
 GlobalInteraction3D="*res://addons/ninetailsrabbit.interaction_kit_3d/src/autoload/global_interaction.gd"
 InteractionManager="*res://scenes/objects/usables/interaction_manager.tscn"
 ToolManager="*res://scenes/characters/player/tool_manager_node.tscn"
-InteractiveSceneChanger="*res://addons/interactive_scene_changer/InteractiveSceneChanger.gd"
-Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
 
@@ -39,7 +37,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/game_state_saver/plugin.cfg", "res://addons/interactive_scene_changer/plugin.cfg", "res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
+enabled=PackedStringArray("res://addons/game_state_saver/plugin.cfg", "res://addons/jbs_health_node/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/ridiculous_coding/plugin.cfg")
 
 [global_group]
 

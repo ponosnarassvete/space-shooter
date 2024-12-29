@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcp5jjf8uttk1"]
+
+[ext_resource type="ArrayMesh" uid="uid://dwdbmhfeuslcg" path="res://models/objects/wall_set/wall_set_Cube_006.res" id="1_lyhh5"]
+[ext_resource type="ArrayMesh" uid="uid://cqjtb7tabdsk8" path="res://models/objects/wall_set/wall_set_Cube_008.res" id="2_w7vmu"]
+[ext_resource type="ArrayMesh" uid="uid://chywtx6k6ihge" path="res://models/objects/wall_set/wall_set_Cube_010.res" id="3_ridcn"]
+[ext_resource type="ArrayMesh" uid="uid://ckx03mj3n4xwl" path="res://models/objects/wall_set/wall_set_Cube_007.res" id="4_mvg2r"]
+[ext_resource type="ArrayMesh" uid="uid://cbxr57m7smjls" path="res://models/objects/wall_set/wall_set_Cube_011.res" id="5_ryc51"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_65pky"]
+size = Vector3(16, 23, 1.8)
+
+[node name="Wall" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+mesh = ExtResource("1_lyhh5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.268, 0, 0, 0, 1, 2, 0, 0)
+mesh = ExtResource("3_ridcn")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 2, -1, 0)
+mesh = ExtResource("2_w7vmu")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2, 0)
+mesh = ExtResource("4_mvg2r")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.268, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("5_ryc51")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, -3.82137e-15, 1, -4.37114e-08, -8.74228e-08, -8.74228e-08, 0, -1, 0, -1, 0)
+mesh = ExtResource("3_ridcn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+mesh = ExtResource("2_w7vmu")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 2.268, 0, -8.74228e-08, 0, -1, -2, 0, 0)
+mesh = ExtResource("3_ridcn")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -2, -1, 0)
+mesh = ExtResource("1_lyhh5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5.56707e-05)
+shape = SubResource("BoxShape3D_65pky")

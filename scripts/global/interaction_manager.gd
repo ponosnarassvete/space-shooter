@@ -5,9 +5,8 @@ extends Node
 @export var label: Label
 @export var cursor_projection: Projection_3D
 
-@export var label_range: int = 5
-@export var offset_x: float = 0.0
-@export var offset_y: float = 0.0
+@export var offset_x: float = 12.0
+@export var offset_y: float = -5.0
 
 const base_text = "[F]"
 

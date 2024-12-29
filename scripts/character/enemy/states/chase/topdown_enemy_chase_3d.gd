@@ -4,13 +4,19 @@ extends Node
 @export var input: TopDown_Movement_Input_3D
 @export var actor: CharacterBody3D
 @export var target: Node3D
+@export var navigation_agent: NavigationAgent3D
 
 func _ready() -> void:
 	if get_tree().has_group("Target") and target == null:
 		target = get_tree().get_first_node_in_group("Target")
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if target:
-		input.dir = Vector3(Vector3(target.global_position) - Vector3(actor.global_position))
+		if Engine.get_frames_drawn()%10 == 0:
+			navigation_agent.set_target_position(target.global_position)
+		#input.dir = Vector3(Vector3(target.global_position) - Vector3(actor.global_position))
+		var destination = navigation_agent.get_next_path_position()
+		var local_destination = destination - actor.global_position
+		input.dir = local_destination
 	else:
 		pass

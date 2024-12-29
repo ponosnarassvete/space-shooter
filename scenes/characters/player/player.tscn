@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/objects/usables/hit_area.tscn" id="1_654uv"]
 [ext_resource type="Script" path="res://scripts/character/movement/topdown_movement_input_3d.gd" id="1_vgrq8"]
 [ext_resource type="Script" path="res://scripts/character/player/player.gd" id="1_wnhwf"]
+[ext_resource type="PackedScene" uid="uid://dj3l3sua8n7bm" path="res://models/drone/Drone.blend" id="2_6lcbw"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="2_t3b32"]
 [ext_resource type="Script" path="res://scripts/objects/ground/ground_stats.gd" id="3_5ttqo"]
 [ext_resource type="PackedScene" uid="uid://cuqn0pn58tnrg" path="res://models/drone/Drone_done.glb" id="3_qxe6y"]
@@ -27,17 +28,13 @@ RANGE_DAMAGE = 2.0
 ARMOR_PENETRATION = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hfugt"]
-size = Vector3(1.31741, 0.922023, 1.13076)
+size = Vector3(1.3, 1, 1.2)
 
 [sub_resource type="Resource" id="Resource_067t6"]
 script = ExtResource("5_ke4iv")
 CLOSE_DAMAGE = 1.0
 RANGE_DAMAGE = 2.0
 ARMOR_PENETRATION = 1.0
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rnxi1"]
-radius = 0.6
-height = 1.3
 
 [sub_resource type="Resource" id="Resource_uan2o"]
 script = ExtResource("1_7wn84")
@@ -59,15 +56,19 @@ collision_mask = 773
 [node name="Player_Collision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_niq5m")
 
+[node name="Drone" parent="Player" instance=ExtResource("2_6lcbw")]
+transform = Transform3D(0.072, 0, 0, 0, 0.072, 0, 0, 0, 0.072, 0, -0.191596, 0.463082)
+
 [node name="Player_Mesh" parent="Player" instance=ExtResource("3_qxe6y")]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, -0.238854, 0.464318)
+visible = false
 
 [node name="Player_Hit_Area" parent="Player" instance=ExtResource("1_654uv")]
 damaging = false
 damage_stat = SubResource("Resource_2rdvj")
 
 [node name="Hit_Collision" type="CollisionShape3D" parent="Player/Player_Hit_Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00119324, 0.00672844, -0.0379357)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103777, 0.0457169, -0.00331565)
 shape = SubResource("BoxShape3D_hfugt")
 
 [node name="Bullet_Spawner" type="Node3D" parent="Player" node_paths=PackedStringArray("timer")]
@@ -103,15 +104,6 @@ light_volumetric_fog_energy = 8.0
 omni_range = 10.0
 omni_attenuation = 1.5
 omni_shadow_mode = 0
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Player"]
-collision_layer = 2
-collision_mask = 2
-gravity_scale = 0.0
-freeze_mode = 1
-
-[node name="Player_Collision" type="CollisionShape3D" parent="Player/RigidBody3D"]
-shape = SubResource("CapsuleShape3D_rnxi1")
 
 [node name="Player_Health" type="Node" parent="."]
 
