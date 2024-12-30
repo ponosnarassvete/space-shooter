@@ -7,6 +7,7 @@ signal entered
 
 @export var room_number: int
 @export var start_triggered: bool = false
+@export var logging: bool = false
 
 var scene_controller: Scene_Controller = SceneController
 var logged: bool = false
@@ -19,6 +20,10 @@ func room_entered():
 	scene_controller.set_current_camera(camera)
 	camera.make_current()
 	entered.emit()
+	
+	if !logging:
+		return
+	
 	if !logged:
 		ui_controls.next_log("log_"+str(room_number))
 		logged = true

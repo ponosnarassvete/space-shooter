@@ -51,7 +51,7 @@ script = ExtResource("1_wnhwf")
 health = NodePath("Player_Health/Health")
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player", "Target"]]
-collision_mask = 773
+collision_mask = 2821
 
 [node name="Player_Collision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_niq5m")
@@ -64,6 +64,7 @@ transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, -0.238854, 0.4
 visible = false
 
 [node name="Player_Hit_Area" parent="Player" instance=ExtResource("1_654uv")]
+collision_mask = 4104
 damaging = false
 damage_stat = SubResource("Resource_2rdvj")
 
@@ -74,7 +75,6 @@ shape = SubResource("BoxShape3D_hfugt")
 [node name="Bullet_Spawner" type="Node3D" parent="Player" node_paths=PackedStringArray("timer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637338, 0, 0.578663)
 script = ExtResource("14_3hajq")
-bullet_speed = 1.0
 bullet_stat = SubResource("Resource_067t6")
 timer = NodePath("Timer")
 

@@ -12,6 +12,7 @@ script = ExtResource("1_ac74t")
 
 [node name="Base_Rubbish" parent="." instance=ExtResource("2_iu1fb")]
 visible = false
+z_index = 30
 position = Vector2(1432, 624)
 scale_upper = 4.0
 scale_lower = 4.0

@@ -14,9 +14,13 @@ func _physics_process(_delta: float) -> void:
 	if target:
 		if Engine.get_frames_drawn()%10 == 0:
 			navigation_agent.set_target_position(target.global_position)
+	
 		#input.dir = Vector3(Vector3(target.global_position) - Vector3(actor.global_position))
+	
 		var destination = navigation_agent.get_next_path_position()
 		var local_destination = destination - actor.global_position
 		input.dir = local_destination
-	else:
-		pass
+		
+		#actor.rotation.y = lerp_angle(actor.rotation.y, actor.position.angle_to(local_destination), 0.5)
+		if actor.global_position != destination:
+			actor.look_at(destination,Vector3(0,1,0), true)

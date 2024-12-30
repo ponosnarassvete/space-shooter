@@ -25,6 +25,7 @@ material = SubResource("StandardMaterial3D_dws3j")
 script = ExtResource("1_c0bj4")
 left_door = NodePath("Left_Door")
 right_door = NodePath("Right_Door")
+offset_speed = 0.05
 in_array = [0]
 inner_connections = {
 -1: {
@@ -105,6 +106,7 @@ script = ExtResource("4_4afkv")
 save_properties = Array[String](["left_target_position", "right_target_position", "opening", "init"])
 
 [connection signal="activated" from="." to="Switch/Switch_Interaction_Area_3D" method="get_ready_for_interaction"]
+[connection signal="disactivated" from="." to="Switch/Switch_Interaction_Area_3D" method="disable_interaction"]
 [connection signal="switched" from="Switch" to="." method="sesame"]
 
 [editable path="Switch"]

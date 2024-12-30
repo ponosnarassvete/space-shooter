@@ -1,7 +1,9 @@
-extends StaticBody3D    
 class_name Bullet
+extends StaticBody3D    
   
 signal hit
+
+var shooter_group: String
 
 var damaging: bool = true
 var damage_stat: Damage_Stats

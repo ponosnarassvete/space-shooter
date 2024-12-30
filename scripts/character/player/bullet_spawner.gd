@@ -24,8 +24,12 @@ func _physics_process(_delta: float) -> void:
 				var new_bullet = bullet_scene.instantiate()
 				temp.add_child(new_bullet)
 				new_bullet.global_position = self.global_position
+				
 				var target_position = target.global_position
 				direction = global_position.direction_to(target_position)
 				direction.y = 0
+				
 				new_bullet.launch(direction, bullet_speed, bullet_stat)
+				new_bullet.shooter_group = "Player"
+				
 				timer.start()

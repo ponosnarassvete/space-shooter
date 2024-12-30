@@ -1,5 +1,7 @@
 extends Connectable
 
+signal opened
+
 @export var puzzle_initiator: Puzzle_Initiator
 @export var interaction_area: Interaction_Area_3D
 
@@ -11,6 +13,10 @@ func _ready() -> void:
 
 func activate_interaction():
 	puzzle_initiator.activated(self)
+	
+	if !initiated:
+		opened.emit()
+	
 	initiated = !initiated
 
 

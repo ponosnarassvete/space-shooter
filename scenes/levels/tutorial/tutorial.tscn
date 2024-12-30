@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cwu1v267avkjv"]
+[gd_scene load_steps=43 format=3 uid="uid://cwu1v267avkjv"]
 
 [ext_resource type="Material" uid="uid://dmv16c78mib30" path="res://shaders/ui/main_shader_material.tres" id="1_kyqv4"]
 [ext_resource type="PackedScene" uid="uid://c0ysp312e6uet" path="res://scenes/characters/player/player.tscn" id="2_nj8qx"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cmw6j72tvj6wm" path="res://scenes/ui/interface.tscn" id="9_7ktqa"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connectiable_class.gd" id="10_1ee41"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_initiator.gd" id="10_vxtx4"]
+[ext_resource type="ArrayMesh" uid="uid://u4e0md87hho1" path="res://models/objects/wire_set/wires_Cylinder.res" id="11_xf6yo"]
 [ext_resource type="PackedScene" uid="uid://bag8mdm8nr4hg" path="res://scenes/objects/usables/interaction_manager.tscn" id="12_22j4r"]
 [ext_resource type="PackedScene" uid="uid://bu8kj5h5l615g" path="res://scenes/ui/cursor.tscn" id="13_c3p76"]
 [ext_resource type="Script" path="res://scripts/room_control.gd" id="13_wueb5"]
@@ -75,21 +76,6 @@ material = SubResource("StandardMaterial3D_h2ka2")
 radius = 0.125
 height = 0.25
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvvxq"]
-albedo_color = Color(1, 0.133333, 0.133333, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vym5c"]
-material = SubResource("StandardMaterial3D_dvvxq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrudf"]
-albedo_color = Color(1, 0.133333, 0.133333, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ndcfn"]
-material = SubResource("StandardMaterial3D_yrudf")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_fd8m7"]
-material = SubResource("StandardMaterial3D_yrudf")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_tatop"]
 size = Vector3(0.5, 2.8, 2.8)
 
@@ -100,11 +86,16 @@ albedo_color = Color(0.666667, 0.133333, 0.133333, 1)
 material = SubResource("StandardMaterial3D_e1upb")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_mxns2"]
+vertices = PackedVector3Array(-21.0681, -0.748301, -12.1639, -19.8181, -0.748301, -12.1639, -19.8181, -0.748301, -13.4139, -19.3181, -0.748301, -13.9139, -17.3181, -0.748301, -13.9139, -17.3181, -0.748301, -92.4139, -21.5681, -0.748301, -11.6639, -139.568, -0.748301, -92.4139, -139.568, -0.748301, -9.66389, -21.5681, -0.748301, -9.66389, 17.4319, -0.748301, -13.9139, 17.4319, -0.748301, -92.4139, 19.9319, -0.748301, -13.4139, 19.9319, -0.748301, -12.1639, 21.1819, -0.748301, -12.1639, 19.4319, -0.748301, -13.9139, 21.6819, -0.748301, -11.6639, 124.932, -0.748301, -10.4139, 124.932, -0.748301, -92.4139, 21.6819, -0.748301, -10.1639, -18.3181, 12.7517, -12.4139, -18.3181, 12.7517, -11.9139, 18.4319, 12.7517, -11.9139, 18.4319, 12.7517, -12.4139, -2.06807, -0.248301, -12.4139, -2.06807, -0.248301, -11.9139, 2.18193, -0.248301, -11.9139, 2.18193, -0.248301, -12.4139, -20.0681, 12.7517, -10.6639, -20.0681, 12.7517, 26.0861, -19.5681, 12.7517, 26.0861, -19.5681, 12.7517, -10.6639, 19.6819, 12.7517, -10.6639, 19.6819, 12.7517, 26.0861, 20.1819, 12.7517, 26.0861, 20.1819, 12.7517, -10.6639, 9.93193, -0.748301, 2.58611, 9.18193, -0.748301, 4.33611, 10.1819, -0.748301, 6.83611, -18.0681, -0.748301, -10.4139, -18.0681, -0.748301, -8.41389, -14.0681, -0.748301, -7.41389, 9.93193, -0.748301, 1.33611, 18.1819, -0.748301, 2.33611, 9.43193, -0.748301, 0.836105, 18.1819, -0.748301, -10.4139, 21.6819, -0.748301, 25.5861, 124.932, -0.748301, 25.8361, -139.568, -0.748301, 25.0861, -21.5681, -0.748301, 25.0861, -16.8181, 1.2517, -6.66389, -17.8181, 1.2517, -6.41389, -16.3181, 1.2517, -5.41389, 8.18193, 1.2517, 2.83611, 8.18193, 1.2517, 2.08611, 4.93193, 1.2517, 0.836105, -9.31807, -0.748301, 2.58611, -7.56807, -0.748301, 2.83611, -7.06807, -0.748301, -0.663895, -11.0681, -0.748301, 3.58611, -18.0681, -0.748301, -4.41389, -18.0681, -0.748301, 7.33611, -10.3181, -0.748301, 7.08611, 7.93193, -0.748301, 4.58611, -4.31807, -0.748301, 15.3361, 18.1819, 1.2517, 5.08611, 18.1819, 1.2517, 4.08611, 17.6819, 1.2517, 4.08611, -4.31807, 1.2517, 17.3361, -5.56807, 1.2517, 18.5861, -5.56807, 1.2517, 16.8361, -8.56807, 1.2517, 4.33611, -9.31807, 1.2517, 4.33611, -5.06807, 1.2517, 17.3361, -5.31807, -0.748301, 20.3361, -5.31807, -0.748301, 25.8361, 18.1819, -0.748301, 25.8361, 18.1819, -0.748301, 6.83611, -7.31807, -0.748301, 19.0861, -18.0681, -0.748301, 25.8361, -19.8181, -0.748301, 28.8361, -19.8181, -0.748301, 27.5861, -21.0681, -0.748301, 27.5861, -17.3181, -0.748301, 118.836, -17.3181, -0.748301, 29.3361, -19.3181, -0.748301, 29.3361, -21.5681, -0.748301, 27.0861, -139.568, -0.748301, 118.836, 21.1819, -0.748301, 27.5861, 19.9319, -0.748301, 27.5861, 19.9319, -0.748301, 28.8361, 19.4319, -0.748301, 29.3361, 17.4319, -0.748301, 29.3361, 17.4319, -0.748301, 118.836, 21.6819, -0.748301, 27.0861, 124.932, -0.748301, 118.836, -18.3181, 12.7517, 27.3361, -18.3181, 12.7517, 27.8361, 18.4319, 12.7517, 27.8361, 18.4319, 12.7517, 27.3361, -2.06807, -0.248301, 27.3361, -2.06807, -0.248301, 27.8361, 2.18193, -0.248301, 27.8361, 2.18193, -0.248301, 27.3361)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(2, 5, 3), PackedInt32Array(5, 2, 0), PackedInt32Array(0, 6, 5), PackedInt32Array(5, 6, 7), PackedInt32Array(7, 6, 8), PackedInt32Array(6, 9, 8), PackedInt32Array(5, 11, 4), PackedInt32Array(4, 11, 10), PackedInt32Array(14, 13, 12), PackedInt32Array(15, 10, 11), PackedInt32Array(12, 15, 11), PackedInt32Array(11, 14, 12), PackedInt32Array(14, 11, 16), PackedInt32Array(16, 11, 17), PackedInt32Array(17, 11, 18), PackedInt32Array(17, 19, 16), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(31, 30, 28), PackedInt32Array(28, 30, 29), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(38, 37, 36), PackedInt32Array(41, 40, 39), PackedInt32Array(36, 42, 38), PackedInt32Array(38, 42, 43), PackedInt32Array(43, 44, 45), PackedInt32Array(45, 44, 41), PackedInt32Array(45, 41, 39), PackedInt32Array(44, 43, 42), PackedInt32Array(19, 17, 46), PackedInt32Array(46, 17, 47), PackedInt32Array(8, 9, 48), PackedInt32Array(48, 9, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 55), PackedInt32Array(52, 55, 54), PackedInt32Array(52, 54, 53), PackedInt32Array(58, 57, 56), PackedInt32Array(56, 59, 58), PackedInt32Array(58, 59, 61), PackedInt32Array(58, 61, 60), PackedInt32Array(59, 62, 61), PackedInt32Array(63, 37, 38), PackedInt32Array(57, 58, 64), PackedInt32Array(64, 58, 63), PackedInt32Array(64, 63, 38), PackedInt32Array(66, 65, 67), PackedInt32Array(67, 65, 68), PackedInt32Array(68, 65, 69), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 69), PackedInt32Array(69, 73, 68), PackedInt32Array(69, 70, 73), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(74, 75, 78), PackedInt32Array(78, 75, 79), PackedInt32Array(62, 78, 61), PackedInt32Array(61, 78, 79), PackedInt32Array(82, 81, 80), PackedInt32Array(85, 84, 83), PackedInt32Array(80, 85, 83), PackedInt32Array(83, 82, 80), PackedInt32Array(82, 83, 86), PackedInt32Array(86, 83, 87), PackedInt32Array(86, 87, 48), PackedInt32Array(48, 49, 86), PackedInt32Array(90, 89, 88), PackedInt32Array(93, 92, 91), PackedInt32Array(90, 93, 91), PackedInt32Array(93, 90, 88), PackedInt32Array(88, 94, 93), PackedInt32Array(93, 94, 47), PackedInt32Array(93, 47, 95), PackedInt32Array(94, 46, 47), PackedInt32Array(99, 98, 96), PackedInt32Array(96, 98, 97), PackedInt32Array(103, 102, 100), PackedInt32Array(100, 102, 101), PackedInt32Array(84, 92, 83), PackedInt32Array(83, 92, 93)]
 geometry_parsed_geometry_type = 1
 geometry_collision_mask = 4294902528
 geometry_source_geometry_mode = 1
 geometry_source_group_name = &"navigation_group"
 agent_radius = 0.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_me7gv"]
+size = Vector3(8.34216, 8.0061, 3.83887)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qwy2s"]
 
@@ -176,7 +167,7 @@ collision_layer = 256
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3D_Viewport/SubViewport/Level/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36346, 0, 85.1844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.36236, 0.00423956, 85.1846)
 shape = SubResource("BoxShape3D_mw1xn")
 
 [node name="Ship_Bottom" type="Node3D" parent="3D_Viewport/SubViewport/Level"]
@@ -214,7 +205,12 @@ transform = Transform3D(39.718, 0, -15.1209, 0, 1, 0, 19.1919, 0, 31.293, 4.2143
 mesh = SubResource("BoxMesh_tx5mh")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Ship_Bottom"]
-transform = Transform3D(-2.07736, 1.08614, 1.67293, 26.3766, -0.517638, 0.5, 9.95855, 1.59761, -0.975345, -4.4058, -13.2418, 73.8404)
+transform = Transform3D(-2.07736, 1.08614, 1.67293, 26.3766, -0.517638, 0.5, 9.95855, 1.59761, -0.975345, -4.4058, -13.2418, 85.4297)
+mesh = SubResource("BoxMesh_ntvu1")
+skeleton = NodePath("../MeshInstance3D8")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Ship_Bottom"]
+transform = Transform3D(8.81, 0.467589, -1.84198, 24.0405, -1.00217, 0.321079, -11.9856, -1.66644, -0.709934, 3.26544, -12.2454, 80.056)
 mesh = SubResource("BoxMesh_ntvu1")
 skeleton = NodePath("../MeshInstance3D8")
 
@@ -224,6 +220,7 @@ skeleton = NodePath("../MeshInstance3D8")
 
 [node name="Doors" parent="3D_Viewport/SubViewport/Level/Rooms/Room_1" instance=ExtResource("6_yx1ou")]
 transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 20)
+opened = true
 
 [node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_1/Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
 manager = NodePath("../../../../../../../../Other/Interaction_Manager")
@@ -239,6 +236,7 @@ camera = NodePath("../Room_1_Camera")
 ui_controls = NodePath("../../../../../../2D_Viewport/Controls")
 room_number = 1
 start_triggered = true
+logging = true
 
 [node name="Walls" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_1"]
 
@@ -259,6 +257,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
 
 [node name="Doors" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2" instance=ExtResource("6_yx1ou")]
 transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 19.8)
+opened = true
 inner_connections = {
 -1: {
 -1: [-1]
@@ -269,14 +268,13 @@ inner_connections = {
 }
 object_id = 2
 recieving = true
-debug = true
 
 [node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
 manager = NodePath("../../../../../../../../Other/Interaction_Manager")
 ready_for_interaction = false
 
 [node name="Lights" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2" node_paths=PackedStringArray("on_light", "off_light")]
-transform = Transform3D(-6.77527e-08, 0, -1.55, 0, 3.05, 0, 0.9, 0, -3.93403e-08, 0, -2.97576, 17.0994)
+transform = Transform3D(-6.77527e-08, 0, -1.55, 0, 3.05, 0, 0.9, 0, -3.93403e-08, 0, -2.80215, 18.8994)
 script = ExtResource("8_v387u")
 on_light = NodePath("Green_Light")
 off_light = NodePath("Red_Light")
@@ -310,28 +308,20 @@ mesh = SubResource("SphereMesh_ck7u0")
 [node name="Wires" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7222, -1.5673, -4.0015)
 
-[node name="Wires" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Wires"]
-transform = Transform3D(1, 0, 0, 0, 8.98228, 0, 0, 0, 1, 0.554539, 5.48682, 0)
-mesh = SubResource("BoxMesh_vym5c")
-skeleton = NodePath("../../Puzzle_Box")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Wires"]
+transform = Transform3D(0.192, 0, 0, 0, 1.2, 0, 0, 0, 0.192, 0.448311, 8.47361, 0)
+mesh = ExtResource("11_xf6yo")
 
-[node name="Wires2" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Wires"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 23.0354, 0.454964, 0.607562, 12.3626)
-mesh = SubResource("BoxMesh_ndcfn")
-skeleton = NodePath("../../Puzzle_Box")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Wires"]
+transform = Transform3D(0.192, 0, 0, 0, -1.04907e-07, -0.192, 0, 2.4, -8.39259e-09, 0.448311, 2.27361, 11.4)
+mesh = ExtResource("11_xf6yo")
 
-[node name="Wires3" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Wires"]
-transform = Transform3D(-4.37114e-08, 0, -18.5874, 0, 1, 0, 1, 0, -8.12479e-07, -5.70688, 0.607562, 23.0249)
-mesh = SubResource("BoxMesh_ndcfn")
-skeleton = NodePath("../../Puzzle_Box")
-
-[node name="Wires4" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Wires"]
-transform = Transform3D(-4.37114e-08, 0, -1.31223, 0, 0.531121, 0, 1, 0, -5.73591e-08, -14.945, 0.591408, 23.0231)
-mesh = SubResource("CylinderMesh_fd8m7")
-skeleton = NodePath("../../Puzzle_Box")
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2/Wires"]
+transform = Transform3D(-8.39259e-09, -2.4, 8.39258e-09, 0, -1.04907e-07, -0.192, 0.192, -1.04907e-07, -3.15269e-16, -3.55169, 2.27361, 23.4)
+mesh = ExtResource("11_xf6yo")
 
 [node name="Puzzle_Box" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2" node_paths=PackedStringArray("puzzle_initiator") instance=ExtResource("7_tca5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7222, -1.5673, -4.0015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7222, 0.906305, -4.0015)
 puzzle_initiator = NodePath("../../../../../../2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator")
 inner_connections = {
 -1: {
@@ -402,6 +392,7 @@ script = ExtResource("13_wueb5")
 camera = NodePath("../Room_2_Camera")
 ui_controls = NodePath("../../../../../../2D_Viewport/Controls")
 room_number = 2
+logging = true
 
 [node name="Walls" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_2"]
 
@@ -419,11 +410,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3" groups=["navigation_group"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00571442, -0.2517, -8.0015)
-visible = false
 navigation_mesh = SubResource("NavigationMesh_mxns2")
 
 [node name="Doors" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3" instance=ExtResource("6_yx1ou")]
 transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 19.6)
+opened = true
 
 [node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3/Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
 manager = NodePath("../../../../../../../../Other/Interaction_Manager")
@@ -487,6 +478,7 @@ script = ExtResource("13_wueb5")
 camera = NodePath("../Room_3_Camera")
 ui_controls = NodePath("../../../../../../2D_Viewport/Controls")
 room_number = 3
+logging = true
 
 [node name="Walls" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3"]
 
@@ -498,6 +490,22 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.9, 
 
 [node name="Doorway3" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3/Walls" instance=ExtResource("14_m21hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.6)
+
+[node name="Enemy_Invisible_Wall" type="StaticBody3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.0881)
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3/Walls/Enemy_Invisible_Wall"]
+shape = SubResource("BoxShape3D_me7gv")
+
+[node name="Enemy_Invisible_Wall2" type="StaticBody3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.5422)
+collision_layer = 1024
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_3/Walls/Enemy_Invisible_Wall2"]
+shape = SubResource("BoxShape3D_me7gv")
 
 [node name="Room_4" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 120)
@@ -515,7 +523,7 @@ transform = Transform3D(-1.31134e-07, 0, 1, 0, 4, 0, -3, 0, -4.37114e-08, 20, 0,
 manager = NodePath("../../../../../../../../Other/Interaction_Manager")
 
 [node name="Left_Doors" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4" instance=ExtResource("6_yx1ou")]
-transform = Transform3D(-1.31134e-07, 0, -1, 0, 4, 0, 3, 0, -4.37114e-08, -20, 0, -0.4)
+transform = Transform3D(-1.31134e-07, 0, -1, 0, 4, 0, 3, 0, -4.37114e-08, -20, -5.24521e-06, -0.3936)
 
 [node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Left_Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
 manager = NodePath("../../../../../../../../Other/Interaction_Manager")
@@ -534,16 +542,16 @@ room_number = 4
 [node name="Walls" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4"]
 
 [node name="Doorway3" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Walls" instance=ExtResource("14_m21hq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, -0.399994)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.9, 0, -0.5)
 
 [node name="Doorway4" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Walls" instance=ExtResource("14_m21hq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.4)
 
 [node name="Doorway5" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Walls" instance=ExtResource("14_m21hq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, -0.399994)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.9, 0, -0.5)
 
 [node name="Terminal" type="StaticBody3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.86238, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85814, 0)
 script = ExtResource("10_1ee41")
 object_id = 3
 
@@ -552,6 +560,97 @@ shape = SubResource("BoxShape3D_qwy2s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Terminal"]
 mesh = SubResource("BoxMesh_2xnw0")
+
+[node name="Lights" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Terminal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606774, 0)
+
+[node name="Green_Light" type="OmniLight3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Terminal/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344472, 0, 0)
+light_color = Color(0, 1, 0, 1)
+light_energy = 2.0
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 4.0
+light_bake_mode = 1
+omni_range = 2.0
+omni_shadow_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Terminal/Lights/Green_Light"]
+mesh = SubResource("SphereMesh_ck7u0")
+
+[node name="Green_Light2" type="OmniLight3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Terminal/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.344, 0, 0)
+light_color = Color(0, 1, 0, 1)
+light_energy = 2.0
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 4.0
+light_bake_mode = 1
+omni_range = 2.0
+omni_shadow_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_4/Terminal/Lights/Green_Light2"]
+mesh = SubResource("SphereMesh_ck7u0")
+
+[node name="Room_5" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8, 0, 120)
+
+[node name="Doors" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5" instance=ExtResource("6_yx1ou")]
+transform = Transform3D(-1.31134e-07, 0, -1, 0, 4, 0, 3, 0, -4.37114e-08, -20, 0, -0.4)
+
+[node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5/Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
+manager = NodePath("../../../../../../../../Other/Interaction_Manager")
+
+[node name="Room_5_Camera" type="Camera3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5" groups=["Camera"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 77, 0)
+current = true
+fov = 30.0
+
+[node name="Room_Control" type="Node" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5" node_paths=PackedStringArray("camera", "ui_controls")]
+script = ExtResource("13_wueb5")
+camera = NodePath("../Room_5_Camera")
+ui_controls = NodePath("../../../../../../2D_Viewport/Controls")
+room_number = 5
+
+[node name="Walls" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5"]
+
+[node name="Doorway3" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5/Walls" instance=ExtResource("14_m21hq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.9, 0, -0.499992)
+
+[node name="Big_Wall" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5/Walls" instance=ExtResource("15_3k5q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.4)
+
+[node name="Big_Wall2" parent="3D_Viewport/SubViewport/Level/Rooms/Room_5/Walls" instance=ExtResource("15_3k5q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.4)
+
+[node name="Room_6" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.5659, -9.53674e-07, 120)
+
+[node name="Doors" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6" instance=ExtResource("6_yx1ou")]
+transform = Transform3D(-1.31134e-07, 0, -1, 0, 4, 0, 3, 0, -4.37114e-08, -20, 0, -0.4)
+
+[node name="Switch_Interaction_Area_3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6/Doors/Switch" index="0" node_paths=PackedStringArray("manager")]
+manager = NodePath("../../../../../../../../Other/Interaction_Manager")
+
+[node name="Room_6_Camera" type="Camera3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6" groups=["Camera"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 77, 0)
+current = true
+fov = 30.0
+
+[node name="Room_Control" type="Node" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6" node_paths=PackedStringArray("camera", "ui_controls")]
+script = ExtResource("13_wueb5")
+camera = NodePath("../Room_6_Camera")
+ui_controls = NodePath("../../../../../../2D_Viewport/Controls")
+room_number = 6
+
+[node name="Walls" type="Node3D" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6"]
+
+[node name="Doorway3" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6/Walls" instance=ExtResource("14_m21hq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.9, 0, -0.499992)
+
+[node name="Big_Wall" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6/Walls" instance=ExtResource("15_3k5q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.4)
+
+[node name="Big_Wall2" parent="3D_Viewport/SubViewport/Level/Rooms/Room_6/Walls" instance=ExtResource("15_3k5q7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.4)
 
 [node name="Rooms_old" type="CSGCombiner3D" parent="3D_Viewport/SubViewport/Level"]
 visible = false
@@ -596,6 +695,12 @@ size = Vector3(35, 50, 35)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00571442, -11.3494, 18.0015)
 visible = false
 size = Vector3(3, 3, 3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3D_Viewport/SubViewport/Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 58.8422, 69.2)
+visible = false
+light_energy = 4.0
+light_volumetric_fog_energy = 0.1
 
 [node name="2D_Viewport" parent="." instance=ExtResource("9_7ktqa")]
 
@@ -650,18 +755,26 @@ metadata/_edit_lock_ = true
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_3/Room_Control" method="room_entered"]
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Room_Control" method="room_entered"]
 [connection signal="got_ready" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Doors/Switch/Switch_Interaction_Area_3D" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Lights" method="switch"]
+[connection signal="not_ready" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Doors/Switch/Switch_Interaction_Area_3D" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Lights" method="switch"]
+[connection signal="opened" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Puzzle_Box" to="2D_Viewport/Controls" method="_on_puzzle_button_pressed"]
 [connection signal="out" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Puzzle_Box" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Doors" method="pulse_port"]
 [connection signal="repaired" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Puzzle_Box/Repairable_Interaction_Area_3D" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Puzzle_Box/Lights" method="switch"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_2/Room_Control" to="3D_Viewport/SubViewport/Level/Rooms/Room_3/Spawner" method="disactivate"]
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_3/Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_4/Room_Control" method="room_entered"]
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_3/Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_3/Room_Control" method="room_entered"]
 [connection signal="pitch_black" from="3D_Viewport/SubViewport/Level/Rooms/Room_3/Blinker" to="3D_Viewport/SubViewport/Level/Rooms/Room_3/Spawner" method="spawn"]
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_3/Room_Control" to="3D_Viewport/SubViewport/Level/Rooms/Room_3/Spawner" method="activate"]
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Main_Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Room_Control" method="room_entered"]
-[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Main_Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_1/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Main_Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_4/Room_Control" method="room_entered"]
 [connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Right_Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Room_Control" method="room_entered"]
-[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Right_Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_1/Room_Control" method="room_entered"]
-[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Left_Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Room_Control" method="room_entered"]
-[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Left_Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_1/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Right_Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_4/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Left_Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_5/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Left_Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_4/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_4/Room_Control" to="3D_Viewport/SubViewport/Level/Rooms/Room_3/Spawner" method="disactivate"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_5/Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_5/Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_1/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_6/Doors/Front_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_2/Room_Control" method="room_entered"]
+[connection signal="entered" from="3D_Viewport/SubViewport/Level/Rooms/Room_6/Doors/Back_Trigger" to="3D_Viewport/SubViewport/Level/Rooms/Room_1/Room_Control" method="room_entered"]
 [connection signal="area_entered" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_entered"]
 [connection signal="area_exited" from="Other/Cursor/Projection_3D/Using_Area" to="Other/Cursor/Projection_3D/Using_Area" method="_on_area_exited"]
 
@@ -679,4 +792,8 @@ metadata/_edit_lock_ = true
 [editable path="3D_Viewport/SubViewport/Level/Rooms/Room_4/Right_Doors/Switch"]
 [editable path="3D_Viewport/SubViewport/Level/Rooms/Room_4/Left_Doors"]
 [editable path="3D_Viewport/SubViewport/Level/Rooms/Room_4/Left_Doors/Switch"]
+[editable path="3D_Viewport/SubViewport/Level/Rooms/Room_5/Doors"]
+[editable path="3D_Viewport/SubViewport/Level/Rooms/Room_5/Doors/Switch"]
+[editable path="3D_Viewport/SubViewport/Level/Rooms/Room_6/Doors"]
+[editable path="3D_Viewport/SubViewport/Level/Rooms/Room_6/Doors/Switch"]
 [editable path="2D_Viewport"]

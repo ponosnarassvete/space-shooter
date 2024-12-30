@@ -36,7 +36,7 @@ func snap(object: Node2D):
 		return
 	
 	for target in targets:
-		if self.position.distance_to(target.position) < snap_threshold:
+		if self.position.distance_to(target.position) < snap_threshold and target.connected_wire == null:
 			self.position = target.position
 			wire_connected(object, target)
 			break

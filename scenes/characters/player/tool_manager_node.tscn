@@ -22,7 +22,7 @@ script = ExtResource("4_d3au7")
 [node name="Attack" type="Node" parent="." groups=["Active_Tool"]]
 script = ExtResource("5_7gd2m")
 
-[node name="Hacker" type="Node" parent="." groups=["Active_Tool"]]
+[node name="Hacker" type="Node" parent="."]
 script = ExtResource("3_ujlyd")
 
 [connection signal="tool_used" from="." to="Grabber" method="tool_used"]

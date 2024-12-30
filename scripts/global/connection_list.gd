@@ -7,11 +7,15 @@ var in_out: Dictionary = {-1:{-1:[-1]}}
 ## {puzzle_id: only this part -> {in_id:[out_ids]} }
 func set_connection(object_id: int = -1, new_in_out: Dictionary = {-1:[-1]}, overwrite: bool = false):	
 	
+	print(in_out)
+	
 	if !in_out.has(object_id):
 		in_out.get_or_add(object_id, new_in_out)
 		print(object_id, "_key_wasnt_found__in_out_now:", in_out)
 	else:
 		var in_id = new_in_out.keys()
+		
+		in_out[object_id].get_or_add(in_id[0], [])
 		
 		if !overwrite:
 			in_out[object_id][in_id[0]].append(new_in_out[in_id[0]])
@@ -20,7 +24,7 @@ func set_connection(object_id: int = -1, new_in_out: Dictionary = {-1:[-1]}, ove
 
 func simulate_connection(object_id: int = -1, in_id: int = -1) -> Array:
 	if in_out.get_or_add(object_id, {}).has(in_id):
-		return in_out.get(object_id).get(in_id)
+		return in_out[object_id][in_id]
 	return []
 
 func format_input(in_id: int = -1, out_ids: Array = []) -> Dictionary:

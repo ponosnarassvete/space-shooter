@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b71b1hjnvm74j"]
+
+[ext_resource type="Script" path="res://scripts/objects/puzzles/connectiable_class.gd" id="1_mxiwm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwy2s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2xnw0"]
+
+[node name="Terminal" type="StaticBody3D"]
+script = ExtResource("1_mxiwm")
+object_id = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qwy2s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2xnw0")

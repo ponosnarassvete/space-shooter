@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/objects/puzzles/wires/label.gd" id="7_u8lj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vb0hr"]
-size = Vector2(48, 16)
+size = Vector2(58, 26)
 
 [sub_resource type="LabelSettings" id="LabelSettings_uu248"]
 font = ExtResource("6_xnkvb")
