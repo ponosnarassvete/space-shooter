@@ -5,6 +5,7 @@ signal pitch_black
 
 var x: float = -2 * PI
 var direction: bool = true
+var stop: bool = false
 
 var energy: float
 ##If 0.0 it won't blink
@@ -14,7 +15,14 @@ var energy: float
 func _ready() -> void:
 	energy = light_energy
 
+func make_it_stop():
+	light_color = 0x00ff00ff
+	stop = true
+
 func _process(_delta: float) -> void:
+	if stop:
+		return
+	
 	if speed != 0:
 		if direction:
 			x = move_toward(x, 2*PI, speed/100)

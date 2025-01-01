@@ -15,7 +15,7 @@ var current_puzzle_box_id: int = -1
 func _ready() -> void:
 	if doors == null: doors = $"../Panel"
 
-func activated(puzzle_box: Connectable):
+func activated(puzzle_box: Connectable, in_text_array: Array[String] = ['','','','','',''], out_text_array: Array[String] = ['','','','','','']):
 	
 	var puzzle_box_id = puzzle_box.object_id
 	
@@ -32,7 +32,7 @@ func activated(puzzle_box: Connectable):
 		current_puzzle_box_id = puzzle_box_id
 		
 		if !puzzles.has(puzzle_box_id):
-			create(puzzle_box_id)
+			create(puzzle_box_id, in_text_array, out_text_array)
 		else:
 			add_child(puzzles[puzzle_box_id])
 		
@@ -48,11 +48,13 @@ func activated(puzzle_box: Connectable):
 	sesame_in_action = false
 	initiated = !initiated
 
-func create(puzzle_box_id: int):
+func create(puzzle_box_id: int, in_texts: Array[String] = ['','','','','',''], out_texts: Array[String] = ['','','','','','']):
 	
 	var puzzle_instance = puzzle.instantiate()
 	puzzle_instance.name = "puzzle_" + str(puzzle_box_id)
 	puzzle_instance.object_id = puzzle_box_id
+	puzzle_instance.in_texts = in_texts
+	puzzle_instance.out_texts = out_texts
 	self.add_child(puzzle_instance)
 	puzzle_instance.puzzle_init()
 	

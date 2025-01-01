@@ -1,13 +1,584 @@
 {
 "game_data_version": "1.0",
 "global": {
-"animation": &"default"
+"amount": 12.0,
+"animation": &"grabber"
 },
 "meta_data": {
-"current_scene_path": "",
+"current_scene_path": "res://scenes/levels/tutorial/tutorial.tscn",
 "data_format_version": "1.0"
 },
 "scene_data": {
+"res://scenes/levels/tutorial/tutorial.tscn": {
+"node_data": {
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport",
+"init": true,
+"left_target_position": 1936.0,
+"opening": true,
+"right_target_position": 912.0
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"initiated": true
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3"),
+"initiated": null,
+"rubbished": true
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"object_dict": {}
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target1": {
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target1"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"wire": null
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target2": {
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target2"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"wire": null
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target3": {
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target3"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"wire": null
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target4": {
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target4"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"wire": null
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target5": {
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target5"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"wire": null
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target6": {
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Target6"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"wire": null
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire1": {
+"connected": null,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire1"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"position": Vector2(1240, 328)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire2": {
+"connected": null,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire2"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"position": Vector2(1240, 456)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire3": {
+"connected": null,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire3"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"position": Vector2(1240, 584)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire4": {
+"connected": null,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire4"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"position": Vector2(1240, 712)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire5": {
+"connected": null,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire5"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"position": Vector2(1240, 840)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire6": {
+"connected": null,
+"energy_par": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3/Connection_Table/Wire6"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/Puzzle_Initiator/puzzle_3",
+"position": Vector2(1240, 968)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/left_door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/left_door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport",
+"position": Vector2(1256, 352)
+},
+"/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/right_door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/2D_Viewport/BottomArea/Puzzle/Panel/right_door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/2D_Viewport",
+"position": Vector2(-568, 352)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node/Player": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node/Player"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Characters/Player_Node",
+"global_position": Vector3(-39.3022, 0.07527, 120.058),
+"global_rotation": Vector3(0.0083108, 1.47586, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_1_Start/Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -1.5,
+"opening": false,
+"right_target_position": 1.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors",
+"position": Vector3(-1.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors",
+"position": Vector3(1.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Puzzle_Box": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Puzzle_Box"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"inner_connections": {
+-1: {
+-1: [-1]
+},
+0: {
+0: [0]
+}
+}
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Puzzle_Box/Repairable_Interaction_Area_3D": {
+"fixed": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Puzzle_Box/Repairable_Interaction_Area_3D"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_2_Puzzle/Puzzle_Box"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Spawner": {
+"counter": 0,
+"enemy_list": [],
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_3_Blinking_Light/Spawner"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node/Enemy": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node/Enemy"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node",
+"global_position": Vector3(9.70387, -0.647407, 131.092),
+"global_rotation": Vector3(0, 1.309, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node/Health": {
+"amount": 2.0,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node/Health"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2/Enemy": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2/Enemy"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2",
+"global_position": Vector3(13.4342, -0.647407, 131.092),
+"global_rotation": Vector3(0, -2.49413, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2/Health": {
+"amount": 2.0,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2/Health"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node2"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3/Enemy": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3/Enemy"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3",
+"global_position": Vector3(11.2598, -0.647407, 133.122),
+"global_rotation": Vector3(0, 2.35619, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3/Health": {
+"amount": 2.0,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3/Health"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node3"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4/Enemy": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4/Enemy"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4",
+"global_position": Vector3(14.1636, -0.647407, 133.357),
+"global_rotation": Vector3(0, -1.44882, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4/Health": {
+"amount": 2.0,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4/Health"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Characters/Enemy_Node4"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Left_Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Main_Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_4_Central/Right_Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors1",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors2",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Inside_Doors/Doors3",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Puzzle_Box": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Puzzle_Box"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"inner_connections": {
+-1: {
+-1: [-1]
+},
+0: {
+0: [0]
+}
+}
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Puzzle_Box/Repairable_Interaction_Area_3D": {
+"fixed": null,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Puzzle_Box/Repairable_Interaction_Area_3D"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_5_Multiconnection/Puzzle_Box"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node/Enemy": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node/Enemy"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node",
+"global_position": Vector3(36.8679, -0.647406, 118.456),
+"global_rotation": Vector3(0, 1.309, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node/Health": {
+"amount": 2.0,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node/Health"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2/Enemy": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2/Enemy"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2",
+"global_position": Vector3(40.5982, -0.647406, 118.456),
+"global_rotation": Vector3(0, -2.49413, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2/Health": {
+"amount": 2.0,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2/Health"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node2"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3/Enemy": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3/Enemy"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3",
+"global_position": Vector3(38.4238, -0.647406, 120.486),
+"global_rotation": Vector3(0, 2.35619, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3/Health": {
+"amount": 2.0,
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3/Health"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Characters/Enemy_Node3"
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_7_Timed_Switch/Doors",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Bottom_Door",
+"switch": false
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node",
+"init": false,
+"left_target_position": -0.5,
+"opening": true,
+"right_target_position": 0.5
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door/Left_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door/Left_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door",
+"position": Vector3(-0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door/Right_Door": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door/Right_Door"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door",
+"position": Vector3(0.5, 0, 0)
+},
+"/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door/Switch": {
+"game_state_helper_node_path": NodePath("/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door/Switch"),
+"game_state_helper_owner_node_path": "/root/tutorial_start_scene_node/3D_Viewport/SubViewport/Level/Rooms/Room_8_Hazard_Labyrinth/Up_Door",
+"switch": false
+}
+},
+"scene_file_path": "res://scenes/levels/tutorial/tutorial.tscn"
+},
 "res://scenes/ui/menu/title_screen_scene_node.tscn": {
 "node_data": {},
 "scene_file_path": "res://scenes/ui/menu/title_screen_scene_node.tscn"

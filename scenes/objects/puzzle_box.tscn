@@ -6,11 +6,13 @@
 [ext_resource type="Script" path="res://scenes/objects/usables/repairable_interaction_area_3d.gd" id="4_fmeuy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olgiq"]
-size = Vector3(4, 4, 4)
+size = Vector3(4, 4, 2.8)
 
 [node name="Puzzle_Box" type="Node3D" node_paths=PackedStringArray("interaction_area")]
 script = ExtResource("1_2arv8")
 interaction_area = NodePath("Repairable_Interaction_Area_3D")
+in_texts = Array[String](["SGNL_OFFLINE_", "SGNL_OFFLINE_", "SGNL_OFFLINE_", "SGNL_OFFLINE_", "SGNL_OFFLINE_", "SGNL_OFFLINE_"])
+out_texts = Array[String](["_SGNL_OFFLINE", "_SGNL_OFFLINE", "_SGNL_OFFLINE", "_SGNL_OFFLINE", "_SGNL_OFFLINE", "_SGNL_OFFLINE"])
 in_array = [0, 1, 2, 3, 4, 5]
 out_array = [0, 1, 2, 3, 4, 5]
 
@@ -21,7 +23,7 @@ save_properties = Array[String](["inner_connections"])
 [node name="Repairable_Interaction_Area_3D" parent="." node_paths=PackedStringArray("interactable_mesh") instance=ExtResource("1_04wwk")]
 script = ExtResource("4_fmeuy")
 needed_tool = 2
-action_name = "Repair"
+action_name = "ELECTRIC_BOX"
 ready_for_interaction = false
 interactable_mesh = [null]
 outline_hull_color = Color(0.133333, 0.8, 0.133333, 1)

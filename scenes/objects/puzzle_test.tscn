@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://50qtdeu7u7l4"]
+[gd_scene load_steps=8 format=3 uid="uid://50qtdeu7u7l4"]
 
 [ext_resource type="Script" path="res://scripts/objects/puzzles/puzzle_test.gd" id="1_ac74t"]
 [ext_resource type="PackedScene" uid="uid://cu4m2gm5eoqge" path="res://scenes/objects/base_rubbish.tscn" id="2_iu1fb"]
 [ext_resource type="PackedScene" uid="uid://d0os6vikfl7nt" path="res://scenes/objects/wire.tscn" id="3_un02x"]
 [ext_resource type="Script" path="res://scripts/objects/puzzles/connection_check.gd" id="4_kmqxb"]
+[ext_resource type="FontFile" uid="uid://cpptoxcsxtdsr" path="res://font/FSEX300.ttf" id="6_3w6mp"]
 [ext_resource type="PackedScene" uid="uid://cnquc8dj1us56" path="res://scenes/objects/target.tscn" id="8_a0u4r"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="8_mxnf1"]
 
@@ -33,48 +34,170 @@ save_properties = Array[String](["object_dict"])
 dynamic_instance = true
 
 [node name="Target1" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 328)
+position = Vector2(1632, 328)
 scale = Vector2(1, 1)
 target_id = 0
 
+[node name="Label" parent="Connection_Table/Target1" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Connection_Table/Target1" groups=["Out_Text_Label"]]
+texture_filter = 1
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Connection_Table/Target1" groups=["In_Text_Label"]]
+texture_filter = 1
+offset_left = -480.0
+offset_top = -8.0
+offset_right = -424.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="Target2" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 456)
+position = Vector2(1632, 456)
 scale = Vector2(1, 1)
 target_id = 1
 display = "1"
 
 [node name="Label" parent="Connection_Table/Target2" index="0"]
 text = "1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Connection_Table/Target2" groups=["Out_Text_Label"]]
+texture_filter = 1
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Connection_Table/Target2" groups=["In_Text_Label"]]
+texture_filter = 1
+offset_left = -480.0
+offset_top = -8.0
+offset_right = -424.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Target3" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 584)
+position = Vector2(1632, 584)
 scale = Vector2(1, 1)
 target_id = 2
 display = "2"
 
 [node name="Label" parent="Connection_Table/Target3" index="0"]
 text = "2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Connection_Table/Target3" groups=["Out_Text_Label"]]
+texture_filter = 1
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="Connection_Table/Target3" groups=["In_Text_Label"]]
+texture_filter = 1
+offset_left = -480.0
+offset_top = -8.0
+offset_right = -424.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Target4" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 712)
+position = Vector2(1632, 712)
 scale = Vector2(1, 1)
 target_id = 3
 display = "3"
 
 [node name="Label" parent="Connection_Table/Target4" index="0"]
 text = "3"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="Connection_Table/Target4" groups=["Out_Text_Label"]]
+texture_filter = 1
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Connection_Table/Target4" groups=["In_Text_Label"]]
+texture_filter = 1
+offset_left = -480.0
+offset_top = -8.0
+offset_right = -424.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Target5" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 840)
+position = Vector2(1632, 840)
 scale = Vector2(1, 1)
 target_id = 4
 display = "4"
 
 [node name="Label" parent="Connection_Table/Target5" index="0"]
 text = "4"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label5" type="Label" parent="Connection_Table/Target5" groups=["Out_Text_Label"]]
+texture_filter = 1
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Connection_Table/Target5" groups=["In_Text_Label"]]
+texture_filter = 1
+offset_left = -480.0
+offset_top = -8.0
+offset_right = -424.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Target6" parent="Connection_Table" instance=ExtResource("8_a0u4r")]
-position = Vector2(1712, 968)
+position = Vector2(1632, 968)
 scale = Vector2(1, 1)
 target_id = 5
 display = "5"
@@ -82,8 +205,30 @@ display = "5"
 [node name="Label" parent="Connection_Table/Target6" index="0"]
 text = "5"
 
+[node name="Label6" type="Label" parent="Connection_Table/Target6" groups=["Out_Text_Label"]]
+texture_filter = 1
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+
+[node name="Label3" type="Label" parent="Connection_Table/Target6" groups=["In_Text_Label"]]
+texture_filter = 1
+offset_left = -480.0
+offset_top = -8.0
+offset_right = -424.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.133333, 0.8, 0.133333, 1)
+theme_override_fonts/font = ExtResource("6_3w6mp")
+text = "sdfdsfs"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="Wire1" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 328)
+position = Vector2(1240, 328)
 wire_id = 0
 
 [node name="GameStateHelper" parent="Connection_Table/Wire1" index="0" groups=["Helpers"]]
@@ -92,7 +237,7 @@ wire_id = 0
 interface_rect = NodePath("../../../ReferenceRect")
 
 [node name="Wire2" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 456)
+position = Vector2(1240, 456)
 wire_id = 1
 display = "1"
 
@@ -105,7 +250,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 text = "1"
 
 [node name="Wire3" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 584)
+position = Vector2(1240, 584)
 wire_id = 2
 display = "2"
 
@@ -118,7 +263,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 text = "2"
 
 [node name="Wire4" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 712)
+position = Vector2(1240, 712)
 wire_id = 3
 display = "3"
 
@@ -131,7 +276,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 text = "3"
 
 [node name="Wire5" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 840)
+position = Vector2(1240, 840)
 wire_id = 4
 display = "4"
 
@@ -144,7 +289,7 @@ interface_rect = NodePath("../../../ReferenceRect")
 text = "4"
 
 [node name="Wire6" parent="Connection_Table" groups=["Wire"] instance=ExtResource("3_un02x")]
-position = Vector2(1184, 968)
+position = Vector2(1240, 968)
 wire_id = 5
 display = "5"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dynn0mgf56ht4"]
+[gd_scene load_steps=18 format=3 uid="uid://dynn0mgf56ht4"]
 
 [ext_resource type="Script" path="res://scripts/character/enemy/enemy_test.gd" id="1_bw8xx"]
 [ext_resource type="PackedScene" uid="uid://db206np7yj88n" path="res://models/enemies/swarmer/swarmer.blend" id="2_5yvd6"]
@@ -16,8 +16,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_835eu"]
 size = Vector3(0.791016, 1.19482, 1.53735)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ymjod"]
-
 [sub_resource type="Resource" id="Resource_l5f5g"]
 script = ExtResource("4_g35rl")
 CLOSE_DAMAGE = 1.0
@@ -25,47 +23,34 @@ RANGE_DAMAGE = 2.0
 ARMOR_PENETRATION = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8cu0o"]
-size = Vector3(0.756836, 0.930298, 1.18555)
+size = Vector3(0.6, 0.8, 1.2)
 
 [sub_resource type="Resource" id="Resource_yqc7b"]
 script = ExtResource("7_cyrw1")
-GROUND_SPEED = 12.0
+GROUND_SPEED = 10.0
 SPRINT_SPEED = 10.0
-ACCELERATION = 0.05
+ACCELERATION = 0.03
 
 [sub_resource type="Resource" id="Resource_vd8pr"]
 script = ExtResource("8_mhst7")
 FRICTION = 2
 
-[node name="Enemy_Node" type="Node3D"]
+[node name="Enemy_Node" type="Node3D" node_paths=PackedStringArray("chase", "movement_input", "navigation_agent", "light")]
 script = ExtResource("1_bw8xx")
+chase = NodePath("Enemy_Chase")
+movement_input = NodePath("Movement_Input")
+navigation_agent = NodePath("Enemy/Enemy_Navigation_Agent")
+light = NodePath("Enemy/OmniLight3D")
 
 [node name="Enemy" type="CharacterBody3D" parent="." groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 1799
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Enemy"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0.401107)
-visible = false
-light_color = Color(1, 0, 0, 1)
-light_energy = 2.0
-light_volumetric_fog_energy = 8.0
-spot_range = 10.0
-spot_angle = 15.0
 
 [node name="Enemy_Collision" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("BoxShape3D_835eu")
 
 [node name="swarmer" parent="Enemy" instance=ExtResource("2_5yvd6")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
-
-[node name="Enemy_Detection_Area" type="Area3D" parent="Enemy"]
-visible = false
-collision_layer = 0
-
-[node name="Detection_Collision" type="CollisionShape3D" parent="Enemy/Enemy_Detection_Area"]
-transform = Transform3D(3.53553, -3.53553, 0, 2.5, 2.5, -3.53553, 2.5, 2.5, 3.53553, 0, 0.5, 5)
-shape = SubResource("BoxShape3D_ymjod")
 
 [node name="Enemy_Navigation_Agent" type="NavigationAgent3D" parent="Enemy"]
 debug_enabled = true
@@ -74,13 +59,19 @@ debug_enabled = true
 damage_stat = SubResource("Resource_l5f5g")
 
 [node name="Hit_Collision" type="CollisionShape3D" parent="Enemy/Enemy_Hit_Area"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -4.47035e-08, 0)
 shape = SubResource("BoxShape3D_8cu0o")
 
 [node name="GameStateHelper" type="Node" parent="Enemy"]
 script = ExtResource("5_mtj73")
 save_properties = Array[String](["global_position", "global_rotation"])
 dynamic_instance = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.432832)
+light_color = Color(1, 0, 0, 1)
+light_energy = 4.0
+light_volumetric_fog_energy = 4.0
 
 [node name="Movement_Input" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("6_mdn5l")
@@ -119,4 +110,5 @@ script = ExtResource("5_mtj73")
 dynamic_instance = true
 
 [connection signal="damaged" from="Enemy/Enemy_Hit_Area" to="Health" method="update_amount"]
+[connection signal="tree_entered" from="Enemy/OmniLight3D" to="." method="light_start"]
 [connection signal="death" from="Health" to="." method="death"]

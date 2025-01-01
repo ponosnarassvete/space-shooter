@@ -7,13 +7,16 @@ var can_spawn: bool = false
 
 @export var timer: Timer
 
-func activate():
+func activate():		
 	can_spawn = true
 
-func disactivate():
+func disactivate():	
 	can_spawn = false
 
 func spawn():
+	if counter == 10:
+		return
+		
 	if can_spawn:
 		if timer.is_stopped():
 			var enemy_instance = enemy.instantiate()

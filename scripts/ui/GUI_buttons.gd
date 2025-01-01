@@ -3,6 +3,7 @@ extends Control
 @export var puzzle_window: TextureRect
 @export var log_window: TextureRect
 @export var logs: RichTextLabel
+@export var FPS_label: FPS_Label
 
 var opened_bottom: GlobalStuff.OPENED_UI_BOTTOM = GlobalStuff.OPENED_UI_BOTTOM.LOG_VIEW
 
@@ -40,3 +41,7 @@ func _render_window():
 		GlobalStuff.OPENED_UI_BOTTOM.PUZZLE_VIEW:
 			puzzle_window.show()
 			log_window.hide()
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("debug"):
+		FPS_label.visible = true

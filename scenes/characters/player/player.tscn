@@ -39,7 +39,7 @@ ARMOR_PENETRATION = 1.0
 [sub_resource type="Resource" id="Resource_uan2o"]
 script = ExtResource("1_7wn84")
 GROUND_SPEED = 10.0
-SPRINT_SPEED = 10.0
+SPRINT_SPEED = 4.0
 ACCELERATION = 0.5
 
 [sub_resource type="Resource" id="Resource_qwxui"]

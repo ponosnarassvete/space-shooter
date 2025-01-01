@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmw6j72tvj6wm"]
+[gd_scene load_steps=19 format=3 uid="uid://cmw6j72tvj6wm"]
 
 [ext_resource type="Theme" uid="uid://nymxf5bsiqo1" path="res://themes/minimalisticUI/MinimalisticUI.tres" id="1_1iq56"]
+[ext_resource type="Script" path="res://scripts/ui/fps_label.gd" id="1_epqus"]
 [ext_resource type="Script" path="res://scripts/ui/GUI_buttons.gd" id="1_jjg2e"]
 [ext_resource type="Texture2D" uid="uid://dd1f8p0chu52h" path="res://textures/ui/main interface/UI_TopPart.png" id="3_0p6rp"]
 [ext_resource type="Texture2D" uid="uid://bh5fmq3884dxc" path="res://textures/ui/main interface/puzzle/door.png" id="3_b2xx7"]
@@ -300,13 +301,26 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4bk6u")
 text = "activate()"
 flat = true
 
-[node name="Controls" type="Control" parent="." node_paths=PackedStringArray("puzzle_window", "log_window", "logs")]
+[node name="Label" type="Label" parent="TopArea"]
+visible = false
+z_index = 100
+layout_mode = 2
+offset_left = 80.0
+offset_top = 216.0
+offset_right = 154.0
+offset_bottom = 239.0
+size_flags_horizontal = 0
+text = "asdadsad"
+script = ExtResource("1_epqus")
+
+[node name="Controls" type="Control" parent="." node_paths=PackedStringArray("puzzle_window", "log_window", "logs", "FPS_label")]
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("1_jjg2e")
 puzzle_window = NodePath("../BottomArea/CenterContainer/Puzzle_Window")
 log_window = NodePath("../BottomArea/CenterContainer/Log_Window")
 logs = NodePath("../BottomArea/CenterContainer/Log_Window/RichTextLabel")
+FPS_label = NodePath("../TopArea/Label")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_as_relative = false
