@@ -24,13 +24,29 @@ enum LAYERS {HIT_BOX_LAYER = 8}
 enum OPENED_UI_BOTTOM {PUZZLE_VIEW, LOG_VIEW}
 
 const LOGS: Dictionary = {"log_1": "
->[color=yellow]TASK 1[/color]:
-[Movement on [color=white]WASD[/color]]
-[[color=white]ALT[/color] to turn on the flashlight]", "log_2":"
->[color=yellow]TASK 2[/color]:
-[[color=white]MMB[/color] changes your current tool]
-[[color=white]WIRING_TOOL[/color] used to repair [color=white]ELECTRIC_BOX[/color]]
-[[color=white]GRABBING_TOOL[/color] used to move wires inside [color=white]ELECTRIC_BOX[/color]]", "log_3":"
->[color=yellow]TASK 3[/color]:
-[[color=white]DERELICTS[/color] are still being protected]
-[[color=white]SWARMERS[/color] only appear when it's dark]"}
+>[color=yellow]LOG 1[/color]:
+[Movement on [color=white]WASD[/color].]
+[[color=white]ALT[/color] to turn on the flashlight.]", "log_2":"
+>[color=yellow]LOG 2[/color]:
+[[color=white]MMB[/color] changes your current tool.]
+[[color=white]WIRING_TOOL[/color] used to repair [color=white]ELECTRIC_BOX[/color].]
+[[color=white]GRABBING_TOOL[/color] used to move wires inside [color=white]ELECTRIC_BOX[/color].]", "log_3":"
+>[color=yellow]LOG 3[/color]:
+[[color=white]DERELICTS[/color] are still being protected.]
+[[color=white]SWARMERS[/color] only appear when it's dark.]", "log_4": "
+>[color=white]MAIN TASK[/color]:
+[Bottom room contains [color=white]DATA_DISK[/color].]
+[But door seems out of energy. Power it.]", "log_5": "
+>[color=yellow]LOG 4[/color]:
+[You have only one powered [color=white]WIRE[/color], but 3 [color=white]DOORS[/color].]
+[Find a way to get to the [color=white]BUTTON[/color].]", "log_6": "
+>[color=yellow]LOG 5[/color]:
+[Connect FAST!]", "log_7": "
+>[color=yellow]LOG 6[/color]:
+[Some [color=white]BUTTONS[/color]] are timed.", "log_8": "
+>[color=yellow]LOG 7[/color]:
+[Those [color=white]DERELICTS[/color] are dangerous for non-combat drones like you.]", "log_11": "
+>[color=white]MAIN_TASK_UPDATE[/color]:
+[Here is [color=white]DATA_DISK[/color].]
+[It contains coordinates of other derelicts.]
+[Send us this data.]"}

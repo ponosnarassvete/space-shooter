@@ -21,6 +21,13 @@ var interact: Callable = func():
 
 func _ready() -> void:
 	if manager == null: manager = get_tree().get_first_node_in_group("Interaction_Manager")
+	
+	match ready_for_interaction:
+		true:
+			got_ready.emit()
+		false:
+			not_ready.emit()
+		
 
 func get_ready_for_interaction():
 	if !ready_for_interaction:

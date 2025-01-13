@@ -24,7 +24,9 @@ func _process(_delta: float) -> void:
 
 func sesame():
 	print("sesame()")
+	
 	init = true
+	
 	if opening:
 		opening = false
 		left_target_position = left_door.global_position.x + offset_x

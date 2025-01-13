@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rnox4w04728u"]
+[gd_scene load_steps=12 format=3 uid="uid://rnox4w04728u"]
 
 [ext_resource type="Script" path="res://scripts/objects/doors.gd" id="1_c0bj4"]
 [ext_resource type="PackedScene" uid="uid://1d0s4dh5kgr0" path="res://scenes/objects/usables/switch.tscn" id="2_jt43c"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d2pb1c50t150x" path="res://scenes/objects/usables/trigger.tscn" id="2_vdqxj"]
 [ext_resource type="PackedScene" uid="uid://b2nht40ug8sym" path="res://models/objects/door.blend" id="3_q0veh"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="4_4afkv"]
+[ext_resource type="Script" path="res://scripts/objects/lights/switch_lights.gd" id="7_o5f2a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x7mlb"]
 size = Vector3(2, 1, 0.4)
@@ -72,6 +73,22 @@ skeleton = NodePath("../../Switch")
 script = ExtResource("4_4afkv")
 save_properties = Array[String](["position"])
 
+[node name="Lights" type="Node3D" parent="Left_Door" node_paths=PackedStringArray("on_light", "off_light")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+script = ExtResource("7_o5f2a")
+on_light = NodePath("Green")
+off_light = NodePath("Red")
+
+[node name="Red" type="OmniLight3D" parent="Left_Door/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 2.0
+
+[node name="Green" type="OmniLight3D" parent="Left_Door/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0.1, 0)
+light_color = Color(0, 1, 0, 1)
+omni_range = 2.0
+
 [node name="Right_Door" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 collision_layer = 2
@@ -92,6 +109,22 @@ skeleton = NodePath("../../Switch")
 script = ExtResource("4_4afkv")
 save_properties = Array[String](["position"])
 
+[node name="Lights" type="Node3D" parent="Right_Door" node_paths=PackedStringArray("on_light", "off_light")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+script = ExtResource("7_o5f2a")
+on_light = NodePath("Green")
+off_light = NodePath("Red")
+
+[node name="Red" type="OmniLight3D" parent="Right_Door/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+light_color = Color(1, 0, 0, 1)
+omni_range = 2.0
+
+[node name="Green" type="OmniLight3D" parent="Right_Door/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0.1, 0)
+light_color = Color(0, 1, 0, 1)
+omni_range = 2.0
+
 [node name="Switch" parent="." instance=ExtResource("2_jt43c")]
 
 [node name="Switch_Interaction_Area_3D" parent="Switch" index="0" node_paths=PackedStringArray("interactable_mesh")]
@@ -108,5 +141,9 @@ save_properties = Array[String](["left_target_position", "right_target_position"
 [connection signal="activated" from="." to="Switch/Switch_Interaction_Area_3D" method="get_ready_for_interaction"]
 [connection signal="disactivated" from="." to="Switch/Switch_Interaction_Area_3D" method="disable_interaction"]
 [connection signal="switched" from="Switch" to="." method="sesame"]
+[connection signal="got_ready" from="Switch/Switch_Interaction_Area_3D" to="Right_Door/Lights" method="check" binds= [true]]
+[connection signal="got_ready" from="Switch/Switch_Interaction_Area_3D" to="Left_Door/Lights" method="check" binds= [true]]
+[connection signal="not_ready" from="Switch/Switch_Interaction_Area_3D" to="Right_Door/Lights" method="check" binds= [false]]
+[connection signal="not_ready" from="Switch/Switch_Interaction_Area_3D" to="Left_Door/Lights" method="check" binds= [false]]
 
 [editable path="Switch"]

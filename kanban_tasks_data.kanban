@@ -44,14 +44,12 @@
 			"title": "Doing",
 			"tasks": [
 				"15fee465-79fa-4a24-8558-7dba97bd82ad",
-				"bb6d9867-c92f-4c76-9d94-248028c97074",
 				"819fc529-bf4e-4a42-8efe-a61dd416c790",
 				"3770f281-2d6c-4955-97c2-ed7ef3754159",
 				"aa251b3f-7c8d-4073-bb54-63131dcaa9d9",
 				"9e52ae5e-b428-4505-a85a-4be20c0ec2c3",
 				"12497c7b-5308-4a1c-b4ea-1f124b6bd09f",
 				"8938c756-20cf-4217-bd14-89af59a5e178",
-				"a98de2ba-e786-4b87-84d4-458ba84c398a",
 				"7ed4bfd7-e9c0-4ddb-b083-2a2f0c94d307"
 			]
 		},
@@ -69,7 +67,9 @@
 				"5e593c5b-052e-4025-b781-098eff742968",
 				"ec12b7fe-3ab7-4203-ab37-013c393ccc70",
 				"13f9db48-c900-435b-bf5e-92fc53f3c568",
-				"c13714c3-355e-48fe-9e32-71163cab83e1"
+				"c13714c3-355e-48fe-9e32-71163cab83e1",
+				"a98de2ba-e786-4b87-84d4-458ba84c398a",
+				"bb6d9867-c92f-4c76-9d94-248028c97074"
 			]
 		}
 	],
@@ -362,7 +362,7 @@
 				},
 				{
 					"details": "Tools",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Buttons",

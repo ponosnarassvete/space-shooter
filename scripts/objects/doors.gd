@@ -37,7 +37,9 @@ func _physics_process(_delta: float) -> void:
 func sesame():
 	if debug:
 		print("3d_sesame()")
+		
 	init = true
+	
 	if opening:
 		opening = false
 		left_target_position = left_target_position - offset_x

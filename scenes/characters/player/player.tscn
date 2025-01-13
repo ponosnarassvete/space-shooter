@@ -51,7 +51,7 @@ script = ExtResource("1_wnhwf")
 health = NodePath("Player_Health/Health")
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["Player", "Target"]]
-collision_mask = 2821
+collision_mask = 2820
 
 [node name="Player_Collision" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_niq5m")

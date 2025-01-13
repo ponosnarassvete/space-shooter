@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://dynn0mgf56ht4"]
 
 [ext_resource type="Script" path="res://scripts/character/enemy/enemy_test.gd" id="1_bw8xx"]
-[ext_resource type="PackedScene" uid="uid://db206np7yj88n" path="res://models/enemies/swarmer/swarmer.blend" id="2_5yvd6"]
+[ext_resource type="PackedScene" uid="uid://dykji8olsw1ci" path="res://models/enemies/swarmer/swarmer.glb" id="2_q1r43"]
 [ext_resource type="PackedScene" uid="uid://donsaxglsr3rw" path="res://scenes/objects/usables/hit_area.tscn" id="3_303o0"]
 [ext_resource type="Script" path="res://scripts/character/damage_stats.gd" id="4_g35rl"]
 [ext_resource type="Script" path="res://addons/game_state_saver/game_state_helper.gd" id="5_mtj73"]
@@ -49,8 +49,8 @@ collision_mask = 1799
 [node name="Enemy_Collision" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("BoxShape3D_835eu")
 
-[node name="swarmer" parent="Enemy" instance=ExtResource("2_5yvd6")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+[node name="swarmer" parent="Enemy" instance=ExtResource("2_q1r43")]
+transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, 0, 0, 0)
 
 [node name="Enemy_Navigation_Agent" type="NavigationAgent3D" parent="Enemy"]
 debug_enabled = true

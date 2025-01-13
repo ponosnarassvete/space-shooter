@@ -16,3 +16,8 @@ func _ready() -> void:
 func switch():
 	on_light.visible = !on_light.visible
 	off_light.visible = !off_light.visible
+	is_it_on!=is_it_on
+
+func check(on_or_off: bool):
+	if on_or_off != is_it_on:
+		switch()

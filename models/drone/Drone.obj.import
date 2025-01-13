@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dhyejeb5iiibe"
+path="res://.godot/imported/Drone.obj-0373b28301f3fec5a6d1964123b72b77.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Drone.obj-0373b28301f3fec5a6d1964123b72b77.mesh"]
+
+source_file="res://models/drone/Drone.obj"
+dest_files=["res://.godot/imported/Drone.obj-0373b28301f3fec5a6d1964123b72b77.mesh", "res://.godot/imported/Drone.obj-0373b28301f3fec5a6d1964123b72b77.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
